@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Käyttäjänimi</string>
+    <string name="password">Salasana</string>
+    <string name="sign_in_button">Kirjaudu sisään</string>
+    <string name="sign_up_button">Luo käyttäjä</string>
+    <string name="welcome_message">Tervetuloa takaisin</string>
+
+</resources>
