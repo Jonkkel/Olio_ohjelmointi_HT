@@ -7,24 +7,24 @@
     tools:context=".MainActivity"
     tools:visibility="visible">
 
-
     <TextView
         android:id="@+id/login_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alef_bold"
         android:gravity="center"
+
         android:text="@string/welcome_message"
-
-        android:textSize="36sp"
-        android:textStyle="bold"
         android:textColor="@color/login_screen_color"
+        android:textSize="40sp"
 
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_username_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8" />
 
@@ -33,10 +33,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="@string/username"
-
         android:paddingStart="4sp"
+
         android:paddingEnd="4sp"
+        android:text="@string/username"
 
         app:layout_constraintBottom_toTopOf="@+id/login_username"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,9 +50,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20sp"
-        android:inputType="textVisiblePassword"
-        android:importantForAutofill="no"
         android:hint="@string/username"
+        android:importantForAutofill="no"
+        android:inputType="textVisiblePassword"
 
         app:layout_constraintBottom_toTopOf="@+id/login_password_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,10 +66,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="@string/password"
-
         android:paddingStart="4sp"
+
         android:paddingEnd="4sp"
+        android:text="@string/password"
 
         app:layout_constraintBottom_toTopOf="@+id/login_password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,9 +83,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:inputType="textPassword"
-        android:importantForAutofill="no"
         android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
 
 
         app:layout_constraintBottom_toTopOf="@+id/login_sign_in"
@@ -93,15 +93,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintWidth_percent="0.75"/>
+        app:layout_constraintWidth_percent="0.75" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_sign_in"
         android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="@string/sign_in_button"
         android:background="@drawable/login_button_theme"
+        android:text="@string/sign_in_button"
         android:textColor="@color/white"
 
         app:layout_constraintBottom_toTopOf="@+id/login_sign_up"
@@ -116,8 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="@string/sign_up_button"
         android:background="@drawable/login_button_theme"
+        android:text="@string/sign_up_button"
         android:textColor="@color/white"
 
         app:layout_constraintBottom_toBottomOf="parent"
