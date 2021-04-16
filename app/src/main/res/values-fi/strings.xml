@@ -6,6 +6,7 @@
     <string name="sign_in_button">Kirjaudu sisään</string>
     <string name="sign_up_button">Luo käyttäjä</string>
     <string name="welcome_message">Tervetuloa takaisin</string>
+    <string name="forgot_password">Unohditko salasanasi?</string>
 
     <!--Strings for new_user.xml-->
     <string name="username2">Käyttäjänimi</string>
