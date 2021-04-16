@@ -95,6 +95,22 @@
 
         app:layout_constraintWidth_percent="0.75" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/login_forgot_password"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:clickable="true"
+        android:text="@string/forgot_password"
+        android:textColor="@drawable/forgot_password_theme"
+
+        app:layout_constraintBottom_toTopOf="@+id/login_sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.821"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.29" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_sign_in"
         android:layout_width="0sp"

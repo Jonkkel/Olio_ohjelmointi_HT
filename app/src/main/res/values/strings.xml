@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name" translatable="false">Waste</string>
+
+    <!--Strings for activity_main.xml-->
     <string name="welcome_message">Welcome back</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_in_button">Sign in</string>
     <string name="sign_up_button">Sign up</string>
+    <string name="forgot_password">Forgot password?</string>
+
+    <!--Strings for new_user.xml-->
     <string name="username2">Username</string>
     <string name="password_box">Password</string>
     <string name="password_box2">Password again</string>

@@ -11,19 +11,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        System.out.println("HAHAHA HEHEHEHE");
-
-        System.out.println("JOOJEEJEJEOEJOE");
-
-
-
-        System.out.println("TESTI 3 Toinenkäyttäjä");
-
-        //kommentti
 
 
     }
-
-
 }
 
