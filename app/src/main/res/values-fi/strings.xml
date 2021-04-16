@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--Strings for activity_main.xml-->
     <string name="username">Käyttäjänimi</string>
     <string name="password">Salasana</string>
     <string name="sign_in_button">Kirjaudu sisään</string>
     <string name="sign_up_button">Luo käyttäjä</string>
     <string name="welcome_message">Tervetuloa takaisin</string>
+
+    <!--Strings for new_user.xml-->
+    <string name="username2">Käyttäjänimi</string>
+    <string name="password_box">Salasana</string>
+    <string name="password_box2">Salasana uudestaan</string>
+    <string name="email_box">Sähköposti</string>
+    <string name="age_box">Ikä</string>
+    <string name="city_box">Kotikaupunki</string>
+    <string name="name_box">Nimi</string>
+    <string name="info">Luo uusi käyttäjä</string>
+
 
 </resources>
