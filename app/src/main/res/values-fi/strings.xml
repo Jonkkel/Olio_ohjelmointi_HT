@@ -17,6 +17,12 @@
     <string name="city_box">Kotikaupunki</string>
     <string name="name_box">Nimi</string>
     <string name="info">Luo uusi käyttäjä</string>
+    <string name="password_correct">Salasana hyväksytty</string>
+    <string name="password_incorrect">Tarkista salasana</string>
+    <string name="contain_numbers">Salasanan on sisällettävä ainakin yksi numero</string>
+    <string name="contain_upper">Salasanan on sisällettävä ainakin yksi iso kirjain</string>
+    <string name="contain_lower">Salasanan on sisällettävä ainakin yksi pieni kirjain</string>
+    <string name="password_length">Salasanan on oltava ainakin 8 merkkiä pitkä</string>
 
 
 </resources>

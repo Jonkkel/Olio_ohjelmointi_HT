@@ -21,6 +21,9 @@
         <activity android:name=".LogInTool">
         </activity>
 
+        <activity android:name=".Begin_screen">
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

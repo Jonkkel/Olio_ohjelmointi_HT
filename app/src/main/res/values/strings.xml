@@ -1,10 +1,13 @@
 <resources>
+    <!-- for activity_main.xml -->
     <string name="app_name" translatable="false">Waste</string>
     <string name="welcome_message">Welcome back</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="sign_in_button">Sign in</string>
     <string name="sign_up_button">Sign up</string>
+
+    <!-- for new_user.xml -->
     <string name="username2">Username</string>
     <string name="password_box">Password</string>
     <string name="password_box2">Password again</string>
@@ -14,6 +17,12 @@
     <string name="name_box">Name</string>
     <string name="info">Create a new user!</string>
     <string name="forgot_password">Forgot your password?</string>
+    <string name="password_correct">Passwords are the same</string>
+    <string name="password_incorrect">Check the passwords to match</string>
+    <string name="contain_numbers">Password must contain at least one number</string>
+    <string name="contain_upper">Password must contain at least one uppercase letter</string>
+    <string name="contain_lower">Password must contain at least one lowercase letter</string>
+    <string name="password_length">Password must be at least 8 characters long</string>
 
 
 </resources>
