@@ -25,5 +25,11 @@
     <string name="password_length">Password must be at least 8 characters long</string>
     <string name="create">CREATE</string>
 
+    <!-- for bottom_nav_menu.xml -->
+    <string name="bottom_nav_add_data">Add data</string>
+    <string name="bottom_nav_progress">Progress</string>
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_statistics">Statistics</string>
+    <string name="bottom_nav_settings">Settings</string>
 
 </resources>

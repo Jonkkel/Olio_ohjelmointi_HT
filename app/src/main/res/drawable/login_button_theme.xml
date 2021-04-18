@@ -3,7 +3,7 @@
     <item android:state_pressed="false">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="#63eb57"/>
+            <solid android:color="@color/login_screen_color"/>
             <stroke android:color="#000000"/>
             <stroke android:width="2sp"/>
         </shape>
@@ -11,7 +11,7 @@
     <item android:state_pressed="true">
         <shape>
             <corners android:radius="6dp" />
-            <solid android:color="#23423b"/>
+            <solid android:color="@color/login_screen_secondary_color"/>
             <stroke android:color="#000000"/>
             <stroke android:width="2sp"/>
         </shape>
