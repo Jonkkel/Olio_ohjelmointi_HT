@@ -24,6 +24,11 @@
     <string name="contain_lower">Salasanan on sisällettävä ainakin yksi pieni kirjain</string>
     <string name="password_length">Salasanan on oltava ainakin 8 merkkiä pitkä</string>
     <string name="create">LUO KÄYTTÄJÄ</string>
+    <string name="bottom_nav_add_data">Syötä dataa</string>
+    <string name="bottom_nav_progress">Edistyminen</string>
+    <string name="bottom_nav_home">Koti</string>
+    <string name="bottom_nav_statistics">Kuvaajat</string>
+    <string name="bottom_nav_settings">Asetukset</string>
 
 
 </resources>

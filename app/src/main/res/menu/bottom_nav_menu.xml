@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/add_data"
+        android:title="@string/bottom_nav_add_data"
+        android:icon="@drawable/ic_add_data_foreground"/>
+
+    <item
+        android:id="@+id/check_progress"
+        android:title="@string/bottom_nav_progress"
+        android:icon="@drawable/ic_check_progress_foreground"/>
+
+    <item
+        android:id="@+id/home_screen"
+        android:title="@string/bottom_nav_home"
+        android:icon="@drawable/ic_home_foreground"/>
+
+    <item
+        android:id="@+id/statistics"
+        android:title="@string/bottom_nav_statistics"
+        android:icon="@drawable/ic_statistics_foreground"/>
+
+    <item
+        android:id="@+id/settings"
+        android:title="@string/bottom_nav_settings"
+        android:icon="@drawable/ic_settings_foreground"/>
+</menu>
