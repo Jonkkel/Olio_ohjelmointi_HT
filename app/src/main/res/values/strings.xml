@@ -23,6 +23,7 @@
     <string name="contain_upper">Password must contain at least one uppercase letter</string>
     <string name="contain_lower">Password must contain at least one lowercase letter</string>
     <string name="password_length">Password must be at least 8 characters long</string>
+    <string name="create">CREATE</string>
 
 
 </resources>
