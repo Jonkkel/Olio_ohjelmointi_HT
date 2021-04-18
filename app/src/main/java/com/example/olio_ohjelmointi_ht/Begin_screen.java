@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-public class Begin_screen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Begin_screen extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
     @Override
@@ -23,13 +23,12 @@ public class Begin_screen extends AppCompatActivity implements NavigationView.On
 
         // Set homescreen active on startup
         MenuItem item = bottomNavigationView.getMenu().getItem(2);
+        onNavigationItemSelected(item);
 
         //https://stackoverflow.com/questions/52720871/how-to-create-a-listener-for-bottom-navigation-and-navigation-drawer-in-the-same
         bottomNavigationView.setSelectedItemId(item.getItemId());
-        bottomNavigationView.setOnNavigationItemSelectedListener(item1 ->{
-            onNavigationItemSelected(item1);
-            return true;
-        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -54,4 +53,5 @@ public class Begin_screen extends AppCompatActivity implements NavigationView.On
         transaction.commit();
         return true;
     }
+
 }
