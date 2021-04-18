@@ -9,11 +9,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class LogInTool extends Activity {
 
@@ -30,19 +27,23 @@ public class LogInTool extends Activity {
     TextView message;
     String log_in_message;
     String result;
-    Context context;
+    Context c;
 
-    ArrayList<User> user_list = new ArrayList<>(); // list for multiple users
+    public ArrayList<User> user_list = new ArrayList<>(); // list for multiple users
 
     private static LogInTool LIT = null; // singleton
 
-    public static LogInTool getInstance() {
+    public static LogInTool getInstance(Context con) {
         if (LIT == null) {
             LIT = new LogInTool();
+            LIT.LoginTool(con);
         }
         return LIT; // return only one and same LogInTool
     }
 
+    public void LoginTool(Context con){
+        this.c = con;
+    }
     @Override
     public void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
@@ -58,9 +59,6 @@ public class LogInTool extends Activity {
         password_requirements = (TextView) findViewById(R.id.requirements);
         password_match = (TextView) findViewById(R.id.password_match);
         message = (TextView) findViewById(R.id.message);
-
-        context = getApplicationContext(); // context
-
 
         password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
             @Override
@@ -155,27 +153,27 @@ public class LogInTool extends Activity {
     }
 
     public String sign_in(String username, String password, View v) { // let user sign in and use the app
-        if(username == null || password == null){ // user must fill both username and password fields
-            result = getResources().getString(R.string.fill_both);
-        }
-        if(user_list.size() == 0){ // if there is no users created in this phone
+        System.out.println(user_list.size());
+        if (username.equals("") || password.equals("")){
+            result = c.getString(R.string.fill_both);
+        }else if (user_list.size() == 0){ // if there is no users created in this phone
             System.out.println("testi1");
-            result = getResources().getString(R.string.no_user);
-        }
-        for (int i = 0; i < user_list.size(); i++) { // check if given username exists and if the password is correct
-            if (user_list.get(i).getUsername().equals(username)) {
-                if (user_list.get(i).getPassword().equals(password)) {
-                    result = getResources().getString(R.string.welcome);
-                    Intent intent = new Intent(v.getContext(), Begin_screen.class);
-                    startActivityForResult(intent, 0);
+            result = c.getString(R.string.no_user);
+        }else {
+            for (int i = 0; i < user_list.size(); i++) { // check if given username exists and if the password is correct
+                if (user_list.get(i).getUsername().equals(username)) {
+                    if (user_list.get(i).getPassword().equals(password)) {
+                        result = getString(R.string.welcome);
+                        Intent intent = new Intent(v.getContext(), Begin_screen.class);
+                        startActivityForResult(intent, 0);
+                    } else {
+                        System.out.println("testi2"); // if user is found, but password is not correct
+                        result = getString(R.string.wrong_password);
+                    }
+                } else {
+                    System.out.println("testi3"); // if no user on given username is found
+                    result = getString(R.string.no_user);
                 }
-                else {
-                    System.out.println("testi2"); // if user is found, but password is not correct
-                    result = getResources().getString(R.string.wrong_password);
-                }
-            } else {
-                System.out.println("testi3"); // if no user on given username is found
-                result = getResources().getString(R.string.no_user);
             }
         }
         return result; // returns a feedback for user

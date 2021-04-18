@@ -20,12 +20,14 @@
 
 
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/login_username_text"
+        app:layout_constraintBottom_toTopOf="@+id/message_box"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
 
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625"
+
         app:layout_constraintWidth_percent="0.8" />
 
     <TextView
@@ -146,16 +148,20 @@
 
     <TextView
         android:id="@+id/message_box"
-        android:layout_width="129dp"
+        android:layout_width="0dp"
         android:layout_height="55dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="80dp"
+
+        android:textColor="@color/login_screen_secondary_color"
+        android:textSize="20sp"
+        android:gravity="center"
+
+        app:layout_constraintBottom_toTopOf="@+id/login_username_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+
+        app:layout_constraintWidth_percent="0.7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
