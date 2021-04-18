@@ -30,7 +30,6 @@ public class LogInTool extends Activity {
     TextView message;
     String log_in_message;
     String result;
-    String text;
     Context context;
 
     ArrayList<User> user_list = new ArrayList<>();
@@ -67,56 +66,43 @@ public class LogInTool extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 password_text = s.toString();
-                /*boolean hasDigit = false;
-                boolean hasUpper = false;
-                boolean hasLower = false;
+                int number = 0;
+                int upper = 0;
+                int lower = 0;
                 if(password.getText().toString().length() >= 8){
-                    password_requirements.setText("");
                     for(int i = 0; i < password_text.length(); i++){
                         char c = password_text.charAt(i);
                         if(Character.isUpperCase(c)){
-                            hasUpper = true;
+                            upper++;
                         }
-                        else if(Character.isLowerCase(c)){
-                            hasLower = true;
+                        if(Character.isLowerCase(c)){
+                            lower++;
                         }
-                        else if(Character.isDigit(c)){
-                            hasDigit = true;
+                        if(Character.isDigit(c)){
+                            number++;
                         }
-                        else if (hasDigit  && hasLower  && hasUpper){
-                            password_requirements.setText("@string/password_correct");
+                        if (upper > 0 && lower > 0 && number > 0){
+                            System.out.println("Kaikki hyvin");
+                            password_requirements.setText("");
                             break;
                         }
-                        else if(hasUpper == false){
-                            password_requirements.setText("@string/contain_uppercase");
+                        if(upper == 0){
+                            System.out.println("ISOJA");
+                            password_requirements.setText(getResources().getString(R.string.contain_upper));
                         }
-                        else if(hasLower == false){
-                            password_requirements.setText("@string/contains_lowercase");
+                        if(lower == 0){
+                            System.out.println("PIENIÄ");
+                            password_requirements.setText(getResources().getString(R.string.contain_lower));
                         }
-                        else if(hasDigit == false){
-                            password_requirements.setText("@string/contains_numbers");
+                        if(number == 0){
+                            System.out.println("NUMEROITA");
+                            password_requirements.setText(getResources().getString(R.string.contain_numbers));
                         }
                     }
                 }
                 else{
-                    password_requirements.setText("@string/password_length");
+                    password_requirements.setText(getResources().getString(R.string.password_length));
                 }
-                /*
-                char[] chars = password_text.toCharArray();
-                for (char c : chars) { // Checking if the password is good, NOT WORKING YET
-                    if (!Character.isDigit(c)) { // Checking if the password contains number
-                        password_requirements.setText("@string/contain_numbers");
-                    } else if (!Character.isLowerCase(c)) { // Checking if the password contains lowercase character
-                        password_requirements.setText("@string/contains_lowercase");
-                    } else if (!Character.isUpperCase(c)) { // Checking if the password contains lowercase character
-                        password_requirements.setText("@string/contains_uppercase");
-                    } else if (password_text.length() < 8) { // Checking if the password is long enought
-                        password_requirements.setText("@string/password_length");
-                    } else if (Character.isDigit(c) && Character.isLowerCase(c) && Character.isUpperCase(c) && password_text.length() >= 8) {
-                        password_requirements.setText("");
-                        break;
-                    }
-                }*/
             }
 
             @Override
@@ -134,11 +120,9 @@ public class LogInTool extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (password2.getText().toString().equals(password_text)) {
-                    text = getResources().getString(R.string.password_correct);
-                    password_match.setText(text);
+                    password_match.setText(getResources().getString(R.string.password_correct));
                 } else {
-                    text = getResources().getString(R.string.password_incorrect);
-                    password_match.setText(text);
+                    password_match.setText(getResources().getString(R.string.password_incorrect));
                 }
             }
 
@@ -154,7 +138,7 @@ public class LogInTool extends Activity {
     }
 
     public void create_button(View v) { // adds user to user_list, creates user
-        if (password2.getText().toString().equals(password_text) && password_text != null) { // lisää muut vaatimukset!!!
+        if (password2.getText().toString().equals(password_text) && password_text != "" && username.getText().toString() != "" && name.getText().toString() != "" && age.getText().toString() != "" && city.getText().toString() != "" && email.getText().toString() != "") {
             User user = new User(); // Create a new user and get information from edittexts
             user.setUsername(username.getText().toString());
             user.setName(name.getText().toString());
@@ -166,8 +150,7 @@ public class LogInTool extends Activity {
             log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
             message.setText(log_in_message);
         } else {
-            text = getResources().getString(R.string.password_incorrect);
-            password_match.setText(text);
+            password_match.setText(getResources().getString(R.string.password_incorrect));
         }
     }
 
