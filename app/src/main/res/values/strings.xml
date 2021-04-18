@@ -6,6 +6,10 @@
     <string name="password">Password</string>
     <string name="sign_in_button">Sign in</string>
     <string name="sign_up_button">Sign up</string>
+    <string name="no_user">No user found on this username</string>
+    <string name="fill_both">Fill both fields to sign in</string>
+    <string name="wrong_password">Wrong password, if you have forgotten your password, press forgot your password</string>
+    <string name="welcome">Password correct, welcome!</string>
 
     <!-- for new_user.xml -->
     <string name="username2">Username</string>
@@ -23,6 +27,7 @@
     <string name="contain_upper">Password must contain at least one uppercase letter</string>
     <string name="contain_lower">Password must contain at least one lowercase letter</string>
     <string name="password_length">Password must be at least 8 characters long</string>
+    <string name="error">Fill all the information in order to create a profile</string>
     <string name="create">CREATE</string>
 
     <!-- for bottom_nav_menu.xml -->
@@ -31,11 +36,8 @@
     <string name="bottom_nav_home">Home</string>
     <string name="bottom_nav_statistics">Statistics</string>
     <string name="bottom_nav_settings">Settings</string>
-    <string name="error">Fill all the information in order to create a profile</string>
-    <string name="no_user">No user found on this username</string>
-    <string name="fill_both">Fill both fields to sign in</string>
-    <string name="wrong_password">Wrong password, if you have forgotten your password, press forgot your password</string>
-    <string name="welcome">Password correct, welcome!</string>
+
+
 
 
 </resources>

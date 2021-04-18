@@ -53,7 +53,7 @@ public class LogInTool extends Activity {
         name = (EditText) findViewById(R.id.name);
         age = (EditText) findViewById(R.id.age);
         city = (EditText) findViewById(R.id.homeCity);
-        email = (EditText) findViewById(R.id.homeCity);
+        email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         password2 = (EditText) findViewById(R.id.password2);
         password_requirements = (TextView) findViewById(R.id.requirements);
