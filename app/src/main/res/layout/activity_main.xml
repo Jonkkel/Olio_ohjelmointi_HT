@@ -109,7 +109,7 @@
         app:layout_constraintHorizontal_bias="0.821"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.29" />
+        app:layout_constraintWidth_percent="0.37" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_sign_in"
