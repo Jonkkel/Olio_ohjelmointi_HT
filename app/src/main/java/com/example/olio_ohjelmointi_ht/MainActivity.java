@@ -33,13 +33,24 @@ public class MainActivity extends AppCompatActivity {
         sign_in = (Button) findViewById(R.id.login_sign_in);
         sign_up = (Button) findViewById(R.id.login_sign_up);
 
-        sign_up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v) { // set click listener for sign up button--> change layout if pressed
-                Intent intent = new Intent(v.getContext(), LogInTool.class);
-                startActivityForResult(intent, 0);
-            }
+
+        /*
+        Android studio ehdotti että vaihda
+        TÄMÄ:
+            sign_up.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick (View v) { // set click listener for sign up button--> change layout if pressed
+                    Intent intent = new Intent(v.getContext(), LogInTool.class);
+                    startActivityForResult(intent, 0);
+                }
+            });
+
+         Tällaiseen*/
+        sign_up.setOnClickListener(v -> { // set click listener for sign up button--> change layout if pressed
+            Intent intent = new Intent(v.getContext(), LogInTool.class);
+            startActivityForResult(intent, 0);
         });
+
     }
 
     public void sign_in_button(View v){
