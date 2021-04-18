@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
         username = login_username.getText().toString(); // read username that user wrote
         password = login_password.getText().toString(); // read password that user wrote
         message = LIT.sign_in(username, password, v); // give username and password for sign_in method, checks if them are correct and user exists
-        //message_box.setText(message); // shows the result for user ( wrong password etc.)
+        message_box.setText(message); // shows the result for user ( wrong password etc.)
         System.out.println(message);
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
 

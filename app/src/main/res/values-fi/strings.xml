@@ -7,6 +7,10 @@
     <string name="sign_up_button">Luo käyttäjä</string>
     <string name="welcome_message">Tervetuloa takaisin</string>
     <string name="forgot_password">Unohditko salasanasi?</string>
+    <string name="no_user">Käyttäjiä ei löynyt tällä käyttäjänimellä, yritä uudestaan</string>
+    <string name="fill_both">Täytä molemmat kentät kirjautuaksesi</string>
+    <string name="wrong_password">Virheellinen salasana, jos olet unohtanut salasanasi, paina unohditko salasanasi</string>
+    <string name="welcome">Salasana oikein, tervetuloa takaisin!</string>
 
     <!--Strings for new_user.xml-->
     <string name="username2">Käyttäjänimi</string>
@@ -24,6 +28,9 @@
     <string name="contain_lower">Salasanan on sisällettävä ainakin yksi pieni kirjain</string>
     <string name="password_length">Salasanan on oltava ainakin 8 merkkiä pitkä</string>
     <string name="create">LUO KÄYTTÄJÄ</string>
+    <string name="error">Täytä kaikki tiedot luodaksesi profiilin</string>
+
+    <!-- for bottom_nav_menu.xml -->
     <string name="bottom_nav_add_data">Syötä dataa</string>
     <string name="bottom_nav_progress">Edistyminen</string>
     <string name="bottom_nav_home">Koti</string>

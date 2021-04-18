@@ -32,7 +32,7 @@ public class LogInTool extends Activity {
     String result;
     Context context;
 
-    ArrayList<User> user_list = new ArrayList<>();
+    ArrayList<User> user_list = new ArrayList<>(); // list for multiple users
 
     private static LogInTool LIT = null; // singleton
 
@@ -59,48 +59,48 @@ public class LogInTool extends Activity {
         password_match = (TextView) findViewById(R.id.password_match);
         message = (TextView) findViewById(R.id.message);
 
-        context = getApplicationContext(); // context, in case of need
+        context = getApplicationContext(); // context
 
 
-        password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is good
+        password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
             @Override
             public void afterTextChanged(Editable s) {
-                password_text = s.toString();
+                password_text = s.toString(); // Checking i the password is strong password
                 int number = 0;
                 int upper = 0;
                 int lower = 0;
-                if(password.getText().toString().length() >= 8){
+                if(password.getText().toString().length() >= 8){ // password must be at least 8 characters long
                     for(int i = 0; i < password_text.length(); i++){
                         char c = password_text.charAt(i);
-                        if(Character.isUpperCase(c)){
+                        if(Character.isUpperCase(c)){ // if no character has been uppercase letter
                             upper++;
                         }
-                        if(Character.isLowerCase(c)){
+                        if(Character.isLowerCase(c)){ // if no character has been lowercase letter
                             lower++;
                         }
-                        if(Character.isDigit(c)){
+                        if(Character.isDigit(c)){ // if no character has been a number
                             number++;
                         }
-                        if (upper > 0 && lower > 0 && number > 0){
+                        if (upper > 0 && lower > 0 && number > 0){ // if the password have a uppercase, a lowercase and a number character
                             System.out.println("Kaikki hyvin");
                             password_requirements.setText("");
                             break;
                         }
-                        if(upper == 0){
+                        if(upper == 0){ // tells user to use uppercase letter
                             System.out.println("ISOJA");
                             password_requirements.setText(getResources().getString(R.string.contain_upper));
                         }
-                        if(lower == 0){
+                        if(lower == 0){ // tells user to use lowercase letter
                             System.out.println("PIENIÄ");
                             password_requirements.setText(getResources().getString(R.string.contain_lower));
                         }
-                        if(number == 0){
+                        if(number == 0){ // tells user to use number
                             System.out.println("NUMEROITA");
                             password_requirements.setText(getResources().getString(R.string.contain_numbers));
                         }
                     }
                 }
-                else{
+                else{ // if the password is under 8 characters long
                     password_requirements.setText(getResources().getString(R.string.password_length));
                 }
             }
@@ -150,31 +150,34 @@ public class LogInTool extends Activity {
             log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
             message.setText(log_in_message);
         } else {
-            password_match.setText(getResources().getString(R.string.password_incorrect));
+            message.setText(getResources().getString(R.string.error));
         }
     }
 
     public String sign_in(String username, String password, View v) { // let user sign in and use the app
-        if(user_list.size() == 0){
-            System.out.println("testi1");
-            result = ("No user found on this username");
+        if(username == null || password == null){ // user must fill both username and password fields
+            result = getResources().getString(R.string.fill_both);
         }
-        for (int i = 0; i < user_list.size(); i++) {
+        if(user_list.size() == 0){ // if there is no users created in this phone
+            System.out.println("testi1");
+            result = getResources().getString(R.string.no_user);
+        }
+        for (int i = 0; i < user_list.size(); i++) { // check if given username exists and if the password is correct
             if (user_list.get(i).getUsername().equals(username)) {
                 if (user_list.get(i).getPassword().equals(password)) {
-                    result = ("Password correct, welcome!");
+                    result = getResources().getString(R.string.welcome);
                     Intent intent = new Intent(v.getContext(), Begin_screen.class);
                     startActivityForResult(intent, 0);
                 }
                 else {
-                    System.out.println("testi2");
-                    result = ("Wrong password, if you have forgotten your password, press forgot your password");
+                    System.out.println("testi2"); // if user is found, but password is not correct
+                    result = getResources().getString(R.string.wrong_password);
                 }
             } else {
-                System.out.println("testi3");
-                result = ("No user found on this username");
+                System.out.println("testi3"); // if no user on given username is found
+                result = getResources().getString(R.string.no_user);
             }
         }
-        return result;
+        return result; // returns a feedback for user
     }
 }
