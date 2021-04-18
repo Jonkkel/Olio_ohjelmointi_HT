@@ -30,6 +30,7 @@ public class LogInTool extends Activity {
     TextView message;
     String log_in_message;
     String result;
+    String text;
     Context context;
 
     ArrayList<User> user_list = new ArrayList<>();
@@ -133,9 +134,11 @@ public class LogInTool extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (password2.getText().toString().equals(password_text)) {
-                    password_match.setText("@string/password_correct");
+                    text = getResources().getString(R.string.password_correct);
+                    password_match.setText(text);
                 } else {
-                    password_match.setText("@string/password_incorrect");
+                    text = getResources().getString(R.string.password_incorrect);
+                    password_match.setText(text);
                 }
             }
 
@@ -163,7 +166,8 @@ public class LogInTool extends Activity {
             log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
             message.setText(log_in_message);
         } else {
-            password_match.setText("@string/password_incorrect");
+            text = getResources().getString(R.string.password_incorrect);
+            password_match.setText(text);
         }
     }
 
