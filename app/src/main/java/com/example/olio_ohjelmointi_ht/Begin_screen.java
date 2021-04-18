@@ -14,6 +14,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Begin_screen extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    MenuItem lastItem = null;
     BottomNavigationView bottomNavigationView;
     @Override
     public void onCreate(Bundle saveInstanceState) {
@@ -34,6 +35,10 @@ public class Begin_screen extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment;
+        // If any button has beenpressed then lets set it back to enabled
+        if(lastItem != null){
+            lastItem.setEnabled(true);
+        }
         if (item.getItemId() == R.id.add_data){
             fragment = new Add_data_screen();
         }else if(item.getItemId() == R.id.check_progress){
@@ -47,10 +52,13 @@ public class Begin_screen extends AppCompatActivity implements BottomNavigationV
         }else{
             return false;
         }
+        lastItem = item;
+        item.setEnabled(false);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.Main_fragment, fragment);
         transaction.commit();
+
         return true;
     }
 

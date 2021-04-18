@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sign_in_button(View v){
+
+        // Ei jaksanut aina kirjautua ni nyt pääsee eteenpäin kun vaan painaa tuota sign in :D
+        Intent intent = new Intent(v.getContext(), Begin_screen.class);
+        startActivityForResult(intent, 0);
+
+        /* ELÄ POISTA TÄTÄ!!!
         LogInTool LIT = LogInTool.getInstance(this); // get logintool, singleton
         username = login_username.getText().toString(); // read username that user wrote
         password = login_password.getText().toString(); // read password that user wrote
@@ -51,6 +57,6 @@ public class MainActivity extends AppCompatActivity {
         message_box.setText(message); // shows the result for user ( wrong password etc.)
         System.out.println(message);
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-
+        */
     }
 }
