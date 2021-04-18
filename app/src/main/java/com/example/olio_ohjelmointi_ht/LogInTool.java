@@ -138,7 +138,7 @@ public class LogInTool extends Activity {
     }
 
     public void create_button(View v) { // adds user to user_list, creates user
-        if (password2.getText().toString().equals(password_text) && password_text != "" && username.getText().toString() != "" && name.getText().toString() != "" && age.getText().toString() != "" && city.getText().toString() != "" && email.getText().toString() != "") {
+        if (password2.getText().toString().equals(password_text) && (!password_text.equals("")) && (!username.getText().toString().equals("")) && (!name.getText().toString().equals("")) && (!age.getText().toString().equals("")) && (!city.getText().toString().equals("")) && (!email.getText().toString().equals(""))) {
             User user = new User(); // Create a new user and get information from edittexts
             user.setUsername(username.getText().toString());
             user.setName(name.getText().toString());
