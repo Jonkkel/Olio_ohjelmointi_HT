@@ -1,5 +1,7 @@
 package com.example.olio_ohjelmointi_ht;
 
+
+
 public class User {
     String name;
     int age;
@@ -53,11 +55,13 @@ public class User {
     }
 
     public void setPassword(String password) {
+        password = LogInTool.encrypt(password);
         this.password = password;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
+
 
 }

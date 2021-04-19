@@ -10,7 +10,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class LogInTool extends Activity {
 
@@ -143,7 +149,7 @@ public class LogInTool extends Activity {
             user.setAge(Integer.valueOf((age.getText().toString())));
             user.setCity(city.getText().toString());
             user.setEmail(email.getText().toString());
-            user.setPassword(password.getText().toString());
+            user.setPassword(password.getText().toString()); // setPassword method hashes the password
             user_list.add(user); // add user to user_list, using to save multiple users
             log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
             message.setText(log_in_message);
@@ -154,7 +160,7 @@ public class LogInTool extends Activity {
 
     public String sign_in(String username, String password, View v) { // let user sign in and use the app
         System.out.println(user_list.size());
-        if (username.equals("") || password.equals("")){
+        if (username.equals("") || password.equals("")){ // user needs to fill both fields to sign in
             result = c.getString(R.string.fill_both);
         }else if (user_list.size() == 0){ // if there is no users created in this phone
             System.out.println("testi1");
@@ -162,7 +168,7 @@ public class LogInTool extends Activity {
         }else {
             for (int i = 0; i < user_list.size(); i++) { // check if given username exists and if the password is correct
                 if (user_list.get(i).getUsername().equals(username)) {
-                    if (user_list.get(i).getPassword().equals(password)) {
+                    if (user_list.get(i).getPassword().equals(encrypt(password))) {
                         result = getString(R.string.welcome);
                         Intent intent = new Intent(v.getContext(), Begin_screen.class);
                         startActivityForResult(intent, 0);
@@ -177,5 +183,31 @@ public class LogInTool extends Activity {
             }
         }
         return result; // returns a feedback for user
+    }
+
+    public static String encrypt(String input) {
+        try {
+            // getInstance() method is called with algorithm SHA-512
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            // digest() method is called
+            // to calculate message digest of the input string
+            // returned as array of byte
+            byte[] messageDigest = md.digest(input.getBytes());
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+            // Add preceding 0s to make it 32 bit
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            //System.out.println(hashtext);
+            // return the HashText
+            return hashtext;
+        }
+        // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
