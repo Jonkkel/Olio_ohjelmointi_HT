@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(v.getContext(), LogInTool.class);
             startActivityForResult(intent, 0);
         });
-
     }
 
     public void sign_in_button(View v){
