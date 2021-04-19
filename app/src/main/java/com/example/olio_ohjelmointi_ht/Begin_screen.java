@@ -10,7 +10,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Random;
+
 
 public class Begin_screen extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -29,7 +34,6 @@ public class Begin_screen extends AppCompatActivity implements BottomNavigationV
         //https://stackoverflow.com/questions/52720871/how-to-create-a-listener-for-bottom-navigation-and-navigation-drawer-in-the-same
         bottomNavigationView.setSelectedItemId(item.getItemId());
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-
     }
 
     @Override
@@ -58,8 +62,6 @@ public class Begin_screen extends AppCompatActivity implements BottomNavigationV
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.Main_fragment, fragment);
         transaction.commit();
-
         return true;
     }
-
 }
