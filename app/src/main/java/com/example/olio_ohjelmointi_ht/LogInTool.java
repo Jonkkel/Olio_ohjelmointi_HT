@@ -1,15 +1,11 @@
 package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,19 +16,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class LogInTool extends Activity {
+public class LogInTool {
 
-    EditText username;
-    EditText name;
-    EditText age;
-    EditText city;
-    EditText email;
-    EditText password;
-    EditText password2;
     String password_text;
-    TextView password_requirements;
-    TextView password_match;
-    TextView message;
     String log_in_message;
     String result;
     Context c;
@@ -53,100 +39,8 @@ public class LogInTool extends Activity {
     public void LoginTool(Context con){
         this.c = con;
     }
-    @Override
-    public void onCreate(Bundle saveInstanceState) {
-        super.onCreate(saveInstanceState);
-        setContentView(R.layout.new_user);
-        // Finding text boxes etc. from the layout
-        username = (EditText) findViewById(R.id.username);
-        name = (EditText) findViewById(R.id.name);
-        age = (EditText) findViewById(R.id.age);
-        city = (EditText) findViewById(R.id.homeCity);
-        email = (EditText) findViewById(R.id.email);
-        password = (EditText) findViewById(R.id.password);
-        password2 = (EditText) findViewById(R.id.password2);
-        password_requirements = (TextView) findViewById(R.id.requirements);
-        password_match = (TextView) findViewById(R.id.password_match);
-        message = (TextView) findViewById(R.id.message);
 
-        password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
-            @Override
-            public void afterTextChanged(Editable s) {
-                password_text = s.toString(); // Checking i the password is strong password
-                int number = 0;
-                int upper = 0;
-                int lower = 0;
-                if(password.getText().toString().length() >= 8){ // password must be at least 8 characters long
-                    for(int i = 0; i < password_text.length(); i++){
-                        char c = password_text.charAt(i);
-                        if(Character.isUpperCase(c)){ // if no character has been uppercase letter
-                            upper++;
-                        }
-                        if(Character.isLowerCase(c)){ // if no character has been lowercase letter
-                            lower++;
-                        }
-                        if(Character.isDigit(c)){ // if no character has been a number
-                            number++;
-                        }
-                        if (upper > 0 && lower > 0 && number > 0){ // if the password have a uppercase, a lowercase and a number character
-                            System.out.println("Kaikki hyvin");
-                            password_requirements.setText("");
-                            break;
-                        }
-                        if(upper == 0){ // tells user to use uppercase letter
-                            System.out.println("ISOJA");
-                            password_requirements.setText(getResources().getString(R.string.contain_upper));
-                        }
-                        if(lower == 0){ // tells user to use lowercase letter
-                            System.out.println("PIENIÄ");
-                            password_requirements.setText(getResources().getString(R.string.contain_lower));
-                        }
-                        if(number == 0){ // tells user to use number
-                            System.out.println("NUMEROITA");
-                            password_requirements.setText(getResources().getString(R.string.contain_numbers));
-                        }
-                    }
-                }
-                else{ // if the password is under 8 characters long
-                    password_requirements.setText(getResources().getString(R.string.password_length));
-                }
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(final CharSequence s, int start, int before, int count) {
-            }
-
-        });
-
-        password2.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password again box, checking if the passwords are same
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (password2.getText().toString().equals(password_text)) {
-                    password_match.setTextColor(getResources().getColor(R.color.login_screen_color));
-                    password_match.setText(getResources().getString(R.string.password_correct));
-                } else {
-                    password_match.setTextColor(getResources().getColor(R.color.red));
-                    password_match.setText(getResources().getString(R.string.password_incorrect));
-                }
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(final CharSequence s, int start, int before, int count) {
-            }
-
-        });
-    }
-
-    public void create_button(View v) { // adds user to user_list, creates user
+    public String create_user(EditText username, EditText name, EditText age, EditText city, EditText email, EditText password, EditText password2, View v) { // adds user to user_list, creates user
         if (password2.getText().toString().equals(password_text) && (!password_text.equals("")) && (!username.getText().toString().equals("")) && (!name.getText().toString().equals("")) && (!age.getText().toString().equals("")) && (!city.getText().toString().equals("")) && (!email.getText().toString().equals(""))) {
             User user = new User(); // Create a new user and get information from edittexts
             user.setUsername(username.getText().toString());
@@ -158,10 +52,12 @@ public class LogInTool extends Activity {
             user_list.add(user); // add user to user_list, using to save multiple users
             writeTextFile(user);
             log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
-            message.setText(log_in_message);
+            //message.setText(log_in_message);
         } else {
-            message.setText(getResources().getString(R.string.error));
+            //message.setText(getResources().getString(R.string.error));
+            log_in_message = c.getString(R.string.error);
         }
+        return log_in_message;
     }
 
     public String sign_in(String username, String password, View v) { // let user sign in and use the app
@@ -175,16 +71,14 @@ public class LogInTool extends Activity {
             for (int i = 0; i < user_list.size(); i++) { // check if given username exists and if the password is correct
                 if (user_list.get(i).getUsername().equals(username)) {
                     if (user_list.get(i).getPassword().equals(encrypt(password))) {
-                        result = getString(R.string.welcome);
-                        Intent intent = new Intent(v.getContext(), Begin.class);
-                        startActivityForResult(intent, 0);
+                        result = c.getString(R.string.welcome);
                     } else {
                         System.out.println("testi2"); // if user is found, but password is not correct
-                        result = getString(R.string.wrong_password);
+                        result = c.getString(R.string.wrong_password);
                     }
                 } else {
                     System.out.println("testi3"); // if no user on given username is found
-                    result = getString(R.string.no_user);
+                    result = c.getString(R.string.no_user);
                 }
             }
         }
@@ -217,18 +111,12 @@ public class LogInTool extends Activity {
         }
     }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        // put your code here...
-
-    }
-
+    // make folder and write file for each user
     public void writeTextFile(User user){
-        File directory = new File(this.getFilesDir() + File.separator+user.getUsername());
+        File directory = new File(c.getFilesDir() + File.separator + user.getUsername()); // create a folder
         if(!directory.exists())
             directory.mkdir();
-        File newFile = new File(directory, "User_Info_" + user.getUsername() + ".txt");
+        File newFile = new File(directory, "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
         if(!newFile.exists()){
             try {
                 newFile.createNewFile();
@@ -237,15 +125,15 @@ public class LogInTool extends Activity {
             }
         }
         try  {
-            FileOutputStream fOut = new FileOutputStream(newFile);
+            FileOutputStream fOut = new FileOutputStream(newFile); // write users information to file
             OutputStreamWriter outputWriter=new OutputStreamWriter(fOut);
-            outputWriter.write(getResources().getString(R.string.file_username) + user.getUsername() + "\n");
-            outputWriter.write(getResources().getString(R.string.file_name) + user.getName() + "\n");
-            outputWriter.write(getResources().getString(R.string.file_age) + user.getAge() + "\n");
-            outputWriter.write(getResources().getString(R.string.file_city) + user.getCity() + "\n");
-            outputWriter.write(getResources().getString(R.string.file_email) + user.getEmail() + "\n");
-            outputWriter.write(getResources().getString(R.string.file_password) + user.getPassword() + "\n");
-            outputWriter.close();
+            outputWriter.write(c.getResources().getString(R.string.file_username) + user.getUsername() + "\n");
+            outputWriter.write(c.getResources().getString(R.string.file_name) + user.getName() + "\n");
+            outputWriter.write(c.getResources().getString(R.string.file_age) + user.getAge() + "\n");
+            outputWriter.write(c.getResources().getString(R.string.file_city) + user.getCity() + "\n");
+            outputWriter.write(c.getResources().getString(R.string.file_email) + user.getEmail() + "\n");
+            outputWriter.write(c.getResources().getString(R.string.file_password) + user.getPassword() + "\n");
+            outputWriter.close(); // close file
         }catch (Exception e){
             e.printStackTrace();
         }

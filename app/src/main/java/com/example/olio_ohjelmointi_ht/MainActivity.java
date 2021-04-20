@@ -2,21 +2,27 @@ package com.example.olio_ohjelmointi_ht;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
     EditText login_username;
     EditText login_password;
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity{
     String password;
     String message;
     Button sign_up, sign_in;
+    MenuItem lastItem = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
         });
     }
 
-    public void sign_in_button(View v){
+    public void sign_in_button(View v) {
         // Ei jaksanut aina kirjautua ni nyt pääsee eteenpäin kun vaan painaa tuota sign in :D
         Intent intent = new Intent(v.getContext(), Begin.class);
         startActivityForResult(intent, 0);
@@ -73,4 +80,26 @@ public class MainActivity extends AppCompatActivity{
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         */
     }
-}
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment;
+        // If any button has been pressed then lets set it back to enabled
+        if (lastItem != null) {
+            lastItem.setEnabled(true);
+        }
+        if (item.getItemId() == R.id.login_sign_up) {
+            fragment = new New_User();
+        }
+        else{
+                return false;
+            }
+            lastItem = item;
+            item.setEnabled(false);
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.New_user_fragment, fragment);
+            transaction.commit();
+            return true;
+        }
+    }
