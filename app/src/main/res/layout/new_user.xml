@@ -2,7 +2,6 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -334,14 +333,16 @@
             android:layout_marginBottom="4sp"
             app:layout_constraintWidth_percent="0.75" />
 
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:background="@drawable/login_button_theme"
             android:onClick="create_button"
+
             android:text="@string/create"
+            android:textColor="@color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -349,8 +350,7 @@
             app:layout_constraintVertical_bias="0.95"
             android:layout_marginBottom="30sp"
 
-            app:layout_constraintWidth_percent="0.3"
-            />
+            app:layout_constraintWidth_percent="0.3"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

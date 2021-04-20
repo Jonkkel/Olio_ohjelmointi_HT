@@ -2,6 +2,7 @@ package com.example.olio_ohjelmointi_ht;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class Begin extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
+    private long pressedTime;
     MenuItem lastItem = null;
     BottomNavigationView bottomNavigationView;
     @Override
@@ -58,5 +59,17 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
         transaction.replace(R.id.Main_fragment, fragment);
         transaction.commit();
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            this.moveTaskToBack(true);
+            this.finish();
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }

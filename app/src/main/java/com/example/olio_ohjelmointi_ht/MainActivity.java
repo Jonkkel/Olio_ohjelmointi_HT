@@ -75,10 +75,4 @@ public class MainActivity extends AppCompatActivity{
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         */
     }
-    @Override
-    public void onResume(){
-        super.onResume();
-        SettingTool set = SettingTool.getInstance(this);
-        set.loadLocale();
-    }
 }

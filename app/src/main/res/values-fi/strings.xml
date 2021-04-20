@@ -40,6 +40,7 @@
     <string name="change_age">Vaihda ikä</string>
     <string name="change_home_city">Vaihda kotikaupunki</string>
     <string name="change_email">Vaihda sähköposti</string>
+    <string name="change_language">Vaihda kieli</string>
 
 
 </resources>
