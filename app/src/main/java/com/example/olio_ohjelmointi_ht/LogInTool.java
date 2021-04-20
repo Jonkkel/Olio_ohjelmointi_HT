@@ -11,14 +11,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class LogInTool extends AppCompatActivity {
+public class LogInTool extends Activity {
 
     EditText username;
     EditText name;

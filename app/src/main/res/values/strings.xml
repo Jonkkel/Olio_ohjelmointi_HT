@@ -44,7 +44,13 @@
     <string name="change_email">Change email</string>
     <string name="change_language">Change language</string>
 
-
+    <!-- for user_file.txt -->
+    <string name="file_username" translatable="false">Username:</string>
+    <string name="file_name" translatable="false">Name:</string>
+    <string name="file_age" translatable="false">Age:</string>
+    <string name="file_city" translatable="false">City:</string>
+    <string name="file_password" translatable="false">Password:</string>
+    <string name="file_email" translatable="false">Email:</string>
 
 
 </resources>
