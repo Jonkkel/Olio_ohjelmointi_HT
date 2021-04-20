@@ -7,7 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#f00628</color>
 
-    <color name="login_screen_color">#63eb57</color>
+    <color name="fuchsia">#ca2c92</color>
+
+    <color name="login_screen_color">#2cca64</color>
+
     <color name="login_screen_secondary_color">#23423b</color>
+
 </resources>

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Statistics_screen extends Fragment{
+public class Begin_statistics_screen extends Fragment{
 
 
     @Nullable

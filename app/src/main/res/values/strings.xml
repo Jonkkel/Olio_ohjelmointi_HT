@@ -37,6 +37,13 @@
     <string name="bottom_nav_statistics">Statistics</string>
     <string name="bottom_nav_settings">Settings</string>
 
+    <!-- for fragment_settings_screen.xml -->
+    <string name="change_username">Change username</string>
+    <string name="change_age">Change age</string>
+    <string name="change_home_city">Change home city</string>
+    <string name="change_email">Change email</string>
+    <string name="change_language">Change language</string>
+
 
 
 

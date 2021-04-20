@@ -1,5 +1,6 @@
 package com.example.olio_ohjelmointi_ht;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +15,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class LogInTool extends Activity {
 
@@ -37,6 +35,7 @@ public class LogInTool extends Activity {
 
     public ArrayList<User> user_list = new ArrayList<>(); // list for multiple users
 
+    @SuppressLint("StaticFieldLeak")
     private static LogInTool LIT = null; // singleton
 
     public static LogInTool getInstance(Context con) {
@@ -124,8 +123,10 @@ public class LogInTool extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (password2.getText().toString().equals(password_text)) {
+                    password_match.setTextColor(getResources().getColor(R.color.login_screen_color));
                     password_match.setText(getResources().getString(R.string.password_correct));
                 } else {
+                    password_match.setTextColor(getResources().getColor(R.color.red));
                     password_match.setText(getResources().getString(R.string.password_incorrect));
                 }
             }
@@ -170,7 +171,7 @@ public class LogInTool extends Activity {
                 if (user_list.get(i).getUsername().equals(username)) {
                     if (user_list.get(i).getPassword().equals(encrypt(password))) {
                         result = getString(R.string.welcome);
-                        Intent intent = new Intent(v.getContext(), Begin_screen.class);
+                        Intent intent = new Intent(v.getContext(), Begin.class);
                         startActivityForResult(intent, 0);
                     } else {
                         System.out.println("testi2"); // if user is found, but password is not correct
@@ -210,4 +211,12 @@ public class LogInTool extends Activity {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        // put your code here...
+
+    }
+
 }

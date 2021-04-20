@@ -36,6 +36,10 @@
     <string name="bottom_nav_home">Koti</string>
     <string name="bottom_nav_statistics">Kuvaajat</string>
     <string name="bottom_nav_settings">Asetukset</string>
+    <string name="change_username">Vaihda käyttäjänimi</string>
+    <string name="change_age">Vaihda ikä</string>
+    <string name="change_home_city">Vaihda kotikaupunki</string>
+    <string name="change_email">Vaihda sähköposti</string>
 
 
 </resources>

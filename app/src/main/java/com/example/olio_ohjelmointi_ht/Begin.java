@@ -11,13 +11,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Random;
 
-
-public class Begin_screen extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class Begin extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     MenuItem lastItem = null;
     BottomNavigationView bottomNavigationView;
@@ -44,15 +39,15 @@ public class Begin_screen extends AppCompatActivity implements BottomNavigationV
             lastItem.setEnabled(true);
         }
         if (item.getItemId() == R.id.add_data){
-            fragment = new Add_data_screen();
+            fragment = new Begin_add_data_screen();
         }else if(item.getItemId() == R.id.check_progress){
-            fragment = new Progress_screen();
+            fragment = new Begin_progress_screen();
         }else if(item.getItemId() == R.id.home_screen){
-            fragment = new Home_screen();
+            fragment = new Begin_home_screen();
         }else if(item.getItemId() == R.id.statistics){
-            fragment = new Statistics_screen();
+            fragment = new Begin_statistics_screen();
         }else if(item.getItemId() == R.id.settings){
-            fragment = new Settings_screen();
+            fragment = new Begin_settings_screen();
         }else{
             return false;
         }

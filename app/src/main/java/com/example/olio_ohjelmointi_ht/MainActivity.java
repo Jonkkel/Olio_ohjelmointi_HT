@@ -1,18 +1,22 @@
 package com.example.olio_ohjelmointi_ht;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Locale;
+
+
+public class MainActivity extends AppCompatActivity{
 
     EditText login_username;
     EditText login_password;
@@ -25,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SettingTool set = SettingTool.getInstance(this);
+        set.loadLocale();
         setContentView(R.layout.activity_main);
         login_username = (EditText) findViewById(R.id.login_username);
         login_password = (EditText) findViewById(R.id.login_password);
@@ -32,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         sign_in = (Button) findViewById(R.id.login_sign_in);
         sign_up = (Button) findViewById(R.id.login_sign_up);
+
 
 
         /*
@@ -53,9 +60,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sign_in_button(View v){
-
         // Ei jaksanut aina kirjautua ni nyt pääsee eteenpäin kun vaan painaa tuota sign in :D
-        Intent intent = new Intent(v.getContext(), Begin_screen.class);
+        Intent intent = new Intent(v.getContext(), Begin.class);
         startActivityForResult(intent, 0);
 
         /* ELÄ POISTA TÄTÄ!!!
@@ -68,5 +74,11 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(message);
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         */
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        SettingTool set = SettingTool.getInstance(this);
+        set.loadLocale();
     }
 }

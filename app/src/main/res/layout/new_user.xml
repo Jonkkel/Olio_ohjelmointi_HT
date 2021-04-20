@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100sp"
             android:layout_marginBottom="100sp"
-            android:background="#EF8FB1"
+            android:background="@color/fuchsia"
             android:fontFamily="sans-serif-black"
 
             android:gravity="center"
@@ -215,7 +215,7 @@
             android:layout_height="20dp"
             android:paddingStart="4sp"
             android:paddingEnd="4sp"
-            android:textColor="#FF0000"
+            android:textColor="@color/red"
             app:layout_constraintBottom_toTopOf="@+id/textView8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -250,7 +250,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="4sp"
             android:paddingEnd="4sp"
-            android:textColor="#FF0000"
+            android:textColor="@color/red"
             app:layout_constraintBottom_toTopOf="@+id/message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -337,7 +337,7 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:background="@drawable/login_button_theme"
             android:onClick="create_button"
@@ -348,6 +348,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.95"
             android:layout_marginBottom="30sp"
+
+            app:layout_constraintWidth_percent="0.3"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

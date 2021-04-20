@@ -21,7 +21,7 @@
         <activity android:name=".LogInTool">
         </activity>
 
-        <activity android:name=".Begin_screen">
+        <activity android:name=".Begin">
         </activity>
 
         <meta-data

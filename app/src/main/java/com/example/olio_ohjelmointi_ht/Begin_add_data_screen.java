@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Settings_screen extends Fragment{
+public class Begin_add_data_screen extends Fragment{
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_settings_screen, container, false);
+        return inflater.inflate(R.layout.fragment_add_data_screen, container, false);
     }
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
     Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi
