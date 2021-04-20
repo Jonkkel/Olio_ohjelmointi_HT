@@ -11,14 +11,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class LogInTool extends AppCompatActivity {
+public class LogInTool extends Activity {
 
     EditText username;
     EditText name;
@@ -154,6 +156,7 @@ public class LogInTool extends AppCompatActivity {
             user.setEmail(email.getText().toString());
             user.setPassword(password.getText().toString()); // setPassword method hashes the password
             user_list.add(user); // add user to user_list, using to save multiple users
+            writeTextFile(user);
             log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
             message.setText(log_in_message);
         } else {
@@ -219,6 +222,33 @@ public class LogInTool extends AppCompatActivity {
         super.onResume();
         // put your code here...
 
+    }
+
+    public void writeTextFile(User user){
+        File directory = new File(this.getFilesDir() + File.separator+user.getUsername());
+        if(!directory.exists())
+            directory.mkdir();
+        File newFile = new File(directory, "User_Info_" + user.getUsername() + ".txt");
+        if(!newFile.exists()){
+            try {
+                newFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try  {
+            FileOutputStream fOut = new FileOutputStream(newFile);
+            OutputStreamWriter outputWriter=new OutputStreamWriter(fOut);
+            outputWriter.write(getResources().getString(R.string.file_username) + user.getUsername() + "\n");
+            outputWriter.write(getResources().getString(R.string.file_name) + user.getName() + "\n");
+            outputWriter.write(getResources().getString(R.string.file_age) + user.getAge() + "\n");
+            outputWriter.write(getResources().getString(R.string.file_city) + user.getCity() + "\n");
+            outputWriter.write(getResources().getString(R.string.file_email) + user.getEmail() + "\n");
+            outputWriter.write(getResources().getString(R.string.file_password) + user.getPassword() + "\n");
+            outputWriter.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }
