@@ -44,6 +44,8 @@
     <string name="change_email">Change email</string>
     <string name="change_language">Change language</string>
 
+        <!-- for fragment2_settings_chance language.xml -->
+    <string name="choose_language">Choose language...</string>
 
 
 

@@ -1,9 +1,13 @@
 package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import java.util.Locale;
 
@@ -15,8 +19,9 @@ public class SettingTool {
     String password;
     String email;
     String city;
+    Context context;
+    int selected = -1;
 
-    Context c;
     @SuppressLint("StaticFieldLeak")
     private static SettingTool settingTool = null; // singleton
 
@@ -28,7 +33,8 @@ public class SettingTool {
         return settingTool; // return only one and same LogInTool
     }
     public void Settings(Context con){
-        this.c = con;
+        // Getting context so we can run androidstudio commands
+        this.context = con;
     }
 
     public void setUsername(String username) {
@@ -57,15 +63,29 @@ public class SettingTool {
         Locale.setDefault(locale);
         Configuration config = new Configuration();
         config.setLocale(locale);
-        c.getResources().updateConfiguration(config, c.getResources().getDisplayMetrics());
-        SharedPreferences.Editor editor = c.getSharedPreferences("settings", MODE_PRIVATE).edit();
+        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = context.getSharedPreferences("settings", MODE_PRIVATE).edit();
         editor.putString("My_lang", lang);
         editor.apply();
     }
 
     public void loadLocale(){
-        SharedPreferences prefs = c.getSharedPreferences("settings", MODE_PRIVATE);
+        SharedPreferences prefs = context.getSharedPreferences("settings", MODE_PRIVATE);
         String language = prefs.getString("My_lang", "");
         setLocale(language);
+    }
+
+    public int checkLanguage(){
+        int position = -1;
+        SharedPreferences prefs = context.getSharedPreferences("settings", MODE_PRIVATE);
+        String language = prefs.getString("My_lang", "");
+        if (language.equals("en")){
+            position = 0;
+        }else if (language.equals("fi")){
+            position = 1;
+        }else if (language.equals("sv")){
+            position = 2;
+        }
+        return position;
     }
 }

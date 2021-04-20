@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity{
         sign_in = (Button) findViewById(R.id.login_sign_in);
         sign_up = (Button) findViewById(R.id.login_sign_up);
 
-
-
         /*
         Android studio ehdotti että vaihda
         TÄMÄ:

@@ -56,7 +56,7 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
         item.setEnabled(false);
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.Main_fragment, fragment);
+        transaction.replace(R.id.Main_fragment, fragment, "TAG");
         transaction.commit();
         return true;
     }
@@ -72,4 +72,6 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
         }
         pressedTime = System.currentTimeMillis();
     }
+
+
 }

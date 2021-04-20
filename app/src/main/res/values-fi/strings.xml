@@ -41,6 +41,7 @@
     <string name="change_home_city">Vaihda kotikaupunki</string>
     <string name="change_email">Vaihda sähköposti</string>
     <string name="change_language">Vaihda kieli</string>
+    <string name="choose_language">Valitse kieli...</string>
 
 
 </resources>

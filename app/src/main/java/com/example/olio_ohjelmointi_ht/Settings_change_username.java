@@ -17,7 +17,7 @@ public class Settings_change_username extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_settings_change_username, container, false);
+        return inflater.inflate(R.layout.fragment2_settings_change_username, container, false);
     }
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
     Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi*/
@@ -25,9 +25,19 @@ public class Settings_change_username extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         exit = (Button) view.findViewById(R.id.exit_btn);
         exit.setOnClickListener(item ->{
-            FragmentManager manager = getActivity().getSupportFragmentManager();
-            manager.beginTransaction().remove(this).commit();
+            loadFragment(new Begin_settings_screen());
+
         });
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // create a FragmentManager
+        FragmentManager fm = getFragmentManager();
+        // create a FragmentTransaction to begin the transaction and replace the Fragment
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        // replace the FrameLayout with new Fragment
+        fragmentTransaction.replace(R.id.Main_fragment, fragment);
+        fragmentTransaction.commit(); // save the changes
     }
 }
