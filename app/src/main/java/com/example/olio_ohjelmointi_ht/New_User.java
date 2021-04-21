@@ -3,6 +3,7 @@ package com.example.olio_ohjelmointi_ht;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.fonts.SystemFonts;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import java.io.IOException;
 
 public class New_User extends Fragment {
     EditText username;
@@ -135,30 +138,29 @@ public class New_User extends Fragment {
             }
 
         });
-        create.setOnClickListener(item -> create_button());
+        create.setOnClickListener(item -> {
+            try {
+                create_button();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    public void create_button(){
+    public void create_button() throws IOException {
         LIT = LogInTool.getInstance(c);
-        log_in_message = LIT.create_user(username, name, age, city, email, password, password2);
-        if(log_in_message.equals(c.getString(R.string.fill_both))){
-            // täytä molemmat
-            message.setText(log_in_message);
-        }
-        else if(log_in_message.equals(c.getString(R.string.no_user))){
-            // käyttäjää ei ole
-            message.setText(log_in_message);
-        }
-        else if(log_in_message.equals(c.getString(R.string.wrong_password))){
-            // väärä salis
-            message.setText(log_in_message);
-        }
-        else if(log_in_message.equals(c.getString(R.string.welcome))){
+        System.out.println("TULEEKO TÄNNE");
+        log_in_message = LIT.create_user(username.getText().toString(), name.getText().toString(), age.getText().toString(), city.getText().toString(), email.getText().toString(), password.getText().toString(), password2.getText().toString());
+        if(log_in_message.equals(c.getString(R.string.welcome))){
             // päääsit sisään
             message.setText(log_in_message);
             Intent intent = new Intent(getActivity(), Begin.class);
             startActivity(intent);
             ((Activity)getActivity()).overridePendingTransition(0,0);
+        }
+        else {
+            // käyttäjää ei ole
+            message.setText(log_in_message);
         }
     }
 

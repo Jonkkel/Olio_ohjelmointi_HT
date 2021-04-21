@@ -4,11 +4,16 @@ import android.annotation.SuppressLint;
 
 import android.content.Context;
 
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.math.BigInteger;
@@ -18,7 +23,7 @@ import java.util.ArrayList;
 
 public class LogInTool {
 
-    String password_text;
+
     String log_in_message;
     String result;
     Context c;
@@ -40,18 +45,18 @@ public class LogInTool {
         this.c = con;
     }
 
-    public String create_user(EditText username, EditText name, EditText age, EditText city, EditText email, EditText password, EditText password2) { // adds user to user_list, creates user
-        if (password2.getText().toString().equals(password_text) && (!password_text.equals("")) && (!username.getText().toString().equals("")) && (!name.getText().toString().equals("")) && (!age.getText().toString().equals("")) && (!city.getText().toString().equals("")) && (!email.getText().toString().equals(""))) {
+    public String create_user(String username, String name, String age, String city, String email, String password, String password2) throws IOException { // adds user to user_list, creates user
+        if (password2.equals(password) && (!password.equals("")) && (!username.equals("")) && (!name.equals("")) && (!age.equals("")) && (!city.equals("")) && (!email.equals(""))) {
             User user = new User(); // Create a new user and get information from edittexts
-            user.setUsername(username.getText().toString());
-            user.setName(name.getText().toString());
-            user.setAge(Integer.valueOf((age.getText().toString())));
-            user.setCity(city.getText().toString());
-            user.setEmail(email.getText().toString());
-            user.setPassword(password.getText().toString()); // setPassword method hashes the password
+            user.setUsername(username);
+            user.setName(name);
+            user.setAge(Integer.valueOf((age)));
+            user.setCity(city);
+            user.setEmail(email);
+            user.setPassword(password); // setPassword method hashes the password
             user_list.add(user); // add user to user_list, using to save multiple users
             writeTextFile(user);
-            log_in_message = sign_in(username.getText().toString(), password.getText().toString());
+            log_in_message = sign_in2(username, password);
             //message.setText(log_in_message);
         } else {
             //message.setText(getResources().getString(R.string.error));
@@ -84,6 +89,57 @@ public class LogInTool {
         }
         return result; // returns a feedback for user
     }
+
+    public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
+        //System.out.println(user_list.size());
+        //ÄLÄ KOSKE
+        if (username.equals("") || password.equals("")) { // user needs to fill both fields to sign in
+            result = c.getString(R.string.fill_both);
+            // JOS EI LÖYDY TIEDOSTOJA
+            // c.getFilesDir() + File.separator + username + File.separator + username TIEDOSTO JOKA HALUTAAN LÖYTÄÄ JA LUKEA
+        } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
+            System.out.println("testi1");
+            result = c.getString(R.string.no_user);
+        } else { // JOS LÖYTYY TIEDOSTO OIKEELLA NIMELLÄ JA TSEKKAA SALIS
+            for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
+                System.out.println("testi");
+                System.out.println(file);
+                System.out.println(c.getFilesDir() + File.separator + username);
+                for(File user_file: file){
+
+                }
+                if (file.toString().equals(c.getFilesDir() + username)) {
+                    System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
+                    //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
+                    FileReader fr = new FileReader(file + File.separator + "User_Info_" + username + ".txt");  //Creation of File Reader object
+                    BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
+                    String[] words = null;
+                    String content = null;
+                    while ((content = br.readLine()) != null) {   //Reading Content from the file
+                        words = content.split(":");  //Split the word using :
+                        System.out.println("testitestitesti");
+                        for (String word : words) {
+                            if (word.equals(encrypt(password))) {   //Search for the given word
+                                result = c.getString(R.string.welcome);
+                            } // IF
+                            else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
+                                System.out.println("testi2"); // if user is found, but password is not correct
+                                result = c.getString(R.string.wrong_password);
+                            } // ELSE
+                        }// FOR
+                    }
+                }else{ // ÄLÄKOSKEE
+                    System.out.println("testi3"); // if no user on given username is found
+                    result = c.getString(R.string.no_user);
+                }
+            }
+        }
+
+        return result; // returns a feedback for user
+    }
+
+
+
 
     public static String encrypt(String input) {
         try {
