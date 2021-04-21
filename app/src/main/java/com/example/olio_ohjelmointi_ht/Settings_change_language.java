@@ -1,5 +1,6 @@
 package com.example.olio_ohjelmointi_ht;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 
@@ -36,19 +38,22 @@ public class Settings_change_language extends DialogFragment {
             }else if(which == 1){
                 settingTool.setLocale("fi");
             }else if(which == 2){
-                settingTool.setLocale("sv");
+                //TODO
+                //settingTool.setLocale("sv");
             }
         });
         builder.setPositiveButton("Ok", (dialog, which) -> {
-            Fragment frg = null;
-            frg = getActivity().getSupportFragmentManager().findFragmentByTag("TAG");
-            final FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            assert getFragmentManager() != null;
+            Fragment frg = getFragmentManager().findFragmentByTag("TAG");
+            final FragmentTransaction ft = getFragmentManager().beginTransaction();
+            assert frg != null;
             ft.detach(frg);
             ft.attach(frg);
             ft.commit();
+            dismiss();
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> {
-
+            dismiss();
         });
         AlertDialog dialog = builder.create();
         dialog.show();

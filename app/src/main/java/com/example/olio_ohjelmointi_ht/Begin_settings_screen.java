@@ -1,5 +1,6 @@
 package com.example.olio_ohjelmointi_ht;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import android.os.Bundle;
@@ -19,11 +20,13 @@ import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class Begin_settings_screen extends Fragment{
+public class Begin_settings_screen extends Fragment implements View.OnClickListener, Settings_change_age.DialogListener{
 
     Button change_username_button;
+    Button change_age_button;
+    Button change_home_city_button;
+    Button change_email_button;
     Button change_language_button;
-
 
     @Nullable
     @Override
@@ -33,30 +36,106 @@ public class Begin_settings_screen extends Fragment{
         settingTool.loadLocale();
         View v = inflater.inflate(R.layout.fragment_settings_screen, container, false);
         change_username_button = (Button) v.findViewById(R.id.change_username_btn);
+        change_age_button = (Button) v.findViewById(R.id.change_age_btn);
+        change_home_city_button = (Button) v.findViewById(R.id.change_home_city_btn);
+        change_email_button = (Button) v.findViewById(R.id.change_email_btn);
         change_language_button = (Button) v.findViewById(R.id.change_language_btn);
-        change_username_button.setOnClickListener(item -> change_fragment("change username"));
-        change_language_button.setOnClickListener(item -> change_fragment("change language"));
+
+        change_username_button.setOnClickListener(this);
+        change_age_button.setOnClickListener(this);
+        change_home_city_button.setOnClickListener(this);
+        change_email_button.setOnClickListener(this);
+        change_language_button.setOnClickListener(this);
         return v;
     }
 
-    public void change_fragment(String type){
-        Fragment fragment = null;
-        if (type.equals("change username")){
-            fragment = new Settings_change_username();
-        }else if(type.equals("change city")){
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View view){
 
-        }else if(type.equals("change age")){
+        switch (view.getId()) {
+            case R.id.change_username_btn:
+                Settings_change_age dialogFragment = new Settings_change_age();
+                Bundle bundle = new Bundle();
+                bundle.putString("text", "Username: ");
+                bundle.putString("type", "username");
+                dialogFragment.setArguments(bundle);
 
-        }else if(type.equals("change asd")){
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.New_setting_fragment, dialogFragment);
 
-        }else if(type.equals("change language")){
-            fragment = new Settings_change_language();
-        }else{
+                transaction.commit();
+                break;
+            case R.id.change_age_btn:
+                dialogFragment = new Settings_change_age();
+                bundle = new Bundle();
+                bundle.putString("text", "Age: ");
+                bundle.putString("type", "age");
+                dialogFragment.setArguments(bundle);
+
+                transaction = getFragmentManager().beginTransaction();
+                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    transaction.remove(prev);
+                }
+                transaction.addToBackStack(null);
+
+                dialogFragment.show(transaction, "dialog");
+
+                break;
+            case R.id.change_home_city_btn:
+                dialogFragment = new Settings_change_age();
+                bundle = new Bundle();
+                bundle.putString("text", "City: ");
+                bundle.putString("type", "city");
+                dialogFragment.setArguments(bundle);
+
+                transaction = getFragmentManager().beginTransaction();
+                prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    transaction.remove(prev);
+                }
+                transaction.addToBackStack(null);
+
+                dialogFragment.show(transaction, "dialog");
+                break;
+            case R.id.change_email_btn:
+                dialogFragment = new Settings_change_age();
+                bundle = new Bundle();
+                bundle.putString("text", "Email: ");
+                bundle.putString("type", "email");
+                dialogFragment.setArguments(bundle);
+
+                transaction = getFragmentManager().beginTransaction();
+                prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    transaction.remove(prev);
+                }
+                transaction.addToBackStack(null);
+
+                dialogFragment.show(transaction, "dialog");
+                break;
+            case R.id.change_language_btn:
+                dialogFragment = new Settings_change_age();
+                bundle = new Bundle();
+                bundle.putString("text", "Language: ");
+                bundle.putString("type", "language");
+
+                transaction = getFragmentManager().beginTransaction();
+                prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    transaction.remove(prev);
+                }
+                transaction.addToBackStack(null);
+
+                dialogFragment.show(transaction, "dialog");
+                break;
 
         }
-        FragmentManager manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.settings_framelayout, fragment);
-        transaction.commit();
+    };
+
+    @Override
+    public void onFinishEditDialog(String inputText) {
+        System.out.println("JOOEJEROJE");
     }
 }

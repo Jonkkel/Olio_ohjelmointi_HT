@@ -78,7 +78,7 @@ public class SettingTool {
     public int checkLanguage(){
         int position = -1;
         SharedPreferences prefs = context.getSharedPreferences("settings", MODE_PRIVATE);
-        String language = prefs.getString("My_lang", "");
+        String language = prefs.getString("My_lang", "en");
         if (language.equals("en")){
             position = 0;
         }else if (language.equals("fi")){
