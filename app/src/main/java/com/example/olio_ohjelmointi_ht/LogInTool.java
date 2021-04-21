@@ -40,7 +40,7 @@ public class LogInTool {
         this.c = con;
     }
 
-    public String create_user(EditText username, EditText name, EditText age, EditText city, EditText email, EditText password, EditText password2, View v) { // adds user to user_list, creates user
+    public String create_user(EditText username, EditText name, EditText age, EditText city, EditText email, EditText password, EditText password2) { // adds user to user_list, creates user
         if (password2.getText().toString().equals(password_text) && (!password_text.equals("")) && (!username.getText().toString().equals("")) && (!name.getText().toString().equals("")) && (!age.getText().toString().equals("")) && (!city.getText().toString().equals("")) && (!email.getText().toString().equals(""))) {
             User user = new User(); // Create a new user and get information from edittexts
             user.setUsername(username.getText().toString());
@@ -51,7 +51,7 @@ public class LogInTool {
             user.setPassword(password.getText().toString()); // setPassword method hashes the password
             user_list.add(user); // add user to user_list, using to save multiple users
             writeTextFile(user);
-            log_in_message = sign_in(username.getText().toString(), password.getText().toString(), v);
+            log_in_message = sign_in(username.getText().toString(), password.getText().toString());
             //message.setText(log_in_message);
         } else {
             //message.setText(getResources().getString(R.string.error));
@@ -60,7 +60,7 @@ public class LogInTool {
         return log_in_message;
     }
 
-    public String sign_in(String username, String password, View v) { // let user sign in and use the app
+    public String sign_in(String username, String password) { // let user sign in and use the app
         System.out.println(user_list.size());
         if (username.equals("") || password.equals("")){ // user needs to fill both fields to sign in
             result = c.getString(R.string.fill_both);

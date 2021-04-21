@@ -44,7 +44,7 @@
     <string name="change_email">Change email</string>
     <string name="change_language">Change language</string>
 
-    <string name="choose language">Choose language...</string>
+    <string name="choose_language">Choose language...</string>
 
     <!-- for user_file.txt -->
     <string name="file_username" translatable="false">Username:</string>

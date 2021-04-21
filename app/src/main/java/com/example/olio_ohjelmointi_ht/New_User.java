@@ -39,6 +39,27 @@ public class New_User extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_new_user, container, false);
+
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Finding text boxes etc. from the layout
+        username = (EditText) view.findViewById(R.id.username);
+        name = (EditText) view.findViewById(R.id.name);
+        age = (EditText) view.findViewById(R.id.age);
+        city = (EditText) view.findViewById(R.id.homeCity);
+        email = (EditText) view.findViewById(R.id.email);
+        password = (EditText) view.findViewById(R.id.password);
+        password2 = (EditText) view.findViewById(R.id.password2);
+        password_requirements = (TextView) view.findViewById(R.id.requirements);
+        password_match = (TextView) view.findViewById(R.id.password_match);
+        message = (TextView) view.findViewById(R.id.message);
+        create = (Button) view.findViewById(R.id.create_button);
+        c = getContext();
+
         password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
             @Override
             public void afterTextChanged(Editable s) {
@@ -114,32 +135,12 @@ public class New_User extends Fragment {
             }
 
         });
-        create.setOnClickListener(item -> create_button(v));
-
-        return inflater.inflate(R.layout.fragment_new_user, container, false);
+        create.setOnClickListener(item -> create_button());
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        // Finding text boxes etc. from the layout
-        username = (EditText) view.findViewById(R.id.username);
-        name = (EditText) view.findViewById(R.id.name);
-        age = (EditText) view.findViewById(R.id.age);
-        city = (EditText) view.findViewById(R.id.homeCity);
-        email = (EditText) view.findViewById(R.id.email);
-        password = (EditText) view.findViewById(R.id.password);
-        password2 = (EditText) view.findViewById(R.id.password2);
-        password_requirements = (TextView) view.findViewById(R.id.requirements);
-        password_match = (TextView) view.findViewById(R.id.password_match);
-        message = (TextView) view.findViewById(R.id.message);
-        create = (Button) view.findViewById(R.id.create_button);
-        c = getContext();
-    }
-
-    public void create_button(View v){
+    public void create_button(){
         LIT = LogInTool.getInstance(c);
-        log_in_message = LIT.create_user(username, name, age, city, email, password, password2, v);
+        log_in_message = LIT.create_user(username, name, age, city, email, password, password2);
         if(log_in_message.equals(c.getString(R.string.fill_both))){
             // täytä molemmat
             message.setText(log_in_message);
@@ -161,10 +162,4 @@ public class New_User extends Fragment {
         }
     }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        // put your code here...
-
-    }
 }

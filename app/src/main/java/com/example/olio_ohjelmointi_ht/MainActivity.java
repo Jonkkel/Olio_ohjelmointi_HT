@@ -2,6 +2,7 @@ package com.example.olio_ohjelmointi_ht;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -22,7 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity{
 
     EditText login_username;
     EditText login_password;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     String username;
     String password;
     String message;
-    Button sign_up, sign_in;
+    AppCompatButton sign_up, sign_in;
     MenuItem lastItem = null;
 
     @Override
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         login_password = (EditText) findViewById(R.id.login_password);
         message_box = (TextView) findViewById(R.id.message_box);
 
-        sign_in = (Button) findViewById(R.id.login_sign_in);
-        sign_up = (Button) findViewById(R.id.login_sign_up);
+        sign_in = (AppCompatButton) findViewById(R.id.login_sign_in);
+        sign_up = (AppCompatButton) findViewById(R.id.login_sign_up);
 
         /*
         Android studio ehdotti että vaihda
@@ -59,8 +60,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
          Tällaiseen*/
         sign_up.setOnClickListener(v -> { // set click listener for sign up button--> change layout if pressed
-            Intent intent = new Intent(v.getContext(), LogInTool.class);
-            startActivityForResult(intent, 0);
+            //Intent intent = new Intent(v.getContext(), LogInTool.class);
+            //startActivityForResult(intent, 0);
+            Fragment fragment;
+            // If any button has been pressed then lets set it back to enabled
+            fragment = new New_User();
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.New_user_fragment, fragment);
+            transaction.commit();
         });
     }
 
@@ -80,26 +88,4 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         */
     }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Fragment fragment;
-        // If any button has been pressed then lets set it back to enabled
-        if (lastItem != null) {
-            lastItem.setEnabled(true);
-        }
-        if (item.getItemId() == R.id.login_sign_up) {
-            fragment = new New_User();
-        }
-        else{
-                return false;
-            }
-            lastItem = item;
-            item.setEnabled(false);
-            FragmentManager manager = getSupportFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.New_user_fragment, fragment);
-            transaction.commit();
-            return true;
-        }
-    }
+}
