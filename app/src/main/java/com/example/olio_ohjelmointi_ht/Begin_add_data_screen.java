@@ -8,14 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Begin_add_data_screen extends Fragment{
+import java.util.ArrayList;
 
+public class Begin_add_data_screen extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_add_data_screen, container, false);
     }
+}
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
     Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi
     @Override
@@ -23,24 +25,3 @@ public class Begin_add_data_screen extends Fragment{
         super.onViewCreated(view, savedInstanceState);
     }
     */
-
-    ImageCarousel carousel = findViewById(R.id.carousel);
-
-    List<CarouselItem> list = new ArrayList<>();
-
-list.add(
-        new CarouselItem(
-            imageUrl = "https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?w=1080",
-            caption = "Photo by Aaron Wu on Unsplash"
-    )
-)
-        list.add(
-        new CarouselItem(
-            imageUrl = "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080",
-            caption = "Photo by Johannes Plenio on Unsplash"
-    )
-)
-// ...
-
-        carousel.addData(list);
-}

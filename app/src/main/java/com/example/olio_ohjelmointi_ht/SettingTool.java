@@ -40,22 +40,75 @@ public class SettingTool {
         this.context = con;
     }
 
-    public void changeUsername(String newUsername){
-        User user = getUserInformation();
-        if (user == null){
-            System.out.println("Error");
-        }else{
-
-        }
-    }
-
-
     public Boolean checkUsernameAvailability(String username){
         File directory = new File(context.getFilesDir() + File.separator + username); // create a folder
         if (!directory.exists()) {
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
+        }
+    }
+
+    public void changeUsername(String newUsername){
+        User user = getUserInformation();
+        test(user);
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setName(newUsername);
+            saveUserInformation(user);
+            user = getUserInformation();
+            test(user);
+        }
+    }
+
+    public void changeUserAge(String newAge){
+        User user = getUserInformation();
+        test(user);
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setAge(Integer.parseInt((newAge)));
+            saveUserInformation(user);
+            user = getUserInformation();
+            test(user);
+        }
+    }
+    public void test(User user){
+        String username = user.getUsername();
+        System.out.println(username);
+        Integer age = user.getAge();
+        System.out.println(age);
+        String city = user.getCity();
+        System.out.println(city);
+        String email = user.getEmail();
+        System.out.println(email);
+
+    }
+
+    public void changeUserCity(String newCity){
+        User user = getUserInformation();
+        test(user);
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setCity(newCity);
+            saveUserInformation(user);
+            user = getUserInformation();
+            test(user);
+        }
+    }
+
+    public void changeUserEmail(String newEmail){
+        User user = getUserInformation();
+        test(user);
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setEmail(newEmail);
+            saveUserInformation(user);
+            user = getUserInformation();
+            test(user);
         }
     }
 
@@ -106,6 +159,9 @@ public class SettingTool {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        SharedPreferences.Editor editor = context.getSharedPreferences("User", MODE_PRIVATE).edit();
+        editor.putString("Current User", user.getUsername());
+        editor.apply();
     }
 
 

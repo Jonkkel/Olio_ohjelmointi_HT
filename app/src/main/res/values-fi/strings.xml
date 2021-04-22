@@ -36,12 +36,15 @@
     <string name="bottom_nav_home">Koti</string>
     <string name="bottom_nav_statistics">Kuvaajat</string>
     <string name="bottom_nav_settings">Asetukset</string>
+
+    <!-- for fragment_settings_screen.xml -->
     <string name="change_username">Vaihda käyttäjänimi</string>
     <string name="change_age">Vaihda ikä</string>
     <string name="change_home_city">Vaihda kotikaupunki</string>
     <string name="change_email">Vaihda sähköposti</string>
     <string name="change_language">Vaihda kieli</string>
     <string name="choose_language">Valitse kieli...</string>
+    <string name="usernameTaken">Käyttäjänimi on jo käytössä.</string>
 
 
 </resources>
