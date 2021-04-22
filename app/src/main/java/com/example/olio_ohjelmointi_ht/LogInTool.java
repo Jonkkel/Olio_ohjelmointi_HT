@@ -71,7 +71,104 @@ public class LogInTool implements Serializable {
         return log_in_message;
     }
 
-    public String sign_in(String username, String password) { // let user sign in and use the app
+    // encrypt password
+    public static String encrypt(String input) {
+        try {
+            // getInstance() method is called with algorithm SHA-512
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            // digest() method is called
+            // to calculate message digest of the input string
+            // returned as array of byte
+            byte[] messageDigest = md.digest(input.getBytes());
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+            // Add preceding 0s to make it 32 bit
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+            //System.out.println(hashtext);
+            return hashtext;
+        }
+        // For specifying wrong message digest algorithms
+        catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
+        if (username.equals("") || password.equals("")) { // user needs to fill both fields to sign in
+            result = c.getString(R.string.fill_both);
+        } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
+            //System.out.println("testi1");
+            result = c.getString(R.string.no_user); // gives feedback to user
+        } else { // if file with users name is found, let's check if the given password is right
+            for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
+                //System.out.println("fuletulostin:" + file.toString());
+                File file2 = new File(c.getFilesDir() + File.separator + username);
+                //System.out.println("file2:" + file2 .toString());
+                if (file.equals(file2)) { // if right file is found
+                    File fileName = new File(file,   "User_Info_" + username + ".txt"); // users info is in this folder if found
+                    FileInputStream fIn = new FileInputStream(fileName);
+                    ObjectInputStream is = new ObjectInputStream(fIn);
+                    try {
+                        System.out.println(fileName.toString());
+                        User user1 = (User) is.readObject(); // read the object User from file
+                        //System.out.println(user1.getName());
+                        is.close(); // close FileInputStream
+                        fIn.close(); // close ObjectInputStream
+                        if(user1.getPassword().equals(encrypt(password))){ // if the given password is the same as the one in the file
+                            SharedPreferences.Editor editor = c.getSharedPreferences("User", MODE_PRIVATE).edit();
+                            editor.putString("Current User", username);
+                            editor.apply();
+                            result = c.getString(R.string.welcome); // feedback for user
+                        }else { // if the password is wrong
+                            //System.out.println("testi2");
+                            result = c.getString(R.string.wrong_password);
+                        }
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    System.out.println("testi3"); // if no user on given username is found
+                    result = c.getString(R.string.no_user);
+                }
+            }
+        }
+
+        return result; // returns a feedback for user
+    }
+
+    public void writeTextFile(User user) {
+        File directory = new File(c.getFilesDir() + File.separator + user.getUsername()); // create a folder
+        if (!directory.exists()) // if directory doesn't exist, create it
+            directory.mkdir();
+        File newFile = new File(directory,  "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
+        if(!newFile.exists()){ // if the file doesn't exist, create it
+            try {
+                newFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            //System.out.println(newFile.toString());
+            FileOutputStream fOut =  new FileOutputStream(newFile); // write users information to file
+            ObjectOutputStream outputWriter = new ObjectOutputStream(fOut);
+            outputWriter.writeObject(user); // write User object to the file
+            outputWriter.close(); // close file
+            fOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+   /* public String sign_in(String username, String password) { // let user sign in and use the app
         System.out.println(user_list.size());
         if (username.equals("") || password.equals("")){ // user needs to fill both fields to sign in
             result = c.getString(R.string.fill_both);
@@ -95,7 +192,7 @@ public class LogInTool implements Serializable {
         }
         return result; // returns a feedback for user
     }
-/*
+
     public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
         //System.out.println(user_list.size());
         //ÄLÄ KOSKE
@@ -144,34 +241,7 @@ public class LogInTool implements Serializable {
         return result; // returns a feedback for user
     }*/
 
-
-    public static String encrypt(String input) {
-        try {
-            // getInstance() method is called with algorithm SHA-512
-            MessageDigest md = MessageDigest.getInstance("SHA-512");
-            // digest() method is called
-            // to calculate message digest of the input string
-            // returned as array of byte
-            byte[] messageDigest = md.digest(input.getBytes());
-            // Convert byte array into signum representation
-            BigInteger no = new BigInteger(1, messageDigest);
-            // Convert message digest into hex value
-            String hashtext = no.toString(16);
-            // Add preceding 0s to make it 32 bit
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
-            //System.out.println(hashtext);
-            // return the HashText
-            return hashtext;
-        }
-        // For specifying wrong message digest algorithms
-        catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    // make folder and write file for each user
+// make folder and write file for each user
     /*
     public void writeTextFile(User user){
         File directory = new File(c.getFilesDir() + File.separator + user.getUsername()); // create a folder
@@ -199,81 +269,3 @@ public class LogInTool implements Serializable {
             e.printStackTrace();
         }
     }*/
-
-    public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
-        //System.out.println(user_list.size());
-        //ÄLÄ KOSKE
-        if (username.equals("") || password.equals("")) { // user needs to fill both fields to sign in
-            result = c.getString(R.string.fill_both);
-            // JOS EI LÖYDY TIEDOSTOJA
-            // c.getFilesDir() + File.separator + username + File.separator + username TIEDOSTO JOKA HALUTAAN LÖYTÄÄ JA LUKEA
-
-        } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
-            System.out.println("testi1");
-            result = c.getString(R.string.no_user);
-
-        } else { // JOS LÖYTYY TIEDOSTO OIKEELLA NIMELLÄ JA TSEKKAA SALIS
-            for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
-                System.out.println("fuletulostin:" + file.toString());
-                File file2 = new File(c.getFilesDir() + File.separator + username);
-                System.out.println("file2:" + file2 .toString());
-                if (file.equals(file2)) {
-                    System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
-                    //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
-                    File fileName = new File(file,   "User_Info_" + username + ".txt");
-                    FileInputStream fIn = new FileInputStream(fileName);
-                    ObjectInputStream is = new ObjectInputStream(fIn);
-                    try {
-                        System.out.println(fileName.toString());
-                        System.out.println("jJEE");
-                        User user1 = (User) is.readObject();
-                        System.out.println(user1.getName());
-                        is.close();
-                        fIn.close();
-                        if(user1.getPassword().equals(encrypt(password))){
-                            SharedPreferences.Editor editor = c.getSharedPreferences("User", MODE_PRIVATE).edit();
-                            editor.putString("Current User", username);
-                            editor.apply();
-                            result = c.getString(R.string.welcome);
-                        }else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
-                            System.out.println("testi2"); // if user is found, but password is not correct
-                            result = c.getString(R.string.wrong_password);
-                        } // ELSE
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                }else{ // ÄLÄKOSKEE
-                    System.out.println("testi3"); // if no user on given username is found
-                    result = c.getString(R.string.no_user);
-                }
-            }
-        }
-
-        return result; // returns a feedback for user
-    }
-
-    public void writeTextFile(User user) {
-        File directory = new File(c.getFilesDir() + File.separator + user.getUsername()); // create a folder
-        if (!directory.exists())
-            directory.mkdir();
-        File newFile = new File(directory,  "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
-        if(!newFile.exists()){
-            try {
-                newFile.createNewFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        try {
-            System.out.println(newFile.toString());
-            FileOutputStream fOut =  new FileOutputStream(newFile); // write users information to file
-            ObjectOutputStream outputWriter = new ObjectOutputStream(fOut);
-            outputWriter.writeObject(user);
-            outputWriter.close(); // close file
-            fOut.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-}
