@@ -72,13 +72,14 @@ public class Settings_DialogFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TextView dialogTitle = (TextView) getView().findViewById(R.id.title);
-        TextView errorText = (TextView) getView().findViewById(R.id.title);
+        TextView usernameError = (TextView) getView().findViewById(R.id.usernameError);
         dialogTitle.setText(change);
-
+        Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
         // set hint to fragmentDialog EditText
         EditText  editText = (EditText) getView().findViewById(R.id.changeSth);
         editText.setHint(hint);
         editText.setInputType(inputType);
+
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -91,21 +92,30 @@ public class Settings_DialogFragment extends DialogFragment {
                 if (getArguments().getString("type").equals("username"));{
                     String newUsername = editText.getText().toString();
                     if(settingTool.checkUsernameAvailability(newUsername)){
-
+                        usernameError.setText(getContext().getString(R.string.usernameTaken));
+                        dialogButton.setEnabled(false);
                     }else{
-
+                        dialogButton.setEnabled(true);
                     }
                 }
-
             }
         });
 
-        Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
         // if button is clicked, close the custom dialog
-        dialogButton.setOnClickListener(i ->
-                //SettingTool.setUsername();
-                dismiss()
-        );
+        dialogButton.setOnClickListener(i ->{
+            String value = editText.getText().toString();
+            if (getArguments().getString("type").equals("username")){
+                settingTool.changeUsername(value);
+            }else if (getArguments().getString("type").equals("age")){
+                settingTool.changeUserAge(value);
+            }else if (getArguments().getString("type").equals("city")){
+                settingTool.changeUserCity(value);
+            }else if (getArguments().getString("type").equals("email")){
+                settingTool.changeUserEmail(value);
+            }
+            dismiss();
+        });
+
     }
 
     public AlertDialog showChangeLanguageDialog() {

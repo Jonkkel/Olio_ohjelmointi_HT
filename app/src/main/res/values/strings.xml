@@ -45,6 +45,7 @@
     <string name="change_language">Change language</string>
 
     <string name="choose_language">Choose language...</string>
+    <string name="usernameTaken">Username already taken</string>
 
     <!-- for user_file.txt -->
     <string name="file_username" translatable="false">Username:</string>

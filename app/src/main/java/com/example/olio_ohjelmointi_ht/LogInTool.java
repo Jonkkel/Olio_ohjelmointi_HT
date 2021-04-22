@@ -21,6 +21,8 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -100,39 +102,50 @@ public class LogInTool implements Serializable {
 
 
     public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
+        //System.out.println(user_list.size());
+        //ÄLÄ KOSKE
         if (username.equals("") || password.equals("")) { // user needs to fill both fields to sign in
             result = c.getString(R.string.fill_both);
+            // JOS EI LÖYDY TIEDOSTOJA
+            // c.getFilesDir() + File.separator + username + File.separator + username TIEDOSTO JOKA HALUTAAN LÖYTÄÄ JA LUKEA
+
         } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
-            //System.out.println("testi1");
-            result = c.getString(R.string.no_user); // gives feedback to user
-        } else { // if file with users name is found, let's check if the given password is right
+            System.out.println("testi1");
+            result = c.getString(R.string.no_user);
+
+        } else { // JOS LÖYTYY TIEDOSTO OIKEELLA NIMELLÄ JA TSEKKAA SALIS
             for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
-                //System.out.println("fuletulostin:" + file.toString());
-                File file2 = new File(c.getFilesDir() + File.separator + username);
-                //System.out.println("file2:" + file2 .toString());
-                if (file.equals(file2)) { // if right file is found
-                    File fileName = new File(file,   "User_Info_" + username + ".txt"); // users info is in this folder if found
+
+                Path path1 = Paths.get(String.valueOf(file));
+                Path path2 = Paths.get(c.getFilesDir() + File.separator + username);
+                System.out.println("path1:" + path1.toString());
+                System.out.println("path2:" + path2.toString());
+                if (path1.equals(path2)) {
+                    System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
+                    //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
+                    File fileName = new File(file,   "User_Info_" + username + ".txt");
                     FileInputStream fIn = new FileInputStream(fileName);
                     ObjectInputStream is = new ObjectInputStream(fIn);
                     try {
                         System.out.println(fileName.toString());
-                        User user1 = (User) is.readObject(); // read the object User from file
-                        //System.out.println(user1.getName());
-                        is.close(); // close FileInputStream
-                        fIn.close(); // close ObjectInputStream
-                        if(user1.getPassword().equals(encrypt(password))){ // if the given password is the same as the one in the file
+                        System.out.println("jJEE");
+                        User user1 = (User) is.readObject();
+                        System.out.println(user1.getName());
+                        is.close();
+                        fIn.close();
+                        if(user1.getPassword().equals(encrypt(password))){
                             SharedPreferences.Editor editor = c.getSharedPreferences("User", MODE_PRIVATE).edit();
                             editor.putString("Current User", username);
                             editor.apply();
-                            result = c.getString(R.string.welcome); // feedback for user
-                        }else { // if the password is wrong
-                            //System.out.println("testi2");
+                            result = c.getString(R.string.welcome);
+                        }else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
+                            System.out.println("testi2"); // if user is found, but password is not correct
                             result = c.getString(R.string.wrong_password);
-                        }
+                        } // ELSE
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
                     }
-                }else{
+                }else{ // ÄLÄKOSKEE
                     System.out.println("testi3"); // if no user on given username is found
                     result = c.getString(R.string.no_user);
                 }

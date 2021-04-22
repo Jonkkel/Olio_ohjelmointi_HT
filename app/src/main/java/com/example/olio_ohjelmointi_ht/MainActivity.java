@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity{
     String password;
     String message;
     AppCompatButton sign_up, sign_in;
-    MenuItem lastItem = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +74,11 @@ public class MainActivity extends AppCompatActivity{
 
     public void sign_in_button(View v) throws IOException {
         // Ei jaksanut aina kirjautua ni nyt pääsee eteenpäin kun vaan painaa tuota sign in :D
-        Intent intent = new Intent(v.getContext(), Begin.class);
-        startActivityForResult(intent, 0);
-        finish();
+        //Intent intent = new Intent(v.getContext(), Begin.class);
+        //startActivityForResult(intent, 0);
+        //finish();
 
-        /* Toimiva pätkä koodia
+        // Toimiva pätkä koodia
         LogInTool LIT = LogInTool.getInstance(this); // get logintool, singleton
         username = login_username.getText().toString(); // read username that user wrote
         password = login_password.getText().toString(); // read password that user wrote
@@ -89,8 +88,9 @@ public class MainActivity extends AppCompatActivity{
         System.out.println(message);
         Intent intent = new Intent(v.getContext(), Begin.class);
         startActivityForResult(intent, 0);
+        finish();
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-        */
+        //
     }
 
 }
