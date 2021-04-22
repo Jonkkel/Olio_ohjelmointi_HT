@@ -1,4 +1,5 @@
 package com.example.olio_ohjelmointi_ht;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,18 +15,20 @@ import androidx.fragment.app.Fragment;
 public class Begin_home_screen extends Fragment implements View.OnClickListener{
 
     TextView welcome;
-
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Context c = getActivity();
-        final View v = inflater.inflate(R.layout.fragment_home_screen, container, false);
+        Context c = getContext();
         SharedPreferences prefs = c.getSharedPreferences("User", Context.MODE_PRIVATE);
         String username = prefs.getString("Current User", "");
+
+        View v = inflater.inflate(R.layout.fragment_home_screen, container, false);
+
         welcome = (TextView) v.findViewById(R.id.welcome_back);
         System.out.println(c.getString(R.string.home_welcome) + username);
         welcome.setText(c.getString(R.string.home_welcome) + " " + username); // KATO MIKSI EI TOIMI
-        return inflater.inflate(R.layout.fragment_home_screen, container, false);
+        return v;
     }
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
     Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi
