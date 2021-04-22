@@ -1,8 +1,9 @@
 package com.example.olio_ohjelmointi_ht;
 
 
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
     String name;
     int age;
     String password;

@@ -53,24 +53,27 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
             case R.id.change_username_btn:
 
                 Bundle bundle = new Bundle();
-                /* bundle.putString("text", "Username: ");
+                Settings_DialogFragment dialogFragment = new Settings_DialogFragment();
                 bundle.putString("type", "username");
                 dialogFragment.setArguments(bundle);
-*/
+
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                Settings_DialogFragment dialogFragment = new Settings_DialogFragment().newInstance();
-                transaction.replace(R.id.New_setting_fragment, dialogFragment);
-                transaction.commit();
+                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    transaction.remove(prev);
+                }
+                transaction.addToBackStack(null);
+
+                dialogFragment.show(transaction, "dialog");
                 break;
             case R.id.change_age_btn:
                 dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
-                bundle.putString("text", "Age: ");
                 bundle.putString("type", "age");
                 dialogFragment.setArguments(bundle);
 
                 transaction = getFragmentManager().beginTransaction();
-                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
                     transaction.remove(prev);
                 }
@@ -82,7 +85,6 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
             case R.id.change_home_city_btn:
                 dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
-                bundle.putString("text", "City: ");
                 bundle.putString("type", "city");
                 dialogFragment.setArguments(bundle);
 
@@ -99,7 +101,6 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
             case R.id.change_email_btn:
                 dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
-                bundle.putString("text", "Email: ");
                 bundle.putString("type", "email");
                 dialogFragment.setArguments(bundle);
 
@@ -117,7 +118,6 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
             case R.id.change_language_btn:
                 dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
-                bundle.putString("text", "Language: ");
                 bundle.putString("type", "language");
                 dialogFragment.setArguments(bundle);
 

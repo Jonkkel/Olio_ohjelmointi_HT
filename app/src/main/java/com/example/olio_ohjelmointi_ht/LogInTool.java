@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 import android.content.Context;
 
+import android.content.SharedPreferences;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.EditText;
@@ -15,13 +16,18 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-public class LogInTool {
+import static android.content.Context.MODE_PRIVATE;
+
+public class LogInTool implements Serializable {
 
 
     String log_in_message;
@@ -50,7 +56,7 @@ public class LogInTool {
             User user = new User(); // Create a new user and get information from edittexts
             user.setUsername(username);
             user.setName(name);
-            user.setAge(Integer.valueOf((age)));
+            user.setAge(Integer.parseInt((age)));
             user.setCity(city);
             user.setEmail(email);
             user.setPassword(password); // setPassword method hashes the password
@@ -89,7 +95,7 @@ public class LogInTool {
         }
         return result; // returns a feedback for user
     }
-
+/*
     public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
         //System.out.println(user_list.size());
         //ÄLÄ KOSKE
@@ -108,6 +114,7 @@ public class LogInTool {
                 if (file.equals(file2)) {
                     System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
                     //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
+
                     FileReader fr = new FileReader(file + File.separator + "User_Info_" + username + ".txt");  //Creation of File Reader object
                     BufferedReader br = new BufferedReader(fr); //Creation of BufferedReader object
                     String[] words = null;
@@ -135,9 +142,7 @@ public class LogInTool {
         }
 
         return result; // returns a feedback for user
-    }
-
-
+    }*/
 
 
     public static String encrypt(String input) {
@@ -167,6 +172,7 @@ public class LogInTool {
     }
 
     // make folder and write file for each user
+    /*
     public void writeTextFile(User user){
         File directory = new File(c.getFilesDir() + File.separator + user.getUsername()); // create a folder
         if(!directory.exists())
@@ -190,6 +196,82 @@ public class LogInTool {
             outputWriter.write(c.getResources().getString(R.string.file_password) + user.getPassword() + "\n");
             outputWriter.close(); // close file
         }catch (Exception e){
+            e.printStackTrace();
+        }
+    }*/
+
+    public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
+        //System.out.println(user_list.size());
+        //ÄLÄ KOSKE
+        if (username.equals("") || password.equals("")) { // user needs to fill both fields to sign in
+            result = c.getString(R.string.fill_both);
+            // JOS EI LÖYDY TIEDOSTOJA
+            // c.getFilesDir() + File.separator + username + File.separator + username TIEDOSTO JOKA HALUTAAN LÖYTÄÄ JA LUKEA
+
+        } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
+            System.out.println("testi1");
+            result = c.getString(R.string.no_user);
+
+        } else { // JOS LÖYTYY TIEDOSTO OIKEELLA NIMELLÄ JA TSEKKAA SALIS
+            for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
+                System.out.println("fuletulostin:" + file.toString());
+                File file2 = new File(c.getFilesDir() + File.separator + username);
+                System.out.println("file2:" + file2 .toString());
+                if (file.equals(file2)) {
+                    System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
+                    //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
+                    File fileName = new File(file,   "User_Info_" + username + ".txt");
+                    FileInputStream fIn = new FileInputStream(fileName);
+                    ObjectInputStream is = new ObjectInputStream(fIn);
+                    try {
+                        System.out.println(fileName.toString());
+                        System.out.println("jJEE");
+                        User user1 = (User) is.readObject();
+                        System.out.println(user1.getName());
+                        is.close();
+                        fIn.close();
+                        if(user1.getPassword().equals(encrypt(password))){
+                            SharedPreferences.Editor editor = c.getSharedPreferences("User", MODE_PRIVATE).edit();
+                            editor.putString("Current User", username);
+                            editor.apply();
+                            result = c.getString(R.string.welcome);
+                        }else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
+                            System.out.println("testi2"); // if user is found, but password is not correct
+                            result = c.getString(R.string.wrong_password);
+                        } // ELSE
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }else{ // ÄLÄKOSKEE
+                    System.out.println("testi3"); // if no user on given username is found
+                    result = c.getString(R.string.no_user);
+                }
+            }
+        }
+
+        return result; // returns a feedback for user
+    }
+
+    public void writeTextFile(User user) {
+        File directory = new File(c.getFilesDir() + File.separator + user.getUsername()); // create a folder
+        if (!directory.exists())
+            directory.mkdir();
+        File newFile = new File(directory,  "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
+        if(!newFile.exists()){
+            try {
+                newFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            System.out.println(newFile.toString());
+            FileOutputStream fOut =  new FileOutputStream(newFile); // write users information to file
+            ObjectOutputStream outputWriter = new ObjectOutputStream(fOut);
+            outputWriter.writeObject(user);
+            outputWriter.close(); // close file
+            fOut.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

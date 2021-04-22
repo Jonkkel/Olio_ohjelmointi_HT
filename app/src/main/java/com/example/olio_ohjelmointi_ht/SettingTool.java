@@ -9,18 +9,21 @@ import android.content.res.Configuration;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class SettingTool {
-    String username;
-    int age;
-    String password;
-    String email;
-    String city;
+
     Context context;
-    int selected = -1;
+
 
     @SuppressLint("StaticFieldLeak")
     private static SettingTool settingTool = null; // singleton
@@ -37,26 +40,74 @@ public class SettingTool {
         this.context = con;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void changeUsername(String newUsername){
+        User user = getUserInformation();
+        if (user == null){
+            System.out.println("Error");
+        }else{
+
+        }
     }
 
-    public void setAge(int age) {
-        this.age = age;
+
+    public Boolean checkUsernameAvailability(String username){
+        File directory = new File(context.getFilesDir() + File.separator + username); // create a folder
+        if (!directory.exists()) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public User getUserInformation(){
+        SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
+        String cUser = prefs.getString("Current User", "");
+        File directory = new File(context.getFilesDir() + File.separator + cUser);
+        File fileName = new File(directory,   "User_Info_" + cUser + ".txt");
+        try{
+            FileInputStream fIn = new FileInputStream(fileName);
+            ObjectInputStream is = new ObjectInputStream(fIn);
+            User user = (User) is.readObject();
+            fIn.close();
+            is.close();
+            directory.delete();
+            fileName.delete();
+            return user;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void saveUserInformation(User user){
+        File directory = new File(context.getFilesDir() + File.separator + user.getUsername()); // create a folder
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+        File newFile = new File(directory,  "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
+        if(!newFile.exists()){
+            try {
+                newFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            System.out.println(newFile.toString());
+            FileOutputStream fOut =  new FileOutputStream(newFile); // write users information to file
+            ObjectOutputStream outputWriter = new ObjectOutputStream(fOut);
+            outputWriter.writeObject(user);
+            outputWriter.close(); // close file
+            fOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public void setPassword(String password) {
-        password = LogInTool.encrypt(password);
-        this.password = password;
-    }
 
     public void setLocale(String lang){
         Locale locale = new Locale(lang);

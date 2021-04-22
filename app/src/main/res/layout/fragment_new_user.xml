@@ -41,6 +41,7 @@
                 android:layout_width="304dp"
                 android:layout_height="19dp"
                 android:layout_marginBottom="35sp"
+                android:autoSizeTextType="uniform"
                 android:gravity="center"
                 android:textColor="@color/login_screen_secondary_color"
                 app:layout_constraintBottom_toTopOf="@+id/create_button"
@@ -220,6 +221,7 @@
                 android:layout_height="20dp"
                 android:paddingStart="4sp"
                 android:paddingEnd="4sp"
+                android:autoSizeTextType="uniform"
                 android:textColor="@color/red"
                 app:layout_constraintBottom_toTopOf="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -255,6 +257,7 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="4sp"
                 android:paddingEnd="4sp"
+                android:autoSizeTextType="uniform"
                 android:textColor="@color/red"
                 app:layout_constraintBottom_toTopOf="@+id/message"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -353,7 +356,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.95"
                 android:layout_marginBottom="30sp"
 
                 app:layout_constraintWidth_percent="0.3"/>

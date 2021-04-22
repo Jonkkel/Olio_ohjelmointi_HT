@@ -3,6 +3,9 @@ package com.example.olio_ohjelmointi_ht;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +24,8 @@ public class Settings_DialogFragment extends DialogFragment {
     SettingTool settingTool;
     Dialog dialog = null;
     EditText editText;
-
+    String change, hint;
+    Integer inputType = 1;
     static Settings_DialogFragment newInstance() {
         return new Settings_DialogFragment();
     }
@@ -33,37 +37,75 @@ public class Settings_DialogFragment extends DialogFragment {
         settingTool.loadLocale();
         switch (getArguments().getString("type")){
             case ("username"):
+                change = "Change username";
+                hint = "new username";
                 return super.onCreateDialog(savedInstanceState);
-                //dialog = showChangeUsernameDialog();
                 //break;
             case ("age"):
-                //dialog = showChangeAgeDialog();
-                break;
+                change = "Change age";
+                hint = "new age";
+                inputType = 2;
+                return super.onCreateDialog(savedInstanceState);
             case ("city"):
-                //dialog = showChangeCityDialog();
-                break;
+                change = "Change city";
+                hint = "set new city";
+                return super.onCreateDialog(savedInstanceState);
             case ("email"):
-                //dialog = showChangeEmailDialog();
-                break;
+                change = "Change email";
+                hint = "set new email";
+                return super.onCreateDialog(savedInstanceState);
             case ("language"):
                 dialog = showChangeLanguageDialog();
                 break;
         }
+
         return dialog;
     };
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment2_settings_chance_language, container, false);
+        View view = inflater.inflate(R.layout.dialogfragment_settings_change, container, false);
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView dialogTitle = (TextView) getView().findViewById(R.id.title);
+        TextView errorText = (TextView) getView().findViewById(R.id.title);
+        dialogTitle.setText(change);
 
-        editText = view.findViewById(R.id.inEmail);
-        editText.setText("MOIMOIMOI");
+        // set hint to fragmentDialog EditText
+        EditText  editText = (EditText) getView().findViewById(R.id.changeSth);
+        editText.setHint(hint);
+        editText.setInputType(inputType);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (getArguments().getString("type").equals("username"));{
+                    String newUsername = editText.getText().toString();
+                    if(settingTool.checkUsernameAvailability(newUsername)){
+
+                    }else{
+
+                    }
+                }
+
+            }
+        });
+
+        Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(i ->
+                //SettingTool.setUsername();
+                dismiss()
+        );
     }
 
     public AlertDialog showChangeLanguageDialog() {
@@ -95,21 +137,6 @@ public class Settings_DialogFragment extends DialogFragment {
             dismiss();
         });
         AlertDialog dialog = builder.create();
-        //dialog.show();
-        return dialog;
-    }
-    public Dialog showChangeUsernameDialog(){
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.setContentView(R.layout.fragment2_settings_chance_language);
-        dialog.setTitle("Title...");
-
-        // set the custom dialog components - text, image and button
-        TextView text = (TextView) dialog.findViewById(R.id.title);
-        text.setText("Android custom dialog example!");
-
-        Button dialogButton = (Button) dialog.findViewById(R.id.btnDone);
-        // if button is clicked, close the custom dialog
-        dialogButton.setOnClickListener(i -> dialog.dismiss());
         return dialog;
     }
 
