@@ -6,47 +6,60 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/add_food_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add data 1"
+        android:text="@string/addd_data_food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/add_drink_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add data 2"
+        android:text="@string/addd_data_drink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/add_food_button"
         app:layout_constraintVertical_bias="0.094" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/add_travel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add data 3"
+        android:text="@string/addd_data_travel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/add_drink_button"
         app:layout_constraintVertical_bias="0.139" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/add_clothes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add data 4"
+        android:text="@string/add_data_clothes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/add_travel_button"
         app:layout_constraintVertical_bias="0.167" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/add_data_information"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/add_food_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

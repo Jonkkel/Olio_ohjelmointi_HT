@@ -46,5 +46,13 @@
     <string name="choose_language">Valitse kieli...</string>
     <string name="usernameTaken">Käyttäjänimi on jo käytössä.</string>
 
+    <!-- for fragment_add_data_screen.xml -->
+    <string name="add_data_clothes">Lisää ostamasi vaatteet</string>
+    <string name="addd_data_food">Lisää syömäsi ruoka</string>
+    <string name="addd_data_drink">Lisää juomasi juomat</string>
+    <string name="addd_data_travel">Lisää tekemäsi matkat</string>
+    <string name="add_data_information">Täällä voit lisätä kulutuksesi</string>
+    <string name="home_welcome">"Tervetuloa takaisin "</string>
+
 
 </resources>

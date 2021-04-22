@@ -138,6 +138,8 @@ public class LogInTool implements Serializable {
                             editor.putString("Current User", username);
                             editor.apply();
                             result = c.getString(R.string.welcome);
+                            //Begin_home_screen bhs = new Begin_home_screen();
+                            //bhs.getUsername(username);
                         }else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
                             System.out.println("testi2"); // if user is found, but password is not correct
                             result = c.getString(R.string.wrong_password);

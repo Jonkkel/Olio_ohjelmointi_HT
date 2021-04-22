@@ -1,8 +1,10 @@
 package com.example.olio_ohjelmointi_ht;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,10 +12,29 @@ import androidx.fragment.app.Fragment;
 
 public class Begin_add_data_screen extends Fragment{
 
+    Button add_food;
+    Button add_drink;
+    Button add_trip;
+    Button add_clothes;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // find buttons fromm fragment
+        Context c = getActivity();
+        View v = inflater.inflate(R.layout.fragment_add_data_screen, container, false);
+        add_food = (Button) v.findViewById(R.id.add_food_button);
+        add_drink = (Button) v.findViewById(R.id.add_drink_button);
+        add_trip = (Button) v.findViewById(R.id.add_travel_button);
+        add_clothes = (Button) v.findViewById(R.id.add_clothes_button);
+        /* TÄHÄN VOI KATTOO MALLII JOONAN BEGIN_SETTINGS_SCREEN jos haluu pikkufragmentit tai sit tekee kokonaa uusia koko näytön fragmentteja
+        add_food.setOnClickListener(this);
+        add_drink.setOnClickListener(this);
+        add_trip.setOnClickListener(this);
+        add_clothes.setOnClickListener(this);
+
+         */
 
         return inflater.inflate(R.layout.fragment_add_data_screen, container, false);
     }
