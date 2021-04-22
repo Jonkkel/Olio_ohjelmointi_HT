@@ -23,7 +23,8 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingTool {
 
     Context context;
-
+    User user;
+    User user2 = new User();
 
     @SuppressLint("StaticFieldLeak")
     private static SettingTool settingTool = null; // singleton
@@ -48,33 +49,7 @@ public class SettingTool {
             return true;
         }
     }
-
-    public void changeUsername(String newUsername){
-        User user = getUserInformation();
-        test(user);
-        if (user == null){
-            System.out.println("Error");
-        }else{
-            user.setName(newUsername);
-            saveUserInformation(user);
-            user = getUserInformation();
-            test(user);
-        }
-    }
-
-    public void changeUserAge(String newAge){
-        User user = getUserInformation();
-        test(user);
-        if (user == null){
-            System.out.println("Error");
-        }else{
-            user.setAge(Integer.parseInt((newAge)));
-            saveUserInformation(user);
-            user = getUserInformation();
-            test(user);
-        }
-    }
-    public void test(User user){
+    public void test(){
         String username = user.getUsername();
         System.out.println(username);
         Integer age = user.getAge();
@@ -83,36 +58,61 @@ public class SettingTool {
         System.out.println(city);
         String email = user.getEmail();
         System.out.println(email);
+    }
 
+    public void changeUsername(String newUsername){
+        getUserInformation();
+        test();
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setUsername(newUsername);
+            saveUserInformation();
+            getUserInformation();
+            test();
+        }
+    }
+
+    public void changeUserAge(String newAge){
+        getUserInformation();
+        test();
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setAge(Integer.parseInt((newAge)));
+            saveUserInformation();
+            getUserInformation();
+            test();
+        }
     }
 
     public void changeUserCity(String newCity){
-        User user = getUserInformation();
-        test(user);
+        getUserInformation();
+        test();
         if (user == null){
             System.out.println("Error");
         }else{
             user.setCity(newCity);
-            saveUserInformation(user);
-            user = getUserInformation();
-            test(user);
+            saveUserInformation();
+            getUserInformation();
+            test();
         }
     }
 
     public void changeUserEmail(String newEmail){
-        User user = getUserInformation();
-        test(user);
+        getUserInformation();
+        test();
         if (user == null){
             System.out.println("Error");
         }else{
             user.setEmail(newEmail);
-            saveUserInformation(user);
-            user = getUserInformation();
-            test(user);
+            saveUserInformation();
+            getUserInformation();
+            test();
         }
     }
 
-    public User getUserInformation(){
+    public void getUserInformation(){
         SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
         String cUser = prefs.getString("Current User", "");
         File directory = new File(context.getFilesDir() + File.separator + cUser);
@@ -120,28 +120,25 @@ public class SettingTool {
         try{
             FileInputStream fIn = new FileInputStream(fileName);
             ObjectInputStream is = new ObjectInputStream(fIn);
-            User user = (User) is.readObject();
+            user = (User) is.readObject();
             fIn.close();
             is.close();
-            directory.delete();
+            System.out.println("directory:" + directory.toString());
+            System.out.println("filename:" + fileName.toString());
             fileName.delete();
-            return user;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+            directory.delete();
+        } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
-    public void saveUserInformation(User user){
+
+    public void saveUserInformation(){
         File directory = new File(context.getFilesDir() + File.separator + user.getUsername()); // create a folder
         if (!directory.exists()) {
             directory.mkdir();
         }
-        File newFile = new File(directory,  "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
+        File newFile = new File(directory,  "UserInfo" + user.getUsername() + ".txt"); // create txt file for users information
         if(!newFile.exists()){
             try {
                 newFile.createNewFile();

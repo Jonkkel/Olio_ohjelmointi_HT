@@ -32,6 +32,7 @@ public class New_User extends Fragment {
     TextView password_requirements;
     TextView password_match;
     TextView message;
+    TextView textView;
     Button create;
     LogInTool LIT;
     String log_in_message;
@@ -42,26 +43,50 @@ public class New_User extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_new_user, container, false);
-
+        c = getContext();
+        LIT = LogInTool.getInstance(c);
         return v;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         // Finding text boxes etc. from the layout
         username = (EditText) view.findViewById(R.id.username);
         name = (EditText) view.findViewById(R.id.name);
         age = (EditText) view.findViewById(R.id.age);
         city = (EditText) view.findViewById(R.id.homeCity);
         email = (EditText) view.findViewById(R.id.email);
+        textView = (TextView) view.findViewById(R.id.textview12);
         password = (EditText) view.findViewById(R.id.password);
         password2 = (EditText) view.findViewById(R.id.password2);
         password_requirements = (TextView) view.findViewById(R.id.requirements);
         password_match = (TextView) view.findViewById(R.id.password_match);
         message = (TextView) view.findViewById(R.id.message);
         create = (Button) view.findViewById(R.id.create_button);
-        c = getContext();
+
+
+        username.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
+            @Override
+            public void afterTextChanged(Editable s) {
+                passwordRequirementChecker(s);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(final CharSequence s, int start, int before, int count) {
+                if(LIT.checkUsernameAvailability(username.getText().toString()) && !(username.getText().toString()).equals("")){
+                    textView.setText(getResources().getString(R.string.usernameTaken));
+                }else{
+                    textView.setText("");
+                }
+            }
+
+        });
 
         password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
             @Override
@@ -157,7 +182,6 @@ public class New_User extends Fragment {
     }
 
     public void create_button() throws IOException {
-        LIT = LogInTool.getInstance(c);
         System.out.println("TULEEKO TÄNNE");
         log_in_message = LIT.create_user(username.getText().toString(), name.getText().toString(), age.getText().toString(), city.getText().toString(), email.getText().toString(), password.getText().toString(), password2.getText().toString());
         if(log_in_message.equals(c.getString(R.string.welcome))){
@@ -165,6 +189,7 @@ public class New_User extends Fragment {
             message.setText(log_in_message);
             Intent intent = new Intent(getActivity(), Begin.class);
             startActivity(intent);
+            getActivity().finish();
             //((Activity)getActivity()).overridePendingTransition(0,0);
         }
         else {

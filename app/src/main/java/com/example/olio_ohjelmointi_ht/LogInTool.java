@@ -53,6 +53,16 @@ public class LogInTool implements Serializable {
         this.c = con;
     }
 
+
+    public Boolean checkUsernameAvailability(String username){
+        File directory = new File(c.getFilesDir() + File.separator + username); // create a folder
+        if (!directory.exists()) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     public String create_user(String username, String name, String age, String city, String email, String password, String password2) throws IOException { // adds user to user_list, creates user
         if (password2.equals(password) && (!password.equals("")) && (!username.equals("")) && (!name.equals("")) && (!age.equals("")) && (!city.equals("")) && (!email.equals(""))) {
             User user = new User(); // Create a new user and get information from edittexts
@@ -124,9 +134,9 @@ public class LogInTool implements Serializable {
                     System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
                     //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
                     File fileName = new File(file,   "User_Info_" + username + ".txt");
-                    FileInputStream fIn = new FileInputStream(fileName);
-                    ObjectInputStream is = new ObjectInputStream(fIn);
-                    try {
+                    try{
+                        FileInputStream fIn = new FileInputStream(fileName);
+                        ObjectInputStream is = new ObjectInputStream(fIn);
                         System.out.println(fileName.toString());
                         System.out.println("jJEE");
                         User user1 = (User) is.readObject();
@@ -142,7 +152,7 @@ public class LogInTool implements Serializable {
                             System.out.println("testi2"); // if user is found, but password is not correct
                             result = c.getString(R.string.wrong_password);
                         } // ELSE
-                    } catch (ClassNotFoundException e) {
+                    } catch (ClassNotFoundException | IOException e) {
                         e.printStackTrace();
                     }
                 }else{ // ÄLÄKOSKEE

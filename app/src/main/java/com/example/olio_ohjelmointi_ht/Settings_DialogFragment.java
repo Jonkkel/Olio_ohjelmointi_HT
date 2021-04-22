@@ -76,20 +76,28 @@ public class Settings_DialogFragment extends DialogFragment {
         dialogTitle.setText(change);
         Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
         // set hint to fragmentDialog EditText
-        EditText  editText = (EditText) getView().findViewById(R.id.changeSth);
+        EditText editText = (EditText) getView().findViewById(R.id.changeSth);
         editText.setHint(hint);
         editText.setInputType(inputType);
+        dialogButton.setEnabled(false);
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(editText.getText().toString().equals("")){
+                dialogButton.setEnabled(false);
+                }else{
+                    dialogButton.setEnabled(true);
+                }
+            }
             @Override
             public void afterTextChanged(Editable s) {
-                if (getArguments().getString("type").equals("username"));{
+                if (getArguments().getString("type").equals("username")){
                     String newUsername = editText.getText().toString();
                     if(settingTool.checkUsernameAvailability(newUsername)){
                         usernameError.setText(getContext().getString(R.string.usernameTaken));
