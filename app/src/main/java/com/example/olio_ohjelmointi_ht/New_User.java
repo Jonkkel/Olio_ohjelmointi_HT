@@ -66,44 +66,7 @@ public class New_User extends Fragment {
         password.addTextChangedListener(new TextWatcher() { // Setting textWatcher for password box, we can tell user if the password is strong
             @Override
             public void afterTextChanged(Editable s) {
-                password_text = s.toString(); // Checking i the password is strong password
-                int number = 0;
-                int upper = 0;
-                int lower = 0;
-                if(password.getText().toString().length() >= 8){ // password must be at least 8 characters long
-                    for(int i = 0; i < password_text.length(); i++){
-                        char c = password_text.charAt(i);
-                        if(Character.isUpperCase(c)){ // if no character has been uppercase letter
-                            upper++;
-                        }
-                        if(Character.isLowerCase(c)){ // if no character has been lowercase letter
-                            lower++;
-                        }
-                        if(Character.isDigit(c)){ // if no character has been a number
-                            number++;
-                        }
-                        if (upper > 0 && lower > 0 && number > 0){ // if the password have a uppercase, a lowercase and a number character
-                            System.out.println("Kaikki hyvin");
-                            password_requirements.setText("");
-                            break;
-                        }
-                        if(upper == 0){ // tells user to use uppercase letter
-                            System.out.println("ISOJA");
-                            password_requirements.setText(getResources().getString(R.string.contain_upper));
-                        }
-                        if(lower == 0){ // tells user to use lowercase letter
-                            System.out.println("PIENIÄ");
-                            password_requirements.setText(getResources().getString(R.string.contain_lower));
-                        }
-                        if(number == 0){ // tells user to use number
-                            System.out.println("NUMEROITA");
-                            password_requirements.setText(getResources().getString(R.string.contain_numbers));
-                        }
-                    }
-                }
-                else{ // if the password is under 8 characters long
-                    password_requirements.setText(getResources().getString(R.string.password_length));
-                }
+                passwordRequirementChecker(s);
             }
 
             @Override
@@ -120,13 +83,7 @@ public class New_User extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (password2.getText().toString().equals(password_text)) {
-                    password_match.setTextColor(getResources().getColor(R.color.login_screen_color));
-                    password_match.setText(getResources().getString(R.string.password_correct));
-                } else {
-                    password_match.setTextColor(getResources().getColor(R.color.red));
-                    password_match.setText(getResources().getString(R.string.password_incorrect));
-                }
+                checkPasswordMatch();
             }
 
             @Override
@@ -147,6 +104,58 @@ public class New_User extends Fragment {
         });
     }
 
+
+    public void passwordRequirementChecker(Editable s){
+        password_text = s.toString(); // Checking i the password is strong password
+        int number = 0;
+        int upper = 0;
+        int lower = 0;
+        if(password.getText().toString().length() >= 8){ // password must be at least 8 characters long
+            for(int i = 0; i < password_text.length(); i++){
+                char c = password_text.charAt(i);
+                if(Character.isUpperCase(c)){ // if no character has been uppercase letter
+                    upper++;
+                }
+                if(Character.isLowerCase(c)){ // if no character has been lowercase letter
+                    lower++;
+                }
+                if(Character.isDigit(c)){ // if no character has been a number
+                    number++;
+                }
+                if (upper > 0 && lower > 0 && number > 0){ // if the password have a uppercase, a lowercase and a number character
+                    System.out.println("Kaikki hyvin");
+                    password_requirements.setText("");
+                    break;
+                }
+                if(upper == 0){ // tells user to use uppercase letter
+                    System.out.println("ISOJA");
+                    password_requirements.setText(getResources().getString(R.string.contain_upper));
+                }
+                if(lower == 0){ // tells user to use lowercase letter
+                    System.out.println("PIENIÄ");
+                    password_requirements.setText(getResources().getString(R.string.contain_lower));
+                }
+                if(number == 0){ // tells user to use number
+                    System.out.println("NUMEROITA");
+                    password_requirements.setText(getResources().getString(R.string.contain_numbers));
+                }
+            }
+        }
+        else{ // if the password is under 8 characters long
+            password_requirements.setText(getResources().getString(R.string.password_length));
+        }
+    }
+
+    public void checkPasswordMatch(){
+        if (password2.getText().toString().equals(password_text)) {
+            password_match.setTextColor(getResources().getColor(R.color.login_screen_color));
+            password_match.setText(getResources().getString(R.string.password_correct));
+        } else {
+            password_match.setTextColor(getResources().getColor(R.color.red));
+            password_match.setText(getResources().getString(R.string.password_incorrect));
+        }
+    }
+
     public void create_button() throws IOException {
         LIT = LogInTool.getInstance(c);
         System.out.println("TULEEKO TÄNNE");
@@ -156,7 +165,7 @@ public class New_User extends Fragment {
             message.setText(log_in_message);
             Intent intent = new Intent(getActivity(), Begin.class);
             startActivity(intent);
-            ((Activity)getActivity()).overridePendingTransition(0,0);
+            //((Activity)getActivity()).overridePendingTransition(0,0);
         }
         else {
             // käyttäjää ei ole

@@ -97,18 +97,15 @@ public class LogInTool {
             result = c.getString(R.string.fill_both);
             // JOS EI LÖYDY TIEDOSTOJA
             // c.getFilesDir() + File.separator + username + File.separator + username TIEDOSTO JOKA HALUTAAN LÖYTÄÄ JA LUKEA
+
         } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
             System.out.println("testi1");
             result = c.getString(R.string.no_user);
+
         } else { // JOS LÖYTYY TIEDOSTO OIKEELLA NIMELLÄ JA TSEKKAA SALIS
             for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
-                System.out.println("testi");
-                System.out.println(file);
-                System.out.println(c.getFilesDir() + File.separator + username);
-                for(File user_file: file){
-
-                }
-                if (file.toString().equals(c.getFilesDir() + username)) {
+                File file2 = new File(c.getFilesDir() + File.separator + username);
+                if (file.equals(file2)) {
                     System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
                     //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
                     FileReader fr = new FileReader(file + File.separator + "User_Info_" + username + ".txt");  //Creation of File Reader object
@@ -122,12 +119,14 @@ public class LogInTool {
                             if (word.equals(encrypt(password))) {   //Search for the given word
                                 result = c.getString(R.string.welcome);
                             } // IF
+
                             else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
                                 System.out.println("testi2"); // if user is found, but password is not correct
                                 result = c.getString(R.string.wrong_password);
                             } // ELSE
                         }// FOR
                     }
+
                 }else{ // ÄLÄKOSKEE
                     System.out.println("testi3"); // if no user on given username is found
                     result = c.getString(R.string.no_user);

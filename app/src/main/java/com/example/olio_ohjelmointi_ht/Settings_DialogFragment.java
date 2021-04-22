@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,27 +17,33 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
-public class Settings_change_age extends DialogFragment {
+public class Settings_DialogFragment extends DialogFragment {
     SettingTool settingTool;
+    Dialog dialog = null;
+    EditText editText;
+
+    static Settings_DialogFragment newInstance() {
+        return new Settings_DialogFragment();
+    }
 
     @Nullable
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState){
         settingTool = SettingTool.getInstance(getActivity());
         settingTool.loadLocale();
-        AlertDialog dialog = null;
         switch (getArguments().getString("type")){
             case ("username"):
-                dialog = showChangeUsernameDialog();
-                break;
+                return super.onCreateDialog(savedInstanceState);
+                //dialog = showChangeUsernameDialog();
+                //break;
             case ("age"):
-                dialog = showChangeAgeDialog();
+                //dialog = showChangeAgeDialog();
                 break;
             case ("city"):
-                dialog = showChangeCityDialog();
+                //dialog = showChangeCityDialog();
                 break;
             case ("email"):
-                dialog = showChangeEmailDialog();
+                //dialog = showChangeEmailDialog();
                 break;
             case ("language"):
                 dialog = showChangeLanguageDialog();
@@ -55,14 +62,8 @@ public class Settings_change_age extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final EditText editText = view.findViewById(R.id.inEmail);
-        Button btnDone = view.findViewById(R.id.btnDone);
-        btnDone.setOnClickListener(view1 -> {
-
-            DialogListener dialogListener = (DialogListener) getActivity();
-            dialogListener.onFinishEditDialog(editText.getText().toString());
-            dismiss();
-        });
+        editText = view.findViewById(R.id.inEmail);
+        editText.setText("MOIMOIMOI");
     }
 
     public AlertDialog showChangeLanguageDialog() {
@@ -97,11 +98,33 @@ public class Settings_change_age extends DialogFragment {
         //dialog.show();
         return dialog;
     }
+    public Dialog showChangeUsernameDialog(){
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.fragment2_settings_chance_language);
+        dialog.setTitle("Title...");
+
+        // set the custom dialog components - text, image and button
+        TextView text = (TextView) dialog.findViewById(R.id.title);
+        text.setText("Android custom dialog example!");
+
+        Button dialogButton = (Button) dialog.findViewById(R.id.btnDone);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(i -> dialog.dismiss());
+        return dialog;
+    }
+
     @Override
     public void onResume() {
         super.onResume();
 
     }
+
+    @Override
+    public void onDestroyView() {
+
+        super.onDestroyView();
+    }
+
     public interface DialogListener {
         void onFinishEditDialog(String inputText);
     }

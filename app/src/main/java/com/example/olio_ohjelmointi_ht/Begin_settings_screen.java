@@ -12,15 +12,12 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import java.util.Locale;
-
-import static android.content.Context.MODE_PRIVATE;
-
-public class Begin_settings_screen extends Fragment implements View.OnClickListener, Settings_change_age.DialogListener{
+public class Begin_settings_screen extends Fragment implements View.OnClickListener, Settings_DialogFragment.DialogListener{
 
     Button change_username_button;
     Button change_age_button;
@@ -52,22 +49,21 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view){
-
         switch (view.getId()) {
             case R.id.change_username_btn:
-                Settings_change_age dialogFragment = new Settings_change_age();
+
                 Bundle bundle = new Bundle();
-                bundle.putString("text", "Username: ");
+                /* bundle.putString("text", "Username: ");
                 bundle.putString("type", "username");
                 dialogFragment.setArguments(bundle);
-
+*/
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                Settings_DialogFragment dialogFragment = new Settings_DialogFragment().newInstance();
                 transaction.replace(R.id.New_setting_fragment, dialogFragment);
-
                 transaction.commit();
                 break;
             case R.id.change_age_btn:
-                dialogFragment = new Settings_change_age();
+                dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
                 bundle.putString("text", "Age: ");
                 bundle.putString("type", "age");
@@ -84,7 +80,7 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
 
                 break;
             case R.id.change_home_city_btn:
-                dialogFragment = new Settings_change_age();
+                dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
                 bundle.putString("text", "City: ");
                 bundle.putString("type", "city");
@@ -98,9 +94,10 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
                 transaction.addToBackStack(null);
 
                 dialogFragment.show(transaction, "dialog");
+
                 break;
             case R.id.change_email_btn:
-                dialogFragment = new Settings_change_age();
+                dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
                 bundle.putString("text", "Email: ");
                 bundle.putString("type", "email");
@@ -114,12 +111,15 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
                 transaction.addToBackStack(null);
 
                 dialogFragment.show(transaction, "dialog");
+
+
                 break;
             case R.id.change_language_btn:
-                dialogFragment = new Settings_change_age();
+                dialogFragment = new Settings_DialogFragment();
                 bundle = new Bundle();
                 bundle.putString("text", "Language: ");
                 bundle.putString("type", "language");
+                dialogFragment.setArguments(bundle);
 
                 transaction = getFragmentManager().beginTransaction();
                 prev = getFragmentManager().findFragmentByTag("dialog");
@@ -130,7 +130,6 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
 
                 dialogFragment.show(transaction, "dialog");
                 break;
-
         }
     };
 

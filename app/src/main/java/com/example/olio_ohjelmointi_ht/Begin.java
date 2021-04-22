@@ -1,7 +1,9 @@
 package com.example.olio_ohjelmointi_ht;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
