@@ -40,7 +40,7 @@ public class SettingTool {
         this.context = con;
     }
 
-    public Boolean checkUsernameAvailability(String username){
+    public boolean checkUsernameAvailability(String username){
         File directory = new File(context.getFilesDir() + File.separator + username); // create a folder
         if (!directory.exists()) {
             return false;

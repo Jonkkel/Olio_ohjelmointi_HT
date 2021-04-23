@@ -55,7 +55,7 @@ public class Begin_add_data_screen extends Fragment implements View.OnClickListe
         }
         FragmentManager manager = getActivity().getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.Add_data_fragment, fragment);
+        transaction.replace(R.id.Main_fragment, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

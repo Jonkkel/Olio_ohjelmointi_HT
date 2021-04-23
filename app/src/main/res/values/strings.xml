@@ -72,9 +72,13 @@
     <string name="add_data_information">Here you can add your consumption</string>
     <string name="add_data_unit1">kg/week</string>
     <string name="add_data_unit2">pcs/week</string>
+    <string name="add_data_unit3">€/m</string>
 
 
     <!-- for fragment_add_food_data.xml -->
+    <string name="food_data_beef">Beef</string>
+    <string name="food_data_fish">Fish</string>
+    <string name="food_data_pork">Pork</string>
     <string name="food_data_cheese">Cheese</string>
     <string name="food_data_dairy">Dairy</string>
     <string name="food_data_rice">Rice</string>

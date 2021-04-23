@@ -61,12 +61,16 @@
     <string name="add_data_information">Täällä voit lisätä kulutuksesi</string>
     <string name="add_data_unit1">kg/viikko</string>
     <string name="add_data_unit2">kpl/viikko</string>
+    <string name="add_data_unit3">€/kk</string>
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">"Tervetuloa takaisin "</string>
     <!-- for user_file.txt  POISTA NÄMÄ-->
 
     <!-- for fragment_add_food_data.xml -->
+    <string name="food_data_beef">Naudanliha</string>
+    <string name="food_data_fish">Kala</string>
+    <string name="food_data_pork">Porsaanliha</string>
     <string name="food_data_cheese">Juusto</string>
     <string name="food_data_dairy">Maitotuotteet</string>
     <string name="food_data_rice">Riisi</string>
