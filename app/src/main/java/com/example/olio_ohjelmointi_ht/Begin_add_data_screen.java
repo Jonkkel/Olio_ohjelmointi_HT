@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +18,7 @@ public class Begin_add_data_screen extends Fragment{
     Button add_drink;
     Button add_trip;
     Button add_clothes;
+    SeekBar
 
 
     @Nullable
@@ -28,15 +31,13 @@ public class Begin_add_data_screen extends Fragment{
         add_drink = (Button) v.findViewById(R.id.add_drink_button);
         add_trip = (Button) v.findViewById(R.id.add_travel_button);
         add_clothes = (Button) v.findViewById(R.id.add_clothes_button);
-        /* TÄHÄN VOI KATTOO MALLII JOONAN BEGIN_SETTINGS_SCREEN jos haluu pikkufragmentit tai sit tekee kokonaa uusia koko näytön fragmentteja
+
         add_food.setOnClickListener(this);
         add_drink.setOnClickListener(this);
         add_trip.setOnClickListener(this);
         add_clothes.setOnClickListener(this);
 
-         */
-
-        return inflater.inflate(R.layout.fragment_add_data_screen, container, false);
+        return v;
     }
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
     Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi

@@ -1,5 +1,6 @@
 package com.example.olio_ohjelmointi_ht;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,9 +25,11 @@ import androidx.fragment.app.FragmentTransaction;
 public class Settings_DialogFragment extends DialogFragment {
     SettingTool settingTool;
     Dialog dialog = null;
-    EditText editText;
+    EditText editText, oldValueHolder;
     String change, hint;
     Integer inputType = 1;
+    TextView usernameError, dialogTitle;
+    User user;
     static Settings_DialogFragment newInstance() {
         return new Settings_DialogFragment();
     }
@@ -35,12 +39,17 @@ public class Settings_DialogFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState){
         settingTool = SettingTool.getInstance(getActivity());
         settingTool.loadLocale();
+        user = settingTool.getUserObject();
         switch (getArguments().getString("type")){
             case ("username"):
                 change = "Change username";
                 hint = "new username";
                 return super.onCreateDialog(savedInstanceState);
-                //break;
+            case ("password"):
+                change = "Change password";
+                hint = "New password";
+                inputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD;
+                return super.onCreateDialog(savedInstanceState);
             case ("age"):
                 change = "Change age";
                 hint = "new age";
@@ -71,20 +80,23 @@ public class Settings_DialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView dialogTitle = (TextView) getView().findViewById(R.id.title);
-        TextView usernameError = (TextView) getView().findViewById(R.id.usernameError);
+        dialogTitle = (TextView) getView().findViewById(R.id.title);
+        usernameError = (TextView) getView().findViewById(R.id.usernameError);
+
+        oldValueHolder = (EditText) getView().findViewById(R.id.oldValue);
         dialogTitle.setText(change);
         Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
         // set hint to fragmentDialog EditText
-        EditText editText = (EditText) getView().findViewById(R.id.changeSth);
+        editText = (EditText) getView().findViewById(R.id.changeSth);
         editText.setHint(hint);
+
         editText.setInputType(inputType);
-        dialogButton.setEnabled(false);
+        oldValueHolder.setInputType(inputType);
+        setOldValue();
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
@@ -99,31 +111,43 @@ public class Settings_DialogFragment extends DialogFragment {
             public void afterTextChanged(Editable s) {
                 if (getArguments().getString("type").equals("username")){
                     String newUsername = editText.getText().toString();
-                    if(settingTool.checkUsernameAvailability(newUsername)){
+                    if(settingTool.checkUsernameAvailability(newUsername) && !(newUsername.equals(""))){
                         usernameError.setText(getContext().getString(R.string.usernameTaken));
                         dialogButton.setEnabled(false);
                     }else{
+                        usernameError.setText("");
                         dialogButton.setEnabled(true);
                     }
                 }
             }
         });
 
-        // if button is clicked, close the custom dialog
+            // if button is clicked, close the custom dialog
         dialogButton.setOnClickListener(i ->{
             String value = editText.getText().toString();
-            if (getArguments().getString("type").equals("username")){
-                settingTool.changeUsername(value);
-            }else if (getArguments().getString("type").equals("age")){
-                settingTool.changeUserAge(value);
-            }else if (getArguments().getString("type").equals("city")){
-                settingTool.changeUserCity(value);
-            }else if (getArguments().getString("type").equals("email")){
-                settingTool.changeUserEmail(value);
+            if(!(value.equals(""))){
+                if (getArguments().getString("type").equals("username")){
+                    settingTool.changeUsername(value);
+                    Toast.makeText(getContext(), "Username changed", Toast.LENGTH_SHORT).show();
+                }else if (getArguments().getString("type").equals("password")){
+                    if(!(oldValueHolder.getText().toString().equals("")) && settingTool.checkPassword(oldValueHolder.getText().toString())){
+                        Toast.makeText(getContext(), "password changed", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getContext(), "password wrong", Toast.LENGTH_SHORT).show();
+                    }
+                }else if (getArguments().getString("type").equals("age")){
+                    settingTool.changeUserAge(value);
+                    Toast.makeText(getContext(), "Age changed", Toast.LENGTH_SHORT).show();
+                }else if (getArguments().getString("type").equals("city")){
+                    settingTool.changeUserCity(value);
+                    Toast.makeText(getContext(), "Home city changed", Toast.LENGTH_SHORT).show();
+                }else if (getArguments().getString("type").equals("email")){
+                    settingTool.changeUserEmail(value);
+                    Toast.makeText(getContext(), "Email changed", Toast.LENGTH_SHORT).show();
+                }
             }
             dismiss();
         });
-
     }
 
     public AlertDialog showChangeLanguageDialog() {
@@ -156,6 +180,23 @@ public class Settings_DialogFragment extends DialogFragment {
         });
         AlertDialog dialog = builder.create();
         return dialog;
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void setOldValue(){
+        oldValueHolder.setEnabled(false);
+        if (getArguments().getString("type").equals("username")){
+            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+        }else if (getArguments().getString("type").equals("password")){
+            oldValueHolder.setHint("Write old password");
+            oldValueHolder.setEnabled(true);
+        }else if (getArguments().getString("type").equals("age")){
+            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+        }else if (getArguments().getString("type").equals("city")){
+            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+        }else if (getArguments().getString("type").equals("email")){
+            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+        }
     }
 
     @Override

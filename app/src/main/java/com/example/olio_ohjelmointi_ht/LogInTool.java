@@ -143,7 +143,7 @@ public class LogInTool implements Serializable {
                         System.out.println(user1.getName());
                         is.close();
                         fIn.close();
-                        if(user1.getPassword().equals(encrypt(password))){
+                        if(user1.getPassword().equals(encrypt(password+user1.getName()))){
                             SharedPreferences.Editor editor = c.getSharedPreferences("User", MODE_PRIVATE).edit();
                             editor.putString("Current User", username);
                             editor.apply();

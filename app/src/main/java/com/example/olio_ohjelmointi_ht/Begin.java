@@ -74,6 +74,10 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
         }
         pressedTime = System.currentTimeMillis();
     }
+    @Override
+    public void onResume(){
+        super.onResume();
 
+    }
 
 }

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity{
     String username;
     String password;
     String message;
+    int s = 0;
     AppCompatButton sign_up, sign_in;
 
     @Override
@@ -86,9 +87,8 @@ public class MainActivity extends AppCompatActivity{
         message = LIT.sign_in2(username, password); // give username and password for sign_in method, checks if them are correct and user exists
         message_box.setText(message); // shows the result for user ( wrong password etc.)
         System.out.println(message);
-        Intent intent = new Intent(v.getContext(), Begin.class);
+        Intent intent = new Intent(this, Begin.class);
         startActivityForResult(intent, 0);
-        finish();
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         //
     }

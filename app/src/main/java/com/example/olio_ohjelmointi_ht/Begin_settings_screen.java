@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 public class Begin_settings_screen extends Fragment implements View.OnClickListener, Settings_DialogFragment.DialogListener{
 
     Button change_username_button;
+    Button change_password_button;
     Button change_age_button;
     Button change_home_city_button;
     Button change_email_button;
@@ -33,12 +34,14 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
         settingTool.loadLocale();
         View v = inflater.inflate(R.layout.fragment_settings_screen, container, false);
         change_username_button = (Button) v.findViewById(R.id.change_username_btn);
+        change_password_button = (Button) v.findViewById(R.id.change_password_btn);
         change_age_button = (Button) v.findViewById(R.id.change_age_btn);
         change_home_city_button = (Button) v.findViewById(R.id.change_home_city_btn);
         change_email_button = (Button) v.findViewById(R.id.change_email_btn);
         change_language_button = (Button) v.findViewById(R.id.change_language_btn);
 
         change_username_button.setOnClickListener(this);
+        change_password_button.setOnClickListener(this);
         change_age_button.setOnClickListener(this);
         change_home_city_button.setOnClickListener(this);
         change_email_button.setOnClickListener(this);
@@ -59,6 +62,22 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                if (prev != null) {
+                    transaction.remove(prev);
+                }
+                transaction.addToBackStack(null);
+
+                dialogFragment.show(transaction, "dialog");
+                break;
+            case R.id.change_password_btn:
+
+                bundle = new Bundle();
+                dialogFragment = new Settings_DialogFragment();
+                bundle.putString("type", "password");
+                dialogFragment.setArguments(bundle);
+
+                transaction = getFragmentManager().beginTransaction();
+                prev = getFragmentManager().findFragmentByTag("dialog");
                 if (prev != null) {
                     transaction.remove(prev);
                 }

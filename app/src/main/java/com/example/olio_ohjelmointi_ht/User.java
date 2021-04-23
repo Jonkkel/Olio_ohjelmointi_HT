@@ -55,9 +55,8 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        password = LogInTool.encrypt(password);
-        this.password = password;
+    public void setPassword(String inputPassword) {
+        this.password = LogInTool.encrypt(inputPassword+name);
     }
 
     public void setUsername(String username) {

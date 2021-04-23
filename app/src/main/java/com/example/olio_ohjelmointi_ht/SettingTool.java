@@ -24,7 +24,6 @@ public class SettingTool {
 
     Context context;
     User user;
-    User user2 = new User();
 
     @SuppressLint("StaticFieldLeak")
     private static SettingTool settingTool = null; // singleton
@@ -49,6 +48,14 @@ public class SettingTool {
             return true;
         }
     }
+
+    public boolean checkPassword(String oldPassword){
+        user = getUserObject();
+        if(user.getPassword().equals(LogInTool.encrypt(oldPassword+user.getName()))){
+            return true;
+        }
+        return false;
+    }
     public void test(){
         String username = user.getUsername();
         System.out.println(username);
@@ -67,6 +74,19 @@ public class SettingTool {
             System.out.println("Error");
         }else{
             user.setUsername(newUsername);
+            saveUserInformation();
+            getUserInformation();
+            test();
+        }
+    }
+
+    public void changePassword(String newPassword){
+        getUserInformation();
+        test();
+        if (user == null){
+            System.out.println("Error");
+        }else{
+            user.setPassword(newPassword);
             saveUserInformation();
             getUserInformation();
             test();
@@ -132,13 +152,30 @@ public class SettingTool {
         }
     }
 
+    public User getUserObject(){
+        SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
+        String cUser = prefs.getString("Current User", "");
+        File directory = new File(context.getFilesDir() + File.separator + cUser);
+        File fileName = new File(directory,   "User_Info_" + cUser + ".txt");
+        try{
+            FileInputStream fIn = new FileInputStream(fileName);
+            ObjectInputStream is = new ObjectInputStream(fIn);
+            user = (User) is.readObject();
+            fIn.close();
+            is.close();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
 
     public void saveUserInformation(){
         File directory = new File(context.getFilesDir() + File.separator + user.getUsername()); // create a folder
         if (!directory.exists()) {
             directory.mkdir();
         }
-        File newFile = new File(directory,  "UserInfo" + user.getUsername() + ".txt"); // create txt file for users information
+        File newFile = new File(directory,  "User_Info_" + user.getUsername() + ".txt"); // create txt file for users information
         if(!newFile.exists()){
             try {
                 newFile.createNewFile();

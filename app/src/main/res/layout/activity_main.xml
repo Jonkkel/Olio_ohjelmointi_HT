@@ -128,7 +128,6 @@
             android:onClick="sign_in_button"
             android:text="@string/sign_in_button"
 
-            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/login_sign_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -143,7 +142,6 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/login_button_theme"
             android:text="@string/sign_up_button"
-            android:textColor="@color/white"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

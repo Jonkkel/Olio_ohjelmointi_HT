@@ -61,10 +61,9 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:background="@drawable/login_button_theme"
-            android:text="Change password"
+            android:text="@string/change_password"
             app:layout_constraintBottom_toTopOf="@+id/change_age_btn"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toBottomOf="@+id/change_username_btn" />
 
@@ -72,13 +71,11 @@
             android:id="@+id/change_age_btn"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
-
             android:background="@drawable/login_button_theme"
 
             android:text="@string/change_age"
             app:layout_constraintBottom_toTopOf="@+id/change_home_city_btn"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline1"
             app:layout_constraintTop_toBottomOf="@+id/change_password_btn" />
 
@@ -130,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.86" />
+            app:layout_constraintGuide_percent="0.95" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

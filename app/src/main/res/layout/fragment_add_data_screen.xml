@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_food_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addd_data_food"
+        android:text="@string/add_data_food"
+        android:background="@drawable/login_button_theme"
+        android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -17,33 +19,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.385" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_drink_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addd_data_drink"
+        android:text="@string/add_data_drink"
+        android:background="@drawable/login_button_theme"
+        android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_food_button"
         app:layout_constraintVertical_bias="0.094" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_travel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addd_data_travel"
+        android:text="@string/add_data_travel"
+        android:background="@drawable/login_button_theme"
+        android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_drink_button"
         app:layout_constraintVertical_bias="0.139" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_clothes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_data_clothes"
+        android:background="@drawable/login_button_theme"
+        android:padding="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

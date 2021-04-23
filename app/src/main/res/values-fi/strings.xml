@@ -48,11 +48,17 @@
 
     <!-- for fragment_add_data_screen.xml -->
     <string name="add_data_clothes">Lisää ostamasi vaatteet</string>
-    <string name="addd_data_food">Lisää syömäsi ruoka</string>
-    <string name="addd_data_drink">Lisää juomasi juomat</string>
-    <string name="addd_data_travel">Lisää tekemäsi matkat</string>
+    <string name="add_data_food">Lisää syömäsi ruoka</string>
+    <string name="add_data_drink">Lisää juomasi juomat</string>
+    <string name="add_data_travel">Lisää tekemäsi matkat</string>
     <string name="add_data_information">Täällä voit lisätä kulutuksesi</string>
     <string name="home_welcome">"Tervetuloa takaisin "</string>
+    <string name="change_password">Vaihda salasana</string>
+    <string name="old_username">Nykyinen käyttäjänimi:</string>
+    <string name="old_password">Vanha sa:</string>
+    <string name="old_age">Nykyinen ikä:</string>
+    <string name="old_home_city">Nykyinen kotikaupunki:</string>
+    <string name="old_email">Vanha sähköposti:</string>
 
 
 </resources>
