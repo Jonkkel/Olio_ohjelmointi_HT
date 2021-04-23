@@ -64,14 +64,31 @@
     <string name="file_email" translatable="false">Email:</string>
 
     <!-- for fragment_add_data_screen.xml -->
-    <string name="add_data_food">Add food you ate</string>
-    <string name="add_data_drink">Add drinks you drank</string>
-    <string name="add_data_travel">Add trips you made</string>
-    <string name="add_data_clothes">Add clothes you bought</string>
+    <string name="add_data_food">Add food data</string>
+    <string name="add_data_drink">Add housing data</string>
+    <string name="add_data_travel">Add travel data</string>
+    <string name="add_data_clothes">Add consumption data</string>
+    <string name="add_data_waste">Add recycling data</string>
     <string name="add_data_information">Here you can add your consumption</string>
+    <string name="add_data_unit1">kg/week</string>
+    <string name="add_data_unit2">pcs/week</string>
+
+
+    <!-- for fragment_add_food_data.xml -->
+    <string name="food_data_cheese">Cheese</string>
+    <string name="food_data_dairy">Dairy</string>
+    <string name="food_data_rice">Rice</string>
+    <string name="food_data_vegetables">Fresh vegetables during winter</string>
+    <string name="food_data_eggs">Eggs</string>
+
+    <string name="food_data_low_carbon">I prefed low-carbon choices in my diet</string>
+    <string name="food_data_diet">DIET</string>
+    <string name="food_data_restaurant">MONTHLY EXPENDITURE</string>
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">Welcome back </string>
+
+
 
 
 </resources>

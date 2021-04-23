@@ -45,20 +45,36 @@
     <string name="change_language">Vaihda kieli</string>
     <string name="choose_language">Valitse kieli...</string>
     <string name="usernameTaken">Käyttäjänimi on jo käytössä.</string>
+    <string name="change_password">Vaihda salasana</string>
+    <string name="old_username">Nykyinen käyttäjänimi:</string>
+    <string name="old_password">Vanha salasana:</string>
+    <string name="old_age">Nykyinen ikä:</string>
+    <string name="old_home_city">Nykyinen kotikaupunki:</string>
+    <string name="old_email">Vanha sähköposti:</string>
 
     <!-- for fragment_add_data_screen.xml -->
     <string name="add_data_clothes">Lisää ostamasi vaatteet</string>
     <string name="add_data_food">Lisää syömäsi ruoka</string>
     <string name="add_data_drink">Lisää juomasi juomat</string>
     <string name="add_data_travel">Lisää tekemäsi matkat</string>
+    <string name="add_data_waste">Lisää kierrättämäsi jätteet</string>
     <string name="add_data_information">Täällä voit lisätä kulutuksesi</string>
-    <string name="home_welcome">"Tervetuloa takaisin "</string>
-    <string name="change_password">Vaihda salasana</string>
-    <string name="old_username">Nykyinen käyttäjänimi:</string>
-    <string name="old_password">Vanha sa:</string>
-    <string name="old_age">Nykyinen ikä:</string>
-    <string name="old_home_city">Nykyinen kotikaupunki:</string>
-    <string name="old_email">Vanha sähköposti:</string>
+    <string name="add_data_unit1">kg/viikko</string>
+    <string name="add_data_unit2">kpl/viikko</string>
 
+    <!-- for fragment_home_screen.xml -->
+    <string name="home_welcome">"Tervetuloa takaisin "</string>
+    <!-- for user_file.txt  POISTA NÄMÄ-->
+
+    <!-- for fragment_add_food_data.xml -->
+    <string name="food_data_cheese">Juusto</string>
+    <string name="food_data_dairy">Maitotuotteet</string>
+    <string name="food_data_rice">Riisi</string>
+    <string name="food_data_vegetables">Tuoreita vihanneksia talvisin</string>
+    <string name="food_data_eggs">Munia</string>
+
+    <string name="food_data_low_carbon">vähän C02</string>
+    <string name="food_data_diet">dieetti</string>
+    <string name="food_data_restaurant">Kuukauden menot</string>
 
 </resources>

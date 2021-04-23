@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ebe121">
+
+
+    <TextView
+        android:id="@+id/add_food_title"
+        android:layout_width="393dp"
+        android:layout_height="77dp"
+        android:text="DIET"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cheesebar_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/add_data_unit1"
+        app:layout_constraintBottom_toBottomOf="@+id/cheeseBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cheeseBar"
+        app:layout_constraintTop_toTopOf="@+id/cheeseBar"
+        app:layout_constraintHorizontal_bias="1"/>
+
+    <TextView
+        android:id="@+id/textView_cheese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/food_data_cheese"
+        app:layout_constraintBottom_toBottomOf="@+id/cheeseBar"
+        app:layout_constraintEnd_toStartOf="@+id/cheeseBar"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cheeseBar" />
+
+    <TextView
+        android:id="@+id/dairybar_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/add_data_unit1"
+        app:layout_constraintBottom_toBottomOf="@+id/dairyBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dairyBar"
+        app:layout_constraintTop_toTopOf="@+id/dairyBar"
+        app:layout_constraintHorizontal_bias="1"/>
+
+    <TextView
+        android:id="@+id/textView_dairy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/food_data_dairy"
+        app:layout_constraintBottom_toBottomOf="@+id/dairyBar"
+        app:layout_constraintEnd_toStartOf="@+id/dairyBar"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dairyBar" />
+
+    <TextView
+        android:id="@+id/ricebar_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/add_data_unit1"
+        app:layout_constraintBottom_toBottomOf="@+id/riceBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/riceBar"
+        app:layout_constraintTop_toTopOf="@+id/riceBar"
+        app:layout_constraintHorizontal_bias="1"/>
+
+    <TextView
+        android:id="@+id/textView_rice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/food_data_rice"
+        app:layout_constraintBottom_toBottomOf="@+id/riceBar"
+        app:layout_constraintEnd_toStartOf="@+id/riceBar"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/riceBar"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+    <TextView
+        android:id="@+id/vegetablebar_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/add_data_unit1"
+        app:layout_constraintBottom_toBottomOf="@+id/vegetableBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/vegetableBar"
+        app:layout_constraintTop_toTopOf="@+id/vegetableBar"/>
+
+    <TextView
+        android:id="@+id/textView_salad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ems="7"
+        android:text="@string/food_data_vegetables"
+        app:layout_constraintBottom_toBottomOf="@+id/vegetableBar"
+        app:layout_constraintEnd_toStartOf="@+id/vegetableBar"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vegetableBar" />
+
+    <TextView
+        android:id="@+id/eggbar_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/add_data_unit2"
+        app:layout_constraintBottom_toBottomOf="@+id/eggBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/eggBar"
+        app:layout_constraintTop_toTopOf="@+id/eggBar" />
+
+    <TextView
+        android:id="@+id/textView_egg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/food_data_eggs"
+        app:layout_constraintBottom_toBottomOf="@+id/eggBar"
+        app:layout_constraintEnd_toStartOf="@+id/eggBar"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eggBar" />
+
+    <EditText
+        android:id="@+id/restaurant_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eggBar"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_exp"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <SeekBar
+        android:id="@+id/cheeseBar"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:max="60"
+        android:progress="0"
+
+        app:layout_constraintBottom_toTopOf="@+id/dairyBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <SeekBar
+        android:id="@+id/dairyBar"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:max="80"
+        android:progress="0"
+
+        app:layout_constraintBottom_toTopOf="@+id/riceBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cheeseBar"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <SeekBar
+        android:id="@+id/riceBar"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:max="20"
+        android:progress="0"
+
+        app:layout_constraintBottom_toTopOf="@+id/vegetableBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dairyBar"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <SeekBar
+        android:id="@+id/vegetableBar"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:max="30"
+        android:progress="0"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/eggBar"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/riceBar"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <SeekBar
+        android:id="@+id/eggBar"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:max="30"
+        android:progress="0"
+
+        app:layout_constraintBottom_toTopOf="@+id/restaurant_exp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/vegetableBar"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ems="7"
+        android:text="@string/food_data_restaurant"
+        app:layout_constraintBottom_toBottomOf="@+id/restaurant_exp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/restaurant_exp"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/restaurant_exp" />
+
+    <RadioGroup
+        android:id="@+id/diet_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_food_title">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vegan" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vegetarian" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Omnivore" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/food_data_low_carbon"
+        app:layout_constraintBottom_toTopOf="@+id/cheeseBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diet_group" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/food_data_diet"
+        app:layout_constraintBottom_toBottomOf="@+id/diet_group"
+        app:layout_constraintEnd_toStartOf="@+id/diet_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/diet_group" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

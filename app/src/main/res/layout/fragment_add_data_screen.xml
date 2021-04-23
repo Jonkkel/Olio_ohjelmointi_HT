@@ -1,73 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Add_data_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_food_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_data_food"
-        android:background="@drawable/login_button_theme"
-        android:padding="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ebe1a4">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_drink_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_data_drink"
-        android:background="@drawable/login_button_theme"
-        android:padding="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_food_button"
-        app:layout_constraintVertical_bias="0.094" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:paddingTop="20sp"
+            android:paddingBottom="10sp"
+            android:text="@string/add_data_information"
+            android:textSize="40sp"
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_travel_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_data_travel"
-        android:background="@drawable/login_button_theme"
-        android:padding="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_drink_button"
-        app:layout_constraintVertical_bias="0.139" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_clothes_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_data_clothes"
-        android:background="@drawable/login_button_theme"
-        android:padding="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_travel_button"
-        app:layout_constraintVertical_bias="0.167" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/add_data_information"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/add_food_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_food_button"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_theme"
+            android:padding="10sp"
+            android:text="@string/add_data_food"
+            app:layout_constraintBottom_toTopOf="@+id/add_housing_button"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_housing_button"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_theme"
+            android:padding="10sp"
+            android:text="@string/add_data_drink"
+            app:layout_constraintBottom_toTopOf="@+id/add_travel_button"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/add_food_button" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_travel_button"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_theme"
+            android:padding="10sp"
+            android:text="@string/add_data_travel"
+            app:layout_constraintBottom_toTopOf="@+id/add_consumption_button"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/add_housing_button" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_consumption_button"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_button_theme"
+            android:padding="10sp"
+            android:text="@string/add_data_clothes"
+            app:layout_constraintBottom_toTopOf="@+id/add_waste_button"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/add_travel_button" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_waste_button"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="52dp"
+            android:background="@drawable/login_button_theme"
+            android:padding="10sp"
+            android:text="@string/add_data_waste"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/add_consumption_button" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
 
