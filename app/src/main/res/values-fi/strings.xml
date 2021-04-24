@@ -104,6 +104,7 @@
 
     <string name="waste_title">Syötä kierrätys tottumuksesi ja arvio tuottamallesi jätteen määrälle</string>
     <string name="waste_subtitle">Kuinka usein kierrätät seuraavia materiaaleja:</string>
+    <string name="waste_text">EU:n kansalainen tuottaa keskimäärin 480kg. (1,3kg päivässä)</string>
     <string name="bioWaste">Bio jäte</string>
     <string name="carton">kartonki</string>
     <string name="electronic">Elektroniikka</string>

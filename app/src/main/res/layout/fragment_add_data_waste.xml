@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background1">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        tools:layout_editor_absoluteX="-58dp"
-        tools:layout_editor_absoluteY="29dp">
+        tools:layout_editor_absoluteX="-106dp"
+        tools:layout_editor_absoluteY="-325dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -20,110 +21,110 @@
                 android:id="@+id/add_food_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16sp"
+                android:layout_marginBottom="35sp"
                 android:gravity="center"
+                android:padding="16sp"
                 android:text="@string/waste_title"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="35sp"
-                app:layout_constraintBottom_toTopOf="@+id/spinner9"
+                app:layout_constraintBottom_toTopOf="@+id/totalWasteSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0." />
 
             <Spinner
-                android:id="@+id/spinner7"
+                android:id="@+id/paperSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner8"
+                app:layout_constraintBottom_toTopOf="@+id/plasticSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/glassSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner5"
+                app:layout_constraintBottom_toTopOf="@+id/hazardousSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner3"
+                android:id="@+id/electronicSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner4"
+                app:layout_constraintBottom_toTopOf="@+id/glassSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner6"
+                android:id="@+id/metalSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner7"
+                app:layout_constraintBottom_toTopOf="@+id/paperSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner5"
+                android:id="@+id/hazardousSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner6"
+                app:layout_constraintBottom_toTopOf="@+id/metalSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner1"
+                android:id="@+id/bioSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner2"
+                app:layout_constraintBottom_toTopOf="@+id/cartonSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/cartonSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/spinner3"
+                app:layout_constraintBottom_toTopOf="@+id/electronicSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner8"
+                android:id="@+id/plasticSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="35sp"
                 android:layout_marginBottom="860dp"
                 android:entries="@array/waste_options1"
-                app:layout_constraintBottom_toTopOf="@+id/button2"
+                app:layout_constraintBottom_toTopOf="@+id/submitWasteData"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.759"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
-                android:id="@+id/spinner9"
+                android:id="@+id/totalWasteSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35sp"
@@ -134,13 +135,15 @@
                 app:layout_constraintHorizontal_bias="0.741"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:id="@+id/button2"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submitWasteData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20sp"
                 android:layout_marginBottom="20dp"
-                android:text="Button"
+                android:background="@drawable/login_button_theme"
+                android:padding="8sp"
+                android:text="@string/submit_data_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -152,11 +155,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/bioWaste"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner1"
-                app:layout_constraintEnd_toStartOf="@+id/spinner1"
+                app:layout_constraintBottom_toBottomOf="@+id/bioSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/bioSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner1" />
+                app:layout_constraintTop_toTopOf="@+id/bioSpinner" />
 
             <TextView
                 android:id="@+id/textView102"
@@ -165,11 +168,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/carton"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner2"
-                app:layout_constraintEnd_toStartOf="@+id/spinner2"
+                app:layout_constraintBottom_toBottomOf="@+id/cartonSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/cartonSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner2" />
+                app:layout_constraintTop_toTopOf="@+id/cartonSpinner" />
 
             <TextView
                 android:id="@+id/textView103"
@@ -178,11 +181,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/electronic"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner3"
-                app:layout_constraintEnd_toStartOf="@+id/spinner3"
+                app:layout_constraintBottom_toBottomOf="@+id/electronicSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/electronicSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner3" />
+                app:layout_constraintTop_toTopOf="@+id/electronicSpinner" />
 
             <TextView
                 android:id="@+id/textView104"
@@ -191,11 +194,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/glass"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner4"
-                app:layout_constraintEnd_toStartOf="@+id/spinner4"
+                app:layout_constraintBottom_toBottomOf="@+id/glassSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/glassSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner4" />
+                app:layout_constraintTop_toTopOf="@+id/glassSpinner" />
 
             <TextView
                 android:id="@+id/textView105"
@@ -204,11 +207,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/hazardous"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner5"
-                app:layout_constraintEnd_toStartOf="@+id/spinner5"
+                app:layout_constraintBottom_toBottomOf="@+id/hazardousSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/hazardousSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner5" />
+                app:layout_constraintTop_toTopOf="@+id/hazardousSpinner" />
 
             <TextView
                 android:id="@+id/textView106"
@@ -217,11 +220,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/metal"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner6"
-                app:layout_constraintEnd_toStartOf="@+id/spinner6"
+                app:layout_constraintBottom_toBottomOf="@+id/metalSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/metalSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner6" />
+                app:layout_constraintTop_toTopOf="@+id/metalSpinner" />
 
             <TextView
                 android:id="@+id/textView107"
@@ -230,11 +233,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/paper"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner7"
-                app:layout_constraintEnd_toStartOf="@+id/spinner7"
+                app:layout_constraintBottom_toBottomOf="@+id/paperSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/paperSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner7" />
+                app:layout_constraintTop_toTopOf="@+id/paperSpinner" />
 
             <TextView
                 android:id="@+id/textView108"
@@ -243,11 +246,11 @@
                 android:layout_margin="16dp"
                 android:text="@string/plastic"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner8"
-                app:layout_constraintEnd_toStartOf="@+id/spinner8"
+                app:layout_constraintBottom_toBottomOf="@+id/plasticSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/plasticSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner8" />
+                app:layout_constraintTop_toTopOf="@+id/plasticSpinner" />
 
             <TextView
                 android:id="@+id/textView109"
@@ -257,11 +260,11 @@
                 android:ems="7"
                 android:text="@string/total"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/spinner9"
-                app:layout_constraintEnd_toStartOf="@+id/spinner9"
+                app:layout_constraintBottom_toBottomOf="@+id/totalWasteSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/totalWasteSpinner"
                 app:layout_constraintHorizontal_bias="0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/spinner9" />
+                app:layout_constraintTop_toTopOf="@+id/totalWasteSpinner" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -274,7 +277,7 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/spinner1"
+                app:layout_constraintBottom_toTopOf="@+id/bioSpinner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -285,7 +288,7 @@
 
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="40dp"
-                android:text="In EU average amount of waste generated per person in a year is 480kg. (1,3kg per day)"
+                android:text="@string/waste_text"
                 app:layout_constraintBottom_toTopOf="@+id/textView14"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

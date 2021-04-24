@@ -112,6 +112,7 @@
 
     <string name="waste_title">Here you can submit your recycling data</string>
     <string name="waste_subtitle">How often do you recycle following materials:</string>
+    <string name="waste_text">In EU average amount of waste generated per person in a year is 480kg. (1,3kg per day)</string>
     <string name="bioWaste">Bio waste</string>
     <string name="carton">Carton</string>
     <string name="electronic">Electronic</string>

@@ -219,7 +219,7 @@
         android:layout_height="wrap_content"
         android:ems="3"
         android:inputType="numberSigned"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/submitFoodData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
@@ -239,7 +239,7 @@
         app:layout_constraintTop_toTopOf="@+id/restaurant_exp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/submitFoodData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit_data_btn"

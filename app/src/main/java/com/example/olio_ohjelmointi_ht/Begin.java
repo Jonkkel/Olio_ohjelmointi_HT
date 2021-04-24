@@ -69,14 +69,21 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
 
     @Override
     public void onBackPressed() {
-        if (pressedTime + 2000 > System.currentTimeMillis()) {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            getSupportFragmentManager().popBackStack();
+        }else{
             super.onBackPressed();
-            this.moveTaskToBack(true);
-            this.finish();
-        } else {
-            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+            if (pressedTime + 2000 > System.currentTimeMillis()) {
+                super.onBackPressed();
+                this.moveTaskToBack(true);
+                this.finish();
+            } else {
+                Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+            }
+            pressedTime = System.currentTimeMillis();
         }
-        pressedTime = System.currentTimeMillis();
+
+
     }
     @Override
     public void onResume(){

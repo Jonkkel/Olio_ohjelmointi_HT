@@ -52,12 +52,21 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     EditText restaurantSpendings;
     RadioGroup radioGroup;
     String diet = "";
-    Button calculate;
-    @SuppressLint("SetTextI18n")
+
+    String readLine = null;
+    HttpURLConnection connection = null;
+    BufferedReader in = null;
+    URL url;
+    int responseCode = 0;
+
+    Button submitData;
+
+    @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_food, container, false);
+        CallApi CAPI = CallApi.getInstance();
         beef_amount = (TextView) v.findViewById(R.id.beefbar_amount);
         pork_amount = (TextView) v.findViewById(R.id.pork_amount);
         fish_amount = (TextView) v.findViewById(R.id.fishbar_amount);
@@ -69,7 +78,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
         restaurantSpendings = (EditText) v.findViewById(R.id.restaurant_exp);
 
         lowCarbon = (CheckBox) v.findViewById(R.id.checkBox2);
-        calculate = (Button) v.findViewById(R.id.button);
+        submitData = (Button) v.findViewById(R.id.submitFoodData);
         beefbar = (SeekBar) v.findViewById(R.id.beefBar);
         porkbar = (SeekBar) v.findViewById(R.id.porkBar);
         fishbar = (SeekBar) v.findViewById(R.id.fishBar);
@@ -92,7 +101,6 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
                     diet = "omnivore";
                     break;
             }
-
             System.out.println(diet);
         });
 
@@ -113,7 +121,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
         vegetable_amount.setText(vegetables + " " + v.getResources().getString(R.string.add_data_unit1));
         egg_amount.setText(eggs + " " + v.getResources().getString(R.string.add_data_unit2));
 
-        calculate.setOnClickListener(v1 -> {
+        submitData.setOnClickListener(v1 -> {
             if (restaurantSpendings.getText().toString().equals("")) {
                 Toast.makeText(getContext(), getString(R.string.Toast_cafe), Toast.LENGTH_SHORT).show();
             }else if (diet.equals("")){
@@ -122,32 +130,13 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            String URL = ("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?query.diet=" + diet + "&query.lowCarbonPreference=" + lowCarbon.isChecked() + "&query.beefLevel=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) + "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" + Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) + "&query.restaurantSpending=" + restaurantSpendings.getText());
-            System.out.println(URL);
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-            JsonObjectRequest objectRequest = new JsonObjectRequest(
-                Request.Method.GET,
-                URL,
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("Rest response", response.toString());
-                        String delims = "[,:]";
-                        String texti[] = response.toString().split(delims);
-                        for (String a: texti){
-                            System.out.println(a);
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Rest response", error.toString());
-                    }
+                try {
+                    url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?query.diet=" + diet + "&query.lowCarbonPreference=" + lowCarbon.isChecked() + "&query.beefLevel=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) + "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" + Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) + "&query.restaurantSpending=" + restaurantSpendings.getText());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                 }
-            );
-            requestQueue.add(objectRequest);
+                CAPI.getRequest(url);
+
         }});
         return v;
     }
@@ -157,10 +146,10 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     @Override
     public void onProgressChanged(android.widget.SeekBar seekBar, int progress, boolean fromUser) {
         if (!(restaurantSpendings.getText().toString().equals(""))) {
-            calculate.setEnabled(true);
+            submitData.setEnabled(true);
         }
         if (!(diet.equals(""))){
-            calculate.setEnabled(true);
+            submitData.setEnabled(true);
         }
         if(seekBar.equals(beefbar)){
             beef = (double) progress /10;
@@ -198,7 +187,4 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     public void onStopTrackingTouch(android.widget.SeekBar seekBar) {
 
     }
-
-
-
 }
