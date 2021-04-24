@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class Begin_settings_screen extends Fragment implements View.OnClickListener, Settings_DialogFragment.DialogListener{
+public class Begin_settings_screen extends Fragment implements View.OnClickListener{
 
     Button change_username_button;
     Button change_password_button;
@@ -152,8 +152,4 @@ public class Begin_settings_screen extends Fragment implements View.OnClickListe
         }
     };
 
-    @Override
-    public void onFinishEditDialog(String inputText) {
-        System.out.println("JOOEJEROJE");
-    }
 }

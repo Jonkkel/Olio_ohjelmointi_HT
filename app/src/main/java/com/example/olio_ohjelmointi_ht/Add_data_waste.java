@@ -15,7 +15,7 @@ public class Add_data_waste extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_statistics_screen, container, false);
+        return inflater.inflate(R.layout.fragment_add_data_waste, container, false);
 
     }
 }

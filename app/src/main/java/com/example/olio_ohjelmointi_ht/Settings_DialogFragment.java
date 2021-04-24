@@ -30,7 +30,9 @@ public class Settings_DialogFragment extends DialogFragment {
     Integer inputType = 1;
     TextView usernameError, dialogTitle;
     User user;
+
     static Settings_DialogFragment newInstance() {
+
         return new Settings_DialogFragment();
     }
 
@@ -39,7 +41,7 @@ public class Settings_DialogFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState){
         settingTool = SettingTool.getInstance(getActivity());
         settingTool.loadLocale();
-        user = settingTool.getUserObject();
+
         switch (getArguments().getString("type")){
             case ("username"):
                 change = "Change username";
@@ -73,8 +75,7 @@ public class Settings_DialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dialogfragment_settings_change, container, false);
-        return view;
+        return inflater.inflate(R.layout.dialogfragment_settings_change, container, false);
     }
 
     @Override
@@ -82,7 +83,7 @@ public class Settings_DialogFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         dialogTitle = (TextView) getView().findViewById(R.id.title);
         usernameError = (TextView) getView().findViewById(R.id.usernameError);
-
+        user = settingTool.getUserObject();
         oldValueHolder = (EditText) getView().findViewById(R.id.oldValue);
         dialogTitle.setText(change);
         Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
@@ -184,18 +185,20 @@ public class Settings_DialogFragment extends DialogFragment {
 
     @SuppressLint("SetTextI18n")
     public void setOldValue(){
+        oldValueHolder.setHintTextColor(getResources().getColor(R.color.black));
         oldValueHolder.setEnabled(false);
         if (getArguments().getString("type").equals("username")){
             oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
         }else if (getArguments().getString("type").equals("password")){
+            oldValueHolder.setHintTextColor(getResources().getColor(R.color.hint));
             oldValueHolder.setHint("Write old password");
             oldValueHolder.setEnabled(true);
         }else if (getArguments().getString("type").equals("age")){
-            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+            oldValueHolder.setHint(getResources().getString(R.string.old_age)+ " " + user.getAge());
         }else if (getArguments().getString("type").equals("city")){
-            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+            oldValueHolder.setHint(getResources().getString(R.string.old_home_city)+ " " + user.getCity());
         }else if (getArguments().getString("type").equals("email")){
-            oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
+            oldValueHolder.setHint(getResources().getString(R.string.old_email)+ " " + user.getEmail());
         }
     }
 
@@ -205,13 +208,4 @@ public class Settings_DialogFragment extends DialogFragment {
 
     }
 
-    @Override
-    public void onDestroyView() {
-
-        super.onDestroyView();
-    }
-
-    public interface DialogListener {
-        void onFinishEditDialog(String inputText);
-    }
 }

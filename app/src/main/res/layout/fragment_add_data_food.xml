@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     android:background="#ebe121">
 
-
     <TextView
         android:id="@+id/add_food_title"
         android:layout_width="393dp"
         android:layout_height="77dp"
-        android:text="DIET"
         android:gravity="center"
+        android:text="DIET"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -182,7 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:ems="7"
+        android:ems="9"
         android:text="@string/food_data_vegetables"
         app:layout_constraintBottom_toBottomOf="@+id/vegetableBar"
         app:layout_constraintEnd_toStartOf="@+id/vegetableBar"
@@ -218,8 +217,8 @@
         android:id="@+id/restaurant_exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="2"
-        android:inputType="number"
+        android:ems="3"
+        android:inputType="numberSigned"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -243,7 +242,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/submit_data_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -369,7 +368,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:ems="7"
+        android:ems="8"
         android:text="@string/food_data_restaurant"
         app:layout_constraintBottom_toBottomOf="@+id/restaurant_exp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -385,7 +384,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/checkBox2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_food_title">
 
@@ -393,25 +392,26 @@
             android:id="@+id/radioVegan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vegan" />
+            android:text="@string/radio_btn1" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radioVegetarian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vegetarian" />
+            android:text="@string/radio_btn2" />
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radioOmnivore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Omnivore" />
+            android:text="@string/radio_btn3" />
     </RadioGroup>
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ems="15"
         android:text="@string/food_data_low_carbon"
         app:layout_constraintBottom_toTopOf="@+id/beefBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -424,6 +424,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/food_data_diet"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/diet_group"
         app:layout_constraintEnd_toStartOf="@+id/diet_group"
         app:layout_constraintStart_toStartOf="parent"

@@ -58,6 +58,8 @@ public class Begin_add_data_screen extends Fragment implements View.OnClickListe
         transaction.replace(R.id.Main_fragment, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+        // showing the back button in action bar
     }
 
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.

@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -19,6 +21,7 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
     private long pressedTime;
     MenuItem lastItem = null;
     BottomNavigationView bottomNavigationView;
+
     @Override
     public void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
@@ -60,6 +63,7 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.Main_fragment, fragment, "TAG");
         transaction.commit();
+        // showing the back button in action bar
         return true;
     }
 

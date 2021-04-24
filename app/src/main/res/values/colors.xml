@@ -15,4 +15,6 @@
 
     <color name="login_screen_secondary_color">#23423b</color>
 
+    <color name="hint">#808080</color>
+
 </resources>

@@ -73,6 +73,10 @@
     <string name="add_data_unit1">kg/week</string>
     <string name="add_data_unit2">pcs/week</string>
     <string name="add_data_unit3">€/m</string>
+    <string name="submit_data_btn">Submit data</string>
+    <string name="radio_btn1">Vegan</string>
+    <string name="radio_btn2">Vegetarian</string>
+    <string name="radio_btn3">Omnivore</string>
 
 
     <!-- for fragment_add_food_data.xml -->
@@ -87,7 +91,38 @@
 
     <string name="food_data_low_carbon">I prefed low-carbon choices in my diet</string>
     <string name="food_data_diet">DIET</string>
-    <string name="food_data_restaurant">MONTHLY EXPENDITURE</string>
+    <string name="food_data_restaurant">Monthly cáfe/restaurant spendings</string>
+
+    <string name="Toast_cafe">You must add your cáfe/restaurant spendings.</string>
+    <string name="Toast_diet">You must add your diet before you can submit data.</string>
+
+    <!-- for fragment_add_waste_data.xml -->
+    <string-array name="waste_options1">
+        <item>never</item>
+        <item>sometimes</item>
+        <item>often</item>
+        <item>always</item>
+    </string-array>
+
+    <string-array name="waste_options2">
+        <item>low</item>
+        <item>average</item>
+        <item>high</item>
+    </string-array>
+
+    <string name="waste_title">Here you can submit your recycling data</string>
+    <string name="waste_subtitle">How often do you recycle following materials:</string>
+    <string name="bioWaste">Bio waste</string>
+    <string name="carton">Carton</string>
+    <string name="electronic">Electronic</string>
+    <string name="glass">Glass</string>
+    <string name="hazardous">Hazardous</string>
+    <string name="metal">Metal</string>
+    <string name="paper">Paper</string>
+    <string name="plastic">Plastic</string>
+    <string name="total">The amount of waste</string>
+
+
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">Welcome back </string>

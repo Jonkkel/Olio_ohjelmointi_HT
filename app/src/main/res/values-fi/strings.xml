@@ -62,6 +62,10 @@
     <string name="add_data_unit1">kg/viikko</string>
     <string name="add_data_unit2">kpl/viikko</string>
     <string name="add_data_unit3">€/kk</string>
+    <string name="submit_data_btn">Syötä data</string>
+    <string name="radio_btn1">Vegaani</string>
+    <string name="radio_btn2">Vegetaristi</string>
+    <string name="radio_btn3">Kaikkiruokainen</string>
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">"Tervetuloa takaisin "</string>
@@ -77,8 +81,37 @@
     <string name="food_data_vegetables">Tuoreita vihanneksia talvisin</string>
     <string name="food_data_eggs">Munia</string>
 
-    <string name="food_data_low_carbon">vähän C02</string>
-    <string name="food_data_diet">dieetti</string>
-    <string name="food_data_restaurant">Kuukauden menot</string>
+    <string name="food_data_low_carbon">Pyrin käyttämään vähäpäästöisiä tuotteita ruuanlaitossa</string>
+    <string name="food_data_diet">Dieetti</string>
+    <string name="food_data_restaurant">Kuukauden kahvila/ravintola kulut</string>
+
+    <string name="Toast_cafe">Lisää kahvila/ravintola kulut</string>
+    <string name="Toast_diet">Lisää diettisi</string>
+
+    <!-- for fragment_add_waste_data.xml -->
+    <string-array name="waste_options1">
+        <item>en koskaan</item>
+        <item>joskus</item>
+        <item>usein</item>
+        <item>aina</item>
+    </string-array>
+
+    <string-array name="waste_options2">
+        <item>vähän</item>
+        <item>normaalisti</item>
+        <item>paljon</item>
+    </string-array>
+
+    <string name="waste_title">Syötä kierrätys tottumuksesi ja arvio tuottamallesi jätteen määrälle</string>
+    <string name="waste_subtitle">Kuinka usein kierrätät seuraavia materiaaleja:</string>
+    <string name="bioWaste">Bio jäte</string>
+    <string name="carton">kartonki</string>
+    <string name="electronic">Elektroniikka</string>
+    <string name="glass">Lasi</string>
+    <string name="hazardous">Vaarallinen jäte</string>
+    <string name="metal">Metalli</string>
+    <string name="paper">Paperi</string>
+    <string name="plastic">Muovi</string>
+    <string name="total">Arvio kuinka paljon jätettä tuotat</string>
 
 </resources>
