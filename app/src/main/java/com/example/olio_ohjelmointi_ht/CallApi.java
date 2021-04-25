@@ -5,7 +5,9 @@ import android.content.Context;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -83,9 +85,6 @@ public class CallApi {
         the current year and week. The data in the .csv file will be in the following form: yyyy;ww;emission\n .
         As of now, this method will not modify the .csv file in any way if the latest row added is on the current week. */
 
-        //TODO Implement proper functionality when adding data for an already logged week
-        //TODO +2
-
         Calendar calendar = new GregorianCalendar();
         Date today = new Date();
         calendar.setTime(today);
@@ -103,28 +102,31 @@ public class CallApi {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-        }
-
-        int weekCounter = (timeDelta(fileName, "weekLastRow") + 1); // Sets the weekCounter to start from the first missing week in the file
-        int weeksLeft = 52; // The amount of weeks in a year (if current year, will be set to currentWeek)
-        try {
-            FileWriter csvWriter = new FileWriter(fileName, true);
-            for (int i = timeDelta(fileName, "yearLastRow"); i <= currentYear; i++) {
-                if (i == currentYear) {
-                    weeksLeft = currentWeek; // Sets the remaining weeks to current week
+        } else if (currentWeek == timeDelta(fileName, "weekLastRow") && currentYear == timeDelta(fileName, "yearLastRow")) {
+            /* If the latest emission log is from the same week as new one, changes the latest emission log into the new one.
+            See editLastRow for further description */
+            editLastRow(fileName, (currentYear + ";" + currentWeek + ";" + emission + "\n").getBytes());
+        } else {
+            int weekCounter = (timeDelta(fileName, "weekLastRow") + 1); // Sets the weekCounter to start from the first missing week in the file
+            int weeksLeft = 52; // The amount of weeks in a year (if current year, will be set to currentWeek)
+            try {
+                FileWriter csvWriter = new FileWriter(fileName, true);
+                for (int i = timeDelta(fileName, "yearLastRow"); i <= currentYear; i++) {
+                    if (i == currentYear) {
+                        weeksLeft = currentWeek; // Sets the remaining weeks to current week
+                    }
+                    for (int j = weekCounter; j <= weeksLeft; j++) { //if currentWeek == weekLastRow, this will be skipped, see weekCounter
+                        csvWriter.append(i + ";" + j + ";" + emission + "\n"); // year;week;emission\n
+                    }
+                    if (i < currentYear) { // Resets the weekCounter if one year has passed and the year isn't current yet
+                        weekCounter = 1;
+                    }
                 }
-                for (int j = weekCounter; j <= weeksLeft; j++) { //if currentWeek == weekLastRow, this will be skipped, see weekCounter
-                    csvWriter.append(i + ";" + j + ";" + emission + "\n"); // year;week;emission\n
-                }
-                if (i < currentYear) { // Resets the weekCounter if one year has passed and the year isn't current yet
-                    weekCounter = 1;
-                }
+                csvWriter.close();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
-            csvWriter.append(2021+ ";" + 16 + ";" + emission + "\n");
-            csvWriter.close();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 
@@ -181,5 +183,75 @@ public class CallApi {
             System.out.println("TYPO IN THE 'MODE' PARAMETER IN THE CODE CALLING FOR timeDelta"); // This is a poor solution, needs something better
             return current;
         }
+    }
+
+    public void editLastRow(String fileName, byte[] lastRowDataBytes) {
+
+        //TODO add descriptions
+
+        StringBuilder sb = new StringBuilder(fileName);
+        String tempFile = sb.replace(sb.lastIndexOf("/"), sb.length(), "/tempFile.csv").toString();
+
+
+        try {
+            FileInputStream in = new FileInputStream(fileName);
+            FileOutputStream out = new FileOutputStream(tempFile);
+
+            int n = 0;
+            int rowCount = csvRowCounter(fileName) - 1;
+
+            for (int i = 1; i <= rowCount; i++) {
+                while ((n = in.read()) != '\n') {
+                    out.write(n);
+                }
+                out.write('\n');
+            }
+            out.write(lastRowDataBytes);
+
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        File fileToDelete = new File(fileName);
+        File fileToRename = new File(tempFile);
+        fileToDelete.delete();
+        fileToRename.renameTo(fileToDelete);
+    }
+
+    private int csvRowCounter(String fileName) {
+
+        //TODO add descriptions
+
+        int n = 0;
+        int rowCounter = 0;
+
+        try {
+            FileInputStream in = new FileInputStream(fileName);
+            while ((n = in.read()) != -1) {
+                if (n == '\n') {
+                    rowCounter++;
+                }
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return rowCounter;
     }
 }
