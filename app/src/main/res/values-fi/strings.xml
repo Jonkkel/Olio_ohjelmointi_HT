@@ -133,4 +133,11 @@
     <string name="consumption_title3">Palvelut</string>
     <string name="consumption_low_carbon">Ekologinen</string>
 
+    <!-- for fragment_add_housing_data.xml -->
+    <string name="housing_home">Koti</string>
+    <string name="housing_heating">Lämmitys</string>
+    <string name="housing_electricity">Sähkö</string>
+    <string name="housing_goods">Sisustus ja palvelut</string>
+    <string name="housing_second_home">Toinen koti</string>
+
 </resources>

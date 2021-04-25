@@ -142,6 +142,14 @@
     <string name="consumption_low_carbon">low carbon</string>
 
 
+    <!-- for fragment_add_housing_data.xml -->
+    <string name="housing_home">Home</string>
+    <string name="housing_heating">Heating</string>
+    <string name="housing_electricity">Electricity</string>
+    <string name="housing_goods">Goods and services for </string>
+    <string name="housing_second_home">Second home</string>
+
+
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">Welcome back </string>
 
