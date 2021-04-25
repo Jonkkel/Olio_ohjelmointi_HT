@@ -123,6 +123,23 @@
     <string name="plastic">Plastic</string>
     <string name="total">The amount of waste</string>
 
+    <!-- for fragment_add_consumption_data.xml -->
+    <string name="consumption_unit">€/m</string>
+
+    <string name="consumption_title">Here you can add your consumption data</string>
+    <string name="consumption_title1">Check the box if you favour low carbon products</string>
+
+    <string name="consumption_clothing">Clothing</string>
+    <string name="consumption_shoes">Shoes</string>
+    <string name="consumption_electronics">Electronics</string>
+    <string name="consumption_paper">Paper books and magazines</string>
+    <string name="consumption_recreation">Recreation</string>
+    <string name="consumption_communication">Phone/internet</string>
+    <string name="consumption_other">Other consumption</string>
+
+    <string name="consumption_title2">Goods</string>
+    <string name="consumption_title3">Services</string>
+    <string name="consumption_low_carbon">low carbon</string>
 
 
     <!-- for fragment_home_screen.xml -->

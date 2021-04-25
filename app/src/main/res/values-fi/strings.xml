@@ -115,4 +115,22 @@
     <string name="plastic">Muovi</string>
     <string name="total">Arvio kuinka paljon jätettä tuotat</string>
 
+    <!-- for fragment_add_consumption_data.xml -->
+    <string name="consumption_unit">€/kk</string>
+
+    <string name="consumption_title">Voit lisätä täällä kulutus datasi</string>
+    <string name="consumption_title1">Ruksita laatikko, jos suosit vähäpäästöisiä tuotteita</string>
+
+    <string name="consumption_clothing">Vaatteet</string>
+    <string name="consumption_shoes">Kengät</string>
+    <string name="consumption_electronics">Elektroniikka</string>
+    <string name="consumption_paper">Kirjat ja sanomalehdet</string>
+    <string name="consumption_recreation">Harrastukset</string>
+    <string name="consumption_communication">Puhelinliittymä ja netti</string>
+    <string name="consumption_other">Muut menot</string>
+
+    <string name="consumption_title2">Tuotteet</string>
+    <string name="consumption_title3">Palvelut</string>
+    <string name="consumption_low_carbon">Ekologinen</string>
+
 </resources>

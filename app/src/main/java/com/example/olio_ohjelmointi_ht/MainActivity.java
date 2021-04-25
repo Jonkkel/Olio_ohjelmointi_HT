@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity{
     String username;
     String password;
     String message;
-    int s = 0;
     AppCompatButton sign_up, sign_in;
 
     @Override
@@ -44,6 +43,7 @@ public class MainActivity extends AppCompatActivity{
         login_username = (EditText) findViewById(R.id.login_username);
         login_password = (EditText) findViewById(R.id.login_password);
         message_box = (TextView) findViewById(R.id.message_box);
+
         System.out.println(this.getFilesDir());
         sign_in = (AppCompatButton) findViewById(R.id.login_sign_in);
         sign_up = (AppCompatButton) findViewById(R.id.login_sign_up);
