@@ -45,11 +45,23 @@
     <string name="change_email">Change email</string>
     <string name="change_language">Change language</string>
 
+    <!-- for fragment_settings_screen.xml -->
     <string name="old_username">Current username:</string>
     <string name="old_password">Current password:</string>
     <string name="old_age">Current age:</string>
     <string name="old_home_city">Current home city:</string>
     <string name="old_email">Current email:</string>
+    <string name="new_username">New username</string>
+    <string name="new_password">New password</string>
+    <string name="new_age">New age</string>
+    <string name="new_home_city">Set new homecity</string>
+    <string name="new_email">New e-mail</string>
+    <string name="changed_username">Username changed</string>
+    <string name="changed_age">Age changed</string>
+    <string name="changed_home_city">Home city changed</string>
+    <string name="changed_email">E-mail changed</string>
+    <string name="changed_password">Password changed</string>
+    <string name="new_password_wrong">Password wrong</string>
 
 
     <string name="choose_language">Choose language...</string>

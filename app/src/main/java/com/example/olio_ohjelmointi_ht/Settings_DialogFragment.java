@@ -3,6 +3,7 @@ package com.example.olio_ohjelmointi_ht;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputType;
@@ -30,6 +31,7 @@ public class Settings_DialogFragment extends DialogFragment {
     Integer inputType = 1;
     TextView usernameError, dialogTitle;
     User user;
+    Context c = getContext();
 
     static Settings_DialogFragment newInstance() {
 
@@ -44,26 +46,26 @@ public class Settings_DialogFragment extends DialogFragment {
 
         switch (getArguments().getString("type")){
             case ("username"):
-                change = "Change username";
-                hint = "New username";
+                change = getContext().getString(R.string.change_username);
+                hint = getContext().getString(R.string.new_username);
                 return super.onCreateDialog(savedInstanceState);
             case ("password"):
-                change = "Change password";
-                hint = "New password";
+                change = getContext().getString(R.string.change_password);
+                hint = getContext().getString(R.string.new_password);
                 inputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD;
                 return super.onCreateDialog(savedInstanceState);
             case ("age"):
-                change = "Change age";
-                hint = "New age";
+                change = getContext().getString(R.string.change_age);
+                hint = getContext().getString(R.string.new_age);;
                 inputType = 2;
                 return super.onCreateDialog(savedInstanceState);
             case ("city"):
-                change = "Change city";
-                hint = "Set new city";
+                change = getContext().getString(R.string.change_home_city);
+                hint = getContext().getString(R.string.new_home_city);;
                 return super.onCreateDialog(savedInstanceState);
             case ("email"):
-                change = "Change email";
-                hint = "Set new email";
+                change = getContext().getString(R.string.change_email);
+                hint = getContext().getString(R.string.new_email);;
                 return super.onCreateDialog(savedInstanceState);
             case ("language"):
                 dialog = showChangeLanguageDialog();
@@ -129,22 +131,22 @@ public class Settings_DialogFragment extends DialogFragment {
             if(!(value.equals(""))){
                 if (getArguments().getString("type").equals("username")){
                     settingTool.changeUsername(value);
-                    Toast.makeText(getContext(), "Username changed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.changed_username), Toast.LENGTH_SHORT).show();
                 }else if (getArguments().getString("type").equals("password")){
                     if(!(oldValueHolder.getText().toString().equals("")) && settingTool.checkPassword(oldValueHolder.getText().toString())){
-                        Toast.makeText(getContext(), "Password changed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getContext().getString(R.string.changed_password), Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(getContext(), "Password wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getContext().getString(R.string.new_password_wrong), Toast.LENGTH_SHORT).show();
                     }
                 }else if (getArguments().getString("type").equals("age")){
                     settingTool.changeUserAge(value);
-                    Toast.makeText(getContext(), "Age changed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.changed_age), Toast.LENGTH_SHORT).show();
                 }else if (getArguments().getString("type").equals("city")){
                     settingTool.changeUserCity(value);
-                    Toast.makeText(getContext(), "Home city changed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.changed_home_city), Toast.LENGTH_SHORT).show();
                 }else if (getArguments().getString("type").equals("email")){
                     settingTool.changeUserEmail(value);
-                    Toast.makeText(getContext(), "Email changed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.changed_email), Toast.LENGTH_SHORT).show();
                 }
             }
             dismiss();

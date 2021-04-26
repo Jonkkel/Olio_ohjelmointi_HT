@@ -51,6 +51,17 @@
     <string name="old_age">Nykyinen ikä:</string>
     <string name="old_home_city">Nykyinen kotikaupunki:</string>
     <string name="old_email">Vanha sähköposti:</string>
+    <string name="new_username">Uusi käyttäjänimi</string>
+    <string name="new_password">Uusi salasana</string>
+    <string name="new_age">Uusi ikä</string>
+    <string name="new_home_city">Uusi kotikaupunki</string>
+    <string name="new_email">Uusi sähköposti</string>
+    <string name="changed_username">Käyttäjänimi vaihdettu</string>
+    <string name="changed_age">Ikä vaihdettu</string>
+    <string name="changed_home_city">Kotikaupunki vaihdettu</string>
+    <string name="changed_email">Sähköposti vaihdettu</string>
+    <string name="changed_password">Salasana vaihdettu</string>
+    <string name="new_password_wrong">Salasana väärin</string>
 
     <!-- for fragment_add_data_screen.xml -->
     <string name="add_data_clothes">Lisää ostamasi vaatteet</string>
@@ -139,7 +150,6 @@
     <string name="housing_electricity">Sähkö</string>
     <string name="housing_goods">Sisustus ja palvelut</string>
     <string name="housing_second_home">Toinen koti</string>
-
     <string name="housing_housetype1">Omakotitalo</string>
     <string name="housing_housetype2">Kerrostalo</string>
     <string name="housing_housetype3">Rivitalo</string>
@@ -158,6 +168,8 @@
     <string name="housing_additional_heat">Lisälämmitys</string>
     <string name="housing_air_heat">Ilmalämpöpumppu</string>
     <string name="housing_own_heat">Oma sähkö</string>
+
+
 
 
 </resources>
