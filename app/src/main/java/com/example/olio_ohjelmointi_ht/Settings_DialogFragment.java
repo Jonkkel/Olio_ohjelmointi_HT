@@ -45,7 +45,7 @@ public class Settings_DialogFragment extends DialogFragment {
         switch (getArguments().getString("type")){
             case ("username"):
                 change = "Change username";
-                hint = "new username";
+                hint = "New username";
                 return super.onCreateDialog(savedInstanceState);
             case ("password"):
                 change = "Change password";
@@ -54,16 +54,16 @@ public class Settings_DialogFragment extends DialogFragment {
                 return super.onCreateDialog(savedInstanceState);
             case ("age"):
                 change = "Change age";
-                hint = "new age";
+                hint = "New age";
                 inputType = 2;
                 return super.onCreateDialog(savedInstanceState);
             case ("city"):
                 change = "Change city";
-                hint = "set new city";
+                hint = "Set new city";
                 return super.onCreateDialog(savedInstanceState);
             case ("email"):
                 change = "Change email";
-                hint = "set new email";
+                hint = "Set new email";
                 return super.onCreateDialog(savedInstanceState);
             case ("language"):
                 dialog = showChangeLanguageDialog();
@@ -132,9 +132,9 @@ public class Settings_DialogFragment extends DialogFragment {
                     Toast.makeText(getContext(), "Username changed", Toast.LENGTH_SHORT).show();
                 }else if (getArguments().getString("type").equals("password")){
                     if(!(oldValueHolder.getText().toString().equals("")) && settingTool.checkPassword(oldValueHolder.getText().toString())){
-                        Toast.makeText(getContext(), "password changed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Password changed", Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(getContext(), "password wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Password wrong", Toast.LENGTH_SHORT).show();
                     }
                 }else if (getArguments().getString("type").equals("age")){
                     settingTool.changeUserAge(value);
@@ -163,6 +163,7 @@ public class Settings_DialogFragment extends DialogFragment {
                 settingTool.setLocale("fi");
             }else if(which == 2){
                 //TODO
+                Toast.makeText(getContext(), "This language is not available right now", Toast.LENGTH_SHORT).show();
                 //settingTool.setLocale("sv");
             }
         });

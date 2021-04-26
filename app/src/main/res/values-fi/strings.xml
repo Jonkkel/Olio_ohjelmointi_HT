@@ -55,7 +55,7 @@
     <!-- for fragment_add_data_screen.xml -->
     <string name="add_data_clothes">Lisää ostamasi vaatteet</string>
     <string name="add_data_food">Lisää syömäsi ruoka</string>
-    <string name="add_data_drink">Lisää juomasi juomat</string>
+    <string name="add_data_housing">Lisää asumistietoja</string>
     <string name="add_data_travel">Lisää tekemäsi matkat</string>
     <string name="add_data_waste">Lisää kierrättämäsi jätteet</string>
     <string name="add_data_information">Täällä voit lisätä kulutuksesi</string>
@@ -90,23 +90,23 @@
 
     <!-- for fragment_add_waste_data.xml -->
     <string-array name="waste_options1">
-        <item>en koskaan</item>
-        <item>joskus</item>
-        <item>usein</item>
-        <item>aina</item>
+        <item>En koskaan</item>
+        <item>Joskus</item>
+        <item>Usein</item>
+        <item>Aina</item>
     </string-array>
 
     <string-array name="waste_options2">
-        <item>vähän</item>
-        <item>normaalisti</item>
-        <item>paljon</item>
+        <item>Vähän</item>
+        <item>Normaalisti</item>
+        <item>Paljon</item>
     </string-array>
 
     <string name="waste_title">Syötä kierrätys tottumuksesi ja arvio tuottamallesi jätteen määrälle</string>
     <string name="waste_subtitle">Kuinka usein kierrätät seuraavia materiaaleja:</string>
     <string name="waste_text">EU:n kansalainen tuottaa keskimäärin 480kg. (1,3kg päivässä)</string>
-    <string name="bioWaste">Bio jäte</string>
-    <string name="carton">kartonki</string>
+    <string name="bioWaste">Biojäte</string>
+    <string name="carton">Kartonki</string>
     <string name="electronic">Elektroniikka</string>
     <string name="glass">Lasi</string>
     <string name="hazardous">Vaarallinen jäte</string>
@@ -118,8 +118,8 @@
     <!-- for fragment_add_consumption_data.xml -->
     <string name="consumption_unit">€/kk</string>
 
-    <string name="consumption_title">Voit lisätä täällä kulutus datasi</string>
-    <string name="consumption_title1">Ruksita laatikko, jos suosit vähäpäästöisiä tuotteita</string>
+    <string name="consumption_title">Voit lisätä täällä kulutusdatasi</string>
+    <string name="consumption_title1">Napsauta laatikkoa, jos suosit vähäpäästöisiä tuotteita</string>
 
     <string name="consumption_clothing">Vaatteet</string>
     <string name="consumption_shoes">Kengät</string>
@@ -143,5 +143,21 @@
     <string name="housing_housetype1">Omakotitalo</string>
     <string name="housing_housetype2">Kerrostalo</string>
     <string name="housing_housetype3">Rivitalo</string>
+    <string name="housing_housetype_text">Talotyyppi</string>
+    <string name="livingSpace">m^2</string>
+    <string name="housing_space">Asuinneliöt</string>
+    <string name="housing_construction">Valmistusvuosi</string>
+    <string name="housing_floors">Asuinkerrokset</string>
+    <string name="housing_district_heating">Kaukolämpö</string>
+    <string name="housing_district_heating_consumption">kWh/vuosi</string>
+    <string name="housing_oil">Öljylämmitys</string>
+    <string name="housing_oil_consumption">l/vuosi</string>
+    <string name="housing_ground_heat">Maalämpö</string>
+    <string name="housing_electricity_heat">Sähkölämmitys</string>
+    <string name="housing_pellet">Puupelletit/lastut</string>
+    <string name="housing_additional_heat">Lisälämmitys</string>
+    <string name="housing_air_heat">Ilmalämpöpumppu</string>
+    <string name="housing_own_heat">Oma sähkö</string>
+
 
 </resources>

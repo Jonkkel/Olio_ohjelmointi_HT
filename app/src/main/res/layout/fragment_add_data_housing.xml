@@ -136,7 +136,7 @@
                 android:id="@+id/livingSpaceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Living space"
+                android:text="@string/housing_space"
                 app:layout_constraintBottom_toBottomOf="@+id/livingSpace"
                 app:layout_constraintEnd_toStartOf="@+id/livingSpace"
                 app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +146,7 @@
                 android:id="@+id/textView32"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Year of construction"
+                android:text="@string/housing_construction"
                 app:layout_constraintBottom_toBottomOf="@+id/Year_of_construction"
                 app:layout_constraintEnd_toStartOf="@+id/Year_of_construction"
                 app:layout_constraintStart_toStartOf="parent"
@@ -156,12 +156,12 @@
                 android:id="@+id/textView33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="The number of floors"
+                android:text="@string/housing_floors"
                 app:layout_constraintBottom_toBottomOf="@+id/Number_of_floor"
                 app:layout_constraintEnd_toStartOf="@+id/Number_of_floor"
                 app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/Number_of_floor"/>
+                app:layout_constraintTop_toTopOf="@+id/Number_of_floor" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -209,7 +209,7 @@
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="District Heating" />
+                    android:text="@string/housing_district_heating" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -232,7 +232,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="KWh/year"
+                        android:text="@string/housing_district_heating_consumption"
                         app:layout_constraintBottom_toBottomOf="@+id/districtHeatingEditText"
                         app:layout_constraintStart_toEndOf="@+id/districtHeatingEditText"
                         app:layout_constraintTop_toTopOf="@+id/districtHeatingEditText" />
@@ -243,7 +243,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Oil" />
+                    android:text="@string/housing_oil" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -266,7 +266,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="l/year"
+                        android:text="@string/housing_oil_consumption"
                         app:layout_constraintBottom_toBottomOf="@+id/OilEditText"
                         app:layout_constraintStart_toEndOf="@+id/OilEditText"
                         app:layout_constraintTop_toTopOf="@+id/OilEditText" />
@@ -276,17 +276,17 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ground source heat pump" />
+                    android:text="@string/housing_ground_heat" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Electricity" />
+                    android:text="@string/housing_electricity" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wood pellets/chips" />
+                    android:text="@string/housing_pellet" />
             </RadioGroup>
 
             <TextView
@@ -294,12 +294,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Additional Heating"
+                android:text="@string/housing_additional_heat"
+                app:layout_constraintBottom_toTopOf="@+id/linearlayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/heatingRadioGroup"
-                app:layout_constraintBottom_toTopOf="@+id/linearlayout"/>
+                app:layout_constraintTop_toBottomOf="@id/heatingRadioGroup" />
 
             <LinearLayout
                 android:id="@+id/linearlayout"
@@ -317,21 +317,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Wood pellets/chips"/>
+                    android:text="@string/housing_pellet" />
 
                 <CheckBox
                     android:id="@+id/checkBox2"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:layout_weight="1"
-                    android:text="Air heat pump" />
+                    android:text="@string/housing_air_heat" />
 
                 <CheckBox
                     android:id="@+id/checkBox3"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Your own electricity production"/>
+                    android:layout_weight="1"
+                    android:text="@string/housing_own_heat" />
             </LinearLayout>
 
 
