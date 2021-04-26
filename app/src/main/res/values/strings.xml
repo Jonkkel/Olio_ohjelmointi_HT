@@ -149,6 +149,13 @@
     <string name="housing_goods">Goods and services for </string>
     <string name="housing_second_home">Second home</string>
 
+    <string name="housing_housetype_text">Housing type</string>
+    <string name="housing_housetype1">Detached house</string>
+    <string name="housing_housetype2">Flat</string>
+    <string name="housing_housetype3">Terraced House</string>
+
+    <string name="livingSpace">m^2</string>
+
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">Welcome back </string>

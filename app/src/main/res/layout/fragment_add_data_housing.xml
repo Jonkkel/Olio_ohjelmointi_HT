@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background2">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Main_layout"
@@ -16,11 +15,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="4sp"
-            android:background="@drawable/home_data_button"
-            android:padding="2sp"
+            android:background="@drawable/login_button_theme"
             android:text="@string/housing_home"
-            android:textColor="#000000"
-            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="normal"
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:paddingEnd="8sp"
+            android:paddingStart="32sp"
             app:layout_constraintBottom_toTopOf="@id/Home_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,31 +30,155 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Home_layout"
             android:layout_width="match_parent"
-            android:layout_height="40sp"
+            android:layout_height="400sp"
             app:layout_constraintBottom_toTopOf="@id/Heating_button"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Home_button">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="MOJMOIMOI" />
+                android:id="@+id/housingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/housing_housetype_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/radioGroup2"/>
 
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/housing_radiobutton1"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/livingSpace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5
+"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/housingText"
+                app:layout_constraintVertical_bias="0.2">
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/housing_radiobutton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/housing_housetype1" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/housing_radiobutton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/housing_housetype2" />
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/housing_radiobutton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/housing_housetype3" />
+
+            </RadioGroup>
+
+
+            <EditText
+                android:id="@+id/livingSpace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20sp"
+                android:ems="3"
+                android:inputType="numberSigned"
+                app:layout_constraintBottom_toTopOf="@+id/Year_of_construction"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+            <EditText
+                android:id="@+id/Year_of_construction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="numberSigned"
+                app:layout_constraintBottom_toTopOf="@+id/Number_of_floor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/livingSpace" />
+
+            <EditText
+                android:id="@+id/Number_of_floor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="numberSigned"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Year_of_construction" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8sp"
+                android:text="@string/livingSpace"
+                app:layout_constraintBottom_toBottomOf="@+id/livingSpace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/livingSpace"
+                app:layout_constraintTop_toTopOf="@+id/livingSpace"
+                app:layout_constraintVertical_bias="0.615" />
+
+            <TextView
+                android:id="@+id/livingSpaceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Living space"
+                app:layout_constraintBottom_toBottomOf="@+id/livingSpace"
+                app:layout_constraintEnd_toStartOf="@+id/livingSpace"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/livingSpace" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Year of construction"
+                app:layout_constraintBottom_toBottomOf="@+id/Year_of_construction"
+                app:layout_constraintEnd_toStartOf="@+id/Year_of_construction"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Year_of_construction" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The number of floors"
+                app:layout_constraintBottom_toBottomOf="@+id/Number_of_floor"
+                app:layout_constraintEnd_toStartOf="@+id/Number_of_floor"
+                app:layout_constraintHorizontal_bias="0.457"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Number_of_floor"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Heating_button"
-            style="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4sp"
-            android:background="@drawable/home_data_button"
-            android:padding="2sp"
+            android:background="@drawable/login_button_theme"
+
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:paddingEnd="8sp"
+            android:paddingStart="32sp"
             android:text="@string/housing_heating"
-            android:textColor="#000000"
-            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/Heating_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -64,30 +190,167 @@
             android:id="@+id/Heating_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/Electricity_button"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Heating_button">
 
-            <TextView
+            <RadioGroup
+                android:id="@+id/heatingRadioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="MOJMOIMOI"/>
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="District Heating" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp">
+
+                    <EditText
+                        android:id="@+id/districtHeatingEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="numberSigned"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="KWh/year"
+                        app:layout_constraintBottom_toBottomOf="@+id/districtHeatingEditText"
+                        app:layout_constraintStart_toEndOf="@+id/districtHeatingEditText"
+                        app:layout_constraintTop_toTopOf="@+id/districtHeatingEditText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Oil" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp">
+
+                    <EditText
+                        android:id="@+id/OilEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="numberSigned"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="l/year"
+                        app:layout_constraintBottom_toBottomOf="@+id/OilEditText"
+                        app:layout_constraintStart_toEndOf="@+id/OilEditText"
+                        app:layout_constraintTop_toTopOf="@+id/OilEditText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ground source heat pump" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Electricity" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wood pellets/chips" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/additionalHeatingTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Additional Heating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/heatingRadioGroup"
+                app:layout_constraintBottom_toTopOf="@+id/linearlayout"/>
+
+            <LinearLayout
+                android:id="@+id/linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/additionalHeatingTextview"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="32sp">
+
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Wood pellets/chips"/>
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:layout_weight="1"
+                    android:text="Air heat pump" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Your own electricity production"/>
+            </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Electricity_button"
-            style="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4sp"
-            android:background="@drawable/home_data_button"
-            android:padding="2sp"
+            android:background="@drawable/login_button_theme"
+
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:paddingEnd="8sp"
+            android:paddingStart="32sp"
             android:text="@string/housing_electricity"
-            android:textColor="#000000"
-            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/Electricity_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -99,31 +362,91 @@
             android:id="@+id/Electricity_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/Goods_button"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Electricity_button">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="MOJMOIMOI"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="l/year"
+                app:layout_constraintBottom_toBottomOf="@+id/electricityConsumption"
+                app:layout_constraintEnd_toStartOf="@+id/electricityConsumption"
+                app:layout_constraintTop_toTopOf="@+id/electricityConsumption" />
+
+            <EditText
+                android:id="@+id/electricityConsumption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="numberSigned"
+                app:layout_constraintBottom_toTopOf="@+id/electricityGreenEnergyPercent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="l/year"
+                app:layout_constraintBottom_toBottomOf="@+id/electricityConsumption"
+                app:layout_constraintStart_toEndOf="@+id/electricityConsumption"
+                app:layout_constraintTop_toTopOf="@+id/electricityConsumption" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="l/year"
+                app:layout_constraintBottom_toBottomOf="@+id/electricityGreenEnergyPercent"
+                app:layout_constraintEnd_toStartOf="@+id/electricityGreenEnergyPercent"
+                app:layout_constraintTop_toTopOf="@+id/electricityGreenEnergyPercent" />
+
+            <EditText
+                android:id="@+id/electricityGreenEnergyPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="numberSigned"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/electricityConsumption" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="l/year"
+                app:layout_constraintBottom_toBottomOf="@+id/electricityGreenEnergyPercent"
+                app:layout_constraintStart_toEndOf="@+id/electricityGreenEnergyPercent"
+                app:layout_constraintTop_toTopOf="@+id/electricityGreenEnergyPercent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Goods_button"
-            style="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4sp"
-            android:background="@drawable/home_data_button"
-            android:padding="2sp"
+            android:background="@drawable/login_button_theme"
+
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:paddingEnd="8sp"
+            android:paddingStart="32sp"
             android:text="@string/housing_goods"
-            android:textColor="#000000"
-            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/Goods_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +456,7 @@
             android:id="@+id/Goods_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/Second_home_button"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -148,15 +471,18 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Second_home_button"
-            style="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4sp"
-            android:background="@drawable/home_data_button"
-            android:padding="2sp"
+            android:background="@drawable/login_button_theme"
+
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+            android:paddingEnd="8sp"
+            android:paddingStart="32sp"
             android:text="@string/housing_second_home"
-            android:textColor="#000000"
-            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/Second_home_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Goods_layout"
@@ -185,12 +511,18 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Second_home_Home_button"
-                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clickable="true"
+                android:layout_margin="4sp"
+                android:background="@drawable/login_button_theme"
+
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:paddingEnd="8sp"
+                android:paddingStart="32sp"
                 android:text="@string/housing_home"
-                android:textSize="50sp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -200,6 +532,7 @@
                 android:id="@+id/Second_home_Home_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -215,12 +548,18 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Second_home_Heating_button"
-                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_margin="4sp"
+                android:background="@drawable/login_button_theme"
+
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:paddingEnd="8sp"
+                android:paddingStart="32sp"
                 android:text="@string/housing_heating"
-                android:textSize="50sp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/Second_home_Heating_layout"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -233,6 +572,8 @@
                 android:id="@+id/Second_home_Heating_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
+                android:visibility="gone"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,12 +588,18 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Second_home_Electricity_button"
-                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_margin="4sp"
+                android:background="@drawable/login_button_theme"
+
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:paddingEnd="8sp"
+                android:paddingStart="32sp"
                 android:text="@string/housing_electricity"
-                android:textSize="50sp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -264,6 +611,7 @@
                 android:id="@+id/Second_home_Electricity_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -279,12 +627,18 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Second_home_Goods_button"
-                style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
+                android:layout_margin="4sp"
+                android:background="@drawable/login_button_theme"
+
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+                android:paddingEnd="8sp"
+                android:paddingStart="32sp"
                 android:text="@string/housing_goods"
-                android:textSize="50sp"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -296,6 +650,7 @@
                 android:id="@+id/Second_home_Goods_layout"
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
