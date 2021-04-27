@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/login_button_theme"
         android:padding="10sp"
-        android:text="@string/add_data_drink"
+        android:text="@string/add_data_housing"
         app:layout_constraintBottom_toTopOf="@+id/add_travel_button"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.5"

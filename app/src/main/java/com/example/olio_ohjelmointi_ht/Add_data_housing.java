@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,12 +19,10 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
 
     Button homeButton, electricityButton, heatingButton, goodsButton, secondHomeButton;
     ConstraintLayout mainView, homeView, heatingView, electricityView, goodsView, secondHomeView;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_housing, container, false);
-
         homeView = v.findViewById(R.id.Home_layout);
         heatingView = v.findViewById(R.id.Heating_layout);
         electricityView = v.findViewById(R.id.Electricity_layout);
@@ -51,69 +50,82 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.Home_button:
                 if (homeView.getVisibility() == View.GONE) {
-                    closeOpenLayout();
+                    closeOpenLayouts();
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
                     homeView.setVisibility(View.VISIBLE);
                 } else {
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
                     homeView.setVisibility(View.GONE);
                 }
                 break;
             case R.id.Heating_button:
                 if (heatingView.getVisibility() == View.GONE) {
-                    closeOpenLayout();
-                    System.out.println("paskaas");
+                    closeOpenLayouts();
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
                     heatingView.setVisibility(View.VISIBLE);
                 } else {
-                    System.out.println("paskaas212");
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
                     heatingView.setVisibility(View.GONE);
                 }
                 break;
             case R.id.Electricity_button:
                 if (electricityView.getVisibility() == View.GONE) {
-                    closeOpenLayout();
+                    closeOpenLayouts();
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    electricityButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
                     electricityView.setVisibility(View.VISIBLE);
                 } else {
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    electricityButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
                     electricityView.setVisibility(View.GONE);
                 }
                 break;
             case R.id.Goods_button:
                 if (goodsView.getVisibility() == View.GONE) {
-                    closeOpenLayout();
+                    closeOpenLayouts();
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
                     goodsView.setVisibility(View.VISIBLE);
                 } else {
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
                     goodsView.setVisibility(View.GONE);
                 }
                 break;
             case R.id.Second_home_button:
                 if (secondHomeView.getVisibility() == View.GONE) {
-                    closeOpenLayout();
+                    closeOpenLayouts();
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    secondHomeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
                     secondHomeView.setVisibility(View.VISIBLE);
                 } else {
                     TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
+                    secondHomeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
                     secondHomeView.setVisibility(View.GONE);
                 }
                 break;
         }
     }
 
-    public void closeOpenLayout(){
-        if( homeView.getVisibility() == View.VISIBLE)
+    public void closeOpenLayouts(){
+        if( homeView.getVisibility() == View.VISIBLE) {
             homeView.setVisibility(View.GONE);
-        if( heatingView.getVisibility() == View.VISIBLE)
+            homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        }if( heatingView.getVisibility() == View.VISIBLE) {
             heatingView.setVisibility(View.GONE);
-        if( electricityView.getVisibility() == View.VISIBLE)
+            heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        }if( electricityView.getVisibility() == View.VISIBLE) {
             electricityView.setVisibility(View.GONE);
-        if( goodsView.getVisibility() == View.VISIBLE)
+            electricityButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        }if( goodsView.getVisibility() == View.VISIBLE) {
             goodsView.setVisibility(View.GONE);
-        if( secondHomeView.getVisibility() == View.VISIBLE)
+            goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        }if( secondHomeView.getVisibility() == View.VISIBLE){
             secondHomeView.setVisibility(View.GONE);
-    }
+            secondHomeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+    }}
 }

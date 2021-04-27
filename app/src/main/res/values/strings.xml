@@ -45,11 +45,23 @@
     <string name="change_email">Change email</string>
     <string name="change_language">Change language</string>
 
+    <!-- for fragment_settings_screen.xml -->
     <string name="old_username">Current username:</string>
     <string name="old_password">Current password:</string>
     <string name="old_age">Current age:</string>
     <string name="old_home_city">Current home city:</string>
     <string name="old_email">Current email:</string>
+    <string name="new_username">New username</string>
+    <string name="new_password">New password</string>
+    <string name="new_age">New age</string>
+    <string name="new_home_city">Set new homecity</string>
+    <string name="new_email">New e-mail</string>
+    <string name="changed_username">Username changed</string>
+    <string name="changed_age">Age changed</string>
+    <string name="changed_home_city">Home city changed</string>
+    <string name="changed_email">E-mail changed</string>
+    <string name="changed_password">Password changed</string>
+    <string name="new_password_wrong">Password wrong</string>
 
 
     <string name="choose_language">Choose language...</string>
@@ -65,7 +77,7 @@
 
     <!-- for fragment_add_data_screen.xml -->
     <string name="add_data_food">Add food data</string>
-    <string name="add_data_drink">Add housing data</string>
+    <string name="add_data_housing">Add housing data</string>
     <string name="add_data_travel">Add travel data</string>
     <string name="add_data_clothes">Add consumption data</string>
     <string name="add_data_waste">Add recycling data</string>
@@ -89,7 +101,7 @@
     <string name="food_data_vegetables">Fresh vegetables during winter</string>
     <string name="food_data_eggs">Eggs</string>
 
-    <string name="food_data_low_carbon">I prefed low-carbon choices in my diet</string>
+    <string name="food_data_low_carbon">I prefer low-carbon choices in my diet</string>
     <string name="food_data_diet">DIET</string>
     <string name="food_data_restaurant">Monthly cáfe/restaurant spendings</string>
 
@@ -98,16 +110,16 @@
 
     <!-- for fragment_add_waste_data.xml -->
     <string-array name="waste_options1">
-        <item>never</item>
-        <item>sometimes</item>
-        <item>often</item>
-        <item>always</item>
+        <item>Never</item>
+        <item>Sometimes</item>
+        <item>Often</item>
+        <item>Always</item>
     </string-array>
 
     <string-array name="waste_options2">
-        <item>low</item>
-        <item>average</item>
-        <item>high</item>
+        <item>Low</item>
+        <item>Average</item>
+        <item>High</item>
     </string-array>
 
     <string name="waste_title">Here you can submit your recycling data</string>
@@ -139,7 +151,7 @@
 
     <string name="consumption_title2">Goods</string>
     <string name="consumption_title3">Services</string>
-    <string name="consumption_low_carbon">low carbon</string>
+    <string name="consumption_low_carbon">Low carbon</string>
 
 
     <!-- for fragment_add_housing_data.xml -->
@@ -149,11 +161,29 @@
     <string name="housing_goods">Goods and services for </string>
     <string name="housing_second_home">Second home</string>
 
+    <string name="housing_housetype_text">Housing type</string>
+    <string name="housing_housetype1">Detached house</string>
+    <string name="housing_housetype2">Flat</string>
+    <string name="housing_housetype3">Terraced House</string>
+
+    <string name="livingSpace">m^2</string>
+
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">Welcome back </string>
-
-
+    <string name="housing_space">Living space</string>
+    <string name="housing_construction">Year of construction</string>
+    <string name="housing_floors">The number of floors</string>
+    <string name="housing_district_heating">District heating</string>
+    <string name="housing_oil">Oil heating</string>
+    <string name="housing_ground_heat">Ground source heat pump</string>
+    <string name="housing_electricity_heat">Electricity</string>
+    <string name="housing_pellet">Woood pellet/chips</string>
+    <string name="housing_additional_heat">Additional Heating</string>
+    <string name="housing_air_heat">Air heat pump</string>
+    <string name="housing_own_heat">Your own electricity</string>
+    <string name="housing_district_heating_consumption">kWh/year</string>
+    <string name="housing_oil_consumption">l/year</string>
 
 
 </resources>

@@ -76,8 +76,7 @@ public class Add_data_waste extends Fragment {
             wasteAmountS = wasteAmount.getSelectedItem().toString();
 
             // Needed for accessing internet
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
+
             try {
                 // Api url address
                 url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/WasteCalculator?" +

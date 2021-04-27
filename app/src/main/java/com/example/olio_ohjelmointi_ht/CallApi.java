@@ -2,6 +2,7 @@ package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.StrictMode;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -41,17 +42,22 @@ public class CallApi {
     }
 
     public void getRequest(URL url){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         // https://dzone.com/articles/how-to-implement-get-and-post-request-through-simp
         // Throwing GET request to API
+        System.out.println(url);
         try {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            connection.setRequestProperty("userId", "olio"); // set userId its a sample here
+            connection.setRequestProperty("userId", "oli2");
             responseCode = connection.getResponseCode();
         }catch (IOException e) {
             e.printStackTrace();
         }
         // reading API response to String 'response'
+        System.out.println(responseCode);
+        System.out.println(HttpURLConnection.HTTP_OK);
         if (responseCode == HttpURLConnection.HTTP_OK) {
             try {
                 assert connection != null;
