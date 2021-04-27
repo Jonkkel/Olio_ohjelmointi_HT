@@ -188,6 +188,40 @@
     <string name="home_welcome">Welcome back </string>
 
     <!-- for fragment_add_data_travel.xml -->
+    <string name="add_travel_car_and_moped">CAR AND MOTORCYCLES</string>
+    <string name="add_travel_car">CAR</string>
+    <string name="add_travel_driving">Drive distance</string>
+    <string name="add_travel_km">km/year</string>
+    <string name="add_travel_passengers">Passenger count</string>
+    <string name="add_travel_shared">Shared car</string>
+    <string name="add_travel_car_info">Car information</string>
+    <string name="add_travel_car_size">Car size</string>
+    <string name="add_travel_car_year">Manufacturing year</string>
+    <string name="add_travel_fuel">Car fuel</string>
+    <string name="add_travel_consumption">Fuel consumption</string>
+    <string name="add_travel_l">l/km</string>
+    <string name="add_travel_moped">MOTORCYCLE</string>
+    <string name="add_travel_public">PUBLIC TRANSPORTATION</string>
+    <string name="add_travel_local">LOCAL</string>
+    <string name="add_travel_bus">Bus</string>
+    <string name="add_travel_train">Train</string>
+    <string name="add_travel_tram">Tram</string>
+    <string name="add_travel_subway">Subway</string>
+    <string name="add_travel_kmw">km/week</string>
+    <string name="add_travel_long">LONG DISTANCE</string>
+    <string name="add_travel_boat_flight">CRUISES AND FLIGHTS</string>
+    <string name="add_travel_boat">BOAT CRUISES</string>
+    <string name="add_travel_cruise1">Helsinki-Tallin</string>
+    <string name="add_travel_cruise2">Helsinki-Travemunde</string>
+    <string name="add_travel_cruise3">Helsinki-Stockholm</string>
+    <string name="add_travel_count">trips/year</string>
+    <string name="add_travel_flights">FLIGHTS</string>
+    <string name="add_travel_fin">Within Finland</string>
+    <string name="add_travel_eu">Within Europe</string>
+    <string name="add_travel_canary">Canary Islands</string>
+    <string name="add_travel_continental">Trans-continental</string>
+
+
 
 
 </resources>

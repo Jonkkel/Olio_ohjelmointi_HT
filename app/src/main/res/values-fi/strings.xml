@@ -169,6 +169,38 @@
     <string name="housing_air_heat">Ilmalämpöpumppu</string>
     <string name="housing_own_heat">Oma sähkö</string>
     <string name="housing_eur_per_year">€/vuosi</string>
+    <string name="add_travel_car_and_moped">AUTO JA MOOTTORIPYÖRÄ</string>
+    <string name="add_travel_car">AUTO</string>
+    <string name="add_travel_moped">MOOTTORIPYÖRÄ</string>
+    <string name="add_travel_public">JULKINEN LIIKENNE</string>
+    <string name="add_travel_local">LÄHILIIKENNE</string>
+    <string name="add_travel_long">KAUKOLIIKENNE</string>
+    <string name="add_travel_boat_flight">RISTEILYT JA LENNOT</string>
+    <string name="add_travel_boat">RISTEILYT</string>
+    <string name="add_travel_flights">LENNOT</string>
+    <string name="add_travel_driving">Ajomatka</string>
+    <string name="add_travel_km">km/vuosi</string>
+    <string name="add_travel_passengers">Matkustajamäärä</string>
+    <string name="add_travel_shared">Jaettu auto</string>
+    <string name="add_travel_car_info">Auton tiedot</string>
+    <string name="add_travel_car_size">Auton koko</string>
+    <string name="add_travel_car_year">Vuosimalli</string>
+    <string name="add_travel_consumption">Polttoaine</string>
+    <string name="add_travel_l">l/km</string>
+    <string name="add_travel_bus">Bussi</string>
+    <string name="add_travel_train">Juna</string>
+    <string name="add_travel_tram">Raitiovaunu</string>
+    <string name="add_travel_subway">Metro</string>
+    <string name="add_travel_cruise1">Helsinki-Tallinna</string>
+    <string name="add_travel_cruise2">Helsinki-Travemunde</string>
+    <string name="add_travel_cruise3">Helsinki-Tukholma</string>
+    <string name="add_travel_count">matkoja/vuosi</string>
+    <string name="add_travel_fin">Suomen sisäiset</string>
+    <string name="add_travel_eu">Euroopan sisäiset</string>
+    <string name="add_travel_canary">Kanariansaarille</string>
+    <string name="add_travel_continental">Mannertenväliset</string>
+    <string name="add_travel_fuel">Polttoaine</string>
+    <string name="add_travel_kmw">km/viikko</string>
 
 
 </resources>
