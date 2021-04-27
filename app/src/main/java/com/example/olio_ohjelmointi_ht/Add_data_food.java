@@ -154,27 +154,35 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
         if(seekBar.equals(beefbar)){
             beef = (double) progress /10;
             beef_amount.setText(beef + " " + getView().getResources().getString(R.string.add_data_unit1));
+            beef = (beef/0.4)*100;
         }else if(seekBar.equals(porkbar)){
             pork = (double) progress /10;
             pork_amount.setText(pork + " " + getView().getResources().getString(R.string.add_data_unit1));
+            pork = (pork/1.0)*100;
         }else if(seekBar.equals(fishbar)) {
             fish = (double) progress /10;
             fish_amount.setText(fish + " " + getView().getResources().getString(R.string.add_data_unit1));
+            fish = (fish/0.6)*100;
         }else if(seekBar.equals(cheesebar)){
             cheese = (double) progress /10;
             cheese_amount.setText(cheese + " " + getView().getResources().getString(R.string.add_data_unit1));
+            cheese = (cheese/0.3)*100;
         }else if(seekBar.equals(dairybar)){
             dairy = (double) progress /10;
             dairy_amount.setText(dairy + " " + getView().getResources().getString(R.string.add_data_unit1));
+            dairy = (dairy/3.8)*100;
         }else if(seekBar.equals(ricebar)){
             rice = (double) progress /10;
             rice_amount.setText(rice + " " + getView().getResources().getString(R.string.add_data_unit1));
+            rice = (rice/0.09)*100;
         }else if(seekBar.equals(vegetablebar)){
             vegetables = (double) progress /10;
             vegetable_amount.setText(vegetables + " " + getView().getResources().getString(R.string.add_data_unit1));
+            vegetables = vegetables/1.4;
         }else if(seekBar.equals(eggbar)){
             eggs = progress;
             egg_amount.setText(eggs + " " + getView().getResources().getString(R.string.add_data_unit2));
+            eggs = (eggs/3.0)*100;
         }
     }
 
