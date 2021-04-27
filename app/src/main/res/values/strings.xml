@@ -188,6 +188,6 @@
     <string name="home_welcome">Welcome back </string>
 
     <!-- for fragment_add_data_travel.xml -->
-    <string name="home_welcome">Welcome back </string>
+
 
 </resources>
