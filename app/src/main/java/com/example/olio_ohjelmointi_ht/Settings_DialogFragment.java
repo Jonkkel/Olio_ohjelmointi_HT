@@ -79,7 +79,7 @@ public class Settings_DialogFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.dialogfragment_settings_change, container, false);
     }
-
+// TODO VAIHDA SALASANAN VAIHTO JUTUSSA VANHA SALASANA TEKSTI MYÖS SUOMEKSI SARA EI LÖYTÄNYT SITÄ KOHTAA
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

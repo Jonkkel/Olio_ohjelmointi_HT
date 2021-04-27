@@ -64,7 +64,7 @@
     <string name="new_password_wrong">Salasana väärin</string>
 
     <!-- for fragment_add_data_screen.xml -->
-    <string name="add_data_clothes">Lisää ostamasi vaatteet</string>
+    <string name="add_data_clothes">Lisää ostamasi hyödykkeet</string>
     <string name="add_data_food">Lisää syömäsi ruoka</string>
     <string name="add_data_housing">Lisää asumistietoja</string>
     <string name="add_data_travel">Lisää tekemäsi matkat</string>

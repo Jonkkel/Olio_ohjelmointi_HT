@@ -23,27 +23,27 @@ public class HarryPlotter {
     @SuppressLint("StaticFieldLeak")
     private static HarryPlotter plotter = null; // singleton
 
-    public static HarryPlotter getInstance(GraphView graph) {
+    public static HarryPlotter getInstance() {
         if (plotter == null) {
             plotter = new HarryPlotter();
-            plotter.harryPlotter(graph);
+            plotter.harryPlotter();
         }
         return plotter; // return only one and same LogInTool
     }
 
-    public void harryPlotter(GraphView graph){
-        this.graph = graph;
-        plottingTool();
+    public void harryPlotter(){
+        //this.graph = graph;
+        //plottingTool();
     }
 
-    public void plottingTool(){
+    public void plottingTool(DatEmission de, GraphView graph){
         LineGraphSeries<DataPoint> series;
         series = new LineGraphSeries<>();
         double x = -0.1;
         double y = 0;
         for (int i = 0; i < 1000; i++) {
             x = x + 0.1;
-            y = Math.sin(x);
+            y = de.getEmission();
             series.appendData(new DataPoint(x, y), true, 1000);
         }
         graph.addSeries(series);
@@ -54,7 +54,7 @@ public class HarryPlotter {
     }
 
 
-    public void readCSV(String fileName) {
+    public void readCSV(String fileName, GraphView graph) {
 
         /* This method reads the first two columns of a .csv file (name of the file is the input parameter)
         and constructs a list consisting of objects containing the date (String) and emissions (Double).
@@ -70,6 +70,7 @@ public class HarryPlotter {
                 DatEmission de = new DatEmission();
                 de.setDateEmission(data[0], data[1], (Double.parseDouble(data[2].replace(",", ".")))); //The first and second
                 dateEmissionList.add(de);
+                plottingTool(de, graph);
             }
             csvReader.close();
         } catch (IOException e) {

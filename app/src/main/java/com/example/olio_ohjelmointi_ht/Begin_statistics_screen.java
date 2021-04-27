@@ -3,6 +3,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,13 +15,25 @@ import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class Begin_statistics_screen extends Fragment{
     GraphView graph;
+    GraphView graph2;
+    GraphView graph3;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_statistics_screen, container, false);
         graph = (GraphView) v.findViewById(R.id.graph);
-        HarryPlotter plotter = HarryPlotter.getInstance(graph);
+        graph2 = (GraphView) v.findViewById(R.id.graph2);
+        graph3 = (GraphView) v.findViewById(R.id.graph3);
+        HarryPlotter plotter = HarryPlotter.getInstance();
+        try {
+            plotter.readCSV("tiedosto", graph);
+            plotter.readCSV("tiedosto", graph2);
+            plotter.readCSV("tiedosto", graph3);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), getContext().getString(R.string.changed_username), Toast.LENGTH_SHORT).show(); // MUUTA TÄMÄ TOASTIN TEKSTI
+        }
         return v;
     }
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
