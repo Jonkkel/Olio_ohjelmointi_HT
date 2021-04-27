@@ -14,9 +14,7 @@ import com.jjoe64.graphview.GraphView;
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class Begin_statistics_screen extends Fragment{
-    GraphView graph;
-    GraphView graph2;
-    GraphView graph3;
+    GraphView graph, graph2, graph3, graph4, graph5, graph6;
 
     @Nullable
     @Override
@@ -25,6 +23,9 @@ public class Begin_statistics_screen extends Fragment{
         graph = (GraphView) v.findViewById(R.id.graph);
         graph2 = (GraphView) v.findViewById(R.id.graph2);
         graph3 = (GraphView) v.findViewById(R.id.graph3);
+        graph4 = (GraphView) v.findViewById(R.id.graph4);
+        graph5 = (GraphView) v.findViewById(R.id.graph5);
+        graph6 = (GraphView) v.findViewById(R.id.graph6);
         HarryPlotter plotter = HarryPlotter.getInstance();
         try {
             plotter.readCSV("tiedosto", graph);

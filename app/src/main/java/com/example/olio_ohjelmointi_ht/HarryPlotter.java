@@ -22,7 +22,7 @@ public class HarryPlotter {
             plotter = new HarryPlotter();
             plotter.harryPlotter();
         }
-        return plotter; // return only one and same LogInTool
+        return plotter; // return only one and same Plotter
     }
 
     public void harryPlotter(){
