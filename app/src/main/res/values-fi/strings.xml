@@ -203,6 +203,16 @@
     <string name="add_travel_continental">Mannertenväliset</string>
     <string name="add_travel_fuel">Polttoaine</string>
     <string name="add_travel_kmw">km/viikko</string>
+    <string name="housing_electricity_per_year">Vuosittainen kulutus</string>
+    <string name="housing_kWh">kWh/vuosi</string>
+    <string name="housing_green_percent">Vihreän sähkön osuus</string>
+    <string name="housing_percent">%</string>
+    <string name="housing_furniture">Huonekalut</string>
+    <string name="housing_appliances">Kodinkoneet</string>
+    <string name="housing_tableware">Kattaus</string>
+    <string name="housing_renovation">Remontointi</string>
+    <string name="housing_cleaning">Siivous</string>
+    <string name="housing_total">YHTEENSÄ</string>
 
 
 </resources>

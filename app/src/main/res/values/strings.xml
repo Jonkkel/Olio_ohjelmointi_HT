@@ -181,9 +181,19 @@
     <string name="housing_own_heat">Your own electricity</string>
     <string name="housing_district_heating_consumption">kWh/year</string>
     <string name="housing_oil_consumption">l/year</string>
-
     <string name="livingSpace">m^2</string>
     <string name="housing_eur_per_year">€/year</string>
+
+    <string name="housing_electricity_per_year">Yearly consumption</string>
+    <string name="housing_kWh">kWh/year</string>
+    <string name="housing_green_percent">The green electricity percentage</string>
+    <string name="housing_percent">%</string>
+    <string name="housing_furniture">Furniture</string>
+    <string name="housing_appliances">Appliances</string>
+    <string name="housing_tableware">Tableware</string>
+    <string name="housing_renovation">Renovation</string>
+    <string name="housing_cleaning">Cleaning</string>
+    <string name="housing_total">TOTAL</string>
 
 
     <!-- for fragment_home_screen.xml -->
