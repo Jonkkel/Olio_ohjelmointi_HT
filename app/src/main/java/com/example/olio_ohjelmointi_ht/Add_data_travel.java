@@ -55,7 +55,7 @@ public class Add_data_travel extends Fragment {
         flight_canarian = (EditText) v.findViewById(R.id.canarian);
         flight_continental = (EditText) v.findViewById(R.id.continental);
 
-        return inflater.inflate(R.layout.fragment_statistics_screen, container, false);
+        return v;
 
     }
 }

@@ -106,18 +106,22 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
                 Toast.makeText(getContext(), getString(R.string.Toast_cafe), Toast.LENGTH_SHORT).show();
             }else if (diet.equals("")){
                 Toast.makeText(getContext(), getString(R.string.Toast_diet), Toast.LENGTH_SHORT).show();
+            }else if (Integer.parseInt(String.valueOf(restaurantSpendings.getText())) < 0 || (Integer.parseInt(String.valueOf(restaurantSpendings.getText())) > 800)){
+                Toast.makeText(getContext(), getString(R.string.Toast_diet), Toast.LENGTH_SHORT).show();
             }else{
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                    .permitAll().build();
-            StrictMode.setThreadPolicy(policy);
                 try {
-                    url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?query.diet=" + diet + "&query.lowCarbonPreference=" + lowCarbon.isChecked() + "&query.beefLevel=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) + "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" + Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) + "&query.restaurantSpending=" + restaurantSpendings.getText());
+                    url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?" +
+                            "query.diet=" + diet + "&query.lowCarbonPreference=" + lowCarbon.isChecked() + "&query.beefLevel" +
+                            "=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) +
+                            "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" +
+                            Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) +
+                            "&query.restaurantSpending=" + restaurantSpendings.getText());
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
                 CAPI.getRequest(url);
-
-        }});
+            }
+        });
         return v;
     }
 
@@ -132,31 +136,31 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
             submitData.setEnabled(true);
         }
         if(seekBar.equals(beefbar)){
-            beef = (double) progress /10;
+            beef = (double) progress /100;
             beef_amount.setText(beef + " " + getView().getResources().getString(R.string.add_data_unit1));
             beef = (beef/0.4)*100;
         }else if(seekBar.equals(porkbar)){
-            pork = (double) progress /10;
+            pork = (double) progress /100;
             pork_amount.setText(pork + " " + getView().getResources().getString(R.string.add_data_unit1));
             pork = (pork/1.0)*100;
         }else if(seekBar.equals(fishbar)) {
-            fish = (double) progress /10;
+            fish = (double) progress /100;
             fish_amount.setText(fish + " " + getView().getResources().getString(R.string.add_data_unit1));
             fish = (fish/0.6)*100;
         }else if(seekBar.equals(cheesebar)){
-            cheese = (double) progress /10;
+            cheese = (double) progress /100;
             cheese_amount.setText(cheese + " " + getView().getResources().getString(R.string.add_data_unit1));
             cheese = (cheese/0.3)*100;
         }else if(seekBar.equals(dairybar)){
-            dairy = (double) progress /10;
+            dairy = (double) progress /100;
             dairy_amount.setText(dairy + " " + getView().getResources().getString(R.string.add_data_unit1));
             dairy = (dairy/3.8)*100;
         }else if(seekBar.equals(ricebar)){
-            rice = (double) progress /10;
+            rice = (double) progress /100;
             rice_amount.setText(rice + " " + getView().getResources().getString(R.string.add_data_unit1));
             rice = (rice/0.09)*100;
         }else if(seekBar.equals(vegetablebar)){
-            vegetables = (double) progress /10;
+            vegetables = (double) progress /100;
             vegetable_amount.setText(vegetables + " " + getView().getResources().getString(R.string.add_data_unit1));
             vegetables = vegetables/1.4;
         }else if(seekBar.equals(eggbar)){

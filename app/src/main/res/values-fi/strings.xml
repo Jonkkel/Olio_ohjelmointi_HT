@@ -62,6 +62,7 @@
     <string name="changed_email">Sähköposti vaihdettu</string>
     <string name="changed_password">Salasana vaihdettu</string>
     <string name="new_password_wrong">Salasana väärin</string>
+    <string name="save_changes">Tallenna muutokset</string>
 
     <!-- for fragment_add_data_screen.xml -->
     <string name="add_data_clothes">Lisää ostamasi hyödykkeet</string>
@@ -98,6 +99,7 @@
 
     <string name="Toast_cafe">Lisää kahvila/ravintola kulut</string>
     <string name="Toast_diet">Lisää diettisi</string>
+    <string name="Toast_restaurant">Ravintolakulujen pitää olla 0 ja 800 välillä.</string>
 
     <!-- for fragment_add_waste_data.xml -->
     <string-array name="waste_options1">

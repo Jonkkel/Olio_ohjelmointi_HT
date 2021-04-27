@@ -62,35 +62,35 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         heatingRadioGroup = v.findViewById(R.id.HeatingRadioGroup);
 
         // Home section
-        detachedHouse = (RadioButton) getView().findViewById(R.id.detached_button);
-        flatHouse = (RadioButton) getView().findViewById(R.id.flat_button);
-        terracedHouse = (RadioButton) getView().findViewById(R.id.terraced_button);
-        livingSpace = (EditText) getView().findViewById(R.id.drivingDistance);
-        yearOfConstruction = (EditText) getView().findViewById(R.id.Year_of_construction);
-        numberOfFloors = (EditText) getView().findViewById(R.id.Number_of_floor);
+        detachedHouse = (RadioButton) v.findViewById(R.id.detached_button);
+        flatHouse = (RadioButton) v.findViewById(R.id.flat_button);
+        terracedHouse = (RadioButton) v.findViewById(R.id.terraced_button);
+        livingSpace = (EditText) v.findViewById(R.id.drivingDistance);
+        yearOfConstruction = (EditText) v.findViewById(R.id.Year_of_construction);
+        numberOfFloors = (EditText) v.findViewById(R.id.Number_of_floor);
 
         // Heating section
-        districtHeatingAmount = (EditText) getView().findViewById(R.id.districtHeatingEditText);
-        oilHeatingAmount = (EditText) getView().findViewById(R.id.OilEditText);
-        additionalWoodHeating = (CheckBox) getView().findViewById(R.id.pellet_box);
-        additionalAirPumpHeating = (CheckBox) getView().findViewById(R.id.airpump_box);
-        additionalOwnElectricityHeating = (CheckBox) getView().findViewById(R.id.own_box);
-        oilHeating = (RadioButton) getView().findViewById(R.id.oil_button);
-        groundHeat = (RadioButton) getView().findViewById(R.id.ground_button);
-        electricityHeat = (RadioButton) getView().findViewById(R.id.electricity_button);
-        woodHeat = (RadioButton) getView().findViewById(R.id.pellet_button);
+        districtHeatingAmount = (EditText) v.findViewById(R.id.districtHeatingEditText);
+        oilHeatingAmount = (EditText) v.findViewById(R.id.OilEditText);
+        additionalWoodHeating = (CheckBox) v.findViewById(R.id.pellet_box);
+        additionalAirPumpHeating = (CheckBox) v.findViewById(R.id.airpump_box);
+        additionalOwnElectricityHeating = (CheckBox) v.findViewById(R.id.own_box);
+        oilHeating = (RadioButton) v.findViewById(R.id.oil_button);
+        groundHeat = (RadioButton) v.findViewById(R.id.ground_button);
+        electricityHeat = (RadioButton) v.findViewById(R.id.electricity_button);
+        woodHeat = (RadioButton) v.findViewById(R.id.pellet_button);
 
 
         // Electricity section
-        electricityUsage = (EditText) getView().findViewById(R.id.electricityConsumption);
-        electricityGreenPercent = (EditText) getView().findViewById(R.id.electricityGreenEnergyPercent);
+        electricityUsage = (EditText) v.findViewById(R.id.electricityConsumption);
+        electricityGreenPercent = (EditText) v.findViewById(R.id.electricityGreenEnergyPercent);
 
         // Goods section
-        goodsFurniture = (EditText) getView().findViewById(R.id.furnitureEditText);
-        goodsAppliance = (EditText) getView().findViewById(R.id.appliancesEditText);
-        goodsTableware = (EditText) getView().findViewById(R.id.tablewareEditText);
-        goodsRenovation = (EditText) getView().findViewById(R.id.renovationEditText);
-        goodsCleaning = (EditText) getView().findViewById(R.id.cleaningEditText);
+        goodsFurniture = (EditText) v.findViewById(R.id.furnitureEditText);
+        goodsAppliance = (EditText) v.findViewById(R.id.appliancesEditText);
+        goodsTableware = (EditText) v.findViewById(R.id.tablewareEditText);
+        goodsRenovation = (EditText) v.findViewById(R.id.renovationEditText);
+        goodsCleaning = (EditText) v.findViewById(R.id.cleaningEditText);
 
         return v;
     }

@@ -34,7 +34,6 @@ public class Settings_DialogFragment extends DialogFragment {
     Context c = getContext();
 
     static Settings_DialogFragment newInstance() {
-
         return new Settings_DialogFragment();
     }
 
@@ -83,14 +82,14 @@ public class Settings_DialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dialogTitle = (TextView) getView().findViewById(R.id.title);
-        usernameError = (TextView) getView().findViewById(R.id.usernameError);
+        dialogTitle = (TextView) view.findViewById(R.id.title);
+        usernameError = (TextView) view.findViewById(R.id.usernameError);
         user = settingTool.getUserObject();
-        oldValueHolder = (EditText) getView().findViewById(R.id.oldValue);
+        oldValueHolder = (EditText) view.findViewById(R.id.oldValue);
         dialogTitle.setText(change);
-        Button dialogButton = (Button) getView().findViewById(R.id.btnDone);
+        Button dialogButton = (Button) view.findViewById(R.id.btnDone);
         // set hint to fragmentDialog EditText
-        editText = (EditText) getView().findViewById(R.id.changeSth);
+        editText = (EditText) view.findViewById(R.id.changeSth);
         editText.setHint(hint);
 
         editText.setInputType(inputType);
@@ -194,7 +193,7 @@ public class Settings_DialogFragment extends DialogFragment {
             oldValueHolder.setHint(getResources().getString(R.string.old_username)+ " " + user.getUsername());
         }else if (getArguments().getString("type").equals("password")){
             oldValueHolder.setHintTextColor(getResources().getColor(R.color.hint));
-            oldValueHolder.setHint("Write old password");
+            oldValueHolder.setHint(getResources().getString(R.string.old_password));
             oldValueHolder.setEnabled(true);
         }else if (getArguments().getString("type").equals("age")){
             oldValueHolder.setHint(getResources().getString(R.string.old_age)+ " " + user.getAge());
