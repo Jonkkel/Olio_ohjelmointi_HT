@@ -16,13 +16,13 @@
             android:layout_height="match_parent"
             android:layout_margin="4sp"
             android:background="@drawable/login_button_theme"
+            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:paddingStart="32sp"
+            android:paddingEnd="8sp"
             android:text="@string/housing_home"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_up_24"
-            android:paddingEnd="8sp"
-            android:paddingStart="32sp"
             app:layout_constraintBottom_toTopOf="@id/Home_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,11 +41,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/housing_housetype_text"
+                app:layout_constraintBottom_toTopOf="@id/radioGroup2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/radioGroup2"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
                 android:id="@+id/radioGroup2"
@@ -173,8 +173,8 @@
             android:background="@drawable/login_button_theme"
 
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-            android:paddingEnd="8sp"
             android:paddingStart="32sp"
+            android:paddingEnd="8sp"
             android:text="@string/housing_heating"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -201,10 +201,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintVertical_bias="0"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0">
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -305,12 +305,12 @@
                 android:id="@+id/linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/additionalHeatingTextview"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="32sp">
+                app:layout_constraintTop_toBottomOf="@+id/additionalHeatingTextview">
 
                 <CheckBox
                     android:id="@+id/checkBox1"
@@ -345,8 +345,8 @@
             android:background="@drawable/login_button_theme"
 
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-            android:paddingEnd="8sp"
             android:paddingStart="32sp"
+            android:paddingEnd="8sp"
             android:text="@string/housing_electricity"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -441,8 +441,8 @@
             android:background="@drawable/login_button_theme"
 
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-            android:paddingEnd="8sp"
             android:paddingStart="32sp"
+            android:paddingEnd="8sp"
             android:text="@string/housing_goods"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -455,17 +455,123 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Goods_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="400sp"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@id/Second_home_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Goods_button">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="MOJMOIMOI"/>
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="furniture"
+                app:layout_constraintBottom_toBottomOf="@+id/editText2"
+                app:layout_constraintEnd_toStartOf="@+id/editText2"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kodinkoneet"
+                app:layout_constraintBottom_toBottomOf="@+id/editText"
+                app:layout_constraintEnd_toStartOf="@+id/editText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText"
+                app:layout_constraintHorizontal_bias="0.2" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tableware"
+                app:layout_constraintBottom_toBottomOf="@+id/editText3"
+                app:layout_constraintEnd_toStartOf="@+id/editText3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText3"
+                app:layout_constraintHorizontal_bias="0.2" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="renovation"
+                app:layout_constraintBottom_toBottomOf="@+id/editText4"
+                app:layout_constraintEnd_toStartOf="@+id/editText4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText4"
+                app:layout_constraintHorizontal_bias="0.2" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cleaning"
+                app:layout_constraintBottom_toBottomOf="@+id/editText5"
+                app:layout_constraintEnd_toStartOf="@+id/editText5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/editText5"
+                app:layout_constraintHorizontal_bias="0.2" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                app:layout_constraintBottom_toTopOf="@+id/editText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                app:layout_constraintBottom_toTopOf="@+id/editText3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                app:layout_constraintBottom_toTopOf="@+id/editText4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                app:layout_constraintBottom_toTopOf="@+id/editText5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -477,8 +583,8 @@
             android:background="@drawable/login_button_theme"
 
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-            android:paddingEnd="8sp"
             android:paddingStart="32sp"
+            android:paddingEnd="8sp"
             android:text="@string/housing_second_home"
             android:textColor="@color/white"
             android:textSize="25sp"
@@ -517,8 +623,8 @@
                 android:background="@drawable/login_button_theme"
 
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingEnd="8sp"
                 android:paddingStart="32sp"
+                android:paddingEnd="8sp"
                 android:text="@string/housing_home"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -541,7 +647,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="MOJMOIMOI"/>
+                    android:text="MOJMOIMOI" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -554,8 +660,8 @@
                 android:background="@drawable/login_button_theme"
 
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingEnd="8sp"
                 android:paddingStart="32sp"
+                android:paddingEnd="8sp"
                 android:text="@string/housing_heating"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -582,7 +688,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="MOJMOIMOI"/>
+                    android:text="MOJMOIMOI" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -594,8 +700,8 @@
                 android:background="@drawable/login_button_theme"
 
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingEnd="8sp"
                 android:paddingStart="32sp"
+                android:paddingEnd="8sp"
                 android:text="@string/housing_electricity"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -620,7 +726,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="MOJMOIMOI"/>
+                    android:text="MOJMOIMOI" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -633,8 +739,8 @@
                 android:background="@drawable/login_button_theme"
 
                 android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingEnd="8sp"
                 android:paddingStart="32sp"
+                android:paddingEnd="8sp"
                 android:text="@string/housing_goods"
                 android:textColor="@color/white"
                 android:textSize="25sp"
@@ -659,7 +765,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="MOJMOIMOI"/>
+                    android:text="MOJMOIMOI" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

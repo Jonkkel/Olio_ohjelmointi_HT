@@ -8,16 +8,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.jjoe64.graphview.GraphView;
+
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class Begin_statistics_screen extends Fragment{
-
+    GraphView graph;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_statistics_screen, container, false);
-
+        View v = inflater.inflate(R.layout.fragment_statistics_screen, container, false);
+        graph = (GraphView) v.findViewById(R.id.graph);
+        HarryPlotter plotter = HarryPlotter.getInstance(graph);
+        return v;
     }
 /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
     Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi
