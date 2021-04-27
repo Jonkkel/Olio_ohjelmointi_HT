@@ -33,6 +33,8 @@ public class Add_data_travel extends Fragment {
         // For car and motorcycle
         car_distance = (EditText) v.findViewById(R.id.drivingDistance);
         passengers = (EditText) v.findViewById(R.id.passengers);
+        moped_distance = (EditText) v.findViewById(R.id.moped_distance);
+        moped_consumption = (EditText) v.findViewById(R.id.moped_consumption);
         car_size = (Spinner) v.findViewById(R.id.car_size_spinner);
         car_year = (Spinner) v.findViewById(R.id.car_year_spinner);
         car_fuel = (Spinner) v.findViewById(R.id.car_fuel_spinner);
