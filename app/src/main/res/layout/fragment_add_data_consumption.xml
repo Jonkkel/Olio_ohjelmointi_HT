@@ -40,11 +40,11 @@
         android:layout_margin="16sp"
         android:ems="6"
         android:text="@string/consumption_paper"
-        app:layout_constraintBottom_toBottomOf="@+id/electronicsText"
-        app:layout_constraintEnd_toStartOf="@+id/electronicsText"
+        app:layout_constraintBottom_toBottomOf="@+id/paperText"
+        app:layout_constraintEnd_toStartOf="@+id/paperText"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/electronicsText" />
+        app:layout_constraintTop_toTopOf="@+id/paperText" />
 
     <TextView
         android:id="@+id/textView16"
@@ -52,11 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="16sp"
         android:text="@string/consumption_electronics"
-        app:layout_constraintBottom_toBottomOf="@+id/paperText"
-        app:layout_constraintEnd_toStartOf="@+id/paperText"
+        app:layout_constraintBottom_toBottomOf="@+id/electronicsText"
+        app:layout_constraintEnd_toStartOf="@+id/electronicsText"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/paperText" />
+        app:layout_constraintTop_toTopOf="@+id/electronicsText" />
 
     <TextView
         android:id="@+id/textView14"
@@ -125,11 +125,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
         android:text="@string/consumption_unit"
-        app:layout_constraintBottom_toBottomOf="@+id/electronicsText"
+        app:layout_constraintBottom_toBottomOf="@+id/paperText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toEndOf="@+id/electronicsText"
-        app:layout_constraintTop_toTopOf="@+id/electronicsText" />
+        app:layout_constraintStart_toEndOf="@+id/paperText"
+        app:layout_constraintTop_toTopOf="@+id/paperText" />
 
     <TextView
         android:id="@+id/textView23"
@@ -137,11 +137,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="8sp"
         android:text="@string/consumption_unit"
-        app:layout_constraintBottom_toBottomOf="@+id/paperText"
+        app:layout_constraintBottom_toBottomOf="@+id/electronicsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toEndOf="@+id/paperText"
-        app:layout_constraintTop_toTopOf="@+id/paperText" />
+        app:layout_constraintStart_toEndOf="@+id/electronicsText"
+        app:layout_constraintTop_toTopOf="@+id/electronicsText" />
 
     <TextView
         android:id="@+id/textView25"
@@ -160,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="3"
-        app:layout_constraintBottom_toTopOf="@+id/electronicsText"
+        app:layout_constraintBottom_toTopOf="@+id/paperText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,11 +178,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <EditText
-        android:id="@+id/electronicsText"
+        android:id="@+id/paperText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="3"
-        app:layout_constraintBottom_toTopOf="@+id/paperText"
+        app:layout_constraintBottom_toTopOf="@+id/electronicsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -212,7 +212,7 @@
         app:layout_constraintTop_toBottomOf="@+id/communicationsText" />
 
     <EditText
-        android:id="@+id/paperText"
+        android:id="@+id/electronicsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="3"
@@ -220,7 +220,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/electronicsText" />
+        app:layout_constraintTop_toBottomOf="@+id/paperText" />
 
     <EditText
         android:id="@+id/clothingText"
@@ -275,7 +275,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16sp"
         android:ems="6"
-        android:text="@string/consumption_paper"
+        android:text="@string/consumption_recreation"
         app:layout_constraintBottom_toBottomOf="@+id/recreationText"
         app:layout_constraintEnd_toStartOf="@+id/recreationText"
         app:layout_constraintHorizontal_bias="0"
@@ -284,7 +284,7 @@
         app:layout_constraintVertical_bias="0.538" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/carbon_box_clothing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -296,7 +296,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <CheckBox
-        android:id="@+id/checkBox5"
+        android:id="@+id/carbon_box_shoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -308,7 +308,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <CheckBox
-        android:id="@+id/checkBox6"
+        android:id="@+id/carbon_box_paper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -320,7 +320,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <CheckBox
-        android:id="@+id/checkBox7"
+        android:id="@+id/carbon_box_electronics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -332,7 +332,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <CheckBox
-        android:id="@+id/checkBox8"
+        android:id="@+id/carbon_box_recreation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -344,7 +344,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <CheckBox
-        android:id="@+id/checkBox9"
+        android:id="@+id/carbon_box_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -356,7 +356,7 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <CheckBox
-        android:id="@+id/checkBox10"
+        android:id="@+id/carbon_box_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/consumption_low_carbon"
@@ -403,7 +403,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paperText" />
+        app:layout_constraintTop_toBottomOf="@+id/electronicsText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
