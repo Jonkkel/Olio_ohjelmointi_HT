@@ -28,7 +28,7 @@ public class Begin_statistics_screen extends Fragment{
         graph6 = (GraphView) v.findViewById(R.id.graph6);
         HarryPlotter plotter = HarryPlotter.getInstance();
         try {
-            plotter.readCSV("tiedosto", graph);
+            plotter.readCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/kaakeli/tiedot.csv", graph);
             plotter.readCSV("tiedosto", graph2);
             plotter.readCSV("tiedosto", graph3);
         } catch (Exception e) {

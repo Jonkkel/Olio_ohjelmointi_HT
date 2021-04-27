@@ -8,10 +8,14 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class HarryPlotter {
-
+    Calendar calendar;
     GraphView graph;
 
     @SuppressLint("StaticFieldLeak")
@@ -30,15 +34,20 @@ public class HarryPlotter {
         //plottingTool();
     }
 
-    public void plottingTool(DatEmission de, GraphView graph){
+    public void plottingTool(ArrayList<DatEmission> de, GraphView graph){
         LineGraphSeries<DataPoint> series;
         series = new LineGraphSeries<>();
-        double x = -0.1;
-        double y = 0;
-        for (int i = 0; i < 1000; i++) {
-            x = x + 0.1;
-            y = de.getEmission();
-            series.appendData(new DataPoint(x, y), true, 1000);
+        calendar = Calendar.getInstance();
+
+        double x = 0.2;
+        double y = 0.5;
+        for (int i = 0; i < 250; i++){
+            //x = Double.parseDouble(de.get(i).getTime());
+            calendar.setTimeInMillis(Long.parseLong(de.get(i).getTime()));
+            Date d = calendar.getTime();
+            System.out.println(d);
+            y = de.get(i).getEmission();
+            series.appendData(new DataPoint(d, y), true, 250);
         }
         graph.addSeries(series);
         graph.getViewport().setMinX(series.getLowestValueX());
@@ -62,19 +71,19 @@ public class HarryPlotter {
             while ((row = csvReader.readLine()) != null) {
                 String[] data = row.split(";"); //Splits the row into an array
                 DatEmission de = new DatEmission();
-                de.setDateEmission(data[0], data[1], (Double.parseDouble(data[2].replace(",", ".")))); //The first and second
+                de.setDateEmission(data[0], (Double.parseDouble(data[1].replace(",", ".")))); //The first and second
                 dateEmissionList.add(de);
-                plottingTool(de, graph);
             }
+            plottingTool(dateEmissionList, graph);
             csvReader.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
-        for (DatEmission embryo : dateEmissionList) {
+        /*for (DatEmission embryo : dateEmissionList) {
             System.out.println(embryo.getYear() + " | " + embryo.getWeek() + " | " + Double.toString(embryo.getEmission()));
-        }
+        }*/
     }
 
 

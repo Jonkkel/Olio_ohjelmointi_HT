@@ -6,22 +6,16 @@ public class DatEmission {
     year(String), week(String) and emission(Double), as well as methods
     getYear, getWeek, getEmission.*/
 
-    public String year;
-    public String week;
+    public String time;
     public Double emission;
 
-    public void setDateEmission(String y, String w, Double e) {
-        year = y;
-        week = w;
+    public void setDateEmission(String t, Double e) {
+        time = t;
         emission = e;
     }
 
-    public String getYear() {
-        return year;
-    }
-
-    public String getWeek() {
-        return week;
+    public String getTime() {
+        return time;
     }
 
     public Double getEmission() {

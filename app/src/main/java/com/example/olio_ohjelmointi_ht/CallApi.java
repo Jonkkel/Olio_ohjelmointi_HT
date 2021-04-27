@@ -2,6 +2,7 @@ package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
 
 import java.io.BufferedReader;
@@ -20,23 +21,27 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class CallApi {
     String readLine = null;
     HttpURLConnection connection = null;
     BufferedReader in = null;
     int responseCode = 0;
+    Context context;
 
     @SuppressLint("StaticFieldLeak")
     private static CallApi CAPI = null; // singleton
 
-    public static CallApi getInstance() {
+    public static CallApi getInstance(Context con) {
         if (CAPI == null) {
             CAPI = new CallApi();
-            CAPI.Settings();
+            CAPI.Settings(con);
         }
         return CAPI; // return only one and same LogInTool
     }
-    public void Settings(){
+    public void Settings(Context con){
+        this.context = con;
         // Getting context so we can run Android Studio commands
 
     }
@@ -91,7 +96,10 @@ public class CallApi {
             }
         }
         Double d = Double.valueOf(response.toString());
-        writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files", d);
+        //SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
+        //String cUser = prefs.getString("Current User", "");
+        FileWriter csvWriter = null;
+        writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/kaakeli/tiedot.csv", d);
     }
 
     public void writeCSV(String fileName, Double emission) {
@@ -111,7 +119,7 @@ public class CallApi {
         if (!fileExists.isFile()) { // If no file matching fileName exists, creates one and fills accordingly
             try {
                 FileWriter csvWriter = new FileWriter(fileName);
-                csvWriter.write(currentYear + ";" + currentWeek + ";" + emission + "\n");
+                csvWriter.write("1559560369120;" + emission + "\n");
                 csvWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -119,10 +127,11 @@ public class CallApi {
         } else if (currentWeek == timeDelta(fileName, "weekLastLine") && currentYear == timeDelta(fileName, "yearLastLine")) {
             /* If the latest emission log is from the same week as new one, changes the latest emission log into the new one.
             See editLastLine for further description */
-            editLastLine(fileName, (currentYear + ";" + currentWeek + ";" + emission + "\n").getBytes());
+            editLastLine(fileName, (calendar.getTimeInMillis() + ";" + emission + "\n").getBytes());
         } else {
             int weekCounter = (timeDelta(fileName, "weekLastLine") + 1); // Sets the weekCounter to start from the first missing week in the file
             int weeksLeft = 52; // The amount of weeks in a year (if current year, will be set to currentWeek)
+            long milliTIme = calendar.getTimeInMillis();
             try {
                 FileWriter csvWriter = new FileWriter(fileName, true);
                 for (int i = timeDelta(fileName, "yearLastLine"); i <= currentYear; i++) {
@@ -130,7 +139,8 @@ public class CallApi {
                         weeksLeft = currentWeek; // Sets the remaining weeks to current week
                     }
                     for (int j = weekCounter; j <= weeksLeft; j++) { //if currentWeek == weekLastLine, this will be skipped, see weekCounter
-                        csvWriter.append(i + ";" + j + ";" + emission + "\n"); // year;week;emission\n
+                        csvWriter.append(milliTIme + ";" + emission + "\n"); // year;week;emission\n
+
                     }
                     if (i < currentYear) { // Resets the weekCounter if one year has passed and the year isn't current yet
                         weekCounter = 1;
@@ -151,8 +161,7 @@ public class CallApi {
         weekLastLine/yearLastLine - returns the week/year of the latest Line in the file*/
 
         String Line = "";
-        String week = "";
-        String year = "";
+        String time = "";
 
         Calendar calendar = new GregorianCalendar();
         Date today = new Date();
@@ -165,8 +174,7 @@ public class CallApi {
             BufferedReader csvReader = new BufferedReader(new FileReader(fileName));
             while ((Line = csvReader.readLine()) != null) { // Goes through the file and sets year and week to equal the latest entry
                 String[] data = Line.split(";");
-                year = data[0];
-                week = data[1];
+                time = data[0];
             }
             csvReader.close();
 
@@ -176,17 +184,18 @@ public class CallApi {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        Calendar calendar2 = new GregorianCalendar();
+        calendar2.setTimeInMillis(Long.parseLong(time));
         if (mode.equals("yearDelta")) { // Returns the difference (in years) of the current year and the year of the latest file entry
-            return (currentYear - Integer.parseInt(year));
+            return (currentYear - calendar2.YEAR);
         } else if (mode.equals("weekDelta")) { // Returns the difference (in weeks) of the current week and the week of the latest file entry
-            return (currentWeek - Integer.parseInt(week));
+            return (currentWeek - calendar2.WEEK_OF_YEAR);
         } else if (mode.equals("yearLastLine")) { // Returns the year of the latest file entry
-            return Integer.parseInt(year);
+            return calendar2.YEAR;
         } else if (mode.equals("weekLastLine")) { //Returns the week of the latest file entry
-            return Integer.parseInt(week);
+            return calendar2.WEEK_OF_YEAR;
         } else { // If this is reached, there is a typo in the second input parameter in th code calling for deltaTime
-            int current = Integer.parseInt(year);
+            int current = calendar2.YEAR;
             System.out.println("TYPO IN THE 'MODE' PARAMETER IN THE CODE CALLING FOR timeDelta"); // This is a poor solution, needs something better
             return current;
         }

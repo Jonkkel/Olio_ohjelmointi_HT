@@ -2,6 +2,7 @@ package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.StrictMode;
 
@@ -51,7 +52,8 @@ public class Add_data_waste extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_waste, container, false);
-        CAPI = CallApi.getInstance();
+        Context con = getActivity();
+        CAPI = CallApi.getInstance(con);
         biowaste = (Spinner) v.findViewById(R.id.bioSpinner);
         carton = (Spinner) v.findViewById(R.id.cartonSpinner);
         electronic = (Spinner) v.findViewById(R.id.electronicSpinner);

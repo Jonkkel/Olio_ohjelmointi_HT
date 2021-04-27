@@ -46,7 +46,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_food, container, false);
-        CallApi CAPI = CallApi.getInstance();
+        CallApi CAPI = CallApi.getInstance(getActivity());
         beef_amount = (TextView) v.findViewById(R.id.beefbar_amount);
         pork_amount = (TextView) v.findViewById(R.id.pork_amount);
         fish_amount = (TextView) v.findViewById(R.id.fishbar_amount);

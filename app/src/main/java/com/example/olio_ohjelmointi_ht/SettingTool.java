@@ -75,8 +75,6 @@ public class SettingTool {
         }else{
             user.setUsername(newUsername);
             saveUserInformation();
-            getUserInformation();
-            test();
         }
     }
 
@@ -88,8 +86,6 @@ public class SettingTool {
         }else{
             user.setPassword(newPassword);
             saveUserInformation();
-            getUserInformation();
-            test();
         }
     }
 
@@ -101,8 +97,6 @@ public class SettingTool {
         }else{
             user.setAge(Integer.parseInt((newAge)));
             saveUserInformation();
-            getUserInformation();
-            test();
         }
     }
 
@@ -114,8 +108,6 @@ public class SettingTool {
         }else{
             user.setCity(newCity);
             saveUserInformation();
-            getUserInformation();
-            test();
         }
     }
 
@@ -127,8 +119,6 @@ public class SettingTool {
         }else{
             user.setEmail(newEmail);
             saveUserInformation();
-            getUserInformation();
-            test();
         }
     }
 

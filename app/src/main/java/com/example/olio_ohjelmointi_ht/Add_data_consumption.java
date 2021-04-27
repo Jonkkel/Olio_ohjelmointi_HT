@@ -44,7 +44,7 @@ public class Add_data_consumption extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_consumption, container, false);
-        CAPI = CallApi.getInstance();
+        CAPI = CallApi.getInstance(getActivity());
         clothing = (EditText) v.findViewById(R.id.clothingText);
         shoes = (EditText) v.findViewById(R.id.shoeText);
         paper = (EditText) v.findViewById(R.id.paperText);
