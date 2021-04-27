@@ -43,6 +43,7 @@ public class Add_data_waste extends Fragment {
     String biowasteS, cartonS, electronicS, glassS, hazardousS, metalS, paperS, plasticS, wasteAmountS;
     URL url;
     Button submitData;
+    CallApi CAPI;
 
 
     @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
@@ -50,7 +51,7 @@ public class Add_data_waste extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_waste, container, false);
-        CallApi CAPI = CallApi.getInstance();
+        CAPI = CallApi.getInstance();
         biowaste = (Spinner) v.findViewById(R.id.bioSpinner);
         carton = (Spinner) v.findViewById(R.id.cartonSpinner);
         electronic = (Spinner) v.findViewById(R.id.electronicSpinner);
