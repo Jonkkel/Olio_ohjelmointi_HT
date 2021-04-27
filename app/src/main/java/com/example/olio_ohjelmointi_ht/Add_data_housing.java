@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,17 +20,25 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 public class Add_data_housing extends Fragment implements View.OnClickListener {
-
-    // Home section variables
     Button homeButton, electricityButton, heatingButton, goodsButton, secondHomeButton;
     ConstraintLayout mainView, homeView, heatingView, electricityView, goodsView, secondHomeView;
-    EditText livingSpace, yearOfConstruction, numberOfFloors, districtHeatingAmount, oilHeatingAmount, electricityUsage, electricityGreenPercent;
-    RadioButton detachedHouse, flatHouse, terracedHouse, districtHeating, oilHeating, groundHeat, electricityHeat, woodHeat;
+
+    RadioGroup homeRadioGroup, heatingRadioGroup;
+
+    // Home section variables
+    RadioButton detachedHouse, flatHouse, terracedHouse;
+    EditText livingSpace, yearOfConstruction, numberOfFloors;
+
     // Heating section variables
+    EditText districtHeatingAmount, oilHeatingAmount;
     CheckBox additionalWoodHeating, additionalAirPumpHeating, additionalOwnElectricityHeating;
+    RadioButton oilHeating, groundHeat, electricityHeat, woodHeat;
+
     // Electricity section variables
+    EditText electricityUsage, electricityGreenPercent;
+
     // Goods section variables
-    EditText goodsFurniture, goodsApplience, goodsTableware, goodsRenovation, goodsCleaning;
+    EditText goodsFurniture, goodsAppliance, goodsTableware, goodsRenovation, goodsCleaning;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +58,11 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         heatingButton.setOnClickListener(this);
         electricityButton.setOnClickListener(this);
         goodsButton.setOnClickListener(this);
+
+        homeRadioGroup = v.findViewById(R.id.HomeRadioGroup);
+        heatingRadioGroup = v.findViewById(R.id.HeatingRadioGroup);
+        // Home section
+
         return v;
     }
 
