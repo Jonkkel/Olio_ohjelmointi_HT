@@ -14,7 +14,7 @@
             android:id="@+id/Home_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="4sp"
+            android:layout_margin="8sp"
             android:background="@drawable/login_button_theme"
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_up_24"
             android:paddingStart="32sp"
@@ -23,15 +23,17 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@id/Home_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Home_layout"
             android:layout_width="match_parent"
-            android:layout_height="400sp"
-            app:layout_constraintBottom_toTopOf="@id/Heating_button"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Home_button">
 
@@ -169,9 +171,9 @@
             android:id="@+id/Heating_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4sp"
-            android:background="@drawable/login_button_theme"
+            android:layout_margin="8sp"
 
+            android:background="@drawable/login_button_theme"
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:paddingStart="32sp"
             android:paddingEnd="8sp"
@@ -179,19 +181,18 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@id/Heating_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Home_layout"
-            app:layout_constraintVertical_bias="0.5" />
+            app:layout_constraintTop_toBottomOf="@+id/Home_layout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Heating_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/Electricity_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Heating_button">
 
@@ -247,7 +248,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="61dp">
+                    android:layout_height="61dp"
+                    tools:layout_editor_absoluteY="157dp">
 
                     <EditText
                         android:id="@+id/OilEditText"
@@ -341,9 +343,9 @@
             android:id="@+id/Electricity_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4sp"
-            android:background="@drawable/login_button_theme"
+            android:layout_margin="8sp"
 
+            android:background="@drawable/login_button_theme"
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:paddingStart="32sp"
             android:paddingEnd="8sp"
@@ -351,19 +353,17 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@id/Electricity_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Heating_layout"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintTop_toBottomOf="@+id/Heating_layout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Electricity_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/Goods_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Electricity_button">
@@ -437,9 +437,9 @@
             android:id="@+id/Goods_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4sp"
-            android:background="@drawable/login_button_theme"
+            android:layout_margin="8sp"
 
+            android:background="@drawable/login_button_theme"
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:paddingStart="32sp"
             android:paddingEnd="8sp"
@@ -447,17 +447,16 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@id/Goods_layout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Electricity_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/Electricity_layout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Goods_layout"
             android:layout_width="match_parent"
-            android:layout_height="400sp"
+            android:layout_height="wrap_content"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/Second_home_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -472,7 +471,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/editText2"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText2"/>
+                app:layout_constraintTop_toTopOf="@+id/editText2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -480,9 +479,9 @@
                 android:text="kodinkoneet"
                 app:layout_constraintBottom_toBottomOf="@+id/editText"
                 app:layout_constraintEnd_toStartOf="@+id/editText"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText"
-                app:layout_constraintHorizontal_bias="0.2" />
+                app:layout_constraintTop_toTopOf="@+id/editText" />
 
             <TextView
                 android:id="@+id/textView36"
@@ -491,9 +490,9 @@
                 android:text="tableware"
                 app:layout_constraintBottom_toBottomOf="@+id/editText3"
                 app:layout_constraintEnd_toStartOf="@+id/editText3"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText3"
-                app:layout_constraintHorizontal_bias="0.2" />
+                app:layout_constraintTop_toTopOf="@+id/editText3" />
 
             <TextView
                 android:id="@+id/textView34"
@@ -502,9 +501,9 @@
                 android:text="renovation"
                 app:layout_constraintBottom_toBottomOf="@+id/editText4"
                 app:layout_constraintEnd_toStartOf="@+id/editText4"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText4"
-                app:layout_constraintHorizontal_bias="0.2" />
+                app:layout_constraintTop_toTopOf="@+id/editText4" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -513,9 +512,9 @@
                 android:text="Cleaning"
                 app:layout_constraintBottom_toBottomOf="@+id/editText5"
                 app:layout_constraintEnd_toStartOf="@+id/editText5"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText5"
-                app:layout_constraintHorizontal_bias="0.2" />
+                app:layout_constraintTop_toTopOf="@+id/editText5" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -572,205 +571,82 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8sp"
+                android:text="TOTAL"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/editText5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/housing_eur_per_year"
+                app:layout_constraintBottom_toBottomOf="@+id/editText4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toEndOf="@+id/editText4"
+                app:layout_constraintTop_toTopOf="@+id/editText4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/housing_eur_per_year"
+                app:layout_constraintBottom_toBottomOf="@+id/editText5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toEndOf="@+id/editText5"
+                app:layout_constraintTop_toTopOf="@+id/editText5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/housing_eur_per_year"
+                app:layout_constraintBottom_toBottomOf="@+id/editText3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toEndOf="@+id/editText3"
+                app:layout_constraintTop_toTopOf="@+id/editText3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/housing_eur_per_year"
+                app:layout_constraintBottom_toBottomOf="@+id/editText2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toEndOf="@+id/editText2"
+                app:layout_constraintTop_toTopOf="@+id/editText2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/housing_eur_per_year"
+                app:layout_constraintBottom_toBottomOf="@+id/editText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toEndOf="@+id/editText"
+                app:layout_constraintTop_toTopOf="@+id/editText" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/Second_home_button"
-            android:layout_width="match_parent"
+            android:id="@+id/appCompatButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="4sp"
+            android:layout_margin="8sp"
             android:background="@drawable/login_button_theme"
-
-            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-            android:paddingStart="32sp"
-            android:paddingEnd="8sp"
-            android:text="@string/housing_second_home"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@id/Second_home_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Goods_layout"
-            app:layout_constraintVertical_bias="0" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/Second_home_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:text="@string/submit_data_btn"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Second_home_button">
-
-            <TextView
-                android:id="@+id/asd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="MOIMOIMOI"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@id/Second_home_Home_button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Second_home_Home_button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="4sp"
-                android:background="@drawable/login_button_theme"
-
-                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingStart="32sp"
-                android:paddingEnd="8sp"
-                android:text="@string/housing_home"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/asd" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Second_home_Home_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Second_home_Home_button">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="MOJMOIMOI" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Second_home_Heating_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4sp"
-                android:background="@drawable/login_button_theme"
-
-                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingStart="32sp"
-                android:paddingEnd="8sp"
-                android:text="@string/housing_heating"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/Second_home_Heating_layout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Second_home_Home_layout"
-                app:layout_constraintVertical_bias="0.5" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Second_home_Heating_layout"
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
-                android:visibility="gone"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Second_home_Heating_button">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="MOJMOIMOI" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Second_home_Electricity_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4sp"
-                android:background="@drawable/login_button_theme"
-
-                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingStart="32sp"
-                android:paddingEnd="8sp"
-                android:text="@string/housing_electricity"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Second_home_Heating_layout"
-                app:layout_constraintVertical_bias="0" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Second_home_Electricity_layout"
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Second_home_Electricity_button">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="MOJMOIMOI" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/Second_home_Goods_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4sp"
-                android:background="@drawable/login_button_theme"
-
-                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:paddingStart="32sp"
-                android:paddingEnd="8sp"
-                android:text="@string/housing_goods"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Second_home_Electricity_layout"
-                app:layout_constraintVertical_bias="0" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/Second_home_Goods_layout"
-                android:layout_width="match_parent"
-                android:layout_height="40sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Second_home_Goods_button">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="MOJMOIMOI" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            app:layout_constraintTop_toBottomOf="@+id/Goods_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

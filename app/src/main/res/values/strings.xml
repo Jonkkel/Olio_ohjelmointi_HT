@@ -166,11 +166,6 @@
     <string name="housing_housetype2">Flat</string>
     <string name="housing_housetype3">Terraced House</string>
 
-    <string name="livingSpace">m^2</string>
-
-
-    <!-- for fragment_home_screen.xml -->
-    <string name="home_welcome">Welcome back </string>
     <string name="housing_space">Living space</string>
     <string name="housing_construction">Year of construction</string>
     <string name="housing_floors">The number of floors</string>
@@ -178,12 +173,20 @@
     <string name="housing_oil">Oil heating</string>
     <string name="housing_ground_heat">Ground source heat pump</string>
     <string name="housing_electricity_heat">Electricity</string>
-    <string name="housing_pellet">Woood pellet/chips</string>
+    <string name="housing_pellet">Wood pellet/chips</string>
     <string name="housing_additional_heat">Additional Heating</string>
     <string name="housing_air_heat">Air heat pump</string>
     <string name="housing_own_heat">Your own electricity</string>
     <string name="housing_district_heating_consumption">kWh/year</string>
     <string name="housing_oil_consumption">l/year</string>
+
+    <string name="livingSpace">m^2</string>
+    <string name="housing_eur_per_year">€/year</string>
+
+
+    <!-- for fragment_home_screen.xml -->
+    <string name="home_welcome">Welcome back </string>
+
 
 
 </resources>

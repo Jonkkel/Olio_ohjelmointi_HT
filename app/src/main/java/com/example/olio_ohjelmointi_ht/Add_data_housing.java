@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,8 +20,16 @@ import androidx.fragment.app.Fragment;
 
 public class Add_data_housing extends Fragment implements View.OnClickListener {
 
+    // Home section variables
     Button homeButton, electricityButton, heatingButton, goodsButton, secondHomeButton;
     ConstraintLayout mainView, homeView, heatingView, electricityView, goodsView, secondHomeView;
+    EditText livingSpace, yearOfConstruction, numberOfFloors, districtHeatingAmount, oilHeatingAmount, electricityUsage, electricityGreenPercent;
+    RadioButton detachedHouse, flatHouse, terracedHouse, districtHeating, oilHeating, groundHeat, electricityHeat, woodHeat;
+    // Heating section variables
+    CheckBox additionalWoodHeating, additionalAirPumpHeating, additionalOwnElectricityHeating;
+    // Electricity section variables
+    // Goods section variables
+    EditText goodsFurniture, goodsApplience, goodsTableware, goodsRenovation, goodsCleaning;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,20 +38,17 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         heatingView = v.findViewById(R.id.Heating_layout);
         electricityView = v.findViewById(R.id.Electricity_layout);
         goodsView = v.findViewById(R.id.Goods_layout);
-        secondHomeView = v.findViewById(R.id.Second_home_layout);
         mainView = v.findViewById(R.id.Main_layout);
 
         homeButton = v.findViewById(R.id.Home_button);
         heatingButton = v.findViewById(R.id.Heating_button);
         electricityButton = v.findViewById(R.id.Electricity_button);
         goodsButton = v.findViewById(R.id.Goods_button);
-        secondHomeButton = v.findViewById(R.id.Second_home_button);
 
         homeButton.setOnClickListener(this);
         heatingButton.setOnClickListener(this);
         electricityButton.setOnClickListener(this);
         goodsButton.setOnClickListener(this);
-        secondHomeButton.setOnClickListener(this);
         return v;
     }
 
@@ -96,36 +104,25 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
                     goodsView.setVisibility(View.GONE);
                 }
                 break;
-            case R.id.Second_home_button:
-                if (secondHomeView.getVisibility() == View.GONE) {
-                    closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    secondHomeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    secondHomeView.setVisibility(View.VISIBLE);
-                } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    secondHomeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    secondHomeView.setVisibility(View.GONE);
-                }
-                break;
         }
     }
 
-    public void closeOpenLayouts(){
-        if( homeView.getVisibility() == View.VISIBLE) {
+    public void closeOpenLayouts() {
+        if (homeView.getVisibility() == View.VISIBLE) {
             homeView.setVisibility(View.GONE);
             homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-        }if( heatingView.getVisibility() == View.VISIBLE) {
+        }
+        if (heatingView.getVisibility() == View.VISIBLE) {
             heatingView.setVisibility(View.GONE);
             heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-        }if( electricityView.getVisibility() == View.VISIBLE) {
+        }
+        if (electricityView.getVisibility() == View.VISIBLE) {
             electricityView.setVisibility(View.GONE);
             electricityButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-        }if( goodsView.getVisibility() == View.VISIBLE) {
+        }
+        if (goodsView.getVisibility() == View.VISIBLE) {
             goodsView.setVisibility(View.GONE);
             goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-        }if( secondHomeView.getVisibility() == View.VISIBLE){
-            secondHomeView.setVisibility(View.GONE);
-            secondHomeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-    }}
+        }
+    }
 }
