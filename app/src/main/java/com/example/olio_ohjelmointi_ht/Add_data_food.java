@@ -107,7 +107,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
             }else if (diet.equals("")){
                 Toast.makeText(getContext(), getString(R.string.Toast_diet), Toast.LENGTH_SHORT).show();
             }else if (Integer.parseInt(String.valueOf(restaurantSpendings.getText())) < 0 || (Integer.parseInt(String.valueOf(restaurantSpendings.getText())) > 800)){
-                Toast.makeText(getContext(), getString(R.string.Toast_diet), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.Toast_restaurant), Toast.LENGTH_SHORT).show();
             }else{
                 try {
                     url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?" +
