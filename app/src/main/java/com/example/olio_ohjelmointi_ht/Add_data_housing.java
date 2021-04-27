@@ -12,7 +12,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -66,7 +65,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         detachedHouse = (RadioButton) getView().findViewById(R.id.detached_button);
         flatHouse = (RadioButton) getView().findViewById(R.id.flat_button);
         terracedHouse = (RadioButton) getView().findViewById(R.id.terraced_button);
-        livingSpace = (EditText) getView().findViewById(R.id.livingSpace);
+        livingSpace = (EditText) getView().findViewById(R.id.drivingDistance);
         yearOfConstruction = (EditText) getView().findViewById(R.id.Year_of_construction);
         numberOfFloors = (EditText) getView().findViewById(R.id.Number_of_floor);
 

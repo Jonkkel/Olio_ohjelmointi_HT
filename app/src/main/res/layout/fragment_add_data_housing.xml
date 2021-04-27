@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:checkedButton="@+id/detached_button"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/livingSpace"
+                app:layout_constraintBottom_toTopOf="@+id/drivingDistance"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5
 "
@@ -85,7 +85,7 @@
 
 
             <EditText
-                android:id="@+id/livingSpace"
+                android:id="@+id/drivingDistance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20sp"
@@ -107,7 +107,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/livingSpace" />
+                app:layout_constraintTop_toBottomOf="@+id/drivingDistance" />
 
             <EditText
                 android:id="@+id/Number_of_floor"
@@ -127,11 +127,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8sp"
                 android:text="@string/livingSpace"
-                app:layout_constraintBottom_toBottomOf="@+id/livingSpace"
+                app:layout_constraintBottom_toBottomOf="@+id/drivingDistance"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/livingSpace"
-                app:layout_constraintTop_toTopOf="@+id/livingSpace"
+                app:layout_constraintStart_toEndOf="@+id/drivingDistance"
+                app:layout_constraintTop_toTopOf="@+id/drivingDistance"
                 app:layout_constraintVertical_bias="0.615" />
 
             <TextView
@@ -139,10 +139,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_space"
-                app:layout_constraintBottom_toBottomOf="@+id/livingSpace"
-                app:layout_constraintEnd_toStartOf="@+id/livingSpace"
+                app:layout_constraintBottom_toBottomOf="@+id/drivingDistance"
+                app:layout_constraintEnd_toStartOf="@+id/drivingDistance"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/livingSpace" />
+                app:layout_constraintTop_toTopOf="@+id/drivingDistance" />
 
             <TextView
                 android:id="@+id/textView32"

@@ -168,8 +168,7 @@
     <string name="housing_additional_heat">Lisälämmitys</string>
     <string name="housing_air_heat">Ilmalämpöpumppu</string>
     <string name="housing_own_heat">Oma sähkö</string>
-
-
+    <string name="housing_eur_per_year">€/vuosi</string>
 
 
 </resources>
