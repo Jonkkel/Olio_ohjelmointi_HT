@@ -198,6 +198,9 @@
 
     <!-- for fragment_home_screen.xml -->
     <string name="home_welcome">Welcome back </string>
+    <string name="home_target">Go to work/school/market by bike</string>
+    <string name="home_target2">Take a bag with you to store, so you don\'t have to buy a plastic bag</string>
+    <string name="home_target3">Think twice before buying a new commodity do you need it</string>
 
     <!-- for fragment_add_data_travel.xml -->
     <string name="add_travel_car_and_moped">CAR AND MOTORCYCLES</string>

@@ -246,6 +246,9 @@
         <item>Biokaasu</item>
         <item>Maakaasu</item>
     </string-array>
+    <string name="home_target">Pyöräile töihin/kouluun/kauppaan</string>
+    <string name="home_target2">Ota kauppakassi mukaan, jottei sinun tarvitse ostaa muovikassia</string>
+    <string name="home_target3">Mieti kahdesti tarvitsetko hyödykettä ennen kun ostat sen</string>
 
 
 </resources>
