@@ -1,19 +1,14 @@
 package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
-import android.app.VoiceInteractor;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -21,27 +16,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeListener{
 
@@ -77,7 +57,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
         egg_amount = (TextView) v.findViewById(R.id.eggbar_amount);
         restaurantSpendings = (EditText) v.findViewById(R.id.restaurant_exp);
 
-        lowCarbon = (CheckBox) v.findViewById(R.id.checkBox2);
+        lowCarbon = (CheckBox) v.findViewById(R.id.airpump_box);
         submitData = (Button) v.findViewById(R.id.submitFoodData);
         beefbar = (SeekBar) v.findViewById(R.id.beefBar);
         porkbar = (SeekBar) v.findViewById(R.id.porkBar);

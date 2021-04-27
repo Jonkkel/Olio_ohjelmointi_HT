@@ -20,8 +20,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 public class Add_data_housing extends Fragment implements View.OnClickListener {
-    Button homeButton, electricityButton, heatingButton, goodsButton, secondHomeButton;
-    ConstraintLayout mainView, homeView, heatingView, electricityView, goodsView, secondHomeView;
+    Button homeButton, electricityButton, heatingButton, goodsButton;
+    ConstraintLayout mainView, homeView, heatingView, electricityView, goodsView;
 
     RadioGroup homeRadioGroup, heatingRadioGroup;
 
@@ -61,7 +61,37 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
 
         homeRadioGroup = v.findViewById(R.id.HomeRadioGroup);
         heatingRadioGroup = v.findViewById(R.id.HeatingRadioGroup);
+
         // Home section
+        detachedHouse = (RadioButton) getView().findViewById(R.id.detached_button);
+        flatHouse = (RadioButton) getView().findViewById(R.id.flat_button);
+        terracedHouse = (RadioButton) getView().findViewById(R.id.terraced_button);
+        livingSpace = (EditText) getView().findViewById(R.id.livingSpace);
+        yearOfConstruction = (EditText) getView().findViewById(R.id.Year_of_construction);
+        numberOfFloors = (EditText) getView().findViewById(R.id.Number_of_floor);
+
+        // Heating section
+        districtHeatingAmount = (EditText) getView().findViewById(R.id.districtHeatingEditText);
+        oilHeatingAmount = (EditText) getView().findViewById(R.id.OilEditText);
+        additionalWoodHeating = (CheckBox) getView().findViewById(R.id.pellet_box);
+        additionalAirPumpHeating = (CheckBox) getView().findViewById(R.id.airpump_box);
+        additionalOwnElectricityHeating = (CheckBox) getView().findViewById(R.id.own_box);
+        oilHeating = (RadioButton) getView().findViewById(R.id.oil_button);
+        groundHeat = (RadioButton) getView().findViewById(R.id.ground_button);
+        electricityHeat = (RadioButton) getView().findViewById(R.id.electricity_button);
+        woodHeat = (RadioButton) getView().findViewById(R.id.pellet_button);
+
+
+        // Electricity section
+        electricityUsage = (EditText) getView().findViewById(R.id.electricityConsumption);
+        electricityGreenPercent = (EditText) getView().findViewById(R.id.electricityGreenEnergyPercent);
+
+        // Goods section
+        goodsFurniture = (EditText) getView().findViewById(R.id.furnitureEditText);
+        goodsAppliance = (EditText) getView().findViewById(R.id.appliancesEditText);
+        goodsTableware = (EditText) getView().findViewById(R.id.tablewareEditText);
+        goodsRenovation = (EditText) getView().findViewById(R.id.renovationEditText);
+        goodsCleaning = (EditText) getView().findViewById(R.id.cleaningEditText);
 
         return v;
     }

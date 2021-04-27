@@ -53,7 +53,7 @@
                 android:id="@+id/HomeRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkedButton="@+id/housing_radiobutton1"
+                android:checkedButton="@+id/detached_button"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/livingSpace"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -64,19 +64,19 @@
                 app:layout_constraintVertical_bias="0.2">
 
                 <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/housing_radiobutton1"
+                    android:id="@+id/detached_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_housetype1" />
 
                 <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/housing_radiobutton2"
+                    android:id="@+id/flat_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_housetype2" />
 
                 <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/housing_radiobutton3"
+                    android:id="@+id/terraced_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_housetype3" />
@@ -208,6 +208,7 @@
                 app:layout_constraintVertical_bias="0">
 
                 <RadioButton
+                    android:id="@+id/district_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_district_heating" />
@@ -242,6 +243,7 @@
 
 
                 <RadioButton
+                    android:id="@+id/oil_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_oil" />
@@ -276,16 +278,19 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <RadioButton
+                    android:id="@+id/ground_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_ground_heat" />
 
                 <RadioButton
+                    android:id="@+id/electricity_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_electricity" />
 
                 <RadioButton
+                    android:id="@+id/pellet_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/housing_pellet" />
@@ -315,21 +320,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/additionalHeatingTextview">
 
                 <CheckBox
-                    android:id="@+id/checkBox1"
+                    android:id="@+id/pellet_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/housing_pellet" />
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/airpump_box"
                     android:layout_width="match_parent"
                     android:layout_height="53dp"
                     android:layout_weight="1"
                     android:text="@string/housing_air_heat" />
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/own_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -467,101 +472,101 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="furniture"
-                app:layout_constraintBottom_toBottomOf="@+id/editText2"
-                app:layout_constraintEnd_toStartOf="@+id/editText2"
+                app:layout_constraintBottom_toBottomOf="@+id/furnitureEditText"
+                app:layout_constraintEnd_toStartOf="@+id/furnitureEditText"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText2" />
+                app:layout_constraintTop_toTopOf="@+id/furnitureEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="kodinkoneet"
-                app:layout_constraintBottom_toBottomOf="@+id/editText"
-                app:layout_constraintEnd_toStartOf="@+id/editText"
+                app:layout_constraintBottom_toBottomOf="@+id/appliancesEditText"
+                app:layout_constraintEnd_toStartOf="@+id/appliancesEditText"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText" />
+                app:layout_constraintTop_toTopOf="@+id/appliancesEditText" />
 
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="tableware"
-                app:layout_constraintBottom_toBottomOf="@+id/editText3"
-                app:layout_constraintEnd_toStartOf="@+id/editText3"
+                app:layout_constraintBottom_toBottomOf="@+id/tablewareEditText"
+                app:layout_constraintEnd_toStartOf="@+id/tablewareEditText"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText3" />
+                app:layout_constraintTop_toTopOf="@+id/tablewareEditText" />
 
             <TextView
                 android:id="@+id/textView34"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="renovation"
-                app:layout_constraintBottom_toBottomOf="@+id/editText4"
-                app:layout_constraintEnd_toStartOf="@+id/editText4"
+                app:layout_constraintBottom_toBottomOf="@+id/renovationEditText"
+                app:layout_constraintEnd_toStartOf="@+id/renovationEditText"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText4" />
+                app:layout_constraintTop_toTopOf="@+id/renovationEditText" />
 
             <TextView
                 android:id="@+id/textView31"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cleaning"
-                app:layout_constraintBottom_toBottomOf="@+id/editText5"
-                app:layout_constraintEnd_toStartOf="@+id/editText5"
+                app:layout_constraintBottom_toBottomOf="@+id/cleaningEditText"
+                app:layout_constraintEnd_toStartOf="@+id/cleaningEditText"
                 app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/editText5" />
+                app:layout_constraintTop_toTopOf="@+id/cleaningEditText" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/furnitureEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
-                app:layout_constraintBottom_toTopOf="@+id/editText"
+                app:layout_constraintBottom_toTopOf="@+id/appliancesEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/appliancesEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
-                app:layout_constraintBottom_toTopOf="@+id/editText3"
+                app:layout_constraintBottom_toTopOf="@+id/tablewareEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+                app:layout_constraintTop_toBottomOf="@+id/furnitureEditText" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/tablewareEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
-                app:layout_constraintBottom_toTopOf="@+id/editText4"
+                app:layout_constraintBottom_toTopOf="@+id/renovationEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/appliancesEditText" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/renovationEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
-                app:layout_constraintBottom_toTopOf="@+id/editText5"
+                app:layout_constraintBottom_toTopOf="@+id/cleaningEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+                app:layout_constraintTop_toBottomOf="@+id/tablewareEditText" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/cleaningEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -569,7 +574,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+                app:layout_constraintTop_toBottomOf="@+id/renovationEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -580,57 +585,57 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/editText5" />
+                app:layout_constraintTop_toBottomOf="@id/cleaningEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_eur_per_year"
-                app:layout_constraintBottom_toBottomOf="@+id/editText4"
+                app:layout_constraintBottom_toBottomOf="@+id/renovationEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintStart_toEndOf="@+id/editText4"
-                app:layout_constraintTop_toTopOf="@+id/editText4" />
+                app:layout_constraintStart_toEndOf="@+id/renovationEditText"
+                app:layout_constraintTop_toTopOf="@+id/renovationEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_eur_per_year"
-                app:layout_constraintBottom_toBottomOf="@+id/editText5"
+                app:layout_constraintBottom_toBottomOf="@+id/cleaningEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintStart_toEndOf="@+id/editText5"
-                app:layout_constraintTop_toTopOf="@+id/editText5" />
+                app:layout_constraintStart_toEndOf="@+id/cleaningEditText"
+                app:layout_constraintTop_toTopOf="@+id/cleaningEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_eur_per_year"
-                app:layout_constraintBottom_toBottomOf="@+id/editText3"
+                app:layout_constraintBottom_toBottomOf="@+id/tablewareEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintStart_toEndOf="@+id/editText3"
-                app:layout_constraintTop_toTopOf="@+id/editText3" />
+                app:layout_constraintStart_toEndOf="@+id/tablewareEditText"
+                app:layout_constraintTop_toTopOf="@+id/tablewareEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_eur_per_year"
-                app:layout_constraintBottom_toBottomOf="@+id/editText2"
+                app:layout_constraintBottom_toBottomOf="@+id/furnitureEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintStart_toEndOf="@+id/editText2"
-                app:layout_constraintTop_toTopOf="@+id/editText2" />
+                app:layout_constraintStart_toEndOf="@+id/furnitureEditText"
+                app:layout_constraintTop_toTopOf="@+id/furnitureEditText" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_eur_per_year"
-                app:layout_constraintBottom_toBottomOf="@+id/editText"
+                app:layout_constraintBottom_toBottomOf="@+id/appliancesEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintStart_toEndOf="@+id/editText"
-                app:layout_constraintTop_toTopOf="@+id/editText" />
+                app:layout_constraintStart_toEndOf="@+id/appliancesEditText"
+                app:layout_constraintTop_toTopOf="@+id/appliancesEditText" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
