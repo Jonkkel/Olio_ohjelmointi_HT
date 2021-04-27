@@ -80,7 +80,16 @@ public class CallApi {
     public void parseString(StringBuilder response){
         System.out.println(response.toString());
         char c = response.charAt(0);
-        //if(Character.isDigit(c)){
+        if (Character.isDigit(c)){
+
+        }else{
+            String symbols = "[,:]+";
+            String[] parsedResponse = response.toString().split(symbols);
+            System.out.println(parsedResponse);
+            for (int i = 0; parsedResponse.length < i; i += 2){
+                System.out.println(parsedResponse[i]);
+            }
+        }
         Double d = Double.valueOf(response.toString());
         writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files", d);
     }
