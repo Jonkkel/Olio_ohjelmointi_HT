@@ -94,7 +94,7 @@ public class CallApi {
         if (d != 0) {
             PathFinder pather = PathFinder.getInstance(context);
             System.out.println(pather.pathBuilder() + file);
-            writeCSV(pather.pathBuilder()  + file , d);
+            writeCSV(pather.pathBuilder()  + file , d/52);
         }
     }
 
@@ -320,7 +320,7 @@ public class CallApi {
         if (bigData != 0) {
             PathFinder pather = PathFinder.getInstance(context);
             System.out.println(pather.pathBuilder() + file);
-            writeCSV(pather.pathBuilder()  + file , bigData);
+            writeCSV(pather.pathBuilder()  + file , bigData/52);
         }
     }
 

@@ -177,7 +177,7 @@ public class New_User extends Fragment {
                 }
             }
         }
-        else{ // if the password is under 8 characters long
+        else{ // if the password is under 12 characters long
             password_requirements.setText(getResources().getString(R.string.password_length));
         }
     }

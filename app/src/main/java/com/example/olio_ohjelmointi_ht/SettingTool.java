@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -57,9 +59,36 @@ public class SettingTool {
         return false;
     }
 
-    /*public boolean checkpasswordGoodness(String newPassword){
-        New_User NewUser = New_User.
-    }*/
+    public boolean checkpasswordGoodness(String newPassword) {
+        int number = 0;
+        int upper = 0;
+        int lower = 0;
+        int special_count = 0;
+        Pattern special = Pattern.compile("[!@#$%&*()_+=|<>,.-?{}\\[\\]~]");
+        if (newPassword.length() >= 12) { // password must be at least 8 characters long
+            for (int i = 0; i < newPassword.length(); i++) {
+                char c = newPassword.charAt(i);
+                Matcher hasSpecial = special.matcher(newPassword);
+                if (Character.isUpperCase(c)) { // if no character has been uppercase letter
+                    upper++;
+                }
+                if (Character.isLowerCase(c)) { // if no character has been lowercase letter
+                    lower++;
+                }
+                if (Character.isDigit(c)) { // if no character has been a number
+                    number++;
+                }
+                if (hasSpecial.find()) { // if no character has been a special character
+                    special_count++;
+                }
+                if (upper > 0 && lower > 0 && number > 0 && special_count > 0) { // if the password have a uppercase, a lowercase and a number character
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public void test(){
         String username = user.getUsername();
         System.out.println(username);
@@ -170,7 +199,7 @@ public class SettingTool {
 
 
     public void saveUserInformation(){
-        File directory = new File(context.getFilesDir() + File.separator + user.getUsername()); // create a folder
+        File directory = new File(context.getFilesDir() + File.separator + "kansio2"); // create a folder
         if (!directory.exists()) {
             directory.mkdir();
         }

@@ -120,7 +120,7 @@ public class Settings_DialogFragment extends DialogFragment {
                         dialogButton.setEnabled(false);
                     }else{
                         usernameError.setText("");
-                        dialogButton.setEnabled(true);
+                        dialogButton.setEnabled(false);
                     }
                 }
             }
@@ -134,7 +134,7 @@ public class Settings_DialogFragment extends DialogFragment {
                     //settingTool.changeUsername(value);
                     Toast.makeText(getContext(), getContext().getString(R.string.changed_username), Toast.LENGTH_SHORT).show();
                 }else if (getArguments().getString("type").equals("password")){
-                    if(!(oldValueHolder.getText().toString().equals("")) && settingTool.checkPassword(oldValueHolder.getText().toString())){
+                    if(!(oldValueHolder.getText().toString().equals("")) && settingTool.checkPassword(oldValueHolder.getText().toString()) && settingTool.checkpasswordGoodness(oldValueHolder.getText().toString())){
                         settingTool.changePassword(value);
                         Toast.makeText(getContext(), getContext().getString(R.string.changed_password), Toast.LENGTH_SHORT).show();
                     }else{
