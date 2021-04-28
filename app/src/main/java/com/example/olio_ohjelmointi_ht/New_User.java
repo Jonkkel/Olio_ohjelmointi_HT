@@ -1,9 +1,7 @@
 package com.example.olio_ohjelmointi_ht;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.fonts.SystemFonts;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,7 +32,7 @@ public class New_User extends Fragment {
     TextView password_requirements;
     TextView password_match;
     TextView message;
-    TextView textView;
+    TextView username_requirements;
     Button create;
     LogInTool LIT;
     String log_in_message;
@@ -60,7 +58,7 @@ public class New_User extends Fragment {
         age = (EditText) view.findViewById(R.id.age);
         city = (EditText) view.findViewById(R.id.homeCity);
         email = (EditText) view.findViewById(R.id.email);
-        textView = (TextView) view.findViewById(R.id.textview12);
+        username_requirements = (TextView) view.findViewById(R.id.usenameRequirements);
         password = (EditText) view.findViewById(R.id.password);
         password2 = (EditText) view.findViewById(R.id.password2);
         password_requirements = (TextView) view.findViewById(R.id.requirements);
@@ -82,9 +80,9 @@ public class New_User extends Fragment {
             @Override
             public void onTextChanged(final CharSequence s, int start, int before, int count) {
                 if(LIT.checkUsernameAvailability(username.getText().toString()) && !(username.getText().toString()).equals("")){
-                    textView.setText(getResources().getString(R.string.usernameTaken));
+                    username_requirements.setText(getResources().getString(R.string.usernameTaken));
                 }else{
-                    textView.setText("");
+                    username_requirements.setText("");
                 }
             }
 
@@ -195,18 +193,22 @@ public class New_User extends Fragment {
 
     public void create_button() throws IOException {
         System.out.println("TULEEKO TÄNNE");
-        log_in_message = LIT.create_user(username.getText().toString(), name.getText().toString(), age.getText().toString(), city.getText().toString(), email.getText().toString(), password.getText().toString(), password2.getText().toString());
-        if(log_in_message.equals(c.getString(R.string.welcome))){
-            // päääsit sisään
-            message.setText(log_in_message);
-            Intent intent = new Intent(getActivity(), Begin.class);
-            startActivity(intent);
-            getActivity().finish();
-            //((Activity)getActivity()).overridePendingTransition(0,0);
+        if(password_requirements.getText().equals("") && username_requirements.getText().equals("")) {
+            log_in_message = LIT.create_user(username.getText().toString(), name.getText().toString(), age.getText().toString(), city.getText().toString(), email.getText().toString(), password.getText().toString(), password2.getText().toString());
+            if (log_in_message.equals(c.getString(R.string.welcome))) {
+                message.setText(log_in_message);
+                Intent intent = new Intent(getActivity(), Begin.class);
+                startActivity(intent);
+                getActivity().finish();
+                //((Activity)getActivity()).overridePendingTransition(0,0);
+            } else {
+                // if no user is found, should never happen
+                message.setText(log_in_message);
+            }
         }
-        else {
-            // käyttäjää ei ole
-            message.setText(log_in_message);
+        else{
+            message.setTextColor(getResources().getColor(R.color.red));
+            message.setText(getResources().getString(R.string.password_not_good));
         }
     }
 

@@ -257,6 +257,7 @@
     <string name="label_consumption">" Hyödykkeet"</string>
     <string name="label_recycling">" Kierrätys"</string>
     <string name="label_label">" PÄÄSTÖTILASTOT"</string>
+    <string name="password_not_good">Tarkista salasana tai käyttäjänimi</string>
 
 
 </resources>

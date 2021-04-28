@@ -113,26 +113,20 @@ public class LogInTool implements Serializable {
 
     public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
         //System.out.println(user_list.size());
-        //ÄLÄ KOSKE
         if (username.equals("") || password.equals("")) { // user needs to fill both fields to sign in
             result = c.getString(R.string.fill_both);
-            // JOS EI LÖYDY TIEDOSTOJA
-            // c.getFilesDir() + File.separator + username + File.separator + username TIEDOSTO JOKA HALUTAAN LÖYTÄÄ JA LUKEA
-
         } else if (c.getFilesDir().list().length == 0) { // if there is no users created in this phone // if files folder is empty
             System.out.println("testi1");
             result = c.getString(R.string.no_user);
 
-        } else { // JOS LÖYTYY TIEDOSTO OIKEELLA NIMELLÄ JA TSEKKAA SALIS
+        } else {
             for (File file : c.getFilesDir().listFiles()) { // check if given username exists and if the password is correct
-
-                Path path1 = Paths.get(String.valueOf(file));
+                Path path1 = Paths.get(String.valueOf(file)); //
                 Path path2 = Paths.get(c.getFilesDir() + File.separator + username);
-                System.out.println("path1:" + path1.toString());
+                System.out.println("path1:" + path1.toString()); //
                 System.out.println("path2:" + path2.toString());
                 if (path1.equals(path2)) {
-                    System.out.println("testitesti");// JOS TIEDOSTON NIMI EQUALS
-                    //File file2 = new File("/data/user/0/com.example.olio_ohjelmointi_ht/files/sara");
+                    System.out.println("testitesti");// if file names are the same
                     File fileName = new File(file,   "User_Info_" + username + ".txt");
                     try{
                         FileInputStream fIn = new FileInputStream(fileName);
@@ -150,14 +144,14 @@ public class LogInTool implements Serializable {
                             result = c.getString(R.string.welcome);
                             //Begin_home_screen bhs = new Begin_home_screen();
                             //bhs.getUsername(username);
-                        }else { // JOS KRYPTATTU SALIS ON VÄÄRIN, ÄLÄ KOSKE
+                        }else { // if password is wrong
                             System.out.println("testi2"); // if user is found, but password is not correct
                             result = c.getString(R.string.wrong_password);
-                        } // ELSE
+                        }
                     } catch (ClassNotFoundException | IOException e) {
                         e.printStackTrace();
                     }
-                }else{ // ÄLÄKOSKEE
+                }else{
                     System.out.println("testi3"); // if no user on given username is found
                     result = c.getString(R.string.no_user);
                 }
