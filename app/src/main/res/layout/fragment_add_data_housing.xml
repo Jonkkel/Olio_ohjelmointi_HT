@@ -31,7 +31,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Home_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="500sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +41,9 @@
                 android:id="@+id/housingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_margin="20sp"
                 android:text="@string/housing_housetype_text"
-                app:layout_constraintBottom_toTopOf="@id/HomeRadioGroup"
+                app:layout_constraintBottom_toTopOf="@+id/HomeRadioGroup"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,15 +53,14 @@
                 android:id="@+id/HomeRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20sp"
                 android:checkedButton="@+id/detached_button"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/drivingDistance"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5
-"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/housingText"
-                app:layout_constraintVertical_bias="0.2">
+                app:layout_constraintTop_toBottomOf="@+id/housingText">
 
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/detached_button"
@@ -101,6 +100,7 @@
                 android:id="@+id/Year_of_construction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20sp"
                 android:ems="3"
                 android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/Number_of_floor"
@@ -113,9 +113,10 @@
                 android:id="@+id/Number_of_floor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="20sp"
                 android:ems="2"
                 android:inputType="numberSigned"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/family_Size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -164,6 +165,28 @@
                 app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/Number_of_floor" />
+
+            <EditText
+                android:id="@+id/family_Size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="2"
+                android:inputType="numberSigned"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Number_of_floor"
+                android:layout_margin="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FamilySize"
+                app:layout_constraintBottom_toBottomOf="@+id/family_Size"
+                app:layout_constraintEnd_toStartOf="@+id/family_Size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/family_Size" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -524,6 +547,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/appliancesEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -535,6 +559,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/tablewareEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -546,6 +571,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/renovationEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -557,6 +583,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/cleaningEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -568,6 +595,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -639,7 +667,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/appCompatButton"
+            android:id="@+id/housingSubmitData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8sp"
