@@ -48,18 +48,6 @@ public class MainActivity extends AppCompatActivity{
         sign_in = (AppCompatButton) findViewById(R.id.login_sign_in);
         sign_up = (AppCompatButton) findViewById(R.id.login_sign_up);
 
-        /*
-        Android studio ehdotti että vaihda
-        TÄMÄ:
-            sign_up.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick (View v) { // set click listener for sign up button--> change layout if pressed
-                    Intent intent = new Intent(v.getContext(), LogInTool.class);
-                    startActivityForResult(intent, 0);
-                }
-            });
-
-         Tällaiseen*/
         sign_up.setOnClickListener(v -> { // set click listener for sign up button--> change layout if pressed
             //Intent intent = new Intent(v.getContext(), LogInTool.class);
             //startActivityForResult(intent, 0);
@@ -75,7 +63,6 @@ public class MainActivity extends AppCompatActivity{
 
     public void sign_in_button(View v) throws IOException {
 
-        // Toimiva pätkä koodia
         LogInTool LIT = LogInTool.getInstance(this); // get logintool, singleton
         username = login_username.getText().toString(); // read username that user wrote
         password = login_password.getText().toString(); // read password that user wrote

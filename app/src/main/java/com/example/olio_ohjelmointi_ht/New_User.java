@@ -36,7 +36,6 @@ public class New_User extends Fragment {
     Button create;
     LogInTool LIT;
     String log_in_message;
-    String result;
     Context c;
 
     @Nullable

@@ -17,7 +17,6 @@ import java.util.Date;
 
 public class HarryPlotter {
     Calendar calendar;
-    GraphView graph;
 
     @SuppressLint("StaticFieldLeak")
     private static HarryPlotter plotter = null; // singleton
@@ -31,8 +30,7 @@ public class HarryPlotter {
     }
 
     public void harryPlotter(){
-        //this.graph = graph;
-        //plottingTool();
+
     }
 
     public void plottingTool(ArrayList<DatEmission> de, GraphView graph){

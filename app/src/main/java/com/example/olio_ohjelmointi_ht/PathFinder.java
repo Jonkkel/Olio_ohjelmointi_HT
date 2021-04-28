@@ -12,8 +12,6 @@ import java.io.Serializable;
 public class PathFinder implements Serializable {
 
 
-    //String log_in_message;
-    //String result;
     Context c;
 
     @SuppressLint("StaticFieldLeak")
@@ -24,7 +22,7 @@ public class PathFinder implements Serializable {
             PF = new PathFinder();
             PF.pathFinder(context);
         }
-        return PF; // return only one and same LogInTool
+        return PF; // return only one and same pathFinder
     }
 
     public void pathFinder(Context context) {

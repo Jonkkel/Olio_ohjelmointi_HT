@@ -42,7 +42,7 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment;
-        // If any button has beenpressed then lets set it back to enabled
+        // If any button has been pressed then lets set it back to enabled
         if(lastItem != null){
             lastItem.setEnabled(true);
         }
