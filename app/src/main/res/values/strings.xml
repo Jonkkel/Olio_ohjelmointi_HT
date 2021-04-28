@@ -1,6 +1,5 @@
 <resources>
     <!-- for activity_main.xml -->
-    <string name="app_name" translatable="false">Waste</string>
     <string name="welcome_message">Welcome back</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -334,8 +333,7 @@
     <string name="progress_weight">Weight today:</string>
     <string name="weight_progress">Your weight progress</string>
     <string name="exercise_progress">Your exercise progress</string>
-
-
+    <string name="app_name" translatable="false">Emission tracker</string>
 
 
 </resources>
