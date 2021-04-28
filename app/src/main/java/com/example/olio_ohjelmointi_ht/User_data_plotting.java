@@ -21,7 +21,7 @@ public class User_data_plotting {
         if (udp == null) {
             udp = new User_data_plotting();
         }
-        return udp; // return only one and same Plotter
+        return udp; // return only one and same
     }
 
     Calendar calendar2;
@@ -43,8 +43,12 @@ public class User_data_plotting {
 
 
         File fileExists = new File(fileName);
+        System.out.println("testi");
+        System.out.println(fileName);
         if (!fileExists.isFile()) { // If no file matching fileName exists, creates one and fills accordingly
+            System.out.println("testi2");
             try {
+                System.out.println("testi3");
                 FileWriter csvWriter = new FileWriter(fileName);
                 csvWriter.write(milliTime + ";"+ input + "\n");
                 csvWriter.close();
@@ -54,27 +58,36 @@ public class User_data_plotting {
         } else if (currentDay == timeDelta(fileName, "dayLastLine") && currentYear == timeDelta(fileName, "yearLastLine") && currentMonth == timeDelta(fileName, "monthLastLine")) {
             /* If the latest emission log is from the same week as new one, changes the latest emission log into the new one.
             See editLastLine for further information */
+            System.out.println("testi4");
             editLastLine(fileName, (milliTime + ";" + input + "\n").getBytes());
         } else {
+            System.out.println("testi5");
             int dayCounter = (timeDelta(fileName, "dayLastLine") + 1); // Sets the weekCounter to start from the first missing week in the file
             YearMonth yearMonthObject = YearMonth.of(currentYear, currentMonth);
             int monthsCounter = timeDelta(fileName, "monthLastLine");
             int daysLeft = yearMonthObject.lengthOfMonth();
             try {
+                System.out.println("testi6");
                 FileWriter csvWriter = new FileWriter(fileName, true);
                 for (int i = timeDelta(fileName, "yearLastLine"); i <= currentYear; i++) {
+                    System.out.println("testi7");
                     for (int j = monthsCounter; j <= currentMonth; j++){
+                        System.out.println("testi8");
                         if (i == currentYear && j == currentMonth) {
+                            System.out.println("testi9");
                             daysLeft = currentDay; // Sets the remaining weeks to current week
                         }
                         for (int k = dayCounter; k <= daysLeft; k++) { //if currentWeek == weekLastLine, this will be skipped, see weekCounter
+                            System.out.println("testi10");
                             csvWriter.append(Long.toString(milliTime) + ";" + input + "\n"); // time(in ms);emission\n
                         }
                         if (dayCounter == daysLeft){
+                            System.out.println("testi11");
                             dayCounter = 1;
                         }
                     }
                     if (i < currentYear) { // Resets the weekCounter if one year has passed and the year isn't current yet
+                        System.out.println("testi12");
                         monthsCounter = 1;
                     }
                 }

@@ -41,7 +41,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph2"
+                    android:id="@+id/weight_graph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 
@@ -62,7 +62,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph3"
+                    android:id="@+id/exercise_graph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 
