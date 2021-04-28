@@ -171,6 +171,7 @@
     <string name="housing_air_heat">Ilmalämpöpumppu</string>
     <string name="housing_own_heat">Oma sähkö</string>
     <string name="housing_eur_per_year">€/vuosi</string>
+
     <string name="add_travel_car_and_moped">AUTO JA MOOTTORIPYÖRÄ</string>
     <string name="add_travel_car">AUTO</string>
     <string name="add_travel_moped">MOOTTORIPYÖRÄ</string>
@@ -209,7 +210,7 @@
     <string name="housing_percent">%</string>
     <string name="housing_furniture">Huonekalut</string>
     <string name="housing_appliances">Kodinkoneet</string>
-    <string name="housing_tableware">Kattaus</string>
+    <string name="housing_tableware">Kodintavarat</string>
     <string name="housing_renovation">Remontointi</string>
     <string name="housing_cleaning">Siivous</string>
     <string name="housing_total">YHTEENSÄ</string>
@@ -303,6 +304,12 @@
     <string name="housing_toast11">Remonttien ostomäärän täytyy olla välillä 0-10000.</string>
     <string name="housing_toast12">Kattauksen ostomäärän täytyy olla välillä 0-10000.</string>
     <string name="housing_toast13">Siivoustuotteiden ostomäärän täytyy olla välillä 0-10000.</string>
+    <string name="housing_toast14">Lisää kotisi rakennus vuosi</string>
+    <string name="housing_toast15">Lisää kotisi pinta-ala</string>
+    <string name="housing_toast16">Lisää kaukolämmön kulutus</string>
+    <string name="housing_toast17">Lisää öljylämmityksen kulutus</string>
+    <string name="housing_toast18">lisää kotisi lämmitysmuoto</string>
+    <string name="housing_family_size">perheen koko</string>
 
 
 </resources>

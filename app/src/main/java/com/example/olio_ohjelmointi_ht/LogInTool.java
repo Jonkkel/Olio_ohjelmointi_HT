@@ -53,7 +53,6 @@ public class LogInTool implements Serializable {
         this.c = con;
     }
 
-
     public Boolean checkUsernameAvailability(String username){
         File directory = new File(c.getFilesDir() + File.separator + username); // create a folder
         if (!directory.exists()) {
@@ -108,8 +107,6 @@ public class LogInTool implements Serializable {
             throw new RuntimeException(e);
         }
     }
-
-
 
     public String sign_in2(String username, String password) throws IOException { // let user sign in and use the app
         //System.out.println(user_list.size());

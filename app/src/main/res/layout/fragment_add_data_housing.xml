@@ -94,7 +94,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/HomeRadioGroup" />
+                app:layout_constraintTop_toBottomOf="@+id/HomeRadioGroup"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/Year_of_construction"
@@ -107,7 +109,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/drivingDistance" />
+                app:layout_constraintTop_toBottomOf="@+id/drivingDistance"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/Number_of_floor"
@@ -120,7 +124,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Year_of_construction" />
+                app:layout_constraintTop_toBottomOf="@+id/Year_of_construction"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <TextView
                 android:id="@+id/textView30"
@@ -177,16 +183,20 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Number_of_floor"
-                android:layout_margin="20sp" />
+                android:layout_margin="20sp"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FamilySize"
+                android:text="@string/housing_family_size"
                 app:layout_constraintBottom_toBottomOf="@+id/family_Size"
                 app:layout_constraintEnd_toStartOf="@+id/family_Size"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/family_Size" />
+                app:layout_constraintTop_toTopOf="@+id/family_Size"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -238,7 +248,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="61dp">
+                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/districtHeatingEditText"
@@ -250,7 +260,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.1"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:importantForAutofill="no"
+                        tools:ignore="LabelFor"  />
 
 
                     <TextView
@@ -286,7 +298,9 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.4"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:importantForAutofill="no"
+                        tools:ignore="LabelFor"  />
 
 
                     <TextView
@@ -414,7 +428,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
 
             <TextView
@@ -444,7 +460,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/electricityConsumption" />
+                app:layout_constraintTop_toBottomOf="@+id/electricityConsumption"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
 
             <TextView
@@ -552,7 +570,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/appliancesEditText"
@@ -564,7 +584,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/furnitureEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/furnitureEditText"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/tablewareEditText"
@@ -576,7 +598,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appliancesEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/appliancesEditText"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/renovationEditText"
@@ -588,7 +612,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tablewareEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/tablewareEditText"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/cleaningEditText"
@@ -600,7 +626,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/renovationEditText" />
+                app:layout_constraintTop_toBottomOf="@+id/renovationEditText"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"

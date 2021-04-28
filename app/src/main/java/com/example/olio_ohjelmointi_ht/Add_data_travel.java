@@ -98,11 +98,9 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
 
         submitData = v.findViewById(R.id.travelSubmitData);
         submitData.setOnClickListener(this);
-
         carButton.setOnClickListener(this);
         publicButton.setOnClickListener(this);
         flightButton.setOnClickListener(this);
-
         return v;
     }
 

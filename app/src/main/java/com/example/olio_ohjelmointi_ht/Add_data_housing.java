@@ -44,23 +44,23 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
     EditText goodsFurniture, goodsAppliance, goodsTableware, goodsRenovation, goodsCleaning;
 
 
-    String houseType = "family", heatingType;
+    String houseType = "family", heatingType = "";
     URL url;
     CallApi CAPI;
 
     double area;
     int buildYear;
-    int floors;
-    int family;
+    int floors = 1;
+    int family = 1;
 
-    int electricityConsumption;
-    int greenElectricityPercentage;
+    int electricityConsumption = 0;
+    int greenElectricityPercentage = 0;
 
-    int appliancePurchases;
-    int furniturePurchases;
-    int renovationPurchases;
-    int miscPurchases;
-    int cleaningPurchases;
+    int appliancePurchases = 0;
+    int furniturePurchases = 0;
+    int renovationPurchases = 0;
+    int miscPurchases = 0;
+    int cleaningPurchases = 0;
     @SuppressLint({"NonConstantResourceId", "CutPasteId"})
     @Nullable
     @Override
@@ -242,7 +242,14 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
     }
 
     public boolean checkUserInput(){
-        if (heatingType.equals("district")){
+        if(heatingType.equals("")){
+            Toast.makeText(getContext(), getResources().getString(R.string.housing_toast18) , Toast.LENGTH_SHORT).show();
+            return false;
+        }else if (heatingType.equals("district")){
+            if(districtHeatingAmount.getText().toString().equals("")){
+                Toast.makeText(getContext(), getResources().getString(R.string.housing_toast16) , Toast.LENGTH_SHORT).show();
+                return false;
+            }
             if (!(districtHeatingAmount.getText().toString().equals(""))){
                 districtHeatingConsumption = Integer.parseInt(districtHeatingAmount.getText().toString());
                 if(districtHeatingConsumption < 0 || districtHeatingConsumption > 130000){
@@ -251,6 +258,10 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
                 }
             }
         }else if (heatingType.equals("oil")){
+            if(oilHeatingAmount.getText().toString().equals("")){
+                Toast.makeText(getContext(), getResources().getString(R.string.housing_toast17) , Toast.LENGTH_SHORT).show();
+                return false;
+            }
             if (!(oilHeatingAmount.getText().toString().equals(""))){
                 heatingOilConsumption = Integer.parseInt(oilHeatingAmount.getText().toString());
                 if(heatingOilConsumption < 0 || heatingOilConsumption > 130000){
@@ -259,12 +270,20 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
                 }
             }
         }
+        if ((livingSpace.getText().toString().equals(""))){
+            Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast15), Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if (!(livingSpace.getText().toString().equals(""))){
             area = Double.parseDouble(livingSpace.getText().toString());
             if(area < 10 || area > 500){
                 Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast3), Toast.LENGTH_SHORT).show();
                 return false;
             }
+        }
+        if((yearOfConstruction.getText().toString().equals(""))){
+            Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast14), Toast.LENGTH_SHORT).show();
+            return false;
         }
         if (!(yearOfConstruction.getText().toString().equals(""))){
             buildYear = Integer.parseInt(yearOfConstruction.getText().toString());
@@ -273,6 +292,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
                 return false;
             }
         }
+
         if (!(numberOfFloors.getText().toString().equals(""))){
             floors = Integer.parseInt(numberOfFloors.getText().toString());
             if(floors < 1 || floors > 40){
