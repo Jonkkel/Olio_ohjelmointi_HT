@@ -136,7 +136,7 @@ public class New_User extends Fragment {
         int upper = 0;
         int lower = 0;
         int special_count = 0;
-        Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
+        Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>,.-?{}\\[\\]~]");
         if(password.getText().toString().length() >= 12){ // password must be at least 8 characters long
             for(int i = 0; i < password_text.length(); i++){
                 char c = password_text.charAt(i);

@@ -74,10 +74,6 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void sign_in_button(View v) throws IOException {
-        // Ei jaksanut aina kirjautua ni nyt pääsee eteenpäin kun vaan painaa tuota sign in :D
-        //Intent intent = new Intent(v.getContext(), Begin.class);
-        //startActivityForResult(intent, 0);
-        //finish();
 
         // Toimiva pätkä koodia
         LogInTool LIT = LogInTool.getInstance(this); // get logintool, singleton
@@ -87,8 +83,11 @@ public class MainActivity extends AppCompatActivity{
         message = LIT.sign_in2(username, password); // give username and password for sign_in method, checks if them are correct and user exists
         message_box.setText(message); // shows the result for user ( wrong password etc.)
         System.out.println(message);
-        Intent intent = new Intent(this, Begin.class);
-        startActivityForResult(intent, 0);
+        if (message.equals(getString(R.string.welcome))){
+            Intent intent = new Intent(this, Begin.class);
+            startActivityForResult(intent, 0);
+            finish();
+        }
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         //
     }

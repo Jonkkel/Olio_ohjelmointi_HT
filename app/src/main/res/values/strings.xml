@@ -335,5 +335,8 @@
     <string name="exercise_progress">Your exercise progress</string>
     <string name="app_name" translatable="false">Emission tracker</string>
 
+    <string name="weight_toast">Weight needs to be between 0 and 1000</string>
+    <string name="exercise_toast">You can only excercise 1440 minutes per day</string>
+
 
 </resources>

@@ -133,6 +133,7 @@ public class Settings_DialogFragment extends DialogFragment {
                     Toast.makeText(getContext(), getContext().getString(R.string.changed_username), Toast.LENGTH_SHORT).show();
                 }else if (getArguments().getString("type").equals("password")){
                     if(!(oldValueHolder.getText().toString().equals("")) && settingTool.checkPassword(oldValueHolder.getText().toString())){
+                        settingTool.changePassword(value);
                         Toast.makeText(getContext(), getContext().getString(R.string.changed_password), Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(getContext(), getContext().getString(R.string.new_password_wrong), Toast.LENGTH_SHORT).show();

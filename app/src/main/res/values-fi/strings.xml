@@ -267,12 +267,12 @@
     <string name="progress_weight">Paino tänään:</string>
     <string name="weight_progress">Painon kehitys</string>
     <string name="exercise_progress">Liikuntamäärän kehitys</string>
-    <string name="add_travel_toast1">Moottoripyörän polttoaineen kulutus pitää olla välillä 0-10.</string>
-    <string name="add_travel_toast2">Moottoripyörän ajomatkan pitää olla välillä 0-600000</string>
-    <string name="add_travel_toast3">Auton ajomatkan pitää olla välillä 0-120000.</string>
-    <string name="add_travel_toast4">Matkustajien määrän on oltava välillä 1-10.</string>
-    <string name="add_travel_toast5">Bussimatojen pitää olla välillä 0-1000.</string>
-    <string name="add_travel_toast6">Junamatkojen pitää olla välillä 0-1000.</string>
+    <string name="add_travel_toast1">Moottoripyörän polttoaineen kulutus pitää olla välillä 0–10.</string>
+    <string name="add_travel_toast2">Moottoripyörän ajomatkan pitää olla välillä 0–600000</string>
+    <string name="add_travel_toast3">Auton ajomatkan pitää olla välillä 0–120000.</string>
+    <string name="add_travel_toast4">Matkustajien määrän on oltava välillä 1–10.</string>
+    <string name="add_travel_toast5">Bussimatojen pitää olla välillä 0–1000.</string>
+    <string name="add_travel_toast6">Junamatkojen pitää olla välillä 0–1000.</string>
     <string name="add_travel_toast7">Raitiovaunumatkojen pitää olla välillä 0-1000.</string>
     <string name="add_travel_toast8">Metromatkujen pitää olla välillä 0-1000.</string>
     <string name="add_travel_toast9">Pitkänmatkan bussimatkojen pitää olla välillä 0-100000.</string>
@@ -310,6 +310,8 @@
     <string name="housing_toast17">Lisää öljylämmityksen kulutus</string>
     <string name="housing_toast18">lisää kotisi lämmitysmuoto</string>
     <string name="housing_family_size">perheen koko</string>
+    <string name="weight_toast">Painon pitää olla välillä 0-1000</string>
+    <string name="exercise_toast">Voit urheilla enintään 1440 minuuttias päivässä</string>
 
 
 </resources>

@@ -26,7 +26,9 @@ public class Begin extends AppCompatActivity implements BottomNavigationView.OnN
     public void onCreate(Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.begin_screen);
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView);
+        SettingTool set = SettingTool.getInstance(this);
+        set.loadLocale();
+        bottomNavigationView = findViewById(R.id.bottomNavView);
 
         // Set homescreen active on startup
         MenuItem item = bottomNavigationView.getMenu().getItem(2);

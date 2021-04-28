@@ -414,6 +414,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_electricity_per_year"
+                android:ems="6"
                 app:layout_constraintBottom_toBottomOf="@+id/electricityConsumption"
                 app:layout_constraintEnd_toStartOf="@+id/electricityConsumption"
                 app:layout_constraintTop_toTopOf="@+id/electricityConsumption" />
@@ -446,6 +447,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/housing_green_percent"
+                android:ems="6"
                 app:layout_constraintBottom_toBottomOf="@+id/electricityGreenEnergyPercent"
                 app:layout_constraintEnd_toStartOf="@+id/electricityGreenEnergyPercent"
                 app:layout_constraintTop_toTopOf="@+id/electricityGreenEnergyPercent" />
@@ -635,6 +637,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8sp"
                 android:text="@string/housing_total"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

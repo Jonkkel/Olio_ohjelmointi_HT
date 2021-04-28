@@ -5,7 +5,7 @@
     tools:context=".Begin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ebe1a4">
+    android:background="@drawable/background1">
 
     <TextView
         android:id="@+id/settings_text"
@@ -32,6 +32,7 @@
         android:background="@drawable/login_button_theme"
 
         android:text="@string/change_language"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="1.0"
@@ -45,6 +46,7 @@
 
         android:background="@drawable/login_button_theme"
         android:text="@string/change_username"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/change_password_btn"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,6 +59,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/login_button_theme"
         android:text="@string/change_password"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/change_age_btn"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
@@ -69,6 +72,7 @@
         android:background="@drawable/login_button_theme"
 
         android:text="@string/change_age"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/change_home_city_btn"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
@@ -82,6 +86,7 @@
         android:background="@drawable/login_button_theme"
 
         android:text="@string/change_home_city"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/change_email_btn"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -101,7 +106,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/change_home_city_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/change_home_city_btn"
+        android:textColor="@color/white" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"

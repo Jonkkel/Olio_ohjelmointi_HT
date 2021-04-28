@@ -153,7 +153,7 @@
         <TextView
             android:id="@+id/message_box"
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="80dp"
 
             android:textColor="@color/login_screen_secondary_color"
