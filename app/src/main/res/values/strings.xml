@@ -199,7 +199,7 @@
     <string name="housing_percent">%</string>
     <string name="housing_furniture">Furniture</string>
     <string name="housing_appliances">Appliances</string>
-    <string name="housing_tableware">Tableware</string>
+    <string name="housing_tableware">Miscellaneous</string>
     <string name="housing_renovation">Renovation</string>
     <string name="housing_cleaning">Cleaning</string>
     <string name="housing_total">TOTAL</string>
@@ -216,6 +216,14 @@
     <string name="housing_toast11">The field renovation purchases must be between 0 and 10000.</string>
     <string name="housing_toast12">The field tableware purchases must be between 0 and 10000.</string>
     <string name="housing_toast13">The field cleaning purchases must be between 0 and 10000.</string>
+    <string name="housing_toast14">Insert building year of your house.</string>
+    <string name="housing_toast15">Insert the size of your house.</string>
+
+    <string name="housing_toast16">Insert district heating amount</string>
+    <string name="housing_toast17">Insert oil heating amount</string>
+    <string name="housing_toast18">Input heating type</string>
+
+    <string name="housing_family_size">Family size</string>
 
 
     <!-- for fragment_home_screen.xml -->

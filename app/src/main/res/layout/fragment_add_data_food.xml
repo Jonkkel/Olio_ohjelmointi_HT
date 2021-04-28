@@ -238,14 +238,17 @@
         app:layout_constraintStart_toEndOf="@+id/restaurant_exp"
         app:layout_constraintTop_toTopOf="@+id/restaurant_exp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submitFoodData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit_data_btn"
+        android:padding="8sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/login_button_theme"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/restaurant_exp"
         app:layout_constraintWidth_percent="0.4" />
@@ -430,6 +433,5 @@
         app:layout_constraintEnd_toStartOf="@+id/diet_group"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/diet_group" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
