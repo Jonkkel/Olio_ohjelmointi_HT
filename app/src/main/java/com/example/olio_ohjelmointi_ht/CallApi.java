@@ -61,7 +61,7 @@ public class CallApi {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        // reading API response to String 'response'
+        // Reading API response to String 'response'
         System.out.println(responseCode);
         System.out.println(HttpURLConnection.HTTP_OK);
         if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -107,7 +107,7 @@ public class CallApi {
     public void writeCSV(String fileName, Double emission) {
 
         /* This method writes emission (Double) data given as input parameter, and writes it into a .csv file alongside
-        the time of data in milliseconds. The data in the .csv file will be in the following form: sssssssssssss;emission\n .
+        the time of data in milliseconds. The data in the .csv file will be in the following form: ssssssssssssss;emission\n .
         If new data is added on the same week as the latest log, the latest log will be overwritten with the new data. */
 
         Calendar calendar = new GregorianCalendar();
