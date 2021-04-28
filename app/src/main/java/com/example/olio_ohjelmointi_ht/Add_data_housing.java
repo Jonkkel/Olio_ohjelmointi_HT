@@ -28,7 +28,6 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
     RadioGroup homeRadioGroup, heatingRadioGroup;
 
     // Home section variables
-    RadioButton detachedHouse, flatHouse, terracedHouse;
     EditText livingSpace, yearOfConstruction, numberOfFloors, familySize;
 
     // Heating section variables
@@ -36,7 +35,6 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
     CheckBox additionalWoodHeating, additionalAirPumpHeating, additionalOwnElectricityHeating;
 
     int heatingOilConsumption = 0, districtHeatingConsumption = 0;
-    RadioButton oilHeating, groundHeat, electricityHeat, woodHeat;
 
     // Electricity section variables
     EditText electricityUsage, electricityGreenPercent;
@@ -123,11 +121,6 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
             }
         });
         // Home section
-        /*
-        detachedHouse = (RadioButton) v.findViewById(R.id.detached_button);
-        flatHouse = (RadioButton) v.findViewById(R.id.flat_button);
-        terracedHouse = (RadioButton) v.findViewById(R.id.terraced_button);
-        */
         livingSpace = (EditText) v.findViewById(R.id.drivingDistance);
         yearOfConstruction = (EditText) v.findViewById(R.id.Year_of_construction);
         numberOfFloors = (EditText) v.findViewById(R.id.Number_of_floor);
@@ -139,12 +132,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         additionalWoodHeating = (CheckBox) v.findViewById(R.id.pellet_box);
         additionalAirPumpHeating = (CheckBox) v.findViewById(R.id.airpump_box);
         additionalOwnElectricityHeating = (CheckBox) v.findViewById(R.id.own_box);
-        /*
-        oilHeating = (RadioButton) v.findViewById(R.id.oil_button);
-        groundHeat = (RadioButton) v.findViewById(R.id.ground_button);
-        electricityHeat = (RadioButton) v.findViewById(R.id.electricity_button);
-        woodHeat = (RadioButton) v.findViewById(R.id.pellet_button);
-*/
+
         // Electricity section
         electricityUsage = (EditText) v.findViewById(R.id.electricityConsumption);
         electricityGreenPercent = (EditText) v.findViewById(R.id.electricityGreenEnergyPercent);

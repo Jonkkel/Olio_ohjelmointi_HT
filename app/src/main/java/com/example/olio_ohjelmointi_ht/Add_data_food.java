@@ -34,12 +34,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     RadioGroup radioGroup;
     String diet = "";
 
-    String readLine = null;
-    HttpURLConnection connection = null;
-    BufferedReader in = null;
     URL url;
-    int responseCode = 0;
-
     Button submitData;
 
     @SuppressLint({"SetTextI18n", "NonConstantResourceId"})

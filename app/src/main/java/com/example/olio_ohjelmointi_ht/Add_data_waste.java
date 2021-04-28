@@ -78,10 +78,6 @@ public class Add_data_waste extends Fragment {
             plasticS = plastic.getSelectedItem().toString();
             wasteAmountS = wasteAmount.getSelectedItem().toString();
 
-
-
-            // Needed for accessing internet
-
             try {
                 // Api url address
                 url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/WasteCalculator?" +

@@ -28,7 +28,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Add_data_travel extends Fragment implements View.OnClickListener {
 
-    ConstraintLayout homeView, heatingView, goodsView, mainView;
+    ConstraintLayout carView, publicView, flightView, mView;
 
     // For car and motorcycle
     EditText car_distance, passengers, moped_distance, moped_consumption;
@@ -41,7 +41,7 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     // For boat trips and flights
     EditText boat_trip1, boat_trip2, boat_trip3, flight_fin, flight_eu, flight_canarian, flight_continental;
 
-    Button submitData, homeButton, heatingButton, goodsButton;
+    Button submitData, carButton, publicButton, flightButton;
 
     String carSize, carFuel;
     int carYear, motorcycleDriveDist = 0, busDist = 0, trainDist = 0, tramDist = 0, subwayDist = 0, longBusDist = 0, longTrainDist = 0, driveDist = 0;
@@ -53,19 +53,20 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     double carData, travelData;
     URL url;
     String cUser;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_travel, container, false);
         CAPI = CallApi.getInstance(getActivity());
-        homeView = v.findViewById(R.id.Home_layout);
-        heatingView = v.findViewById(R.id.Heating_layout);
-        goodsView = v.findViewById(R.id.Goods_layout);
-        mainView = v.findViewById(R.id.Main_layout);
+        carView = v.findViewById(R.id.car_Layout);
+        publicView = v.findViewById(R.id.public_Layout);
+        flightView = v.findViewById(R.id.flight_Layout);
+        mView = v.findViewById(R.id.travel_Layout);
 
-        homeButton = v.findViewById(R.id.Home_button);
-        heatingButton = v.findViewById(R.id.Heating_button);
-        goodsButton = v.findViewById(R.id.Goods_button);
+        carButton = v.findViewById(R.id.car_Button);
+        publicButton = v.findViewById(R.id.public_Button);
+        flightButton = v.findViewById(R.id.flight_Button);
 
         // For car and motorcycle
         car_distance = (EditText) v.findViewById(R.id.drivingDistance);
@@ -97,6 +98,10 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
         submitData = v.findViewById(R.id.travelSubmitData);
         submitData.setOnClickListener(this);
 
+        carButton.setOnClickListener(this);
+        publicButton.setOnClickListener(this);
+        flightButton.setOnClickListener(this);
+
         return v;
     }
 
@@ -104,44 +109,43 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.Home_button:
-                if (homeView.getVisibility() == View.GONE) {
+            case R.id.car_Button:
+                if (carView.getVisibility() == View.GONE) {
                     closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    homeView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    carButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    carView.setVisibility(View.VISIBLE);
                 } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    homeView.setVisibility(View.GONE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    carButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    carView.setVisibility(View.GONE);
                 }
                 break;
-            case R.id.Heating_button:
-                if (heatingView.getVisibility() == View.GONE) {
+            case R.id.public_Button:
+                if (publicView.getVisibility() == View.GONE) {
                     closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    heatingView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    publicButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    publicView.setVisibility(View.VISIBLE);
                 } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    heatingView.setVisibility(View.GONE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    publicButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    publicView.setVisibility(View.GONE);
                 }
                 break;
-            case R.id.Goods_button:
-                if (goodsView.getVisibility() == View.GONE) {
+            case R.id.flight_Button:
+                if (flightView.getVisibility() == View.GONE) {
                     closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    goodsView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    flightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    flightView.setVisibility(View.VISIBLE);
                 } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    goodsView.setVisibility(View.GONE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    flightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    flightView.setVisibility(View.GONE);
                 }
                 break;
             case R.id.travelSubmitData:
-
                 if(checkUserInput()){
                     getValues();
                     try {
@@ -175,17 +179,17 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     }
 
     public void closeOpenLayouts() {
-        if (homeView.getVisibility() == View.VISIBLE) {
-            homeView.setVisibility(View.GONE);
-            homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        if (carView.getVisibility() == View.VISIBLE) {
+            carView.setVisibility(View.GONE);
+            carButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
-        if (heatingView.getVisibility() == View.VISIBLE) {
-            heatingView.setVisibility(View.GONE);
-            heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        if (publicButton.getVisibility() == View.VISIBLE) {
+            publicView.setVisibility(View.GONE);
+            publicButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
-        if (goodsView.getVisibility() == View.VISIBLE) {
-            goodsView.setVisibility(View.GONE);
-            goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        if (flightView.getVisibility() == View.VISIBLE) {
+            flightView.setVisibility(View.GONE);
+            flightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
     }
 

@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Main_layout"
+        android:id="@+id/travel_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/Home_button"
+            android:id="@+id/car_Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8sp"
@@ -23,21 +23,22 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/Home_layout"
+            app:layout_constraintBottom_toTopOf="@+id/car_Layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/Home_layout"
+            android:id="@+id/car_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/Heating_button"
+            app:layout_constraintBottom_toTopOf="@+id/public_Button"
             app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Home_button">
+            app:layout_constraintTop_toBottomOf="@+id/car_Button">
 
             <TextView
                 android:id="@+id/housingText"
@@ -275,7 +276,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/Heating_button"
+            android:id="@+id/public_Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -288,22 +289,22 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/Heating_layout"
+            app:layout_constraintBottom_toTopOf="@+id/public_Layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Home_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/car_Layout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/Heating_layout"
+            android:id="@+id/public_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/Goods_button"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/flight_Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Heating_button">
+            app:layout_constraintTop_toBottomOf="@+id/public_Button">
 
             <EditText
                 android:id="@+id/spora_trip"
@@ -543,7 +544,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/Goods_button"
+            android:id="@+id/flight_Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -556,22 +557,22 @@
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/Goods_layout"
+            app:layout_constraintBottom_toTopOf="@+id/flight_Layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Heating_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/public_Layout" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/Goods_layout"
+            android:id="@+id/flight_Layout"
             android:layout_width="match_parent"
             android:layout_height="800sp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/travelSubmitData"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Goods_button">
+            app:layout_constraintTop_toBottomOf="@+id/flight_Button">
 
             <TextView
                 android:id="@+id/textView59"
@@ -849,12 +850,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/login_button_theme"
             android:text="@string/submit_data_btn"
+            android:padding="8sp"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Goods_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/flight_Layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
