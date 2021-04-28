@@ -28,14 +28,14 @@ public class User_data_plotting {
 
     public void writeCSV(String fileName, Double input) {
         System.out.println(input);
-        /* This method writes emission (Double) data given as input parameter, and writes it into a .csv file alongside
-        the time of data in milliseconds. The data in the .csv file will be in the following form: sssssssssssss;emission\n .
+        /* This method writes input (Double) data given as input parameter, and writes it into a .csv file alongside
+        the time of data in milliseconds. The data in the .csv file will be in the following form: sssssssssssss;input\n .
         If new data is added on the same week as the latest log, the latest log will be overwritten with the new data. */
 
         Calendar calendar = new GregorianCalendar();
         Date today = new Date();
         calendar.setTime(today);
-
+        // find current day, month and year
         int currentDay = calendar.get(Calendar.DAY_OF_YEAR);
         int currentMonth = calendar.get(Calendar.MONTH);
         int currentYear = calendar.get(Calendar.YEAR);
