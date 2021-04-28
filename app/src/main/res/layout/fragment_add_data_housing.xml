@@ -673,6 +673,7 @@
             android:layout_margin="8sp"
             android:background="@drawable/login_button_theme"
             android:text="@string/submit_data_btn"
+            android:padding="8sp"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
