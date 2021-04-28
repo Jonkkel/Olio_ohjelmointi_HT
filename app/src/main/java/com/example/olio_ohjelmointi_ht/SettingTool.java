@@ -68,13 +68,16 @@ public class SettingTool {
     }
 
     public void changeUsername(String newUsername){
-        getUserInformation();
-        test();
-        if (user == null){
-            System.out.println("Error");
-        }else{
-            user.setUsername(newUsername);
-            saveUserInformation();
+        String folderPath = createFolder(newUsername);
+        String newFileName = folderPath + "User_Info_" + newUsername;
+        userDataCopier(newFileName);
+
+        File folder = new File(folderPath);
+        File[] listOfFiles = folder.listFiles();
+
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+            }
         }
     }
 
@@ -218,5 +221,72 @@ public class SettingTool {
             position = 2;
         }
         return position;
+    }
+
+    public String createFolder(String folderName) {
+        PathFinder path = PathFinder.getInstance(this.context);
+        StringBuilder sb = new StringBuilder(path.pathBuilder());
+
+        String newFolder = sb.replace(sb.lastIndexOf("/"), sb.length(), sb.replace(sb.lastIndexOf("/"), sb.length(), "").toString()).toString() + folderName;
+
+        File f1 = new File(newFolder);
+        boolean bool = f1.mkdir();
+        if (bool) {
+            System.out.println("Folder successfully created!");
+        } else {
+            System.out.println("Error occurred while creating a new folder.");
+        }
+        return newFolder;
+    }
+
+    public void userDataCopier(String fileName) {
+
+        /* This method rewrites the last Line of a file fileName(String) with the byte array lastLineDataBytes(byte[]). Both of these must be given as
+        input parameters. The method copies the entire file fileName into a new file tempFile, excluding the last Line of data, and then writes
+        the input lastLineDataBytes into the tempFile. After the process is done the original file fileName will be deleted and the new file
+        tempFile renamed fileName */
+
+        StringBuilder sb = new StringBuilder(fileName);
+        String tempFile = sb.replace(sb.lastIndexOf("/"), sb.length(), "/tempFile.csv").toString();
+        // Copies the path from fileName sans the name of the file itself and then adds the ending /tempFile.csv into the path
+        // "examplePath/exampleFolder/exampleFileName.csv" -> "examplePath/exampleFolder/tempFile.csv"
+
+        try {
+            FileInputStream in = new FileInputStream(fileName);
+            FileOutputStream out = new FileOutputStream(tempFile);
+
+            CallApi capi = new CallApi();
+
+            int n = 0;
+            int LineCount = capi.csvLineCounter(fileName); // The amount of Lines to be copied before the lastLineDataBytes is to be added
+
+            for (int i = 1; i <= LineCount; i++) { // The for-loop keeps track of the Lines that have been written until the upper limit LineCount has been reached
+                while ((n = in.read()) != '\n') { // Copies the contents of a Line into the file tempFile
+                    out.write(n);
+                }
+                out.write('\n'); // The while-loop stops at the newline, so a newline has to be added at the end of the newly copied Line
+            }
+
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File fileToDelete = new File(fileName);
+        File fileToRename = new File(tempFile);
+        if (!fileToDelete.delete()) { // Deletes the old file
+            System.out.println("A problem occurred while deleting a file in editLastLine");
+        }
+        if (!fileToRename.renameTo(fileToDelete)) { // Renames the new file into the old file. "Editing" the file is now complete
+            System.out.println("A problem occurred while renaming a file in editLastLine");
+        }
     }
 }
