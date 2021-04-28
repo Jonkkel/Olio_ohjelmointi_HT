@@ -60,7 +60,9 @@
                 app:layout_constraintBottom_toTopOf="@+id/passengers"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/housingText" />
+                app:layout_constraintTop_toBottomOf="@+id/housingText"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <TextView
                 android:id="@+id/textView30"
@@ -126,15 +128,17 @@
 
             <EditText
                 android:id="@+id/passengers"
-                android:layout_width="86dp"
-                android:layout_height="41dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberDecimal"
                 app:layout_constraintBottom_toTopOf="@+id/textView33"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/drivingDistance" />
+                app:layout_constraintTop_toBottomOf="@+id/drivingDistance"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView37"
@@ -221,28 +225,32 @@
 
             <EditText
                 android:id="@+id/moped_distance"
-                android:layout_width="89dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/moped_consumption"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView40" />
+                app:layout_constraintTop_toBottomOf="@+id/textView40"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/moped_consumption"
-                android:layout_width="86dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/moped_distance" />
+                app:layout_constraintTop_toBottomOf="@+id/moped_distance"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView43"
@@ -299,29 +307,33 @@
 
             <EditText
                 android:id="@+id/spora_trip"
-                android:layout_width="94dp"
-                android:layout_height="37dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/subway_trip"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/train_trip" />
+                app:layout_constraintTop_toBottomOf="@+id/train_trip"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/train_trip"
-                android:layout_width="90dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/spora_trip"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bus_trip" />
+                app:layout_constraintTop_toBottomOf="@+id/bus_trip"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <TextView
                 android:id="@+id/textView45"
@@ -377,29 +389,33 @@
 
             <EditText
                 android:id="@+id/bus_trip"
-                android:layout_width="101dp"
-                android:layout_height="37dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/train_trip"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView45" />
+                app:layout_constraintTop_toBottomOf="@+id/textView45"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/subway_trip"
-                android:layout_width="103dp"
-                android:layout_height="37dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/textView50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spora_trip" />
+                app:layout_constraintTop_toBottomOf="@+id/spora_trip"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView50"
@@ -435,29 +451,33 @@
 
             <EditText
                 android:id="@+id/bus_distance"
-                android:layout_width="102dp"
-                android:layout_height="29dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/train_distance"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView50" />
+                app:layout_constraintTop_toBottomOf="@+id/textView50"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/train_distance"
-                android:layout_width="93dp"
-                android:layout_height="34dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="30sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bus_distance" />
+                app:layout_constraintTop_toBottomOf="@+id/bus_distance"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <TextView
                 android:id="@+id/textView53"
@@ -596,42 +616,48 @@
 
             <EditText
                 android:id="@+id/he_ta_amount"
-                android:layout_width="102dp"
-                android:layout_height="37dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/he_tra_amount"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView59" />
+                app:layout_constraintTop_toBottomOf="@+id/textView59"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/he_tra_amount"
-                android:layout_width="97dp"
-                android:layout_height="40dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/he_tu_amount"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/he_ta_amount" />
+                app:layout_constraintTop_toBottomOf="@+id/he_ta_amount"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/he_tu_amount"
-                android:layout_width="96dp"
-                android:layout_height="42dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/textView66"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/he_tra_amount" />
+                app:layout_constraintTop_toBottomOf="@+id/he_tra_amount"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <TextView
                 android:id="@+id/textView63"
@@ -717,55 +743,63 @@
 
             <EditText
                 android:id="@+id/inside_fin"
-                android:layout_width="82dp"
-                android:layout_height="34dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/inside_eu"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView66" />
+                app:layout_constraintTop_toBottomOf="@+id/textView66"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/inside_eu"
-                android:layout_width="86dp"
-                android:layout_height="31dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/canarian"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inside_fin" />
+                app:layout_constraintTop_toBottomOf="@+id/inside_fin"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/canarian"
-                android:layout_width="85dp"
-                android:layout_height="31dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toTopOf="@+id/continental"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inside_eu" />
+                app:layout_constraintTop_toBottomOf="@+id/inside_eu"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor"  />
 
             <EditText
                 android:id="@+id/continental"
-                android:layout_width="84dp"
-                android:layout_height="34dp"
-                android:layout_margin="20sp"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:ems="3"
+                android:inputType="numberSigned"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/canarian" />
+                app:layout_constraintTop_toBottomOf="@+id/canarian"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:id="@+id/textView71"

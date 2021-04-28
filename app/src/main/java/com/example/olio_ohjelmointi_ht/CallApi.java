@@ -31,6 +31,7 @@ public class CallApi {
     int responseCode = 0;
     Context context;
     Double d;
+    Calendar calendar2;
 
     @SuppressLint("StaticFieldLeak")
     private static CallApi CAPI = null; // singleton
@@ -90,7 +91,7 @@ public class CallApi {
         if (Character.isDigit(c)){
             d = Double.valueOf(response.toString());
         }else{
-            String symbols = "[,:]+";
+            String symbols = "[,:]";
             String[] parsedResponse = response.toString().split(symbols);
             String totalValue = parsedResponse[parsedResponse.length-1];
             totalValue = (totalValue.substring(0, totalValue.length() - 1));
@@ -185,7 +186,7 @@ public class CallApi {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Calendar calendar2 = new GregorianCalendar();
+        calendar2 = new GregorianCalendar();
         calendar2.setTimeInMillis(Long.parseLong(time));
         if (mode.equals("yearDelta")) { // Returns the difference (in years) of the current year and the year of the latest file entry
             return (currentYear - calendar2.YEAR);
@@ -269,12 +270,53 @@ public class CallApi {
                 }
             }
             in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         return LineCounter;
     }
+
+
+    public double getRequestReturnDouble(URL url){
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        // https://dzone.com/articles/how-to-implement-get-and-post-request-through-simp
+        // Throwing GET request to API
+        System.out.println(url);
+        try {
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("userId", "oli2");
+            responseCode = connection.getResponseCode();
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        // reading API response to String 'response'
+        System.out.println(responseCode);
+        System.out.println(HttpURLConnection.HTTP_OK);
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            try {
+                assert connection != null;
+                in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                while ((readLine = in.readLine()) != null) {
+                    response.append(readLine);
+                }
+                in.close();
+                String symbols = "[,:]";
+                String[] parsedResponse = response.toString().split(symbols);
+                String totalValue = parsedResponse[parsedResponse.length-1];
+                totalValue = (totalValue.substring(0, totalValue.length() - 1));
+                d = Double.valueOf(totalValue);
+                return d;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Problem with Get request");
+        }
+        return -1;
+    }
+
 }
