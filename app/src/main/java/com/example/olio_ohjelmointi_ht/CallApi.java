@@ -14,10 +14,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -101,7 +99,8 @@ public class CallApi {
             SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
             String cUser = prefs.getString("Current User", "");
             FileWriter csvWriter = null;
-            writeCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", d);
+            PathFinder pather = PathFinder.getInstance(this.context);
+            writeCSV(pather.pathBuilder() + "tiedot.csv", d);
         }
     }
 
