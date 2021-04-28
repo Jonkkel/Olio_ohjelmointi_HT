@@ -30,37 +30,37 @@ public class Begin_progress_screen extends Fragment implements View.OnClickListe
     Context context;
     GraphView exercise_graph, weight_graph;
     User_data_plotting UDP;
-
+    HarryPlotter plotter;
+    PathFinder path;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_progress_screen, container, false);
+        context = getActivity();
+        plotter = HarryPlotter.getInstance();
+        path = PathFinder.getInstance(context);
+        UDP = User_data_plotting.getInstance();
         exercise = (EditText) v.findViewById(R.id.exercise);
         weight = (EditText) v.findViewById(R.id.weight);
         exercise_button = (Button) v.findViewById(R.id.submit_exercise);
         weight_button = (Button) v.findViewById(R.id.submit_weight);
         exercise_graph = (GraphView) v.findViewById(R.id.exercise_graph);
         weight_graph = (GraphView) v.findViewById(R.id.weight_graph);
-
-        context = getContext();
         exercise_button.setOnClickListener(this);
         weight_button.setOnClickListener(this);
 
-        return inflater.inflate(R.layout.fragment_progress_screen, container, false);
+        return v;
     }
 
     /* Voi käyttää ja kannattaa käyttää, jos on tekstikentää jonka tekstiä haluaa muokata.
         Ajetaan sen jälkeen kun fragmentti on luotu - Turvallisempi metodi kuin ylempi*/
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onClick(View v) {
-        HarryPlotter plotter = HarryPlotter.getInstance();
-        PathFinder path = PathFinder.getInstance(this.context);
         switch (v.getId()) {
             case R.id.submit_exercise:
                 exercise_amount = exercise.getText().toString();
@@ -71,9 +71,10 @@ public class Begin_progress_screen extends Fragment implements View.OnClickListe
                 break;
             case R.id.submit_weight:
                 weight_amount = weight.getText().toString();
-                UDP.writeCSV(path.pathBuilder() + "Weight_data.csv", Double.parseDouble(weight_amount));
+                System.out.println("testi2");
+                System.out.println(path.pathBuilder() + "Weight_data.csv");
+                UDP.writeCSV((path.pathBuilder() + "Weight_data.csv"), Double.parseDouble(weight_amount));
                 plotter.readCSV(path.pathBuilder() + "Weight_data.csv", weight_graph);
-                System.out.println(exercise_amount);
                 break;
         }
     }

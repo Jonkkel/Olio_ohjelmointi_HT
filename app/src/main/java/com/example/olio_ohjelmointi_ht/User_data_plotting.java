@@ -27,7 +27,7 @@ public class User_data_plotting {
     Calendar calendar2;
 
     public void writeCSV(String fileName, Double input) {
-
+        System.out.println(input);
         /* This method writes emission (Double) data given as input parameter, and writes it into a .csv file alongside
         the time of data in milliseconds. The data in the .csv file will be in the following form: sssssssssssss;emission\n .
         If new data is added on the same week as the latest log, the latest log will be overwritten with the new data. */
@@ -50,7 +50,8 @@ public class User_data_plotting {
             try {
                 System.out.println("testi3");
                 FileWriter csvWriter = new FileWriter(fileName);
-                csvWriter.write(milliTime + ";"+ input + "\n");
+                //csvWriter.write(milliTime + ";"+ input + "\n");
+                csvWriter.write("1614621478961;249.0\n1615621478961;200.0\n1616621478961;150.0\n1617621478961;175.0\n1618621478961;225.0\n1619621478961;125.0\n1620621478961;200.0\n1621621478961;250.0\n1622621478961;180.0\n1623621478961;160.0\n1624621478961;50.0\n1625621478961;0.0\n1626621478961;75.0\n1627621478961;175.0\n1628621478961;200.0\n1629621478961;200.0\n1630621478961;200.0\n");
                 csvWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -139,6 +140,8 @@ public class User_data_plotting {
             return calendar2.get(Calendar.YEAR);
         } else if (mode.equals("dayLastLine")) { //Returns the week of the latest file entry
             return calendar2.get(Calendar.DAY_OF_YEAR);
+        } else if (mode.equals("monthLastLine")){
+            return calendar2.get(Calendar.MONTH);
         } else { // If this is reached, there is a typo in the second input parameter in th code calling for deltaTime
             int current = calendar2.get(Calendar.YEAR);
             System.out.println("TYPO IN THE 'MODE' PARAMETER IN THE CODE CALLING FOR timeDelta"); // This is a poor solution, needs something better
