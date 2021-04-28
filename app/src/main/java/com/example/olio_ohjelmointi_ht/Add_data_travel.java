@@ -49,6 +49,7 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
 
     int TallinBoat = 0, StockBoat = 0, TraveBoat = 0, FinlandFlight = 0, EuropeFlight = 0, CanaryFlight = 0, ContinentalFlight = 0;
 
+
     CallApi CAPI;
     double carData, travelData;
     URL url;
@@ -238,115 +239,115 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
         if((!moped_consumption.getText().toString().equals(""))){
             motorcycleConsumption = Double.parseDouble(moped_consumption.getText().toString());
             if(motorcycleConsumption < 0 || motorcycleConsumption > 1000){
-                Toast.makeText(getContext(), "The field motorcycle fuel consumption must be between 0 and 10.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast1), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(moped_distance.getText().toString().equals(""))){
             motorcycleDriveDist = Integer.parseInt(moped_distance.getText().toString());
             if(motorcycleDriveDist < 0 || motorcycleDriveDist > 60000) {
-                Toast.makeText(getContext(), "The field motorcycle distance must be between 0 and 60000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast2), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(car_distance.getText().toString().equals(""))){
             driveDist = Integer.parseInt(car_distance.getText().toString());
             if(driveDist < 0 || driveDist > 120000){
-                Toast.makeText(getContext(), "The field drive distance must be between 0 and 120000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast3), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(passengers.getText().toString().equals(""))){
             passengerCount = Double.parseDouble(passengers.getText().toString());
             if(passengerCount < 1 || passengerCount > 10){
-                Toast.makeText(getContext(), "The field passengerCount must be between 1 and 10.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast4), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(bus_distance.getText().toString().equals(""))){
             busDist = Integer.parseInt(bus_distance.getText().toString());
             if(busDist < 0 || busDist > 1000){
-                Toast.makeText(getContext(), "The field bus distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast5), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(train_distance.getText().toString().equals(""))){
             trainDist = Integer.parseInt(train_distance.getText().toString());
             if(trainDist < 0 || trainDist > 1000){
-                Toast.makeText(getContext(), "The field train distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast6), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(tram_distance.getText().toString().equals(""))){
             tramDist = Integer.parseInt(tram_distance.getText().toString());
             if(tramDist < 0 || tramDist > 1000){
-                Toast.makeText(getContext(), "The field tram distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast7), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(subway_distance.getText().toString().equals(""))){
             subwayDist  = Integer.parseInt(subway_distance.getText().toString());
             if(subwayDist < 0 || subwayDist > 1000){
-                Toast.makeText(getContext(), "The field metro distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast8), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(longBus_distance.getText().toString().equals(""))){
             longBusDist  = Integer.parseInt(longBus_distance.getText().toString());
             if(longBusDist < 0 || longBusDist > 100000){
-                Toast.makeText(getContext(), "The field long bus distance must be between 0 and 100000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast9), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(longTrain_distance.getText().toString().equals(""))){
             longTrainDist  = Integer.parseInt(longTrain_distance.getText().toString());
             if(longTrainDist < 0 || longTrainDist > 100000){
-                Toast.makeText(getContext(), "The field train distance must be between 0 and 100000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast10), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(boat_trip1.getText().toString().equals(""))){
             TallinBoat = Integer.parseInt(boat_trip1.getText().toString());
             if(TallinBoat < 0 || TallinBoat > 50){
-                Toast.makeText(getContext(), "The field Tallinn cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast11), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(boat_trip3.getText().toString().equals(""))){
             StockBoat = Integer.parseInt(boat_trip3.getText().toString());
             if(StockBoat < 0 || StockBoat > 50){
-                Toast.makeText(getContext(), "The field Stockholm cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast12), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(boat_trip2.getText().toString().equals(""))){
             TraveBoat = Integer.parseInt(boat_trip2.getText().toString());
             if(TraveBoat < 0 || TraveBoat > 50){
-                Toast.makeText(getContext(), "The field Travemunde cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast13), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(flight_fin.getText().toString().equals(""))){
             FinlandFlight = Integer.parseInt(flight_fin.getText().toString());
             if(FinlandFlight < 0 || FinlandFlight > 50){
-                Toast.makeText(getContext(), "The field FinlandFlights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast14), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(flight_eu.getText().toString().equals(""))){
             EuropeFlight = Integer.parseInt(flight_eu.getText().toString());
             if(EuropeFlight < 0 || EuropeFlight > 50){
-                Toast.makeText(getContext(), "The field European flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast15), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(flight_canarian.getText().toString().equals(""))){
             CanaryFlight = Integer.parseInt(flight_canarian.getText().toString());
             if(CanaryFlight < 0 || CanaryFlight > 50){
-                Toast.makeText(getContext(), "The field Canary flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast16), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(flight_continental.getText().toString().equals(""))){
         ContinentalFlight = Integer.parseInt(flight_continental.getText().toString());
             if(ContinentalFlight < 0 || ContinentalFlight > 50) {
-                Toast.makeText(getContext(), "The field continental flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast17), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

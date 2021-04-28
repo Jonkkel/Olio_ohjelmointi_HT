@@ -246,7 +246,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
             if (!(districtHeatingAmount.getText().toString().equals(""))){
                 districtHeatingConsumption = Integer.parseInt(districtHeatingAmount.getText().toString());
                 if(districtHeatingConsumption < 0 || districtHeatingConsumption > 130000){
-                    Toast.makeText(getContext(),  "The field district heat consumption must be between 0 and 130000.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.housing_toast1) , Toast.LENGTH_SHORT).show();
                     return false;
                 }
             }
@@ -254,7 +254,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
             if (!(oilHeatingAmount.getText().toString().equals(""))){
                 heatingOilConsumption = Integer.parseInt(oilHeatingAmount.getText().toString());
                 if(heatingOilConsumption < 0 || heatingOilConsumption > 130000){
-                    Toast.makeText(getContext(),  "The field heating oil consumption must be between 0 and 130000.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast2), Toast.LENGTH_SHORT).show();
                     return false;
                 }
             }
@@ -262,77 +262,77 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         if (!(livingSpace.getText().toString().equals(""))){
             area = Double.parseDouble(livingSpace.getText().toString());
             if(area < 10 || area > 500){
-                Toast.makeText(getContext(),  "The field area must be between 10 and 500.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast3), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(yearOfConstruction.getText().toString().equals(""))){
             buildYear = Integer.parseInt(yearOfConstruction.getText().toString());
             if(buildYear < 1900 || buildYear > 2030){
-                Toast.makeText(getContext(),  "The field BuildYear must be between 1900 and 2030.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast4), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(numberOfFloors.getText().toString().equals(""))){
             floors = Integer.parseInt(numberOfFloors.getText().toString());
             if(floors < 1 || floors > 40){
-                Toast.makeText(getContext(),  "The field floor count must be between 1 and 40.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast5), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(familySize.getText().toString().equals(""))){
             family = Integer.parseInt(familySize.getText().toString());
             if(family < 1 || family > 15){
-                Toast.makeText(getContext(),  "The field family must be between 1 and 15.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast6), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(electricityUsage.getText().toString().equals(""))){
             electricityConsumption = Integer.parseInt(electricityUsage.getText().toString());
             if(electricityConsumption < 0 || electricityConsumption > 150000){
-                Toast.makeText(getContext(),  "The field electricity consumption must be between 0 and 150000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast7), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(electricityGreenPercent.getText().toString().equals(""))){
             greenElectricityPercentage = Integer.parseInt(electricityGreenPercent.getText().toString());
             if(greenElectricityPercentage < 0 || greenElectricityPercentage > 100){
-                Toast.makeText(getContext(),  "The field green electricity percentage must be between 0 and 100.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast8), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(goodsAppliance.getText().toString().equals(""))){
             appliancePurchases = Integer.parseInt(goodsAppliance.getText().toString());
             if(appliancePurchases < 0 || appliancePurchases > 10000){
-                Toast.makeText(getContext(),  "The field appliance purchases must be between 0 and 10000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast9), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(goodsFurniture.getText().toString().equals(""))){
             furniturePurchases = Integer.parseInt(goodsFurniture.getText().toString());
             if(furniturePurchases < 0 || furniturePurchases > 10000){
-                Toast.makeText(getContext(),  "The field furniture purchases must be between 0 and 10000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast10), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(goodsFurniture.getText().toString().equals(""))){
             renovationPurchases = Integer.parseInt(goodsRenovation.getText().toString());
             if(renovationPurchases < 0 || renovationPurchases > 10000){
-                Toast.makeText(getContext(),  "The field renovation purchases must be between 0 and 10000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast11), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(goodsFurniture.getText().toString().equals(""))){
             miscPurchases = Integer.parseInt(goodsTableware.getText().toString());
             if(miscPurchases < 0 || miscPurchases > 10000){
-                Toast.makeText(getContext(),  "The field misc purchases must be between 0 and 10000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast12), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if (!(goodsCleaning.getText().toString().equals(""))){
             cleaningPurchases = Integer.parseInt(goodsFurniture.getText().toString());
             if(cleaningPurchases < 0 || cleaningPurchases > 10000){
-                Toast.makeText(getContext(),  "The field cleaning purchases must be between 0 and 10000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),  getResources().getString(R.string.housing_toast13), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
