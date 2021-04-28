@@ -1,6 +1,7 @@
 package com.example.olio_ohjelmointi_ht;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -61,12 +62,15 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
     int renovationPurchases = 0;
     int miscPurchases = 0;
     int cleaningPurchases = 0;
+
+    String filename = "housingData.csv";
     @SuppressLint({"NonConstantResourceId", "CutPasteId"})
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_housing, container, false);
-        CAPI = CallApi.getInstance(getActivity());
+        Context con = getActivity();
+        CAPI = new CallApi(con, filename);
         homeView = v.findViewById(R.id.Home_layout);
         heatingView = v.findViewById(R.id.Heating_layout);
         electricityView = v.findViewById(R.id.Electricity_layout);

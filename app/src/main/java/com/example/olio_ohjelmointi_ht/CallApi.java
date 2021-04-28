@@ -30,19 +30,11 @@ public class CallApi {
     Context context;
     Double d;
     Calendar calendar2;
+    String file;
 
-    @SuppressLint("StaticFieldLeak")
-    private static CallApi CAPI = null; // singleton
-
-    public static CallApi getInstance(Context con) {
-        if (CAPI == null) {
-            CAPI = new CallApi();
-            CAPI.Settings(con);
-        }
-        return CAPI; // return only one and same LogInTool
-    }
-    public void Settings(Context con){
+    public CallApi(Context con, String filename){
         this.context = con;
+        this.file = filename;
         // Getting context so we can run Android Studio commands
 
     }
@@ -96,11 +88,9 @@ public class CallApi {
             d = Double.valueOf(totalValue);
         }
         if (d != 0) {
-            SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
-            String cUser = prefs.getString("Current User", "");
-            FileWriter csvWriter = null;
-            PathFinder pather = PathFinder.getInstance(this.context);
-            writeCSV(pather.pathBuilder() + "tiedot.csv", d);
+            PathFinder pather = PathFinder.getInstance(context);
+            System.out.println(pather.pathBuilder() + file);
+            writeCSV(pather.pathBuilder()  + file , d);
         }
     }
 
@@ -318,6 +308,16 @@ public class CallApi {
             System.out.println("Problem with Get request");
         }
         return -1;
+    }
+
+
+    public void sumData(double carData, double publicData){
+        double bigData = carData + publicData;
+        if (bigData != 0) {
+            PathFinder pather = PathFinder.getInstance(context);
+            System.out.println(pather.pathBuilder() + file);
+            writeCSV(pather.pathBuilder()  + file , bigData);
+        }
     }
 
 }

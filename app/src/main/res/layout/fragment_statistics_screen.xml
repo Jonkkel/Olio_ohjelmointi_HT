@@ -23,35 +23,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_label"
+                android:gravity="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="40dp" />
-
-            <TextView
-                android:id="@+id/textView75"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/label_all"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textSize="18sp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view2"
-                android:layout_width="400dp"
-                android:layout_height="200dp"
-                app:cardCornerRadius="4dp">
-
-                <com.jjoe64.graphview.GraphView
-                    android:id="@+id/weight_graph"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dip" />
-
-            </androidx.cardview.widget.CardView>
+                android:textSize="40sp" />
 
             <TextView
                 android:id="@+id/textView76"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_food"
+                android:gravity="center"
+                android:layout_marginTop="8sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp" />
 
@@ -62,7 +44,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/exercise_graph"
+                    android:id="@+id/foodGraph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 
@@ -74,6 +56,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_housing"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
+                android:gravity="center"
+                android:layout_marginTop="8sp"
                 android:textSize="18sp" />
 
             <androidx.cardview.widget.CardView
@@ -83,7 +68,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph4"
+                    android:id="@+id/housingGraph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 
@@ -95,6 +80,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_travel"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
+                android:gravity="center"
+                android:layout_marginTop="8sp"
                 android:textSize="18sp" />
 
             <androidx.cardview.widget.CardView
@@ -104,7 +92,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph5"
+                    android:id="@+id/travelGraph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 
@@ -115,6 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_consumption"
+                android:gravity="center"
+                android:layout_marginTop="8sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp" />
 
@@ -125,7 +115,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph6"
+                    android:id="@+id/consumptionGraph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 
@@ -136,6 +126,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_recycling"
+
+                android:gravity="center"
+                android:layout_marginTop="8sp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp" />
 
@@ -146,7 +139,7 @@
                 app:cardCornerRadius="4dp">
 
                 <com.jjoe64.graphview.GraphView
-                    android:id="@+id/graph"
+                    android:id="@+id/recyclingGraph"
                     android:layout_width="match_parent"
                     android:layout_height="200dip" />
 

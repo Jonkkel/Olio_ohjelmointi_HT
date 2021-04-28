@@ -45,7 +45,7 @@ public class Add_data_waste extends Fragment {
     URL url;
     Button submitData;
     CallApi CAPI;
-
+    String filename = "recyclingData.csv";
 
     @SuppressLint({"SetTextI18n", "NonConstantResourceId"})
     @Nullable
@@ -53,7 +53,7 @@ public class Add_data_waste extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_waste, container, false);
         Context con = getActivity();
-        CAPI = CallApi.getInstance(con);
+        CAPI = new CallApi(con, filename);
         biowaste = (Spinner) v.findViewById(R.id.bioSpinner);
         carton = (Spinner) v.findViewById(R.id.cartonSpinner);
         electronic = (Spinner) v.findViewById(R.id.electronicSpinner);

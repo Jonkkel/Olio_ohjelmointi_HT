@@ -1,5 +1,6 @@
 package com.example.olio_ohjelmointi_ht;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,11 +41,14 @@ public class Add_data_consumption extends Fragment {
             recreationAmount = 0, communicationAmount = 0, otherAmount = 0;
     CallApi CAPI;
 
+    String filename = "consumptionData.csv";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_consumption, container, false);
-        CAPI = CallApi.getInstance(getActivity());
+        Context con = getActivity();
+        CAPI = new CallApi(con, filename);
         clothing = (EditText) v.findViewById(R.id.clothingText);
         shoes = (EditText) v.findViewById(R.id.shoeText);
         paper = (EditText) v.findViewById(R.id.paperText);

@@ -55,11 +55,14 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     URL url;
     String cUser;
 
+    String filename = "travelData.csv";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_travel, container, false);
-        CAPI = CallApi.getInstance(getActivity());
+        Context con = getActivity();
+        CAPI = new CallApi(con, filename);
         carView = v.findViewById(R.id.car_Layout);
         publicView = v.findViewById(R.id.public_Layout);
         flightView = v.findViewById(R.id.flight_Layout);
@@ -163,10 +166,8 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
                                 "query.europeanFlights=" + EuropeFlight + "&query.finlandFlights=" + FinlandFlight + "&query.transContinentalFlights=" + ContinentalFlight + "&" +
                                 "query.germanyCruises=" + TraveBoat + "&query.estoniaCruises=" + TallinBoat + "&query.swedenCruises=" + StockBoat);
                         travelData = CAPI.getRequestReturnDouble(url);
-                        SharedPreferences prefs = getActivity().getSharedPreferences("User", MODE_PRIVATE);
-                        cUser = prefs.getString("Current User", "");
 
-                        CAPI.writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/" + cUser + "/tiedot.csv", carData+travelData );
+                        CAPI.sumData(carData, travelData);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
