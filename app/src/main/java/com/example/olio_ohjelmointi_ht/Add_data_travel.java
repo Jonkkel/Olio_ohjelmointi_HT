@@ -28,7 +28,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Add_data_travel extends Fragment implements View.OnClickListener {
 
-    ConstraintLayout homeView, heatingView, goodsView, mainView;
+    ConstraintLayout carView, publicView, flightView, mView;
 
     // For car and motorcycle
     EditText car_distance, passengers, moped_distance, moped_consumption;
@@ -41,7 +41,7 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     // For boat trips and flights
     EditText boat_trip1, boat_trip2, boat_trip3, flight_fin, flight_eu, flight_canarian, flight_continental;
 
-    Button submitData, homeButton, heatingButton, goodsButton;
+    Button submitData, carButton, publicButton, flightButton;
 
     String carSize, carFuel;
     int carYear, motorcycleDriveDist = 0, busDist = 0, trainDist = 0, tramDist = 0, subwayDist = 0, longBusDist = 0, longTrainDist = 0, driveDist = 0;
@@ -49,23 +49,25 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
 
     int TallinBoat = 0, StockBoat = 0, TraveBoat = 0, FinlandFlight = 0, EuropeFlight = 0, CanaryFlight = 0, ContinentalFlight = 0;
 
+
     CallApi CAPI;
     double carData, travelData;
     URL url;
     String cUser;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_data_travel, container, false);
         CAPI = CallApi.getInstance(getActivity());
-        homeView = v.findViewById(R.id.Home_layout);
-        heatingView = v.findViewById(R.id.Heating_layout);
-        goodsView = v.findViewById(R.id.Goods_layout);
-        mainView = v.findViewById(R.id.Main_layout);
+        carView = v.findViewById(R.id.car_Layout);
+        publicView = v.findViewById(R.id.public_Layout);
+        flightView = v.findViewById(R.id.flight_Layout);
+        mView = v.findViewById(R.id.travel_Layout);
 
-        homeButton = v.findViewById(R.id.Home_button);
-        heatingButton = v.findViewById(R.id.Heating_button);
-        goodsButton = v.findViewById(R.id.Goods_button);
+        carButton = v.findViewById(R.id.car_Button);
+        publicButton = v.findViewById(R.id.public_Button);
+        flightButton = v.findViewById(R.id.flight_Button);
 
         // For car and motorcycle
         car_distance = (EditText) v.findViewById(R.id.drivingDistance);
@@ -97,6 +99,10 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
         submitData = v.findViewById(R.id.travelSubmitData);
         submitData.setOnClickListener(this);
 
+        carButton.setOnClickListener(this);
+        publicButton.setOnClickListener(this);
+        flightButton.setOnClickListener(this);
+
         return v;
     }
 
@@ -104,44 +110,43 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.Home_button:
-                if (homeView.getVisibility() == View.GONE) {
+            case R.id.car_Button:
+                if (carView.getVisibility() == View.GONE) {
                     closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    homeView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    carButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    carView.setVisibility(View.VISIBLE);
                 } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    homeView.setVisibility(View.GONE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    carButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    carView.setVisibility(View.GONE);
                 }
                 break;
-            case R.id.Heating_button:
-                if (heatingView.getVisibility() == View.GONE) {
+            case R.id.public_Button:
+                if (publicView.getVisibility() == View.GONE) {
                     closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    heatingView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    publicButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    publicView.setVisibility(View.VISIBLE);
                 } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    heatingView.setVisibility(View.GONE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    publicButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    publicView.setVisibility(View.GONE);
                 }
                 break;
-            case R.id.Goods_button:
-                if (goodsView.getVisibility() == View.GONE) {
+            case R.id.flight_Button:
+                if (flightView.getVisibility() == View.GONE) {
                     closeOpenLayouts();
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
-                    goodsView.setVisibility(View.VISIBLE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    flightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_up_24, 0);
+                    flightView.setVisibility(View.VISIBLE);
                 } else {
-                    TransitionManager.beginDelayedTransition(mainView, new AutoTransition());
-                    goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
-                    goodsView.setVisibility(View.GONE);
+                    TransitionManager.beginDelayedTransition(mView, new AutoTransition());
+                    flightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+                    flightView.setVisibility(View.GONE);
                 }
                 break;
             case R.id.travelSubmitData:
-
                 if(checkUserInput()){
                     getValues();
                     try {
@@ -175,17 +180,17 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     }
 
     public void closeOpenLayouts() {
-        if (homeView.getVisibility() == View.VISIBLE) {
-            homeView.setVisibility(View.GONE);
-            homeButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        if (carView.getVisibility() == View.VISIBLE) {
+            carView.setVisibility(View.GONE);
+            carButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
-        if (heatingView.getVisibility() == View.VISIBLE) {
-            heatingView.setVisibility(View.GONE);
-            heatingButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        if (publicButton.getVisibility() == View.VISIBLE) {
+            publicView.setVisibility(View.GONE);
+            publicButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
-        if (goodsView.getVisibility() == View.VISIBLE) {
-            goodsView.setVisibility(View.GONE);
-            goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
+        if (flightView.getVisibility() == View.VISIBLE) {
+            flightView.setVisibility(View.GONE);
+            flightButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
     }
 
@@ -234,115 +239,115 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
         if((!moped_consumption.getText().toString().equals(""))){
             motorcycleConsumption = Double.parseDouble(moped_consumption.getText().toString());
             if(motorcycleConsumption < 0 || motorcycleConsumption > 1000){
-                Toast.makeText(getContext(), "The field motorcycle fuel consumption must be between 0 and 10.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast1), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(moped_distance.getText().toString().equals(""))){
             motorcycleDriveDist = Integer.parseInt(moped_distance.getText().toString());
             if(motorcycleDriveDist < 0 || motorcycleDriveDist > 60000) {
-                Toast.makeText(getContext(), "The field motorcycle distance must be between 0 and 60000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast2), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(car_distance.getText().toString().equals(""))){
             driveDist = Integer.parseInt(car_distance.getText().toString());
             if(driveDist < 0 || driveDist > 120000){
-                Toast.makeText(getContext(), "The field drive distance must be between 0 and 120000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast3), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(passengers.getText().toString().equals(""))){
             passengerCount = Double.parseDouble(passengers.getText().toString());
             if(passengerCount < 1 || passengerCount > 10){
-                Toast.makeText(getContext(), "The field passengerCount must be between 1 and 10.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast4), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(bus_distance.getText().toString().equals(""))){
             busDist = Integer.parseInt(bus_distance.getText().toString());
             if(busDist < 0 || busDist > 1000){
-                Toast.makeText(getContext(), "The field bus distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast5), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(train_distance.getText().toString().equals(""))){
             trainDist = Integer.parseInt(train_distance.getText().toString());
             if(trainDist < 0 || trainDist > 1000){
-                Toast.makeText(getContext(), "The field train distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast6), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(tram_distance.getText().toString().equals(""))){
             tramDist = Integer.parseInt(tram_distance.getText().toString());
             if(tramDist < 0 || tramDist > 1000){
-                Toast.makeText(getContext(), "The field tram distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast7), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(subway_distance.getText().toString().equals(""))){
             subwayDist  = Integer.parseInt(subway_distance.getText().toString());
             if(subwayDist < 0 || subwayDist > 1000){
-                Toast.makeText(getContext(), "The field metro distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast8), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(longBus_distance.getText().toString().equals(""))){
             longBusDist  = Integer.parseInt(longBus_distance.getText().toString());
             if(longBusDist < 0 || longBusDist > 100000){
-                Toast.makeText(getContext(), "The field long bus distance must be between 0 and 100000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast9), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(longTrain_distance.getText().toString().equals(""))){
             longTrainDist  = Integer.parseInt(longTrain_distance.getText().toString());
             if(longTrainDist < 0 || longTrainDist > 100000){
-                Toast.makeText(getContext(), "The field train distance must be between 0 and 100000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast10), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(boat_trip1.getText().toString().equals(""))){
             TallinBoat = Integer.parseInt(boat_trip1.getText().toString());
             if(TallinBoat < 0 || TallinBoat > 50){
-                Toast.makeText(getContext(), "The field Tallinn cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast11), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(boat_trip3.getText().toString().equals(""))){
             StockBoat = Integer.parseInt(boat_trip3.getText().toString());
             if(StockBoat < 0 || StockBoat > 50){
-                Toast.makeText(getContext(), "The field Stockholm cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast12), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(boat_trip2.getText().toString().equals(""))){
             TraveBoat = Integer.parseInt(boat_trip2.getText().toString());
             if(TraveBoat < 0 || TraveBoat > 50){
-                Toast.makeText(getContext(), "The field Travemunde cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast13), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(flight_fin.getText().toString().equals(""))){
             FinlandFlight = Integer.parseInt(flight_fin.getText().toString());
             if(FinlandFlight < 0 || FinlandFlight > 50){
-                Toast.makeText(getContext(), "The field FinlandFlights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast14), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(flight_eu.getText().toString().equals(""))){
             EuropeFlight = Integer.parseInt(flight_eu.getText().toString());
             if(EuropeFlight < 0 || EuropeFlight > 50){
-                Toast.makeText(getContext(), "The field European flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast15), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }if(!(flight_canarian.getText().toString().equals(""))){
             CanaryFlight = Integer.parseInt(flight_canarian.getText().toString());
             if(CanaryFlight < 0 || CanaryFlight > 50){
-                Toast.makeText(getContext(), "The field Canary flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast16), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(flight_continental.getText().toString().equals(""))){
         ContinentalFlight = Integer.parseInt(flight_continental.getText().toString());
             if(ContinentalFlight < 0 || ContinentalFlight > 50) {
-                Toast.makeText(getContext(), "The field continental flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.add_travel_toast17), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

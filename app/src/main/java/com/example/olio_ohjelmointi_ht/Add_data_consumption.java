@@ -94,49 +94,49 @@ public class Add_data_consumption extends Fragment {
         if((!clothing.getText().toString().equals(""))){
             clothingAmount = Integer.parseInt(clothing.getText().toString());
             if(clothingAmount < 0 || clothingAmount > 1000){
-                Toast.makeText(getContext(), "The field Clothing must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast1), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(shoes.getText().toString().equals(""))){
             shoesAmount = Integer.parseInt(shoes.getText().toString());
             if(shoesAmount < 0 || shoesAmount > 1000) {
-                Toast.makeText(getContext(), "The field Shoes must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast2), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(paper.getText().toString().equals(""))){
             paperAmount = Integer.parseInt(paper.getText().toString());
             if(paperAmount < 0 || paperAmount > 1000){
-                Toast.makeText(getContext(), "The field Paper must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast3), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(electronics.getText().toString().equals(""))){
             electronicAmount = Integer.parseInt(electronics.getText().toString());
             if(electronicAmount < 0 || electronicAmount > 1000){
-                Toast.makeText(getContext(), "The field Electronics must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast4), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(recreation.getText().toString().equals(""))){
             recreationAmount = Integer.parseInt(recreation.getText().toString());
             if(recreationAmount < 0 || recreationAmount > 5000){
-                Toast.makeText(getContext(), "The field Recreation must be between 0 and 5000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast5), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(communication.getText().toString().equals(""))){
             communicationAmount = Integer.parseInt(communication.getText().toString());
             if(communicationAmount < 0 || communicationAmount > 1000){
-                Toast.makeText(getContext(), "The field Communications must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast6), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
         if(!(other.getText().toString().equals(""))){
             otherAmount = Integer.parseInt(other.getText().toString());
             if(otherAmount < 0 || otherAmount > 3000){
-                Toast.makeText(getContext(), "The field Other must be between 0 and 3000.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getResources().getString(R.string.consumption_toast7), Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

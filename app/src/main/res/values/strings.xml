@@ -156,6 +156,13 @@
     <string name="consumption_title2">Goods</string>
     <string name="consumption_title3">Services</string>
     <string name="consumption_low_carbon">Low carbon</string>
+    <string name="consumption_toast1">The field Clothing must be between 0 and 1000.</string>
+    <string name="consumption_toast2">The field Shoes must be between 0 and 1000.</string>
+    <string name="consumption_toast3">The field Paper must be between 0 and 1000.</string>
+    <string name="consumption_toast4">The field Electronics must be between 0 and 1000.</string>
+    <string name="consumption_toast5">The field Recreation must be between 0 and 5000.</string>
+    <string name="consumption_toast6">The field Communications must be between 0 and 1000.</string>
+    <string name="consumption_toast7">The field Other must be between 0 and 3000.</string>
 
 
     <!-- for fragment_add_housing_data.xml -->
@@ -196,6 +203,19 @@
     <string name="housing_renovation">Renovation</string>
     <string name="housing_cleaning">Cleaning</string>
     <string name="housing_total">TOTAL</string>
+    <string name="housing_toast1">The field district heat consumption must be between 0 and 130000.</string>
+    <string name="housing_toast2">The field heating oil consumption must be between 0 and 130000.</string>
+    <string name="housing_toast3">The field area must be between 10 and 500.</string>
+    <string name="housing_toast4">The field BuildYear must be between 1900 and 2030.</string>
+    <string name="housing_toast5">The field floor count must be between 1 and 40.</string>
+    <string name="housing_toast6">The field family must be between 1 and 15.</string>
+    <string name="housing_toast7">The field electricity consumption must be between 0 and 150000.</string>
+    <string name="housing_toast8">The field green electricity percentage must be between 0 and 100.</string>
+    <string name="housing_toast9">The field appliance purchases must be between 0 and 10000.</string>
+    <string name="housing_toast10">The field furniture purchases must be between 0 and 10000.</string>
+    <string name="housing_toast11">The field renovation purchases must be between 0 and 10000.</string>
+    <string name="housing_toast12">The field tableware purchases must be between 0 and 10000.</string>
+    <string name="housing_toast13">The field cleaning purchases must be between 0 and 10000.</string>
 
 
     <!-- for fragment_home_screen.xml -->
@@ -237,6 +257,23 @@
     <string name="add_travel_eu">Within Europe</string>
     <string name="add_travel_canary">Canary Islands</string>
     <string name="add_travel_continental">Trans-continental</string>
+    <string name="add_travel_toast1">The field motorcycle fuel consumption must be between 0 and 10.</string>
+    <string name="add_travel_toast2">The field motorcycle distance must be between 0 and 60000.</string>
+    <string name="add_travel_toast3">The field drive distance must be between 0 and 120000.</string>
+    <string name="add_travel_toast4">The field passenger count must be between 1 and 10.</string>
+    <string name="add_travel_toast5">The field bus distance must be between 0 and 1000.</string>
+    <string name="add_travel_toast6">The field train distance must be between 0 and 1000.</string>
+    <string name="add_travel_toast7">The field tram distance must be between 0 and 1000.</string>
+    <string name="add_travel_toast8">The field metro distance must be between 0 and 1000.</string>
+    <string name="add_travel_toast9">The field long bus distance must be between 0 and 100000.</string>
+    <string name="add_travel_toast10">The field train distance must be between 0 and 100000.</string>
+    <string name="add_travel_toast11">The field Tallinn cruises must be between 0 and 50.</string>
+    <string name="add_travel_toast12">The field Stockholm cruises must be between 0 and 50.</string>
+    <string name="add_travel_toast13">The field Travemunde cruises must be between 0 and 50.</string>
+    <string name="add_travel_toast14">The field FinlandFlights must be between 0 and 50.</string>
+    <string name="add_travel_toast15">The field European flights must be between 0 and 50.</string>
+    <string name="add_travel_toast16">The field Canary flights must be between 0 and 50.</string>
+    <string name="add_travel_toast17">The field continental flights must be between 0 and 50.</string>
 
     <string-array name="car_size_options">
         <item>Mini</item>

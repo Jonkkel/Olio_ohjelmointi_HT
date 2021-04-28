@@ -266,6 +266,43 @@
     <string name="progress_weight">Paino tänään:</string>
     <string name="weight_progress">Painon kehitys</string>
     <string name="exercise_progress">Liikuntamäärän kehitys</string>
+    <string name="add_travel_toast1">Moottoripyörän polttoaineen kulutus pitää olla välillä 0-10.</string>
+    <string name="add_travel_toast2">Moottoripyörän ajomatkan pitää olla välillä 0-600000</string>
+    <string name="add_travel_toast3">Auton ajomatkan pitää olla välillä 0-120000.</string>
+    <string name="add_travel_toast4">Matkustajien määrän on oltava välillä 1-10.</string>
+    <string name="add_travel_toast5">Bussimatojen pitää olla välillä 0-1000.</string>
+    <string name="add_travel_toast6">Junamatkojen pitää olla välillä 0-1000.</string>
+    <string name="add_travel_toast7">Raitiovaunumatkojen pitää olla välillä 0-1000.</string>
+    <string name="add_travel_toast8">Metromatkujen pitää olla välillä 0-1000.</string>
+    <string name="add_travel_toast9">Pitkänmatkan bussimatkojen pitää olla välillä 0-100000.</string>
+    <string name="add_travel_toast10">Pitkänmatkan junamatkojen pitää olla välillä 0-100000.</string>
+    <string name="add_travel_toast11">Tallinnan matkojen määrän pitää olla välillä 0-50.</string>
+    <string name="add_travel_toast12">Tukholman matkojen määrän pitää olla välillä 0-50.</string>
+    <string name="add_travel_toast13">Travemundin matkojen määrän pitää olla välillä 0-50.</string>
+    <string name="add_travel_toast14">Suomen sisäisten lentojen määrän pitää olla välillä 0-50.</string>
+    <string name="add_travel_toast15">Euroopan sisäisten lentojen määrän pitää olla välillä 0-50.</string>
+    <string name="add_travel_toast16">Kanarian saarien lentojen määrän pitää olla välillä 0-50.</string>
+    <string name="add_travel_toast17">Mannertenvälisten lentojen määrän pitää olla välillä 0-50.</string>
+    <string name="consumption_toast1">Vaatekentän on oltava välillä 0-1000.</string>
+    <string name="consumption_toast2">Kenkäkentän on oltava välillä 0-1000.</string>
+    <string name="consumption_toast3">Paperikentän on oltava välillä 0-1000.</string>
+    <string name="consumption_toast4">Elektroniikkakentän on oltava välillä 0-1000.</string>
+    <string name="consumption_toast5">Vapaa-aikakentän on oltava välillä 0-5000.</string>
+    <string name="consumption_toast6">Kommunikointikentän on oltava välillä 0-1000.</string>
+    <string name="consumption_toast7">Muukentän on oltava välillä 0-3000.</string>
+    <string name="housing_toast1">Kaukolämmön kulutus pitää olla välillä 0-130000.</string>
+    <string name="housing_toast2">Öljylämmön kulutus pitää olla välillä 0-130000.</string>
+    <string name="housing_toast3">Pinta-alan täytyy olla välillä 10-500.</string>
+    <string name="housing_toast4">Rakennusvuoden täytyy olla välillä 1900-2030.</string>
+    <string name="housing_toast5">Kerrosten määrän täytyy olla välillä 1-40.</string>
+    <string name="housing_toast6">Perheenjäsenten määrän täytyy olla välillä 1-15.</string>
+    <string name="housing_toast7">Sähkönkulutuksen täytyy olla välillä 0-150000.</string>
+    <string name="housing_toast8">Vihreän sähkön prosenttiosuuden täytyy olla välillä 0-100.</string>
+    <string name="housing_toast9">Kodinkoneiden ostomäärän täytyy olla välillä 0-10000.</string>
+    <string name="housing_toast10">Huonekalujen ostomäärän täytyy olla välillä 0-10000.</string>
+    <string name="housing_toast11">Remonttien ostomäärän täytyy olla välillä 0-10000.</string>
+    <string name="housing_toast12">Kattauksen ostomäärän täytyy olla välillä 0-10000.</string>
+    <string name="housing_toast13">Siivoustuotteiden ostomäärän täytyy olla välillä 0-10000.</string>
 
 
 </resources>
