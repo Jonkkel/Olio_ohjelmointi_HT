@@ -58,7 +58,8 @@ public class SettingTool {
     }
 
     public boolean checkpasswordGoodness(String newPassword){
-        New_User NewUser = New_User.
+        //New_User NewUser = New_User.
+        return true;
     }
     public void test(){
         String username = user.getUsername();
