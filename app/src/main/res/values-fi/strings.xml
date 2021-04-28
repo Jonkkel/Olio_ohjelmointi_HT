@@ -264,6 +264,8 @@
     <string name="progress_label_weight">Tässä voit lisätä painosi</string>
     <string name="progress_kg">kg</string>
     <string name="progress_weight">Paino tänään:</string>
+    <string name="weight_progress">Painon kehitys</string>
+    <string name="exercise_progress">Liikuntamäärän kehitys</string>
 
 
 </resources>

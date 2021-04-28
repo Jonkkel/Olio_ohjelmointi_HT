@@ -287,6 +287,8 @@
     <string name="progress_label_weight">Here you can add your weight</string>
     <string name="progress_kg">kg</string>
     <string name="progress_weight">Weight today:</string>
+    <string name="weight_progress">Your weight progress</string>
+    <string name="exercise_progress">Your exercise progress</string>
 
 
 
