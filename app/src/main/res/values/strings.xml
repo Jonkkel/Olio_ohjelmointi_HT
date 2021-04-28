@@ -280,4 +280,15 @@
     <string name="label_recycling"> Recycling</string>
     <string name="label_label"> EMISSION STATISTICS</string>
 
+    <!-- for fragment_progress_screen.xml -->
+    <string name="progress_label_exercise">Here you can add your exercise</string>
+    <string name="progress_minute">minutes today</string>
+    <string name="progress_exercise">Exercise today:</string>
+    <string name="progress_label_weight">Here you can add your weight</string>
+    <string name="progress_kg">kg</string>
+    <string name="progress_weight">Weight today:</string>
+
+
+
+
 </resources>
