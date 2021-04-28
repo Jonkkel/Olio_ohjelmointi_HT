@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class New_User extends Fragment {
     EditText username;
@@ -135,9 +137,12 @@ public class New_User extends Fragment {
         int number = 0;
         int upper = 0;
         int lower = 0;
-        if(password.getText().toString().length() >= 8){ // password must be at least 8 characters long
+        int special_count = 0;
+        Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
+        if(password.getText().toString().length() >= 12){ // password must be at least 8 characters long
             for(int i = 0; i < password_text.length(); i++){
                 char c = password_text.charAt(i);
+                Matcher hasSpecial = special.matcher(s);
                 if(Character.isUpperCase(c)){ // if no character has been uppercase letter
                     upper++;
                 }
@@ -147,7 +152,10 @@ public class New_User extends Fragment {
                 if(Character.isDigit(c)){ // if no character has been a number
                     number++;
                 }
-                if (upper > 0 && lower > 0 && number > 0){ // if the password have a uppercase, a lowercase and a number character
+                if(hasSpecial.find()){ // if no character has been a special character
+                    special_count++;
+                }
+                if (upper > 0 && lower > 0 && number > 0 && special_count > 0){ // if the password have a uppercase, a lowercase and a number character
                     System.out.println("Kaikki hyvin");
                     password_requirements.setText("");
                     break;
@@ -163,6 +171,10 @@ public class New_User extends Fragment {
                 if(number == 0){ // tells user to use number
                     System.out.println("NUMEROITA");
                     password_requirements.setText(getResources().getString(R.string.contain_numbers));
+                }
+                if(special_count == 0){ // tells user to use special character
+                    System.out.println("SPESSUJA");
+                    password_requirements.setText(getResources().getString(R.string.contain_special));
                 }
             }
         }

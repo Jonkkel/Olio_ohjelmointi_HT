@@ -5,14 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-28dp"
+        tools:layout_editor_absoluteY="-62dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView81"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="40dp" />
+
+            <TextView
+                android:id="@+id/textView75"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_all"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view2"
@@ -27,6 +47,14 @@
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textView76"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_food"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view3"
                 android:layout_width="400dp"
@@ -39,6 +67,14 @@
                     android:layout_height="200dip" />
 
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView77"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_housing"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view4"
@@ -53,6 +89,14 @@
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textView78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_travel"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view5"
                 android:layout_width="400dp"
@@ -66,6 +110,14 @@
 
             </androidx.cardview.widget.CardView>
 
+            <TextView
+                android:id="@+id/textView79"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_consumption"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view6"
                 android:layout_width="400dp"
@@ -78,6 +130,14 @@
                     android:layout_height="200dip" />
 
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_recycling"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view"

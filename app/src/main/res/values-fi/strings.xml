@@ -26,7 +26,7 @@
     <string name="contain_numbers">Salasanan on sisällettävä ainakin yksi numero</string>
     <string name="contain_upper">Salasanan on sisällettävä ainakin yksi iso kirjain</string>
     <string name="contain_lower">Salasanan on sisällettävä ainakin yksi pieni kirjain</string>
-    <string name="password_length">Salasanan on oltava ainakin 8 merkkiä pitkä</string>
+    <string name="password_length">Salasanan on oltava ainakin 12 merkkiä pitkä</string>
     <string name="create">LUO KÄYTTÄJÄ</string>
     <string name="error">Täytä kaikki tiedot luodaksesi profiilin</string>
 
@@ -249,6 +249,14 @@
     <string name="home_target">Pyöräile töihin/kouluun/kauppaan</string>
     <string name="home_target2">Ota kauppakassi mukaan, jottei sinun tarvitse ostaa muovikassia</string>
     <string name="home_target3">Mieti kahdesti tarvitsetko hyödykettä ennen kun ostat sen</string>
+    <string name="contain_special">Salasanan on sisällettävä vähintään yksi erikoismerkki</string>
+    <string name="label_all">" Yhteenveto"</string>
+    <string name="label_food">" Ruoka"</string>
+    <string name="label_housing">" Asuminen"</string>
+    <string name="label_travel">" Matkustaminen"</string>
+    <string name="label_consumption">" Hyödykkeet"</string>
+    <string name="label_recycling">" Kierrätys"</string>
+    <string name="label_label">" PÄÄSTÖTILASTOT"</string>
 
 
 </resources>
