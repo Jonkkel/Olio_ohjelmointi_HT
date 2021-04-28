@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,10 +44,10 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     Button submitData, homeButton, heatingButton, goodsButton;
 
     String carSize, carFuel;
-    int carYear,motorcycleDriveDist, busDist, trainDist, tramDist, subwayDist, longBusDist, longTrainDist, driveDist;
-    double motorcycleConsumption, passengerCount;
+    int carYear, motorcycleDriveDist = 0, busDist = 0, trainDist = 0, tramDist = 0, subwayDist = 0, longBusDist = 0, longTrainDist = 0, driveDist = 0;
+    double motorcycleConsumption = 0, passengerCount = 1;
 
-    int TallinBoat, StockBoat, TraveBoat, FinlandFlight, EuropeFlight, CanaryFlight, ContinentalFlight;
+    int TallinBoat = 0, StockBoat = 0, TraveBoat = 0, FinlandFlight = 0, EuropeFlight = 0, CanaryFlight = 0, ContinentalFlight = 0;
 
     CallApi CAPI;
     double carData, travelData;
@@ -140,90 +141,35 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.travelSubmitData:
-                motorcycleConsumption = Double.parseDouble(moped_consumption.getText().toString());
-                motorcycleDriveDist = Integer.parseInt(moped_distance.getText().toString());
 
-                driveDist = Integer.parseInt(car_distance.getText().toString());
-                passengerCount = Double.parseDouble(passengers.getText().toString());
+                if(checkUserInput()){
+                    getValues();
+                    try {
+                        url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1" +
+                                "/TransportCalculator/CarEstimate?query.detailsAdded=false&" +
+                                "query.fuelDetailsAdded=false&query.buildYear=" + carYear + "&" +
+                                "query.driveDistance=" + driveDist + "&query.shared=" + shared_car.isChecked() + "&query.size=" + carSize + "&" +
+                                "query.fuel=" + carFuel + "&query.passengerCount=" + passengerCount );
+                        carData = CAPI.getRequestReturnDouble(url);
 
-                shared_car.isChecked();
-                if (car_size.getSelectedItem().toString().equals("Mini")){
-                    carSize = "mini";
-                }else if (car_size.getSelectedItem().toString().equals("Small")){
-                    carSize = "small";
-                }else if (car_size.getSelectedItem().toString().equals("Small family")){
-                    carSize = "smallFamily";
-                }else if (car_size.getSelectedItem().toString().equals("Medium family")){
-                    carSize = "mediumFamily";
-                }else if (car_size.getSelectedItem().toString().equals("Large family")){
-                    carSize = "largeFamily";
-                }else if (car_size.getSelectedItem().toString().equals("Large")){
-                    carSize = "large";
+                        url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1" +
+                                "/TransportCalculator?query.motorcycleFuelConsumption=" + motorcycleConsumption + "&" +
+                                "query.motorcycleDistance=" + motorcycleDriveDist + "&query.cityBusDistance=" + busDist + "&" +
+                                "query.cityTrainDistance=" + trainDist + "&query.busDistance=" + longBusDist + "&query.trainDistance=" + trainDist + "&" +
+                                "query.metroDistance=" + subwayDist + "&query.tramDistance=" + tramDist + "&query.canaryFlights=" + CanaryFlight + "&" +
+                                "query.europeanFlights=" + EuropeFlight + "&query.finlandFlights=" + FinlandFlight + "&query.transContinentalFlights=" + ContinentalFlight + "&" +
+                                "query.germanyCruises=" + TraveBoat + "&query.estoniaCruises=" + TallinBoat + "&query.swedenCruises=" + StockBoat);
+                        travelData = CAPI.getRequestReturnDouble(url);
+                        SharedPreferences prefs = getActivity().getSharedPreferences("User", MODE_PRIVATE);
+                        cUser = prefs.getString("Current User", "");
+
+                        CAPI.writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/" + cUser + "/tiedot.csv", carData+travelData );
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    assert getFragmentManager() != null;
+                    getFragmentManager().popBackStack();
                 }
-
-                if (car_year.getSelectedItem().toString().equals("2003 or earlier")){
-                    carYear = 2003;
-                }else if (car_year.getSelectedItem().toString().equals("2013 or later")){
-                    carYear = 2013;
-                }else{
-                    carYear = Integer.parseInt(car_year.getSelectedItem().toString());
-                }
-
-                if (car_fuel.getSelectedItem().toString().equals("Gasoline")){
-                    carFuel = "gasoline";
-                }else if (car_fuel.getSelectedItem().toString().equals("Diesel")){
-                    carFuel = "diesel";
-                }else if (car_fuel.getSelectedItem().toString().equals("Ethanol mix (RE85)")){
-                    carFuel = "ethanolMix";
-                }else if (car_fuel.getSelectedItem().toString().equals("Electricity")){
-                    carFuel = "electricity";
-                }else if (car_fuel.getSelectedItem().toString().equals("Green Electricity")){
-                    carFuel = "greenElectricity";
-                }else if (car_fuel.getSelectedItem().toString().equals("Bio gas")){
-                    carFuel = "bioGas";
-                }else if (car_fuel.getSelectedItem().toString().equals("Natural gas")){
-                    carFuel = "groundGas";
-                }
-
-                busDist = Integer.parseInt(bus_distance.getText().toString());
-                trainDist = Integer.parseInt(train_distance.getText().toString());
-                tramDist = Integer.parseInt(tram_distance.getText().toString());
-                subwayDist  = Integer.parseInt(subway_distance.getText().toString());
-                longBusDist  = Integer.parseInt(longBus_distance.getText().toString());
-                longTrainDist  = Integer.parseInt(longTrain_distance.getText().toString());
-
-                TallinBoat = Integer.parseInt(boat_trip1.getText().toString());
-                StockBoat = Integer.parseInt(boat_trip3.getText().toString());
-                TraveBoat = Integer.parseInt(boat_trip2.getText().toString());
-                FinlandFlight = Integer.parseInt(flight_fin.getText().toString());
-                EuropeFlight = Integer.parseInt(flight_eu.getText().toString());
-                CanaryFlight = Integer.parseInt(flight_canarian.getText().toString());
-                ContinentalFlight = Integer.parseInt(flight_continental.getText().toString());
-                try {
-                    url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1" +
-                            "/TransportCalculator/CarEstimate?query.detailsAdded=false&" +
-                            "query.fuelDetailsAdded=false&query.buildYear=" + carYear + "&" +
-                            "query.driveDistance=" + driveDist + "&query.shared=" + shared_car.isChecked() + "&query.size=" + carSize + "&" +
-                            "query.fuel=" + carFuel + "&query.passengerCount=" + passengerCount );
-                    carData = CAPI.getRequestReturnDouble(url);
-
-                    url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1" +
-                            "/TransportCalculator?query.motorcycleFuelConsumption=" + motorcycleConsumption + "&" +
-                            "query.motorcycleDistance=" + motorcycleDriveDist + "&query.cityBusDistance=" + busDist + "&" +
-                            "query.cityTrainDistance=" + trainDist + "&query.busDistance=" + longBusDist + "&query.trainDistance=" + trainDist + "&" +
-                            "query.metroDistance=" + subwayDist + "&query.tramDistance=" + tramDist + "&query.canaryFlights=" + CanaryFlight + "&" +
-                            "query.europeanFlights=" + EuropeFlight + "&query.finlandFlights=" + FinlandFlight + "&query.transContinentalFlights=" + ContinentalFlight + "&" +
-                            "query.germanyCruises=" + TraveBoat + "&query.estoniaCruises=" + TallinBoat + "&query.swedenCruises=" + StockBoat);
-                    travelData = CAPI.getRequestReturnDouble(url);
-                    SharedPreferences prefs = getActivity().getSharedPreferences("User", MODE_PRIVATE);
-                    cUser = prefs.getString("Current User", "");
-
-                    CAPI.writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/" + cUser + "/tiedot.csv", carData+travelData );
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                assert getFragmentManager() != null;
-                getFragmentManager().popBackStack();
                 break;
         }
     }
@@ -241,5 +187,165 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
             goodsView.setVisibility(View.GONE);
             goodsButton.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_baseline_keyboard_arrow_down_24, 0);
         }
+    }
+
+    public void getValues(){
+        if (car_size.getSelectedItem().toString().equals("Mini")){
+            carSize = "mini";
+        }else if (car_size.getSelectedItem().toString().equals("Small")){
+            carSize = "small";
+        }else if (car_size.getSelectedItem().toString().equals("Small family")){
+            carSize = "smallFamily";
+        }else if (car_size.getSelectedItem().toString().equals("Medium family")){
+            carSize = "mediumFamily";
+        }else if (car_size.getSelectedItem().toString().equals("Large family")){
+            carSize = "largeFamily";
+        }else if (car_size.getSelectedItem().toString().equals("Large")){
+            carSize = "large";
+        }
+
+        if (car_year.getSelectedItem().toString().equals("2003 or earlier")){
+            carYear = 2003;
+        }else if (car_year.getSelectedItem().toString().equals("2013 or later")){
+            carYear = 2013;
+        }else{
+            carYear = Integer.parseInt(car_year.getSelectedItem().toString());
+        }
+
+        if (car_fuel.getSelectedItem().toString().equals("Gasoline")){
+            carFuel = "gasoline";
+        }else if (car_fuel.getSelectedItem().toString().equals("Diesel")){
+            carFuel = "diesel";
+        }else if (car_fuel.getSelectedItem().toString().equals("Ethanol mix (RE85)")){
+            carFuel = "ethanolMix";
+        }else if (car_fuel.getSelectedItem().toString().equals("Electricity")){
+            carFuel = "electricity";
+        }else if (car_fuel.getSelectedItem().toString().equals("Green Electricity")){
+            carFuel = "greenElectricity";
+        }else if (car_fuel.getSelectedItem().toString().equals("Bio gas")){
+            carFuel = "bioGas";
+        }else if (car_fuel.getSelectedItem().toString().equals("Natural gas")){
+            carFuel = "groundGas";
+        }
+    }
+
+    // If EditText is empty it is considered as value 0
+    public boolean checkUserInput(){
+        if((!moped_consumption.getText().toString().equals(""))){
+            motorcycleConsumption = Double.parseDouble(moped_consumption.getText().toString());
+            if(motorcycleConsumption < 0 || motorcycleConsumption > 1000){
+                Toast.makeText(getContext(), "The field motorcycle fuel consumption must be between 0 and 10.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(moped_distance.getText().toString().equals(""))){
+            motorcycleDriveDist = Integer.parseInt(moped_distance.getText().toString());
+            if(motorcycleDriveDist < 0 || motorcycleDriveDist > 60000) {
+                Toast.makeText(getContext(), "The field motorcycle distance must be between 0 and 60000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(car_distance.getText().toString().equals(""))){
+            driveDist = Integer.parseInt(car_distance.getText().toString());
+            if(driveDist < 0 || driveDist > 120000){
+                Toast.makeText(getContext(), "The field drive distance must be between 0 and 120000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(passengers.getText().toString().equals(""))){
+            passengerCount = Double.parseDouble(passengers.getText().toString());
+            if(passengerCount < 1 || passengerCount > 10){
+                Toast.makeText(getContext(), "The field passengerCount must be between 1 and 10.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(bus_distance.getText().toString().equals(""))){
+            busDist = Integer.parseInt(bus_distance.getText().toString());
+            if(busDist < 0 || busDist > 1000){
+                Toast.makeText(getContext(), "The field bus distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(train_distance.getText().toString().equals(""))){
+            trainDist = Integer.parseInt(train_distance.getText().toString());
+            if(trainDist < 0 || trainDist > 1000){
+                Toast.makeText(getContext(), "The field train distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(tram_distance.getText().toString().equals(""))){
+            tramDist = Integer.parseInt(tram_distance.getText().toString());
+            if(tramDist < 0 || tramDist > 1000){
+                Toast.makeText(getContext(), "The field tram distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(subway_distance.getText().toString().equals(""))){
+            subwayDist  = Integer.parseInt(subway_distance.getText().toString());
+            if(subwayDist < 0 || subwayDist > 1000){
+                Toast.makeText(getContext(), "The field metro distance must be between 0 and 1000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(longBus_distance.getText().toString().equals(""))){
+            longBusDist  = Integer.parseInt(longBus_distance.getText().toString());
+            if(longBusDist < 0 || longBusDist > 100000){
+                Toast.makeText(getContext(), "The field long bus distance must be between 0 and 100000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(longTrain_distance.getText().toString().equals(""))){
+            longTrainDist  = Integer.parseInt(longTrain_distance.getText().toString());
+            if(longTrainDist < 0 || longTrainDist > 100000){
+                Toast.makeText(getContext(), "The field train distance must be between 0 and 100000.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(boat_trip1.getText().toString().equals(""))){
+            TallinBoat = Integer.parseInt(boat_trip1.getText().toString());
+            if(TallinBoat < 0 || TallinBoat > 50){
+                Toast.makeText(getContext(), "The field Tallinn cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }if(!(boat_trip3.getText().toString().equals(""))){
+            StockBoat = Integer.parseInt(boat_trip3.getText().toString());
+            if(StockBoat < 0 || StockBoat > 50){
+                Toast.makeText(getContext(), "The field Stockholm cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }if(!(boat_trip2.getText().toString().equals(""))){
+            TraveBoat = Integer.parseInt(boat_trip2.getText().toString());
+            if(TraveBoat < 0 || TraveBoat > 50){
+                Toast.makeText(getContext(), "The field Travemunde cruises must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }if(!(flight_fin.getText().toString().equals(""))){
+            FinlandFlight = Integer.parseInt(flight_fin.getText().toString());
+            if(FinlandFlight < 0 || FinlandFlight > 50){
+                Toast.makeText(getContext(), "The field FinlandFlights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(flight_eu.getText().toString().equals(""))){
+            EuropeFlight = Integer.parseInt(flight_eu.getText().toString());
+            if(EuropeFlight < 0 || EuropeFlight > 50){
+                Toast.makeText(getContext(), "The field European flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }if(!(flight_canarian.getText().toString().equals(""))){
+            CanaryFlight = Integer.parseInt(flight_canarian.getText().toString());
+            if(CanaryFlight < 0 || CanaryFlight > 50){
+                Toast.makeText(getContext(), "The field Canary flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        if(!(flight_continental.getText().toString().equals(""))){
+        ContinentalFlight = Integer.parseInt(flight_continental.getText().toString());
+            if(ContinentalFlight < 0 || ContinentalFlight > 50) {
+                Toast.makeText(getContext(), "The field continental flights must be between 0 and 50.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+        return true;
     }
 }

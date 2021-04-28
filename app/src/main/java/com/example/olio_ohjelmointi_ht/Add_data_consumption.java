@@ -63,15 +63,20 @@ public class Add_data_consumption extends Fragment {
         submitData = (Button) v.findViewById(R.id.consumptionSubmitData);
 
         submitData.setOnClickListener(c -> {
+
+            // Checking if user has given all the needed values and the value is in correct range.
             if(checkUserInput()){
                 try {
                     // Api url address
                     url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/" +
-                            "ConsumptionCalculator?query.clothing=" + clothingAmount + "&query.clothingLowCarbon=" + clothing_box.isChecked() + "&" +
-                            "query.communications=" + shoesAmount + "&query.communicationsLowCarbon=" + communication_box.isChecked() + "&query.electronics=" + electronicAmount +
-                            "&query.electronicsLowCarbon=" + electronics_box.isChecked() + "&query.other=" + otherAmount + "&query.otherLowCarbon=" + other_box.isChecked() +
-                            "&query.paper=" + paperAmount + "&query.paperLowCarbon=" + paper_box.isChecked() + "&query.recreation=" + recreationAmount + "&" +
-                            "query.recreationLowCarbon=" + recreation_box.isChecked() + "&query.shoes=" + shoesAmount + "&query.shoesLowCarbon=" + shoe_box.isChecked() + "");
+                            "ConsumptionCalculator?query.clothing=" + clothingAmount + "&" +
+                            "query.clothingLowCarbon=" + clothing_box.isChecked() + "&" +
+                            "query.communications=" + shoesAmount + "&query.communicationsLowCarbon=" + communication_box.isChecked() + "&" +
+                            "query.electronics=" + electronicAmount + "&query.electronicsLowCarbon=" + electronics_box.isChecked() + "&" +
+                            "query.other=" + otherAmount + "&query.otherLowCarbon=" + other_box.isChecked() + "&query.paper=" + paperAmount + "&" +
+                            "query.paperLowCarbon=" + paper_box.isChecked() + "&query.recreation=" + recreationAmount + "&" +
+                            "query.recreationLowCarbon=" + recreation_box.isChecked() + "&query.shoes=" + shoesAmount + "&" +
+                            "query.shoesLowCarbon=" + shoe_box.isChecked());
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
@@ -83,6 +88,8 @@ public class Add_data_consumption extends Fragment {
         return v;
     }
 
+
+    // If EditText is empty it is considered as value 0
     public boolean checkUserInput(){
         if((!clothing.getText().toString().equals(""))){
             clothingAmount = Integer.parseInt(clothing.getText().toString());

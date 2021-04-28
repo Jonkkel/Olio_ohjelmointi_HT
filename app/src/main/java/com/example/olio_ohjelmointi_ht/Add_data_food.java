@@ -28,6 +28,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     SeekBar beefbar, porkbar, fishbar, cheesebar, vegetablebar, dairybar, eggbar, ricebar;
     CheckBox lowCarbon;
     double beef = 0, pork = 0, fish = 0, cheese = 0, dairy = 0, rice = 0, vegetables = 0, eggs = 0;
+    int restaurant = 0;
     TextView beef_amount, pork_amount, fish_amount, cheese_amount, dairy_amount, rice_amount, vegetable_amount, egg_amount;
     EditText restaurantSpendings;
     RadioGroup radioGroup;
@@ -102,12 +103,13 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
         egg_amount.setText(eggs + " " + v.getResources().getString(R.string.add_data_unit2));
 
         submitData.setOnClickListener(v1 -> {
-            if (restaurantSpendings.getText().toString().equals("")) {
-                Toast.makeText(getContext(), getString(R.string.Toast_cafe), Toast.LENGTH_SHORT).show();
-            }else if (diet.equals("")){
+            if (diet.equals("")){
                 Toast.makeText(getContext(), getString(R.string.Toast_diet), Toast.LENGTH_SHORT).show();
-            }else if (Integer.parseInt(String.valueOf(restaurantSpendings.getText())) < 0 || (Integer.parseInt(String.valueOf(restaurantSpendings.getText())) > 800)){
-                Toast.makeText(getContext(), getString(R.string.Toast_restaurant), Toast.LENGTH_SHORT).show();
+            }else if (!(restaurantSpendings.getText().toString().equals(""))){
+                restaurant  = Integer.parseInt(restaurantSpendings.getText().toString());
+                if (restaurant < 0 || restaurant > 800) {
+                    Toast.makeText(getContext(), getString(R.string.Toast_restaurant), Toast.LENGTH_SHORT).show();
+                }
             }else{
                 try {
                     url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?" +
@@ -115,7 +117,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
                             "=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) +
                             "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" +
                             Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) +
-                            "&query.restaurantSpending=" + restaurantSpendings.getText());
+                            "&query.restaurantSpending=" + restaurant);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }

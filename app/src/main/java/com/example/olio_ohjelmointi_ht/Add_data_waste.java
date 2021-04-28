@@ -78,13 +78,17 @@ public class Add_data_waste extends Fragment {
             plasticS = plastic.getSelectedItem().toString();
             wasteAmountS = wasteAmount.getSelectedItem().toString();
 
+
+
             // Needed for accessing internet
 
             try {
                 // Api url address
                 url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/WasteCalculator?" +
-                        "query.bioWaste=" + biowasteS + "&query.carton=" + cartonS + "&query.electronic=" + electronicS + "&query.glass=" + glassS +
-                        "&query." + "hazardous=" + hazardousS + "&query.metal=" + metalS + "&query.paper=" + paperS + "&query.plastic=" + plasticS + "&query.amountEstimate=" + wasteAmountS);
+                        "query.bioWaste=" + biowasteS + "&query.carton=" + cartonS + "&" +
+                        "query.electronic=" + electronicS + "&query.glass=" + glassS +
+                        "&query." + "hazardous=" + hazardousS + "&query.metal=" + metalS + "&" +
+                        "query.paper=" + paperS + "&query.plastic=" + plasticS + "&query.amountEstimate=" + wasteAmountS);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }

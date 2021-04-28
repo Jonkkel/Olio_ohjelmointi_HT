@@ -97,11 +97,12 @@ public class CallApi {
             totalValue = (totalValue.substring(0, totalValue.length() - 1));
             d = Double.valueOf(totalValue);
         }
-
-        SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
-        String cUser = prefs.getString("Current User", "");
-        FileWriter csvWriter = null;
-        writeCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", d);
+        if (d != 0) {
+            SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
+            String cUser = prefs.getString("Current User", "");
+            FileWriter csvWriter = null;
+            writeCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", d);
+        }
     }
 
     public void writeCSV(String fileName, Double emission) {

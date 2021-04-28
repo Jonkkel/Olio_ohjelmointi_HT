@@ -122,7 +122,7 @@
 
     <string-array name="waste_options2">
         <item>Low</item>
-        <item>Average</item>
+        <item>Normal</item>
         <item>High</item>
     </string-array>
 

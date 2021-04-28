@@ -90,6 +90,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         homeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch(checkedId) {
                 // Api is bugged and gives error message: "Message": "An error has occurred." when flat or row is tried to input"
+                // We also tested this on https://ilmastodieetti.ymparisto.fi/ilmastodieetti/swagger/ui/index#/
                 case R.id.detached_button:
                     houseType = "family";
                     break;
