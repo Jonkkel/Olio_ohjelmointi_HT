@@ -29,6 +29,7 @@ public class CallApi {
     BufferedReader in = null;
     int responseCode = 0;
     Context context;
+    Double d;
 
     @SuppressLint("StaticFieldLeak")
     private static CallApi CAPI = null; // singleton
@@ -86,16 +87,15 @@ public class CallApi {
         System.out.println(response.toString());
         char c = response.charAt(0);
         if (Character.isDigit(c)){
-
+            d = Double.valueOf(response.toString());
         }else{
             String symbols = "[,:]+";
             String[] parsedResponse = response.toString().split(symbols);
-            System.out.println(parsedResponse);
-            for (int i = 0; parsedResponse.length < i; i += 2){
-                System.out.println(parsedResponse[i]);
-            }
+            String totalValue = parsedResponse[parsedResponse.length-1];
+            totalValue = (totalValue.substring(0, totalValue.length() - 1));
+            d = Double.valueOf(totalValue);
         }
-        Double d = Double.valueOf(response.toString());
+
         //SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
         //String cUser = prefs.getString("Current User", "");
         FileWriter csvWriter = null;
