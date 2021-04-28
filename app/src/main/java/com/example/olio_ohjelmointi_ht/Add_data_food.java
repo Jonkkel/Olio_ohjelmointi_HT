@@ -32,7 +32,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     TextView beef_amount, pork_amount, fish_amount, cheese_amount, dairy_amount, rice_amount, vegetable_amount, egg_amount;
     EditText restaurantSpendings;
     RadioGroup radioGroup;
-    String diet = "";
+    String diet = "omnivore";
 
     URL url;
     Button submitData;
