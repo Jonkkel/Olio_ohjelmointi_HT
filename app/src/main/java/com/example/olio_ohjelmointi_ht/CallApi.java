@@ -254,7 +254,7 @@ public class CallApi {
         }
     }
 
-    private int csvLineCounter(String fileName) {
+    public int csvLineCounter(String fileName) {
 
         /* This method counts all the amount of line in a (.csv) file fileName given as input. The Lines are counted by counting all the
         newline("\n")-bytes in the file. Returns the amount of Lines as int. Feel free to change this method into public if you need a line
