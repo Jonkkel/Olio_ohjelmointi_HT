@@ -89,6 +89,8 @@ public class Add_data_waste extends Fragment {
                 e.printStackTrace();
             }
             CAPI.getRequest(url);
+            assert getFragmentManager() != null;
+            getFragmentManager().popBackStack();
         });
         return v;
     }

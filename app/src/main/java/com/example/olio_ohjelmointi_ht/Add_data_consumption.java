@@ -76,6 +76,8 @@ public class Add_data_consumption extends Fragment {
                     e.printStackTrace();
                 }
                 CAPI.getRequest(url);
+                assert getFragmentManager() != null;
+                getFragmentManager().popBackStack();
             }
         });
         return v;

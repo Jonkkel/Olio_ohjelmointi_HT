@@ -120,6 +120,8 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
                     e.printStackTrace();
                 }
                 CAPI.getRequest(url);
+                assert getFragmentManager() != null;
+                getFragmentManager().popBackStack();
             }
         });
         return v;
