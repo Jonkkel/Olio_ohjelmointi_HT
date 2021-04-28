@@ -104,21 +104,21 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
                 restaurant  = Integer.parseInt(restaurantSpendings.getText().toString());
                 if (restaurant < 0 || restaurant > 800) {
                     Toast.makeText(getContext(), getString(R.string.Toast_restaurant), Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+                        url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?" +
+                                "query.diet=" + diet + "&query.lowCarbonPreference=" + lowCarbon.isChecked() + "&query.beefLevel" +
+                                "=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) +
+                                "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" +
+                                Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) +
+                                "&query.restaurantSpending=" + restaurant);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    CAPI.getRequest(url);
+                    assert getFragmentManager() != null;
+                    getFragmentManager().popBackStack();
                 }
-            }else{
-                try {
-                    url = new URL("https://ilmastodieetti.ymparisto.fi/ilmastodieetti/calculatorapi/v1/FoodCalculator?" +
-                            "query.diet=" + diet + "&query.lowCarbonPreference=" + lowCarbon.isChecked() + "&query.beefLevel" +
-                            "=" + Math.round(beef) + "&query.fishLevel=" + Math.round(fish) + "&query.porkPoultryLevel=" + Math.round(pork) +
-                            "&query.dairyLevel=" + Math.round(dairy) + "&query.cheeseLevel=" + Math.round(cheese) + "&query.riceLevel=" +
-                            Math.round(rice) + "&query.eggLevel=" + Math.round(eggs) + "&query.winterSaladLevel=" + Math.round(vegetables) +
-                            "&query.restaurantSpending=" + restaurant);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                CAPI.getRequest(url);
-                assert getFragmentManager() != null;
-                getFragmentManager().popBackStack();
             }
         });
         return v;
