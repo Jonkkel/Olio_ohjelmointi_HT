@@ -189,15 +189,15 @@ public class CallApi {
         calendar2 = new GregorianCalendar();
         calendar2.setTimeInMillis(Long.parseLong(time));
         if (mode.equals("yearDelta")) { // Returns the difference (in years) of the current year and the year of the latest file entry
-            return (currentYear - calendar2.YEAR);
+            return (currentYear - calendar2.get(Calendar.YEAR));
         } else if (mode.equals("weekDelta")) { // Returns the difference (in weeks) of the current week and the week of the latest file entry
-            return (currentWeek - calendar2.WEEK_OF_YEAR);
+            return (currentWeek - calendar2.get(Calendar.WEEK_OF_YEAR));
         } else if (mode.equals("yearLastLine")) { // Returns the year of the latest file entry
-            return calendar2.YEAR;
+            return calendar2.get(Calendar.YEAR);
         } else if (mode.equals("weekLastLine")) { //Returns the week of the latest file entry
-            return calendar2.WEEK_OF_YEAR;
+            return calendar2.get(Calendar.WEEK_OF_YEAR);
         } else { // If this is reached, there is a typo in the second input parameter in th code calling for deltaTime
-            int current = calendar2.YEAR;
+            int current = calendar2.get(Calendar.YEAR);
             System.out.println("TYPO IN THE 'MODE' PARAMETER IN THE CODE CALLING FOR timeDelta"); // This is a poor solution, needs something better
             return current;
         }
