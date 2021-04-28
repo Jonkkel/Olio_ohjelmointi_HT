@@ -56,6 +56,10 @@ public class SettingTool {
         }
         return false;
     }
+
+    public boolean checkpasswordGoodness(String newPassword){
+        New_User NewUser = New_User.
+    }
     public void test(){
         String username = user.getUsername();
         System.out.println(username);
@@ -91,6 +95,8 @@ public class SettingTool {
             saveUserInformation();
         }
     }
+
+
 
     public void changeUserAge(String newAge){
         getUserInformation();
@@ -139,7 +145,7 @@ public class SettingTool {
             System.out.println("directory:" + directory.toString());
             System.out.println("filename:" + fileName.toString());
             fileName.delete();
-            directory.delete();
+            //directory.delete();
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
@@ -255,7 +261,7 @@ public class SettingTool {
             FileInputStream in = new FileInputStream(fileName);
             FileOutputStream out = new FileOutputStream(tempFile);
 
-            CallApi capi = new CallApi();
+            CallApi capi = new CallApi(context, "tyhjä.txt");
 
             int n = 0;
             int LineCount = capi.csvLineCounter(fileName); // The amount of Lines to be copied before the lastLineDataBytes is to be added
