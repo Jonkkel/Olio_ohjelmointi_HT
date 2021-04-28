@@ -29,6 +29,9 @@ public class Begin_statistics_screen extends Fragment{
             plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph);
             plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph2);
             plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph3);
+            plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph4);
+            plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph5);
+            plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph6);
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(getContext(), getContext().getString(R.string.changed_username), Toast.LENGTH_SHORT).show(); // MUUTA TÄMÄ TOASTIN TEKSTI
