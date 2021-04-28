@@ -101,7 +101,7 @@ public class CallApi {
         SharedPreferences prefs = context.getSharedPreferences("User", MODE_PRIVATE);
         String cUser = prefs.getString("Current User", "");
         FileWriter csvWriter = null;
-        writeCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/kaakeli/tiedot.csv", d);
+        writeCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", d);
     }
 
     public void writeCSV(String fileName, Double emission) {
@@ -117,12 +117,14 @@ public class CallApi {
         int currentWeek = calendar.get(Calendar.WEEK_OF_YEAR);
         int currentYear = calendar.get(Calendar.YEAR);
         long milliTime = calendar.getTimeInMillis();
+        long deltaTEST = 5000000000L;
 
         File fileExists = new File(fileName);
         if (!fileExists.isFile()) { // If no file matching fileName exists, creates one and fills accordingly
             try {
                 FileWriter csvWriter = new FileWriter(fileName);
-                csvWriter.write(milliTime + ";"+ emission + "\n");
+                //csvWriter.write((milliTime - deltaTEST) + ";"+ emission + "\n"); // COMMENTED OVER FOR WRITING OF A TEST DATA FILE BELOW
+                csvWriter.write("1614621478961;250.0\n1615621478961;200.0\n1616621478961;150.0\n1617621478961;175.0\n1618621478961;225.0\n1619621478961;125.0\n1620621478961;200.0\n1621621478961;250.0\n1622621478961;180.0\n1623621478961;160.0\n1624621478961;50.0\n1625621478961;0.0\n1626621478961;75.0\n1627621478961;175.0\n1628621478961;200.0\n1629621478961;200.0\n1630621478961;200.0\n");
                 csvWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -177,7 +179,6 @@ public class CallApi {
                 String[] data = Line.split(";");
                 time = data[0];
             }
-            System.out.println(time);
             csvReader.close();
 
         } catch (FileNotFoundException e) {

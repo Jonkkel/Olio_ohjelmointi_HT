@@ -6,6 +6,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -41,19 +42,29 @@ public class HarryPlotter {
 
         double y = 0;
         int listSize = de.size();
+        System.out.println(listSize);
 
-        for (int i = listSize - 13; i < listSize - 1; i++){
-            calendar.setTimeInMillis(Long.parseLong(de.get(i).getTime()));
-            Date d = calendar.getTime();
-            System.out.println(d);
-            y = de.get(i).getEmission();
-            series.appendData(new DataPoint(d, y), true, 12);
+        if (listSize < 13) {
+            for (int i = 0; i < listSize - 1; i++){
+                calendar.setTimeInMillis(Long.parseLong(de.get(i).getTime()));
+                Date d = calendar.getTime();
+                System.out.println(d);
+                y = de.get(i).getEmission();
+                series.appendData(new DataPoint(d, y), true, 12);
+            }
+        } else {
+            for (int i = listSize - 13; i < listSize - 1; i++){
+                calendar.setTimeInMillis(Long.parseLong(de.get(i).getTime()));
+                Date d = calendar.getTime();
+                System.out.println(d);
+                y = de.get(i).getEmission();
+                series.appendData(new DataPoint(d, y), true, 12);
+            }
         }
         graph.addSeries(series);
         graph.getViewport().setMinX(series.getLowestValueX());
         graph.getViewport().setMaxX(series.getHighestValueX());
         graph.getViewport().setXAxisBoundsManual(true);
-
     }
 
 
@@ -76,6 +87,9 @@ public class HarryPlotter {
             }
             csvReader.close();
             plottingTool(dateEmissionList, graph);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found. Add data first.");
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

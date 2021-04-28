@@ -28,9 +28,9 @@ public class Begin_statistics_screen extends Fragment{
         graph6 = (GraphView) v.findViewById(R.id.graph6);
         HarryPlotter plotter = HarryPlotter.getInstance();
         try {
-            plotter.readCSV("/data/user/0/com.example.olio_ohjelmointi_ht/files/kaakeli/tiedot.csv", graph);
-            plotter.readCSV("tiedosto", graph2);
-            plotter.readCSV("tiedosto", graph3);
+            plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph);
+            plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph2);
+            plotter.readCSV("/data/data/com.example.olio_ohjelmointi_ht/files/tatu/tiedot.csv", graph3);
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(getContext(), getContext().getString(R.string.changed_username), Toast.LENGTH_SHORT).show(); // MUUTA TÄMÄ TOASTIN TEKSTI
