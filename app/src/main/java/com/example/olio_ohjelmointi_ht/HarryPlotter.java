@@ -39,15 +39,15 @@ public class HarryPlotter {
         series = new LineGraphSeries<>();
         calendar = Calendar.getInstance();
 
-        double x = 0.2;
-        double y = 0.5;
-        for (int i = 0; i < 250; i++){
-            //x = Double.parseDouble(de.get(i).getTime());
+        double y = 0;
+        int listSize = de.size();
+
+        for (int i = listSize - 13; i < listSize - 1; i++){
             calendar.setTimeInMillis(Long.parseLong(de.get(i).getTime()));
             Date d = calendar.getTime();
             System.out.println(d);
             y = de.get(i).getEmission();
-            series.appendData(new DataPoint(d, y), true, 250);
+            series.appendData(new DataPoint(d, y), true, 12);
         }
         graph.addSeries(series);
         graph.getViewport().setMinX(series.getLowestValueX());
@@ -60,8 +60,8 @@ public class HarryPlotter {
     public void readCSV(String fileName, GraphView graph) {
 
         /* This method reads the first two columns of a .csv file (name of the file is the input parameter)
-        and constructs a list consisting of objects containing the date (String) and emissions (Double).
-        The first column of the file will be read as the date, second column will be read as the emission data. */
+        and constructs a list consisting of objects containing the time (String) and emissions (Double).
+        The first column of the file will be read as the time, second column will be read as the emission data. */
 
         String row = "";
         ArrayList<DatEmission> dateEmissionList = new ArrayList<DatEmission>();
@@ -71,20 +71,16 @@ public class HarryPlotter {
             while ((row = csvReader.readLine()) != null) {
                 String[] data = row.split(";"); //Splits the row into an array
                 DatEmission de = new DatEmission();
-                de.setDateEmission(data[0], (Double.parseDouble(data[1].replace(",", ".")))); //The first and second
+                de.setDateEmission(data[0], (Double.parseDouble(data[1].replace(",", "."))));
                 dateEmissionList.add(de);
             }
-            plottingTool(dateEmissionList, graph);
             csvReader.close();
+            plottingTool(dateEmissionList, graph);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         /*for (DatEmission embryo : dateEmissionList) {
             System.out.println(embryo.getYear() + " | " + embryo.getWeek() + " | " + Double.toString(embryo.getEmission()));
-        }*/
+        }*/ // This exists for troubleshooting purposes
     }
-
-
 }

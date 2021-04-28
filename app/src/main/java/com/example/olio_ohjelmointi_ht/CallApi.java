@@ -105,8 +105,8 @@ public class CallApi {
     public void writeCSV(String fileName, Double emission) {
 
         /* This method writes emission (Double) data given as input parameter, and writes it into a .csv file alongside
-        the current year and week. The data in the .csv file will be in the following form: yyyy;ww;emission\n .
-        As of now, this method will not modify the .csv file in any way if the latest line added is on the current week. */
+        the time of data in milliseconds. The data in the .csv file will be in the following form: sssssssssssss;emission\n .
+        If new data is added on the same week as the latest log, the latest log will be overwritten with the new data. */
 
         Calendar calendar = new GregorianCalendar();
         Date today = new Date();
@@ -114,24 +114,24 @@ public class CallApi {
 
         int currentWeek = calendar.get(Calendar.WEEK_OF_YEAR);
         int currentYear = calendar.get(Calendar.YEAR);
+        long milliTime = calendar.getTimeInMillis();
 
         File fileExists = new File(fileName);
         if (!fileExists.isFile()) { // If no file matching fileName exists, creates one and fills accordingly
             try {
                 FileWriter csvWriter = new FileWriter(fileName);
-                csvWriter.write("1559560369120;" + emission + "\n");
+                csvWriter.write(milliTime + emission + "\n");
                 csvWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (currentWeek == timeDelta(fileName, "weekLastLine") && currentYear == timeDelta(fileName, "yearLastLine")) {
             /* If the latest emission log is from the same week as new one, changes the latest emission log into the new one.
-            See editLastLine for further description */
-            editLastLine(fileName, (calendar.getTimeInMillis() + ";" + emission + "\n").getBytes());
+            See editLastLine for further information */
+            editLastLine(fileName, (milliTime + ";" + emission + "\n").getBytes());
         } else {
             int weekCounter = (timeDelta(fileName, "weekLastLine") + 1); // Sets the weekCounter to start from the first missing week in the file
             int weeksLeft = 52; // The amount of weeks in a year (if current year, will be set to currentWeek)
-            long milliTIme = calendar.getTimeInMillis();
             try {
                 FileWriter csvWriter = new FileWriter(fileName, true);
                 for (int i = timeDelta(fileName, "yearLastLine"); i <= currentYear; i++) {
@@ -139,8 +139,7 @@ public class CallApi {
                         weeksLeft = currentWeek; // Sets the remaining weeks to current week
                     }
                     for (int j = weekCounter; j <= weeksLeft; j++) { //if currentWeek == weekLastLine, this will be skipped, see weekCounter
-                        csvWriter.append(milliTIme + ";" + emission + "\n"); // year;week;emission\n
-
+                        csvWriter.append(Long.toString(milliTime) + ";" + emission + "\n"); // time(in ms);emission\n
                     }
                     if (i < currentYear) { // Resets the weekCounter if one year has passed and the year isn't current yet
                         weekCounter = 1;
@@ -203,7 +202,7 @@ public class CallApi {
 
     public void editLastLine(String fileName, byte[] lastLineDataBytes) {
 
-        /* This method edits the last Line of a file fileName(String) into byte array lastLineDataBytes(byte[]). Both of these must be given as
+        /* This method rewrites the last Line of a file fileName(String) with the byte array lastLineDataBytes(byte[]). Both of these must be given as
         input parameters. The method copies the entire file fileName into a new file tempFile, excluding the last Line of data, and then writes
         the input lastLineDataBytes into the tempFile. After the process is done the original file fileName will be deleted and the new file
         tempFile renamed fileName */

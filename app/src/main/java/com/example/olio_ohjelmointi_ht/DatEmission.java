@@ -3,8 +3,8 @@ package com.example.olio_ohjelmointi_ht;
 public class DatEmission {
 
     /* This class is very straightforward; it contains the attributes
-    year(String), week(String) and emission(Double), as well as methods
-    getYear, getWeek, getEmission.*/
+    time(String) and emission(Double), as well as methods
+    getTime, getEmission.*/
 
     public String time;
     public Double emission;
