@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editTextNumber3"
+                android:id="@+id/exercise"
                 android:layout_width="69dp"
                 android:layout_height="38dp"
                 android:ems="10"
@@ -62,7 +62,7 @@
                 app:layout_constraintVertical_bias="0.034" />
 
             <EditText
-                android:id="@+id/editTextNumber2"
+                android:id="@+id/weight"
                 android:layout_width="75dp"
                 android:layout_height="39dp"
                 android:ems="10"
@@ -141,7 +141,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/button6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.097"
-                app:layout_constraintStart_toEndOf="@+id/editTextNumber2"
+                app:layout_constraintStart_toEndOf="@+id/weight"
                 app:layout_constraintTop_toBottomOf="@+id/textView94"
                 app:layout_constraintVertical_bias="0.44" />
 
@@ -153,6 +153,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/graph3"
                 tools:ignore="MissingClass,MissingConstraints"
                 tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/textView97"
+                android:layout_width="100dp"
+                android:layout_height="24dp"
+                android:text="@string/exercise_progress"
+                app:layout_constraintBottom_toTopOf="@+id/graph3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button7"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/textView98"
+                android:layout_width="124dp"
+                android:layout_height="23dp"
+                android:text="@string/weight_progress"
+                app:layout_constraintBottom_toTopOf="@+id/graph2"
+                app:layout_constraintEnd_toStartOf="@+id/button6"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button6"
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
