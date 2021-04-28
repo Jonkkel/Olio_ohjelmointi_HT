@@ -102,6 +102,8 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
         egg_amount.setText(eggs + " " + v.getResources().getString(R.string.add_data_unit2));
 
         submitData.setOnClickListener(v1 -> {
+
+            //Checking if user input is valid
             if (diet.equals("")){
                 Toast.makeText(getContext(), getString(R.string.Toast_diet), Toast.LENGTH_SHORT).show();
             }else if (!(restaurantSpendings.getText().toString().equals(""))){
@@ -129,6 +131,7 @@ public class Add_data_food extends Fragment implements SeekBar.OnSeekBarChangeLi
     }
 
 
+    // Spinner progress change listener
     @SuppressLint("SetTextI18n")
     @Override
     public void onProgressChanged(android.widget.SeekBar seekBar, int progress, boolean fromUser) {

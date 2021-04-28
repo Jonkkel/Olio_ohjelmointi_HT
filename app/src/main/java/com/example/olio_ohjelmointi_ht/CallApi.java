@@ -39,7 +39,9 @@ public class CallApi {
 
     }
 
+    // Handles API calling
     public void getRequest(URL url){
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         // https://dzone.com/articles/how-to-implement-get-and-post-request-through-simp
@@ -74,6 +76,8 @@ public class CallApi {
         }
     }
 
+
+    // Parses Total amount of emission from API output.
     @SuppressLint("SdCardPath")
     public void parseString(StringBuilder response){
         System.out.println(response.toString());

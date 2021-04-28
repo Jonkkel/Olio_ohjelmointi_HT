@@ -96,6 +96,8 @@ public class Settings_DialogFragment extends DialogFragment {
         oldValueHolder.setInputType(inputType);
         setOldValue();
 
+
+        // editText is general field where text can be input in dialogfragments
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -124,7 +126,7 @@ public class Settings_DialogFragment extends DialogFragment {
             }
         });
 
-            // if button is clicked, close the custom dialog
+            // if button is clicked, close the custom dialog and change settings
         dialogButton.setOnClickListener(i ->{
             String value = editText.getText().toString();
             if(!(value.equals(""))){
@@ -153,6 +155,7 @@ public class Settings_DialogFragment extends DialogFragment {
         });
     }
 
+    // Change language alerDialog
     public AlertDialog showChangeLanguageDialog() {
         final String[] listItems = {"English", "Suomi", "Svenska"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -186,6 +189,7 @@ public class Settings_DialogFragment extends DialogFragment {
         return dialog;
     }
 
+    // Setting old values to edittext fields
     @SuppressLint("SetTextI18n")
     public void setOldValue(){
         oldValueHolder.setHintTextColor(getResources().getColor(R.color.black));
@@ -204,11 +208,4 @@ public class Settings_DialogFragment extends DialogFragment {
             oldValueHolder.setHint(getResources().getString(R.string.old_email)+ " " + user.getEmail());
         }
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
 }

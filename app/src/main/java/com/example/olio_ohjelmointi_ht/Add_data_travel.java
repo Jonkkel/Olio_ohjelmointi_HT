@@ -193,6 +193,8 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
         }
     }
 
+
+    // Getting user values
     public void getValues(){
         if (car_size.getSelectedItem().toString().equals("Mini")){
             carSize = "mini";
@@ -234,6 +236,7 @@ public class Add_data_travel extends Fragment implements View.OnClickListener {
     }
 
     // If EditText is empty it is considered as value 0
+    // Checking if userinput is valid
     public boolean checkUserInput(){
         if((!moped_consumption.getText().toString().equals(""))){
             motorcycleConsumption = Double.parseDouble(moped_consumption.getText().toString());

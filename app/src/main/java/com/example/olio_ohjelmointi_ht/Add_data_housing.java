@@ -245,6 +245,7 @@ public class Add_data_housing extends Fragment implements View.OnClickListener {
         }
     }
 
+    // Checking if user input is valid
     public boolean checkUserInput(){
         if(heatingType.equals("")){
             Toast.makeText(getContext(), getResources().getString(R.string.housing_toast18) , Toast.LENGTH_SHORT).show();

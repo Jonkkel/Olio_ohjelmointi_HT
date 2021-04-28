@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity{
     String password;
     String message;
     AppCompatButton sign_up, sign_in;
+    FragmentManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +56,10 @@ public class MainActivity extends AppCompatActivity{
             Fragment fragment;
             // If any button has been pressed then lets set it back to enabled
             fragment = new New_User();
-            FragmentManager manager = getSupportFragmentManager();
+            manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.replace(R.id.New_user_fragment, fragment);
+            transaction.addToBackStack(null);
             transaction.commit();
         });
     }
@@ -78,5 +81,16 @@ public class MainActivity extends AppCompatActivity{
         //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         //
     }
-
+    @Override
+    public void onBackPressed() {
+        if (manager.getBackStackEntryCount() > 0) {
+            manager.popBackStack();
+        }else{
+            super.onBackPressed();
+        }
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+    }
 }
