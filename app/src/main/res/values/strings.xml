@@ -26,7 +26,8 @@
     <string name="contain_numbers">Password must contain at least one number</string>
     <string name="contain_upper">Password must contain at least one uppercase letter</string>
     <string name="contain_lower">Password must contain at least one lowercase letter</string>
-    <string name="password_length">Password must be at least 8 characters long</string>
+    <string name="contain_special">Password must contain at least one special character</string>
+    <string name="password_length">Password must be at least 12 characters long</string>
     <string name="error">Fill all the information in order to create a profile</string>
     <string name="create">CREATE</string>
 
@@ -269,5 +270,13 @@
         <item>Natural gas</item>
     </string-array>
 
+    <!-- for fragment_statistics_screen.xml -->
+    <string name="label_all"> Overall</string>
+    <string name="label_food"> Food</string>
+    <string name="label_housing"> Housing</string>
+    <string name="label_travel"> Travel</string>
+    <string name="label_consumption"> Consumption</string>
+    <string name="label_recycling"> Recycling</string>
+    <string name="label_label"> EMISSION STATISTICS</string>
 
 </resources>
